@@ -123,14 +123,19 @@ const styles = `
 
 	observedAttributes = [
 		'type',
+		'readonly',
 		'disabled',
-		'read-only',
+		'invalid',
 		'no-label-float',
-		'always-float-label',
-		'invalid'
+		'always-float-label'
 	];
 
 customElements.define(
 	'cosmoz-input',
 	component(Input, { observedAttributes })
 );
+
+export {
+	Input,
+	observedAttributes
+};

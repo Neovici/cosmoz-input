@@ -1,3 +1,10 @@
+### [1.0.2](https://github.com/neovici/cosmoz-input/compare/v1.0.1...v1.0.2) (2021-01-25)
+
+
+### Bug Fixes
+
+* **input:** maintain focus & selection on mousedown inside cosmoz-input ([18c691d](https://github.com/neovici/cosmoz-input/commit/18c691dcb303873d8a2a65f1489b1f027d059781))
+
 ### [1.0.1](https://github.com/neovici/cosmoz-input/compare/v1.0.0...v1.0.1) (2021-01-25)
 
 

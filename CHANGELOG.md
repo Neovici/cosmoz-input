@@ -1,3 +1,10 @@
+### [1.0.1](https://github.com/neovici/cosmoz-input/compare/v1.0.0...v1.0.1) (2021-01-25)
+
+
+### Bug Fixes
+
+* **input:** use correct readonly attribute ([df4cf33](https://github.com/neovici/cosmoz-input/commit/df4cf33179c345c11b0cab0fb174244344685fd5))
+
 ## 1.0.0 (2021-01-25)
 
 

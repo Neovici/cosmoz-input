@@ -1,3 +1,10 @@
+### [1.0.3](https://github.com/neovici/cosmoz-input/compare/v1.0.2...v1.0.3) (2021-01-25)
+
+
+### Bug Fixes
+
+* improve maintain focus ([a94d764](https://github.com/neovici/cosmoz-input/commit/a94d764c452509b03e13103866c4e7376d9b3f0d))
+
 ### [1.0.2](https://github.com/neovici/cosmoz-input/compare/v1.0.1...v1.0.2) (2021-01-25)
 
 

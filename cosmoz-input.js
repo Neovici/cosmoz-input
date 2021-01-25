@@ -106,9 +106,10 @@ const styles = `
 					if (e.target.matches('input, label')) {
 						return;
 					}
-					host.matches(':focus-within') // if input focused
-						? e.preventDefault() // don't blur
-						: focus(); // focus input
+					e.preventDefault(); // don't blur
+					if (!host.matches(':focus-within')) { // if input not focused
+						focus(); // focus input
+					}
 				};
 
 			root.addEventListener('mousedown', onMouseDown);

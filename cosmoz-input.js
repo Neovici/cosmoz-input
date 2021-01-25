@@ -3,7 +3,7 @@ import { live } from 'lit-html/directives/live';
 import { useImperativeApi } from '@neovici/cosmoz-utils/lib/hooks/use-imperative-api';
 import { notifyProperty } from '@neovici/cosmoz-utils/lib/hooks/use-notify-property';
 import {
-	component, useCallback
+	component, useCallback, useEffect
 } from 'haunted';
 
 const styles = `
@@ -98,7 +98,25 @@ const styles = `
 			onFocus = useCallback(e => notifyProperty(host, 'focused', e.type === 'focus'), []),
 			focus = useCallback(() => host.shadowRoot.querySelector('input')?.focus(), []);
 
-		useImperativeApi({ focus });
+		useImperativeApi({ focus }, [focus]);
+
+		useEffect(() => {
+			const root = host.shadowRoot,
+				onMouseDown = e => {
+					if (e.target.matches('input, label')) {
+						return;
+					}
+					host.matches(':focus-within') // if input focused
+						? e.preventDefault() // don't blur
+						: focus(); // focus input
+				};
+
+			root.addEventListener('mousedown', onMouseDown);
+			return () => {
+				root.removeEventListener('mousedown', onMouseDown);
+			};
+		}, [focus]);
+
 
 		return html`
 		<style>${ styles }</style>

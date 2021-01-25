@@ -11,5 +11,17 @@ const basic = () => html`
 			.label=${ 'Choose color' }
 			.value=${ 'Red' }
 		></cosmoz-input>
+	`,
+
+	error = () => html`
+		<cosmoz-input
+			.label=${ 'Choose color' }
+			.value=${ 'Red' }
+			invalid
+			.errorMessage=${ 'Something is wrong!' }
+		></cosmoz-input>
 	`;
-export { basic };
+export {
+	basic,
+	error
+};

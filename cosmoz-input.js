@@ -10,8 +10,17 @@ const styles = `
 	:host {
 		display: block;
 		padding: 8px 0;
-		font-family: var(--cosmoz-font-family, 'Roboto', 'Noto', sans-serif);
+		padding-top: var(--paper-input-container_-_padding-top);
 	}
+
+	:host, label, input {
+		font-family: var(--cosmoz-subhead-font-family, var(--paper-font-subhead_-_font-family, 'Roboto', 'Noto', sans-serif));
+		font-size: var(--cosmoz-subhead-font-size, var(--paper-font-subhead_-_font-size, 16px));
+		line-height: var(--cosmoz-subhead-line-height, var(--paper-font-subhead_-_line-height, 24px));
+		display: block;
+	}
+
+
 	:host([disabled]) {
 		opacity: 0.33;
 		pointer-events: none;
@@ -23,19 +32,18 @@ const styles = `
 		position: relative;
 	}
 
-	.control { flex: 1; }
+	.control {
+		flex: 1;
+		position: relative;
+	}
 
 	input {
-		display: block;
 		padding: 0;
 		margin: 0;
 		outline: none;
 		border: none;
 		width: 100%;
 		max-width: 100%;
-		font-size: 16px;
-		font-family: inherit;
-		line-height: 24px;
 	}
 	label {
 		position: absolute;
@@ -46,6 +54,8 @@ const styles = `
 		transform-origin: left top;
 		color: var(--secondary-text-color, #737373);
 		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
 	:host([always-float-label]) label,

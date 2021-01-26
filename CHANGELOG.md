@@ -1,3 +1,10 @@
+### [1.0.8](https://github.com/neovici/cosmoz-input/compare/v1.0.7...v1.0.8) (2021-01-26)
+
+
+### Bug Fixes
+
+* use position absolute for error ([542cef5](https://github.com/neovici/cosmoz-input/commit/542cef5a3e33ca88af55395613abe5b9ebb8dac2))
+
 ### [1.0.7](https://github.com/neovici/cosmoz-input/compare/v1.0.6...v1.0.7) (2021-01-26)
 
 

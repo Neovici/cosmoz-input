@@ -1,3 +1,10 @@
+### [1.0.7](https://github.com/neovici/cosmoz-input/compare/v1.0.6...v1.0.7) (2021-01-26)
+
+
+### Bug Fixes
+
+* correct padding css variable ([1190669](https://github.com/neovici/cosmoz-input/commit/1190669bac3a54ce654037851a4f89e3a41b7252))
+
 ### [1.0.6](https://github.com/neovici/cosmoz-input/compare/v1.0.5...v1.0.6) (2021-01-26)
 
 

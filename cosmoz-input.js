@@ -88,13 +88,15 @@ const styles = `
 		line-height: 20px;
 		overflow: hidden;
 		text-overflow: clip;
+		position: absolute;
+		max-width: 100%;
 
 	}
 	:host([invalid]) label, .error {
-		color: var(--error-color, #fc5c5b);
+		color: var(--paper-input-container-invalid-color, var(--error-color, #fc5c5b));
 	}
 	:host([invalid]) .line {
-		border-bottom-color: var(--error-color, #fc5c5b);
+		border-bottom-color: var(--paper-input-container-invalid-color, var(--error-color, #fc5c5b));
 	}
 `,
 	Input = host => {

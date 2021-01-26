@@ -1,3 +1,10 @@
+### [1.0.4](https://github.com/neovici/cosmoz-input/compare/v1.0.3...v1.0.4) (2021-01-26)
+
+
+### Bug Fixes
+
+* improve cosmoz-input style compatibility ([52659a2](https://github.com/neovici/cosmoz-input/commit/52659a21f5b90429a55829a918ea596e7a624247))
+
 ### [1.0.3](https://github.com/neovici/cosmoz-input/compare/v1.0.2...v1.0.3) (2021-01-25)
 
 

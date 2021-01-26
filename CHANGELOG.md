@@ -1,3 +1,10 @@
+### [1.0.6](https://github.com/neovici/cosmoz-input/compare/v1.0.5...v1.0.6) (2021-01-26)
+
+
+### Bug Fixes
+
+* adjust default error color ([12ecf4a](https://github.com/neovici/cosmoz-input/commit/12ecf4a53501cfc8001a04b77aa6df2d8d65acba))
+
 ### [1.0.5](https://github.com/neovici/cosmoz-input/compare/v1.0.4...v1.0.5) (2021-01-26)
 
 

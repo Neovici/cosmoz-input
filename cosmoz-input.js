@@ -22,7 +22,7 @@ const styles = `
 
 
 	:host([disabled]) {
-		opacity: 0.33;
+		opacity: var(--cosmoz-input-disabled-opacity, var(--paper-input-container-disabled_-_opacity, 0.33));
 		pointer-events: none;
 	}
 
@@ -44,6 +44,7 @@ const styles = `
 		border: none;
 		width: 100%;
 		max-width: 100%;
+		background-color: initial;
 	}
 	label {
 		position: absolute;
@@ -74,6 +75,7 @@ const styles = `
 	}
 	:host([disabled]) .line {
 		border-bottom-style: dashed;
+		opacity: var(--cosmoz-input-disabled-line-opacity, var(--paper-input-container-underline-disabled_-_opacity, 1));
 	}
 
 	:host([no-label-float]) .float,
@@ -84,6 +86,9 @@ const styles = `
 	.error {
 		font-size: 12px;
 		line-height: 20px;
+		overflow: hidden;
+		text-overflow: clip;
+
 	}
 	:host([invalid]) label, .error {
 		color: var(--error-color, #dd2c00);

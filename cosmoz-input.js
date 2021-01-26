@@ -91,10 +91,10 @@ const styles = `
 
 	}
 	:host([invalid]) label, .error {
-		color: var(--error-color, #dd2c00);
+		color: var(--error-color, #fc5c5b);
 	}
 	:host([invalid]) .line {
-		border-bottom-color: var(--error-color, #dd2c00);
+		border-bottom-color: var(--error-color, #fc5c5b);
 	}
 `,
 	Input = host => {

@@ -5,22 +5,22 @@
 ```html
 <div
   class="float"
-  part="input-float"
+  part="float"
 >
 </div>
 <div
   class="wrap"
-  part="input-wrap"
+  part="wrap"
 >
   <slot name="prefix">
   </slot>
   <div
     class="control"
-    part="input-control"
+    part="control"
   >
     <input
       id="input"
-      part="input-input"
+      part="input"
       placeholder=" "
       type="text"
     >
@@ -30,7 +30,7 @@
 </div>
 <div
   class="line"
-  part="input-line"
+  part="line"
 >
 </div>
 
@@ -41,28 +41,28 @@
 ```html
 <div
   class="float"
-  part="input-float"
+  part="float"
 >
 </div>
 <div
   class="wrap"
-  part="input-wrap"
+  part="wrap"
 >
   <slot name="prefix">
   </slot>
   <div
     class="control"
-    part="input-control"
+    part="control"
   >
     <input
       id="input"
-      part="input-input"
+      part="input"
       placeholder=" "
       type="text"
     >
     <label
       for="input"
-      part="input-label"
+      part="label"
     >
       Label
     </label>
@@ -72,7 +72,7 @@
 </div>
 <div
   class="line"
-  part="input-line"
+  part="line"
 >
 </div>
 
@@ -83,22 +83,22 @@
 ```html
 <div
   class="float"
-  part="input-float"
+  part="float"
 >
 </div>
 <div
   class="wrap"
-  part="input-wrap"
+  part="wrap"
 >
   <slot name="prefix">
   </slot>
   <div
     class="control"
-    part="input-control"
+    part="control"
   >
     <input
       id="input"
-      part="input-input"
+      part="input"
       placeholder=" "
       type="text"
     >
@@ -108,12 +108,12 @@
 </div>
 <div
   class="line"
-  part="input-line"
+  part="line"
 >
 </div>
 <div
   class="error"
-  part="input-error"
+  part="error"
 >
   Something is wrong!
 </div>

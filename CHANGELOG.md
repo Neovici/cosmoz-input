@@ -1,3 +1,10 @@
+### [1.1.1](https://github.com/neovici/cosmoz-input/compare/v1.1.0...v1.1.1) (2021-02-05)
+
+
+### Bug Fixes
+
+* revert parts input prefixing ([3abb6ed](https://github.com/neovici/cosmoz-input/commit/3abb6edb0cf6ab3a07c38e88b17fa99d1ba3cbb4))
+
 ## [1.1.0](https://github.com/neovici/cosmoz-input/compare/v1.0.8...v1.1.0) (2021-02-05)
 
 

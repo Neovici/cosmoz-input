@@ -1,3 +1,10 @@
+## [1.1.0](https://github.com/neovici/cosmoz-input/compare/v1.0.8...v1.1.0) (2021-02-05)
+
+
+### Features
+
+* adjust slots, vars and attributes ([21ddd69](https://github.com/neovici/cosmoz-input/commit/21ddd69d2841eb64c7abcacbdab327b15e8e1d35))
+
 ### [1.0.8](https://github.com/neovici/cosmoz-input/compare/v1.0.7...v1.0.8) (2021-01-26)
 
 

@@ -1,5 +1,7 @@
 import { html, nothing } from 'lit-html'; // eslint-disable-line object-curly-newline
 import { live } from 'lit-html/directives/live';
+import { ifDefined } from 'lit-html/directives/if-defined';
+
 import { useImperativeApi } from '@neovici/cosmoz-utils/lib/hooks/use-imperative-api';
 import { notifyProperty } from '@neovici/cosmoz-utils/lib/hooks/use-notify-property';
 import {
@@ -44,7 +46,11 @@ const styles = `
 		border: none;
 		width: 100%;
 		max-width: 100%;
-		background-color: initial;
+		background: var(--cosmoz-input-background, initial);
+	}
+
+	:host(:focus-within) input {
+		background: var(--cosmoz-input-focused-background, var(--cosmoz-input-background, initial));
 	}
 	label {
 		position: absolute;
@@ -102,6 +108,7 @@ const styles = `
 	Input = host => {
 		const {
 				type = 'text',
+				autocomplete,
 				value,
 				label,
 				placeholder,
@@ -138,27 +145,28 @@ const styles = `
 
 		return html`
 		<style>${ styles }</style>
-		<div class="float" part="float">&nbsp;</div>
-		<div class="wrap" part="wrap">
+		<div class="float" part="input-float">&nbsp;</div>
+		<div class="wrap" part="input-wrap">
 			<slot name="prefix"></slot>
-			<div class="control">
-				<input id="input" part="input"
+			<div class="control" part="input-control">
+				<input id="input" part="input-input"
 					type=${ type } placeholder=${ placeholder || ' ' } ?readonly=${ readonly }
 					?aria-disabled=${ disabled } ?disabled=${ disabled }
-					.value=${ live(value ?? '') }
+					.value=${ live(value ?? '') } autocomplete=${ ifDefined(autocomplete) }
 					@input=${ onInput } @focus=${ onFocus } @blur=${ onFocus }
 				>
-				${ label ? html`<label for="input">${ label }</label>` : nothing }
+				${ label ? html`<label for="input" part="input-label">${ label }</label>` : nothing }
 			</div>
 			<slot name="suffix"></slot>
 		</div>
-		<div class="line" part="line"></div>
-		${ invalid && errorMessage ? html`<div class="error" part="error">${ errorMessage }</div>` : nothing }
+		<div class="line" part="input-line"></div>
+		${ invalid && errorMessage ? html`<div class="error" part="input-error">${ errorMessage }</div>` : nothing }
 	`;
 	},
 
 	observedAttributes = [
 		'type',
+		'autocomplete',
 		'readonly',
 		'disabled',
 		'invalid',

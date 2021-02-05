@@ -5,19 +5,22 @@
 ```html
 <div
   class="float"
-  part="float"
+  part="input-float"
 >
 </div>
 <div
   class="wrap"
-  part="wrap"
+  part="input-wrap"
 >
   <slot name="prefix">
   </slot>
-  <div class="control">
+  <div
+    class="control"
+    part="input-control"
+  >
     <input
       id="input"
-      part="input"
+      part="input-input"
       placeholder=" "
       type="text"
     >
@@ -27,9 +30,10 @@
 </div>
 <div
   class="line"
-  part="line"
+  part="input-line"
 >
 </div>
+
 ```
 
 #### `render label and value`
@@ -37,23 +41,29 @@
 ```html
 <div
   class="float"
-  part="float"
+  part="input-float"
 >
 </div>
 <div
   class="wrap"
-  part="wrap"
+  part="input-wrap"
 >
   <slot name="prefix">
   </slot>
-  <div class="control">
+  <div
+    class="control"
+    part="input-control"
+  >
     <input
       id="input"
-      part="input"
+      part="input-input"
       placeholder=" "
       type="text"
     >
-    <label for="input">
+    <label
+      for="input"
+      part="input-label"
+    >
       Label
     </label>
   </div>
@@ -62,9 +72,10 @@
 </div>
 <div
   class="line"
-  part="line"
+  part="input-line"
 >
 </div>
+
 ```
 
 #### `render errorMessage`
@@ -72,19 +83,22 @@
 ```html
 <div
   class="float"
-  part="float"
+  part="input-float"
 >
 </div>
 <div
   class="wrap"
-  part="wrap"
+  part="input-wrap"
 >
   <slot name="prefix">
   </slot>
-  <div class="control">
+  <div
+    class="control"
+    part="input-control"
+  >
     <input
       id="input"
-      part="input"
+      part="input-input"
       placeholder=" "
       type="text"
     >
@@ -94,12 +108,12 @@
 </div>
 <div
   class="line"
-  part="line"
+  part="input-line"
 >
 </div>
 <div
   class="error"
-  part="error"
+  part="input-error"
 >
   Something is wrong!
 </div>

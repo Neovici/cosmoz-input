@@ -145,22 +145,22 @@ const styles = `
 
 		return html`
 		<style>${ styles }</style>
-		<div class="float" part="input-float">&nbsp;</div>
-		<div class="wrap" part="input-wrap">
+		<div class="float" part="float">&nbsp;</div>
+		<div class="wrap" part="wrap">
 			<slot name="prefix"></slot>
-			<div class="control" part="input-control">
-				<input id="input" part="input-input"
+			<div class="control" part="control">
+				<input id="input" part="input"
 					type=${ type } placeholder=${ placeholder || ' ' } ?readonly=${ readonly }
 					?aria-disabled=${ disabled } ?disabled=${ disabled }
 					.value=${ live(value ?? '') } autocomplete=${ ifDefined(autocomplete) }
 					@input=${ onInput } @focus=${ onFocus } @blur=${ onFocus }
 				>
-				${ label ? html`<label for="input" part="input-label">${ label }</label>` : nothing }
+				${ label ? html`<label for="input" part="label">${ label }</label>` : nothing }
 			</div>
 			<slot name="suffix"></slot>
 		</div>
-		<div class="line" part="input-line"></div>
-		${ invalid && errorMessage ? html`<div class="error" part="input-error">${ errorMessage }</div>` : nothing }
+		<div class="line" part="line"></div>
+		${ invalid && errorMessage ? html`<div class="error" part="error">${ errorMessage }</div>` : nothing }
 	`;
 	},
 

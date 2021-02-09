@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/neovici/cosmoz-input/compare/v1.1.1...v1.2.0) (2021-02-09)
+
+
+### Features
+
+* add pattern and validate ([6c8f157](https://github.com/neovici/cosmoz-input/commit/6c8f15755479c345e8e28c259335d8e9e19f9fbb))
+
 ### [1.1.1](https://github.com/neovici/cosmoz-input/compare/v1.1.0...v1.1.1) (2021-02-05)
 
 

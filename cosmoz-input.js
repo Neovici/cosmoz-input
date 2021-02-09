@@ -127,7 +127,7 @@ const styles = `
 				if (allowedPattern == null) {
 					return;
 				}
-				const regexp = new RegExp(allowedPattern);
+				const regexp = new RegExp(allowedPattern, 'u');
 				return e => {
 					if (!e.defaultPrevent && e.data && !regexp.test(e.data)) {
 						e.preventDefault();

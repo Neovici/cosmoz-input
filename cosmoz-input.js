@@ -5,7 +5,7 @@ import { ifDefined } from 'lit-html/directives/if-defined';
 import { useImperativeApi } from '@neovici/cosmoz-utils/lib/hooks/use-imperative-api';
 import { notifyProperty } from '@neovici/cosmoz-utils/lib/hooks/use-notify-property';
 import {
-	component, useCallback, useEffect
+	component, useCallback, useEffect, useMemo
 } from 'haunted';
 
 const styles = `
@@ -110,6 +110,7 @@ const styles = `
 				type = 'text',
 				autocomplete,
 				pattern,
+				allowedPattern,
 				value,
 				label,
 				placeholder,
@@ -120,8 +121,20 @@ const styles = `
 			} = host,
 
 			root = host.shadowRoot,
-
+			onChange = useCallback(e => host.dispatchEvent(new Event(e.type, { bubbles: e.bubbles })), []),
 			onInput = useCallback(e => notifyProperty(host, 'value', e.target.value), []),
+			onBeforeInput = useMemo(() => {
+				if (allowedPattern == null) {
+					return;
+				}
+				const regexp = new RegExp(allowedPattern, 'u');
+				return e => {
+					if (!e.defaultPrevent && e.data && !regexp.test(e.data)) {
+						e.preventDefault();
+					}
+
+				};
+			}, [allowedPattern]),
 			onFocus = useCallback(e => notifyProperty(host, 'focused', e.type === 'focus'), []),
 			focus = useCallback(() => root.querySelector('input')?.focus(), []),
 			validate = useCallback(() => {
@@ -163,7 +176,8 @@ const styles = `
 					type=${ type } placeholder=${ placeholder || ' ' } pattern=${ ifDefined(pattern) }
 					?readonly=${ readonly } ?aria-disabled=${ disabled } ?disabled=${ disabled }
 					.value=${ live(value ?? '') } autocomplete=${ ifDefined(autocomplete) }
-					@input=${ onInput } @focus=${ onFocus } @blur=${ onFocus }
+					@beforeinput=${ onBeforeInput } @input=${ onInput }
+					@change=${ onChange } @focus=${ onFocus } @blur=${ onFocus }
 				>
 				${ label ? html`<label for="input" part="label">${ label }</label>` : nothing }
 			</div>
@@ -178,6 +192,7 @@ const styles = `
 		'type',
 		'autocomplete',
 		'pattern',
+		'allowed-pattern',
 		'readonly',
 		'disabled',
 		'invalid',

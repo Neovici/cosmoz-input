@@ -1,3 +1,10 @@
+## [1.3.0](https://github.com/neovici/cosmoz-input/compare/v1.2.0...v1.3.0) (2021-02-09)
+
+
+### Features
+
+* adds allowed-pattern support ([9e73006](https://github.com/neovici/cosmoz-input/commit/9e73006d103fbb22c4d4fe82b4b75915d67aec46))
+
 ## [1.2.0](https://github.com/neovici/cosmoz-input/compare/v1.1.1...v1.2.0) (2021-02-09)
 
 

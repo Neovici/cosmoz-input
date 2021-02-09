@@ -109,6 +109,7 @@ const styles = `
 		const {
 				type = 'text',
 				autocomplete,
+				pattern,
 				value,
 				label,
 				placeholder,
@@ -118,23 +119,32 @@ const styles = `
 				errorMessage
 			} = host,
 
+			root = host.shadowRoot,
+
 			onInput = useCallback(e => notifyProperty(host, 'value', e.target.value), []),
 			onFocus = useCallback(e => notifyProperty(host, 'focused', e.type === 'focus'), []),
-			focus = useCallback(() => host.shadowRoot.querySelector('input')?.focus(), []);
+			focus = useCallback(() => root.querySelector('input')?.focus(), []),
+			validate = useCallback(() => {
+				const valid = root.querySelector('input')?.checkValidity();
+				host.toggleAttribute('invalid', !valid);
+				return valid;
+			}, []);
 
-		useImperativeApi({ focus }, [focus]);
+		useImperativeApi({
+			focus,
+			validate
+		}, [focus, validate]);
 
 		useEffect(() => {
-			const root = host.shadowRoot,
-				onMouseDown = e => {
-					if (e.target.matches('input, label')) {
-						return;
-					}
-					e.preventDefault(); // don't blur
-					if (!host.matches(':focus-within')) { // if input not focused
-						focus(); // focus input
-					}
-				};
+			const onMouseDown = e => {
+				if (e.target.matches('input, label')) {
+					return;
+				}
+				e.preventDefault(); // don't blur
+				if (!host.matches(':focus-within')) { // if input not focused
+					focus(); // focus input
+				}
+			};
 
 			root.addEventListener('mousedown', onMouseDown);
 			return () => {
@@ -150,8 +160,8 @@ const styles = `
 			<slot name="prefix"></slot>
 			<div class="control" part="control">
 				<input id="input" part="input"
-					type=${ type } placeholder=${ placeholder || ' ' } ?readonly=${ readonly }
-					?aria-disabled=${ disabled } ?disabled=${ disabled }
+					type=${ type } placeholder=${ placeholder || ' ' } pattern=${ ifDefined(pattern) }
+					?readonly=${ readonly } ?aria-disabled=${ disabled } ?disabled=${ disabled }
 					.value=${ live(value ?? '') } autocomplete=${ ifDefined(autocomplete) }
 					@input=${ onInput } @focus=${ onFocus } @blur=${ onFocus }
 				>
@@ -167,6 +177,7 @@ const styles = `
 	observedAttributes = [
 		'type',
 		'autocomplete',
+		'pattern',
 		'readonly',
 		'disabled',
 		'invalid',

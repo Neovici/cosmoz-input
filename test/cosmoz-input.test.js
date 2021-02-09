@@ -30,6 +30,30 @@ suite('cosmoz-input', () => {
 		assert.isTrue(focusSpy.calledOnce);
 	});
 
+	test('change', async () => {
+		const changeSpy = spy(),
+			el = await fixture(html`<cosmoz-input></cosmoz-input>`);
+		el.addEventListener('change', changeSpy, { once: true });
+		assert.isFalse(changeSpy.calledOnce);
+		el.shadowRoot.querySelector('input').dispatchEvent(new Event('change'));
+		assert.isTrue(changeSpy.calledOnce);
+	});
+
+	test('validate', async () => {
+		const el = await fixture(html`<cosmoz-input .value=${ 'a' } pattern="[2]"></cosmoz-input>`);
+		assert.isFalse(el.validate());
+	});
+
+	test('allowed-pattern', async () => {
+		const el = await fixture(html`<cosmoz-input allowed-pattern="[c]"></cosmoz-input>`);
+		assert.isFalse(el.shadowRoot.querySelector('input').dispatchEvent(new InputEvent(
+			'beforeinput',
+			{
+				data: '2',
+				cancelable: true
+			})));
+	});
+
 	test('value', async () => {
 		const inputSpy = spy(),
 			el = await fixture(html`<cosmoz-input></cosmoz-input>`);

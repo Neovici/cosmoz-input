@@ -46,6 +46,16 @@ suite('cosmoz-input', () => {
 
 	test('allowed-pattern', async () => {
 		const el = await fixture(html`<cosmoz-input allowed-pattern="[c]"></cosmoz-input>`);
+		assert.isTrue(el.shadowRoot.querySelector('input').dispatchEvent(new InputEvent(
+			'beforeinput',
+			{
+				data: 'c',
+				cancelable: true
+			})));
+	});
+
+	test('allowed-pattern fail', async () => {
+		const el = await fixture(html`<cosmoz-input allowed-pattern="[c]"></cosmoz-input>`);
 		assert.isFalse(el.shadowRoot.querySelector('input').dispatchEvent(new InputEvent(
 			'beforeinput',
 			{

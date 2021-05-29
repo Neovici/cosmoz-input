@@ -17,9 +17,9 @@ const basic = () => html`
 		<cosmoz-textarea
 			invalid
 			.label=${ 'Choose color' }
-			.value=${ 'Red' }
+			.value=${ 'Red\nGreen\nBlue' }
 			.errorMessage=${ 'Something is wrong!' }
-			.maxRows=${ 4 }
+			.maxRows=${ 2 }
 		></cosmoz-textarea>
 	`;
 export {

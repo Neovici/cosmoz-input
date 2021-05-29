@@ -50,14 +50,11 @@ export const useInput = host => {
 		};
 	}, [allowedPattern]),
 	autosize = input => {
-		if (!input) {
-			return;
-		}
 		input.style.height = '';
 		input.style.height = `${ input.scrollHeight }px`;
 	},
 	limit = (input, maxRows) => {
-		if (input && maxRows > 0) {
+		if (maxRows > 0) {
 			const rows = input.getAttribute('rows'),
 				height = input.style.height;
 			input.style.height = '';
@@ -69,16 +66,14 @@ export const useInput = host => {
 	},
 	useAutosize = host => {
 		const { value, maxRows } = host,
-			input = host.shadowRoot.querySelector('#input');
-		useEffect(() => limit(input, maxRows), [maxRows, input]);
-		useEffect(() => autosize(input), [input, value]);
+			input = useMemo(() => () => host.shadowRoot.querySelector('#input'), []);
+		useEffect(() => limit(input(), maxRows), [maxRows, input]);
+		useEffect(() => autosize(input()), [input, value]);
 		useEffect(() => {
-			if (!input) {
-				return;
-			}
-			const observer = new ResizeObserver(() => requestAnimationFrame(() => autosize(input)));
-			observer.observe(input);
-			return () => observer.unobserve(input);
+			const el = input(),
+				observer = new ResizeObserver(() => requestAnimationFrame(() => autosize(el)));
+			observer.observe(el);
+			return () => observer.unobserve(el);
 		}, [input]);
 
 	};

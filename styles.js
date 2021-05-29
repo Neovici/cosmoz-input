@@ -5,7 +5,7 @@ export const styles = `
 		padding-top: var(--paper-input-container_-_padding-top, 8px);
 	}
 
-	:host, label, input {
+	:host, label, #input {
 		font-family: var(--cosmoz-subhead-font-family, var(--paper-font-subhead_-_font-family, 'Roboto', 'Noto', sans-serif));
 		font-size: var(--cosmoz-subhead-font-size, var(--paper-font-subhead_-_font-size, 16px));
 		line-height: var(--cosmoz-subhead-line-height, var(--paper-font-subhead_-_line-height, 24px));
@@ -28,7 +28,7 @@ export const styles = `
 		position: relative;
 	}
 
-	input {
+	#input {
 		padding: 0;
 		margin: 0;
 		outline: none;
@@ -38,7 +38,7 @@ export const styles = `
 		background: var(--cosmoz-input-background, initial);
 	}
 
-	:host(:focus-within) input {
+	:host(:focus-within) #input {
 		background: var(--cosmoz-input-focused-background, var(--cosmoz-input-background, initial));
 	}
 	label {
@@ -55,10 +55,10 @@ export const styles = `
 	}
 
 	:host([always-float-label]) label,
-	input:not(:placeholder-shown) + label {
+	#input:not(:placeholder-shown) + label {
 		transform: translateY(-75%) scale(0.75);
 	}
-	input:not(:placeholder-shown):focus + label {
+	#input:not(:placeholder-shown):focus + label {
 		color: var(--primary-color, #3f51b5);
 	}
 
@@ -74,7 +74,7 @@ export const styles = `
 	}
 
 	:host([no-label-float]) .float,
-	:host([no-label-float]) input:not(:placeholder-shown) + label  {
+	:host([no-label-float]) #input:not(:placeholder-shown) + label  {
 		display: none;
 	}
 

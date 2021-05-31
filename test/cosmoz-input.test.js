@@ -1,92 +1,126 @@
 import '../cosmoz-input';
-import {
-	assert, html, fixture
-} from '@open-wc/testing';
+import { expect, html, fixture } from '@open-wc/testing';
 import { spy } from 'sinon';
 
-suite('cosmoz-input', () => {
-	test('render', async () => {
+describe('cosmoz-input', () => {
+	it('render', async () => {
 		const el = await fixture(html`<cosmoz-input></cosmoz-input>`);
-		assert.shadowDom.equalSnapshot(el);
+		expect(el).shadowDom.to.equal(`
+			<div class="float" part="float"></div>
+			<div class="wrap" part="wrap">
+				<slot name="prefix"> </slot>
+				<div class="control" part="control">
+					<input id="input" part="input" placeholder=" " type="text" />
+				</div>
+				<slot name="suffix"></slot>
+			</div>
+			<div class="line" part="line"></div>
+		`);
 	});
 
-	test('render label and value', async () => {
+	it('render label and value', async () => {
 		const el = await fixture(html`<cosmoz-input .label=${ 'Label' } .value=${ 'value' }></cosmoz-input>`);
-		assert.shadowDom.equalSnapshot(el);
+		expect(el).shadowDom.to.equal(`
+			<div class="float" part="float"></div>
+			<div class="wrap" part="wrap">
+				<slot name="prefix"> </slot>
+				<div class="control" part="control">
+					<input id="input" part="input" placeholder=" " type="text" />
+					<label for="input" part="label">
+					Label
+					</label>
+				</div>
+				<slot name="suffix"> </slot>
+			</div>
+			<div class="line" part="line"></div>
+		`);
 	});
 
 
-	test('render errorMessage', async () => {
+	it('render errorMessage', async () => {
 		const el = await fixture(html`<cosmoz-input invalid .errorMessage=${ 'Something is wrong!' } .value=${ 'wrong' }></cosmoz-input>`);
-		assert.shadowDom.equalSnapshot(el);
+		expect(el).shadowDom.to.equal(`
+			<div class="float" part="float"></div>
+			<div class="wrap" part="wrap">
+				<slot name="prefix"> </slot>
+				<div class="control" part="control">
+					<input id="input" part="input" placeholder=" " type="text" />
+				</div>
+				<slot name="suffix"> </slot>
+			</div>
+			<div class="line" part="line"></div>
+			<div class="error" part="error">
+				Something is wrong!
+			</div>
+		`);
 	});
 
-	test('focus', async () => {
+	it('focus', async () => {
 		const focusSpy = spy(),
 			el = await fixture(html`<cosmoz-input></cosmoz-input>`);
 		el.addEventListener('focused-changed', focusSpy, { once: true });
-		assert.isFalse(focusSpy.calledOnce);
+		expect(focusSpy).not.to.have.been.called;
 		el.focus();
-		assert.isTrue(focusSpy.calledOnce);
+		expect(focusSpy).to.have.been.calledOnce;
 	});
 
-	test('change', async () => {
+	it('change', async () => {
 		const changeSpy = spy(),
 			el = await fixture(html`<cosmoz-input></cosmoz-input>`);
 		el.addEventListener('change', changeSpy, { once: true });
-		assert.isFalse(changeSpy.calledOnce);
+		expect(changeSpy).not.to.have.been.called;
 		el.shadowRoot.querySelector('input').dispatchEvent(new Event('change'));
-		assert.isTrue(changeSpy.calledOnce);
+		expect(changeSpy).to.have.been.calledOnce;
 	});
 
-	test('validate', async () => {
+	it('validate', async () => {
 		const el = await fixture(html`<cosmoz-input .value=${ 'a' } pattern="[2]"></cosmoz-input>`);
-		assert.isFalse(el.validate());
+		expect(el.validate()).to.be.false;
 	});
 
-	test('allowed-pattern', async () => {
+	it('allowed-pattern', async () => {
 		const el = await fixture(html`<cosmoz-input allowed-pattern="[c]"></cosmoz-input>`);
-		assert.isTrue(el.shadowRoot.querySelector('input').dispatchEvent(new InputEvent(
+		expect(el.shadowRoot.querySelector('input').dispatchEvent(new InputEvent(
 			'beforeinput',
 			{
 				data: 'c',
 				cancelable: true
-			})));
+			}))).to.be.true;
 	});
 
-	test('allowed-pattern fail', async () => {
+	it('allowed-pattern fail', async () => {
 		const el = await fixture(html`<cosmoz-input allowed-pattern="[c]"></cosmoz-input>`);
-		assert.isFalse(el.shadowRoot.querySelector('input').dispatchEvent(new InputEvent(
+		expect(el.shadowRoot.querySelector('input').dispatchEvent(new InputEvent(
 			'beforeinput',
 			{
 				data: '2',
 				cancelable: true
-			})));
+			}))).to.be.false;
 	});
 
-	test('value', async () => {
+	it('value', async () => {
 		const inputSpy = spy(),
 			el = await fixture(html`<cosmoz-input></cosmoz-input>`);
 		el.addEventListener('value-changed', inputSpy, { once: true });
-		assert.isFalse(inputSpy.calledOnce);
+		expect(inputSpy).not.to.have.been.called;
 		el.shadowRoot.querySelector('input').dispatchEvent(new Event('input', { bubbles: true }));
-		assert.isTrue(inputSpy.calledOnce);
+		expect(inputSpy).to.have.been.calledOnce;
 	});
 
-	test('mousedown', async () => {
+	it('mousedown', async () => {
 		const focusSpy = spy(),
 			el = await fixture(html`<cosmoz-input><div slot="suffix"></div></cosmoz-input>`);
 		el.addEventListener('focused-changed', focusSpy, { once: true });
-		assert.isFalse(focusSpy.calledOnce);
+		expect(focusSpy).not.to.have.been.called;
 
 		el.shadowRoot.querySelector('input').dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
-		assert.isFalse(focusSpy.calledOnce);
+		expect(focusSpy).not.to.have.been.called;
 
 		el.querySelector('div').dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
-		assert.isTrue(focusSpy.calledOnce);
+		expect(focusSpy).to.have.been.calledOnce;
 
 		el.querySelector('div').dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
-		assert.isTrue(focusSpy.calledOnce);
+		expect(focusSpy).to.have.been.calledOnce;
 	});
 });
 

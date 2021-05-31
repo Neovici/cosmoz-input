@@ -1,3 +1,10 @@
+## [1.4.0](https://github.com/neovici/cosmoz-input/compare/v1.3.0...v1.4.0) (2021-05-31)
+
+
+### Features
+
+* implement textarea ([d33ad71](https://github.com/neovici/cosmoz-input/commit/d33ad71fc6e9ee896a2bded8e9a0f8b3a7bea135))
+
 ## [1.3.0](https://github.com/neovici/cosmoz-input/compare/v1.2.0...v1.3.0) (2021-02-09)
 
 

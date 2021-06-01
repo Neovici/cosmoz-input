@@ -1,3 +1,10 @@
+### [1.4.1](https://github.com/neovici/cosmoz-input/compare/v1.4.0...v1.4.1) (2021-06-01)
+
+
+### Bug Fixes
+
+* don't prevent default on mousedown on textarea ([9f8701a](https://github.com/neovici/cosmoz-input/commit/9f8701a2437f3c7df9d755606ccb806f0ea74319))
+
 ## [1.4.0](https://github.com/neovici/cosmoz-input/compare/v1.3.0...v1.4.0) (2021-05-31)
 
 

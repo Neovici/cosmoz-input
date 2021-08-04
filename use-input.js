@@ -18,7 +18,7 @@ export const useInput = host => {
 
 		useEffect(() => {
 			const onMouseDown = e => {
-				if (e.target.matches('input, textarea, label')) {
+				if (e.defaultPrevented || e.target.matches('input, textarea, label')) {
 					return;
 				}
 				e.preventDefault(); // don't blur

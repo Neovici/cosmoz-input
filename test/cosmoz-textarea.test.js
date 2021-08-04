@@ -24,7 +24,7 @@ describe('cosmoz-textarea', () => {
 		await nextFrame();
 		const { height } = input.getBoundingClientRect();
 		expect(height).to.be.above(40);
-		expect(height).to.be.below(60);
+		expect(height).to.be.below(61);
 	});
 
 });

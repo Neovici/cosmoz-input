@@ -1,3 +1,10 @@
+### [1.4.2](https://github.com/neovici/cosmoz-input/compare/v1.4.1...v1.4.2) (2021-08-04)
+
+
+### Bug Fixes
+
+* **cosmoz-input:** don't focus on mousedown if defaultPrevented ([073d0f2](https://github.com/neovici/cosmoz-input/commit/073d0f2dbde6f344c987dc279185272787da4d21))
+
 ### [1.4.1](https://github.com/neovici/cosmoz-input/compare/v1.4.0...v1.4.1) (2021-06-01)
 
 

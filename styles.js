@@ -92,4 +92,8 @@ export const styles = `
 	:host([invalid]) .line {
 		border-bottom-color: var(--paper-input-container-invalid-color, var(--error-color, #fc5c5b));
 	}
+
+	#input::-webkit-inner-spin-button {
+		z-index: 1;
+	}
 `;

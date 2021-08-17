@@ -1,3 +1,10 @@
+### [1.4.3](https://github.com/neovici/cosmoz-input/compare/v1.4.2...v1.4.3) (2021-08-17)
+
+
+### Bug Fixes
+
+* **input:** correct z-index for number spin button ([e16409f](https://github.com/neovici/cosmoz-input/commit/e16409fa8ef0c5320d1c42b1ed82c77b9c5bcd40))
+
 ### [1.4.2](https://github.com/neovici/cosmoz-input/compare/v1.4.1...v1.4.2) (2021-08-04)
 
 

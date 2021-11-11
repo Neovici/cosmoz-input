@@ -1,3 +1,10 @@
+### [1.4.4](https://github.com/neovici/cosmoz-input/compare/v1.4.3...v1.4.4) (2021-11-11)
+
+
+### Bug Fixes
+
+* **style:** position relative ([af495d6](https://github.com/neovici/cosmoz-input/commit/af495d6d4096d966d722ae2e5baf0007ce7aeaf6))
+
 ### [1.4.3](https://github.com/neovici/cosmoz-input/compare/v1.4.2...v1.4.3) (2021-08-17)
 
 

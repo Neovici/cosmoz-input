@@ -3,6 +3,7 @@ export const styles = `
 		display: block;
 		padding: 8px 0;
 		padding-top: var(--paper-input-container_-_padding-top, 8px);
+		position: relative;
 	}
 
 	:host, label, #input {

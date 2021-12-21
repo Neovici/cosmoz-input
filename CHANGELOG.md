@@ -1,3 +1,10 @@
+## [1.5.0](https://github.com/neovici/cosmoz-input/compare/v1.4.4...v1.5.0) (2021-12-21)
+
+
+### Features
+
+* **styles:** reorganize css variables ([9bfb335](https://github.com/neovici/cosmoz-input/commit/9bfb33509dd24b6d4ce803c90906cfca3f2bd83c))
+
 ### [1.4.4](https://github.com/neovici/cosmoz-input/compare/v1.4.3...v1.4.4) (2021-11-11)
 
 

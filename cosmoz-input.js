@@ -17,14 +17,16 @@ export const Input = host => {
 				readonly,
 				disabled
 			} = host,
-			{ onChange, onFocus, onInput } = useInput(host),
+			{ onChange, onFocus, onInput, onChecked } = useInput(host),
+			isCheckbox =  type === 'checkbox',
 			onBeforeInput = useAllowedPattern(allowedPattern);
 		return render(html`<input id="input" part="input"
-				type=${ type }  pattern=${ ifDefined(pattern) }
+				type=${ type } pattern=${ ifDefined(pattern) }
+				class=${ type }
 				autocomplete=${ ifDefined(autocomplete) } placeholder=${ placeholder || ' ' }
 				?readonly=${ readonly } ?aria-disabled=${ disabled } ?disabled=${ disabled }
-				.value=${ live(value ?? '') }
-				@beforeinput=${ onBeforeInput } @input=${ onInput }
+				.value=${ live(value ?? '') } ?checked=${ isCheckbox ? value : undefined }
+				@beforeinput=${ onBeforeInput } @input=${ isCheckbox ? onChecked : onInput }
 				@change=${ onChange } @focus=${ onFocus } @blur=${ onFocus }>`
 		, host);
 	},

@@ -12,6 +12,13 @@ const basic = () => html`
 			.value=${ 'Red' }
 		></cosmoz-input>
 	`,
+	checkBox = () => html`
+	<cosmoz-input
+		.label=${ 'Check this box' }
+		type="checkbox"
+		.value=${ false }
+	></cosmoz-input>
+`,
 
 	error = () => html`
 		<cosmoz-input
@@ -23,5 +30,6 @@ const basic = () => html`
 	`;
 export {
 	basic,
+	checkBox,
 	error
 };

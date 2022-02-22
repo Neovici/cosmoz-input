@@ -27,6 +27,11 @@ export const styles = `
 		pointer-events: none;
 	}
 
+	:host([no-label-float]) .float,
+	:host([no-label-float]) #input:not(:placeholder-shown) + label  {
+		display: none;
+	}
+
 	.float {
 		line-height: calc(var(--line-height) * var(--label-scale));
 	}
@@ -42,6 +47,60 @@ export const styles = `
 		position: relative;
 	}
 
+	.error {
+		font-size: 12px;
+		line-height: 20px;
+		overflow: hidden;
+		text-overflow: clip;
+		position: absolute;
+		max-width: 100%;
+	}
+
+	#input::-webkit-inner-spin-button {
+		z-index: 1;
+	}
+
+	label {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		transition: transform 0.25s, width 0.25s;
+		transform-origin: left top;
+	}
+
+	`,
+	textStyles = `	
+	:host([invalid]) label, .error {
+		color: var(--invalid-color);
+	}
+	:host([invalid]) .line {
+		border-bottom-color: var(--invalid-color);
+	}
+
+	:host([always-float-label]) label,
+	#input:not(:placeholder-shown) + label {
+		transform: translateY(calc(var(--label-scale) * -100%)) scale(var(--label-scale));
+	}
+	#input:not(:placeholder-shown):focus + label {
+		color: var(--focused-color);
+	}
+
+	:host(:focus-within) .line::before {
+		transform: none;
+		transition: 0.25s transform ease;
+	}
+	:host(:focus-within) .line {
+		border-bottom-color:  var(--focused-color);
+	}
+	:host([disabled]) .line {
+		border-bottom-style: dashed;
+		opacity: var(--disabled-line-opacity);
+	}
+
+	:host(:focus-within) #input {
+		background: var(--focused-bg);
+	}
+
 	#input {
 		padding: 0;
 		margin: 0;
@@ -55,30 +114,14 @@ export const styles = `
 		font-size: inherit;
 	}
 
-	:host(:focus-within) #input {
-		background: var(--focused-bg);
-	}
 	label {
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
-		transition: transform 0.25s, width 0.25s;
-		transform-origin: left top;
 		color: var(--color);
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
 	}
-
-	:host([always-float-label]) label,
-	#input:not(:placeholder-shown) + label {
-		transform: translateY(calc(var(--label-scale) * -100%)) scale(var(--label-scale));
-	}
-	#input:not(:placeholder-shown):focus + label {
-		color: var(--focused-color);
-	}
-
+	
 	.line {
 		padding-top: 1px;
 		border-bottom: 1px solid var(--color);
@@ -97,39 +140,75 @@ export const styles = `
 		transform-origin: center center;
 		z-index: 1;
 	}
-	:host(:focus-within) .line::before {
-		transform: none;
-		transition: 0.25s transform ease;
-	}
-	:host(:focus-within) .line {
-		border-bottom-color:  var(--focused-color);
-	}
-	:host([disabled]) .line {
-		border-bottom-style: dashed;
-		opacity: var(--disabled-line-opacity);
+	`,
+	checkboxStyle = `
+	label {
+		vertical-align: middle;
 	}
 
-	:host([no-label-float]) .float,
-	:host([no-label-float]) #input:not(:placeholder-shown) + label  {
-		display: none;
+	.checkbox {
+		box-sizing: border-box;
+		width: 18px;
+		height: 18px;
+		background: transparent;
+		border-radius: 4px;
+		appearance: none;
+		-webkit-appearance: none;
+		outline: none;
+		position: relative;
+		user-select: none;
+		cursor: pointer;
+		display: inline-block;
+		box-shadow: 0 0 0 2px rgba(0,0,0, 0.16) inset;
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+		vertical-align: middle;
+		transition: background-color 140ms;
+		margin: 1px 12px;
+		flex: none;
 	}
 
-	.error {
-		font-size: 12px;
-		line-height: 20px;
-		overflow: hidden;
-		text-overflow: clip;
+	.checkbox:checked {
+		background-color: var(--cz-checkbox-checked-color, var(--primary-color, #3f51b5));
+		box-shadow: none;
+	}
+
+	.checkbox:checked::before {
+		content: "";
 		position: absolute;
-		max-width: 100%;
-	}
-	:host([invalid]) label, .error {
-		color: var(--invalid-color);
-	}
-	:host([invalid]) .line {
-		border-bottom-color: var(--invalid-color);
+		box-sizing: content-box;
+		width: 5px;
+		height: 10px;
+		border: 2.4px solid #fff;
+		border-top: none;
+		border-left: none;
+		transform-origin: 5px 10px;
+		transform: translate(3px) rotate(45deg);
 	}
 
-	#input::-webkit-inner-spin-button {
-		z-index: 1;
+	.checkbox::after {
+		content: '';
+		display: block;
+		bottom: -5px;
+		left: -5px;
+		right: -5px;
+		top: -5px;
+	}
+
+	.checkbox:hover {
+		box-shadow: 0 0 0 2px rgba(0, 0, 0, 1) inset, 0 0 2px 6px #2021240f;
+	}
+
+	.checkbox:checked:hover {
+		box-shadow: 0 0 2px 6px #2021240f;
+	}
+
+	.checkbox:indeterminate::before {
+		content: "";
+		position: absolute;
+		width: 10px;
+		height: 2px;
+		left: 4px;
+		top: 8px;
+		background-color: var(--cz-checkbox-checked-color, var(--primary-color, #3f51b5));
 	}
 `;

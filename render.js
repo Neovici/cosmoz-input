@@ -1,8 +1,11 @@
 import { html, nothing } from 'lit-html';
-import { styles } from './styles';
+import { styles, textStyles, checkboxStyle } from './styles';
 
-export const render = (control, { label, invalid, errorMessage }) => html`
-		<style>${ styles }</style>
+export const render = (control, { type, label, invalid, errorMessage }) => html`
+		<style>
+			${ styles }
+			${ type === 'checkbox' ? checkboxStyle : textStyles }
+		</style>
 		<div class="float" part="float">&nbsp;</div>
 		<div class="wrap" part="wrap">
 			<slot name="prefix"></slot>

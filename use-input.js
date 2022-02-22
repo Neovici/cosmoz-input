@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo } from 'haunted';
+import { useCallback, useEffect, useMemo, useState } from 'haunted';
 import { useImperativeApi } from '@neovici/cosmoz-utils/lib/hooks/use-imperative-api';
 import { notifyProperty } from '@neovici/cosmoz-utils/lib/hooks/use-notify-property';
 
@@ -7,6 +7,7 @@ export const useInput = host => {
 			onChange = useCallback(e => host.dispatchEvent(new Event(e.type, { bubbles: e.bubbles })), []),
 			onInput = useCallback(e => notifyProperty(host, 'value', e.target.value), []),
 			onFocus = useCallback(e => notifyProperty(host, 'focused', e.type === 'focus'), []),
+			onChecked = useCallback(e => notifyProperty(host, 'value', e.target.checked), []),
 			focus = useCallback(() => root.querySelector('#input')?.focus(), []),
 			validate = useCallback(() => {
 				const valid = root.querySelector('#input')?.checkValidity();
@@ -34,7 +35,8 @@ export const useInput = host => {
 		return {
 			onChange,
 			onFocus,
-			onInput
+			onInput,
+			onChecked
 		};
 	},
 	useAllowedPattern = allowedPattern => useMemo(() => {

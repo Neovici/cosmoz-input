@@ -10,7 +10,7 @@ describe('cosmoz-input', () => {
 			<div class="wrap" part="wrap">
 				<slot name="prefix"> </slot>
 				<div class="control" part="control">
-					<input id="input" part="input" placeholder=" " type="text" />
+					<input class="text" id="input" part="input" placeholder=" " type="text" />
 				</div>
 				<slot name="suffix"></slot>
 			</div>
@@ -25,9 +25,27 @@ describe('cosmoz-input', () => {
 			<div class="wrap" part="wrap">
 				<slot name="prefix"> </slot>
 				<div class="control" part="control">
-					<input id="input" part="input" placeholder=" " type="text" />
+					<input class="text" id="input" part="input" placeholder=" " type="text" />
 					<label for="input" part="label">
 					Label
+					</label>
+				</div>
+				<slot name="suffix"> </slot>
+			</div>
+			<div class="line" part="line"></div>
+		`);
+	});
+
+	it('render checked checkbox with label', async () => {
+		const el = await fixture(html`<cosmoz-input type="checkbox" .label=${ 'Checkbox label' } .value=${ true }></cosmoz-input>`);
+		expect(el).shadowDom.to.equal(`
+			<div class="float" part="float"></div>
+			<div class="wrap" part="wrap">
+				<slot name="prefix"> </slot>
+				<div class="control" part="control">
+					<input class="checkbox" id="input" part="input" placeholder=" " type="checkbox" value="true" checked />
+					<label for="input" part="label">
+					Checkbox label
 					</label>
 				</div>
 				<slot name="suffix"> </slot>
@@ -44,7 +62,7 @@ describe('cosmoz-input', () => {
 			<div class="wrap" part="wrap">
 				<slot name="prefix"> </slot>
 				<div class="control" part="control">
-					<input id="input" part="input" placeholder=" " type="text" />
+					<input class="text" id="input" part="input" placeholder=" " type="text" />
 				</div>
 				<slot name="suffix"> </slot>
 			</div>

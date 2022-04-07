@@ -15,7 +15,9 @@ export const Input = host => {
 				value,
 				placeholder,
 				readonly,
-				disabled
+				disabled,
+				min,
+				max
 			} = host,
 			{ onChange, onFocus, onInput } = useInput(host),
 			onBeforeInput = useAllowedPattern(allowedPattern);
@@ -25,7 +27,8 @@ export const Input = host => {
 				?readonly=${ readonly } ?aria-disabled=${ disabled } ?disabled=${ disabled }
 				.value=${ live(value ?? '') }
 				@beforeinput=${ onBeforeInput } @input=${ onInput }
-				@change=${ onChange } @focus=${ onFocus } @blur=${ onFocus }>`
+				@change=${ onChange } @focus=${ onFocus } @blur=${ onFocus }
+				min=${ ifDefined(min) } max=${ ifDefined(max) }>`
 		, host);
 	},
 
@@ -33,6 +36,8 @@ export const Input = host => {
 		'type',
 		'pattern',
 		'allowed-pattern',
+		'min',
+		'max',
 		...attributes
 	];
 

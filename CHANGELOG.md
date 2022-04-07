@@ -1,3 +1,10 @@
+## [1.6.0](https://github.com/neovici/cosmoz-input/compare/v1.5.0...v1.6.0) (2022-04-07)
+
+
+### Features
+
+* min and max attributes ([3c955de](https://github.com/neovici/cosmoz-input/commit/3c955de74d0987824f3d0d8a763411b912f91b05))
+
 ## [1.5.0](https://github.com/neovici/cosmoz-input/compare/v1.4.4...v1.5.0) (2021-12-21)
 
 

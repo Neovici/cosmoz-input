@@ -17,7 +17,8 @@ export const Input = host => {
 				readonly,
 				disabled,
 				min,
-				max
+				max,
+				step
 			} = host,
 			{ onChange, onFocus, onInput } = useInput(host),
 			onBeforeInput = useAllowedPattern(allowedPattern);
@@ -28,7 +29,7 @@ export const Input = host => {
 				.value=${ live(value ?? '') }
 				@beforeinput=${ onBeforeInput } @input=${ onInput }
 				@change=${ onChange } @focus=${ onFocus } @blur=${ onFocus }
-				min=${ ifDefined(min) } max=${ ifDefined(max) }>`
+				min=${ ifDefined(min) } max=${ ifDefined(max) } step=${ifDefined(step)} >`
 		, host);
 	},
 
@@ -38,6 +39,7 @@ export const Input = host => {
 		'allowed-pattern',
 		'min',
 		'max',
+		'step',
 		...attributes
 	];
 

@@ -1,3 +1,10 @@
+### [1.6.1](https://github.com/neovici/cosmoz-input/compare/v1.6.0...v1.6.1) (2022-04-18)
+
+
+### Bug Fixes
+
+* **cosmoz-input:** `step` attribute ([d57e3fc](https://github.com/neovici/cosmoz-input/commit/d57e3fc5c4392e4e3ccf420441f2571c0cb67020))
+
 ## [1.6.0](https://github.com/neovici/cosmoz-input/compare/v1.5.0...v1.6.0) (2022-04-07)
 
 

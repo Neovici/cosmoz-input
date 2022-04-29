@@ -1,3 +1,10 @@
+### [1.6.2](https://github.com/neovici/cosmoz-input/compare/v1.6.1...v1.6.2) (2022-04-29)
+
+
+### Bug Fixes
+
+* **input:** add padding-bottom variable ([dfaa8c4](https://github.com/neovici/cosmoz-input/commit/dfaa8c43611093e08f151c73da5746f35a54eaeb))
+
 ### [1.6.1](https://github.com/neovici/cosmoz-input/compare/v1.6.0...v1.6.1) (2022-04-18)
 
 

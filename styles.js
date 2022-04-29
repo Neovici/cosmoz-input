@@ -1,20 +1,43 @@
-export const styles = `
+import { tagged as css } from '@neovici/cosmoz-utils';
+export const styles = css`
 	:host {
-		--font-family: var(--cosmoz-input-font-family, var(--paper-font-subhead_-_font-family, 'Roboto', 'Noto', sans-serif));
-		--font-size: var(--cosmoz-input-font-size, var(--paper-font-subhead_-_font-size, 16px));
-		--line-height: var(--cosmoz-input-line-height, var(--paper-font-subhead_-_line-height, 24px));
+		--font-family: var(
+			--cosmoz-input-font-family,
+			var(--paper-font-subhead_-_font-family, "Roboto", "Noto", sans-serif)
+		);
+		--font-size: var(
+			--cosmoz-input-font-size,
+			var(--paper-font-subhead_-_font-size, 16px)
+		);
+		--line-height: var(
+			--cosmoz-input-line-height,
+			var(--paper-font-subhead_-_line-height, 24px)
+		);
 		--label-scale: var(--cosmoz-input-label-scale, 0.75);
-		--disabled-opacity: var(--cosmoz-input-disabled-opacity, var(--paper-input-container-disabled_-_opacity, 0.33));
-		--disabled-line-opacity: var(--cosmoz-input-disabled-line-opacity, var(--paper-input-container-underline-disabled_-_opacity, 1));
-		--invalid-color: var(--cosmoz-input-invalid-color, var(--paper-input-container-invalid-color, var(--error-color, #fc5c5b)));
+		--disabled-opacity: var(
+			--cosmoz-input-disabled-opacity,
+			var(--paper-input-container-disabled_-_opacity, 0.33)
+		);
+		--disabled-line-opacity: var(
+			--cosmoz-input-disabled-line-opacity,
+			var(--paper-input-container-underline-disabled_-_opacity, 1)
+		);
+		--invalid-color: var(
+			--cosmoz-input-invalid-color,
+			var(--paper-input-container-invalid-color, var(--error-color, #fc5c5b))
+		);
 		--bg: var(--cosmoz-input-background);
 		--focused-bg: var(--cosmoz-input-focused-background, var(--bg));
 		--color: var(--cosmoz-input-color, var(--secondary-text-color, #737373));
-		--focused-color: var(--cosmoz-input-focused-color, var(--primary-color, #3f51b5));
+		--focused-color: var(
+			--cosmoz-input-focused-color,
+			var(--primary-color, #3f51b5)
+		);
 
 		display: block;
-		padding: 8px 0;
+		padding: var(--cosmoz-input-padding, 8px 0);
 		padding-top: var(--paper-input-container_-_padding-top, 8px);
+		padding-bottom: var(--paper-input-container_-_padding-bottom, 8px);
 		position: relative;
 
 		font-family: var(--font-family);
@@ -73,7 +96,8 @@ export const styles = `
 
 	:host([always-float-label]) label,
 	#input:not(:placeholder-shown) + label {
-		transform: translateY(calc(var(--label-scale) * -100%)) scale(var(--label-scale));
+		transform: translateY(calc(var(--label-scale) * -100%))
+			scale(var(--label-scale));
 	}
 	#input:not(:placeholder-shown):focus + label {
 		color: var(--focused-color);
@@ -85,7 +109,7 @@ export const styles = `
 		position: relative;
 	}
 	.line::before {
-		content: '';
+		content: "";
 		position: absolute;
 		display: block;
 		border-bottom: 2px solid transparent;
@@ -93,7 +117,7 @@ export const styles = `
 		left: 0;
 		right: 0;
 		top: 0;
-		transform: scale3d(0,1,1);
+		transform: scale3d(0, 1, 1);
 		transform-origin: center center;
 		z-index: 1;
 	}
@@ -102,7 +126,7 @@ export const styles = `
 		transition: 0.25s transform ease;
 	}
 	:host(:focus-within) .line {
-		border-bottom-color:  var(--focused-color);
+		border-bottom-color: var(--focused-color);
 	}
 	:host([disabled]) .line {
 		border-bottom-style: dashed;
@@ -110,7 +134,7 @@ export const styles = `
 	}
 
 	:host([no-label-float]) .float,
-	:host([no-label-float]) #input:not(:placeholder-shown) + label  {
+	:host([no-label-float]) #input:not(:placeholder-shown) + label {
 		display: none;
 	}
 
@@ -122,7 +146,8 @@ export const styles = `
 		position: absolute;
 		max-width: 100%;
 	}
-	:host([invalid]) label, .error {
+	:host([invalid]) label,
+	.error {
 		color: var(--invalid-color);
 	}
 	:host([invalid]) .line {

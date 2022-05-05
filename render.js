@@ -25,6 +25,7 @@ export const render = (control, { label, invalid, errorMessage }) => html`
 		'autocomplete',
 		'readonly',
 		'disabled',
+		'maxlength',
 		'invalid',
 		'no-label-float',
 		'always-float-label',

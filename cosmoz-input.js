@@ -18,7 +18,8 @@ export const Input = host => {
 				disabled,
 				min,
 				max,
-				step
+				step,
+				maxlength
 			} = host,
 			{ onChange, onFocus, onInput } = useInput(host),
 			onBeforeInput = useAllowedPattern(allowedPattern);
@@ -26,7 +27,7 @@ export const Input = host => {
 				type=${ type }  pattern=${ ifDefined(pattern) }
 				autocomplete=${ ifDefined(autocomplete) } placeholder=${ placeholder || ' ' }
 				?readonly=${ readonly } ?aria-disabled=${ disabled } ?disabled=${ disabled }
-				.value=${ live(value ?? '') }
+				.value=${ live(value ?? '') } maxlength=${ifDefined(maxlength)}
 				@beforeinput=${ onBeforeInput } @input=${ onInput }
 				@change=${ onChange } @focus=${ onFocus } @blur=${ onFocus }
 				min=${ ifDefined(min) } max=${ ifDefined(max) } step=${ifDefined(step)} >`

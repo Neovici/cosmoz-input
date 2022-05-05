@@ -14,7 +14,8 @@ export const Textarea = host => {
 				readonly,
 				disabled,
 				rows,
-				cols
+				cols,
+				maxlength
 			} = host,
 			{ onChange, onFocus, onInput } = useInput(host);
 
@@ -24,7 +25,7 @@ export const Textarea = host => {
 			<textarea id="input" part="input" style="resize: none"
 				autocomplete=${ ifDefined(autocomplete) } placeholder=${ placeholder || ' ' } rows=${ rows ?? 1 } cols=${ ifDefined(cols) }
 				?readonly=${ readonly } ?aria-disabled=${ disabled } ?disabled=${ disabled }
-				.value=${ live(value ?? '') } @input=${ onInput }
+				.value=${ live(value ?? '') } maxlength=${ifDefined(maxlength)} @input=${ onInput }
 				@change=${ onChange } @focus=${ onFocus } @blur=${ onFocus }>`
 		, host);
 	},

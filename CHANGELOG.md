@@ -1,3 +1,10 @@
+## [1.7.0](https://github.com/neovici/cosmoz-input/compare/v1.6.2...v1.7.0) (2022-05-05)
+
+
+### Features
+
+* add `maxlength` attribute support ([f358f78](https://github.com/neovici/cosmoz-input/commit/f358f7896e6ff5ce071a665e41c4a88e4865b381))
+
 ### [1.6.2](https://github.com/neovici/cosmoz-input/compare/v1.6.1...v1.6.2) (2022-04-29)
 
 

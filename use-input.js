@@ -2,11 +2,20 @@ import { useCallback, useEffect, useMemo } from 'haunted';
 import { useImperativeApi } from '@neovici/cosmoz-utils/lib/hooks/use-imperative-api';
 import { notifyProperty } from '@neovici/cosmoz-utils/lib/hooks/use-notify-property';
 
-export const useInput = host => {
+export const useInput = (host) => {
 		const root = host.shadowRoot,
-			onChange = useCallback(e => host.dispatchEvent(new Event(e.type, { bubbles: e.bubbles })), []),
-			onInput = useCallback(e => notifyProperty(host, 'value', e.target.value), []),
-			onFocus = useCallback(e => notifyProperty(host, 'focused', e.type === 'focus'), []),
+			onChange = useCallback(
+				(e) => host.dispatchEvent(new Event(e.type, { bubbles: e.bubbles })),
+				[]
+			),
+			onInput = useCallback(
+				(e) => notifyProperty(host, 'value', e.target.value),
+				[]
+			),
+			onFocus = useCallback(
+				(e) => notifyProperty(host, 'focused', e.type === 'focus'),
+				[]
+			),
 			focus = useCallback(() => root.querySelector('#input')?.focus(), []),
 			validate = useCallback(() => {
 				const valid = root.querySelector('#input')?.checkValidity();
@@ -17,12 +26,13 @@ export const useInput = host => {
 		useImperativeApi({ focus, validate }, [focus, validate]);
 
 		useEffect(() => {
-			const onMouseDown = e => {
+			const onMouseDown = (e) => {
 				if (e.defaultPrevented || e.target.matches('input, textarea, label')) {
 					return;
 				}
 				e.preventDefault(); // don't blur
-				if (!host.matches(':focus-within')) { // if input not focused
+				if (!host.matches(':focus-within')) {
+					// if input not focused
 					focus(); // focus input
 				}
 			};
@@ -34,24 +44,24 @@ export const useInput = host => {
 		return {
 			onChange,
 			onFocus,
-			onInput
+			onInput,
 		};
 	},
-	useAllowedPattern = allowedPattern => useMemo(() => {
-		if (allowedPattern == null) {
-			return;
-		}
-		const regexp = new RegExp(allowedPattern, 'u');
-		return e => {
-			if (!e.defaultPrevent && e.data && !regexp.test(e.data)) {
-				e.preventDefault();
+	useAllowedPattern = (allowedPattern) =>
+		useMemo(() => {
+			if (allowedPattern == null) {
+				return;
 			}
-
-		};
-	}, [allowedPattern]),
-	autosize = input => {
+			const regexp = new RegExp(allowedPattern, 'u');
+			return (e) => {
+				if (!e.defaultPrevent && e.data && !regexp.test(e.data)) {
+					e.preventDefault();
+				}
+			};
+		}, [allowedPattern]),
+	autosize = (input) => {
 		input.style.height = '';
-		input.style.height = `${ input.scrollHeight }px`;
+		input.style.height = `${input.scrollHeight}px`;
 	},
 	limit = (input, maxRows) => {
 		if (maxRows > 0) {
@@ -64,16 +74,17 @@ export const useInput = host => {
 			input.setAttribute('rows', rows);
 		}
 	},
-	useAutosize = host => {
+	useAutosize = (host) => {
 		const { value, maxRows } = host,
 			input = useMemo(() => () => host.shadowRoot.querySelector('#input'), []);
 		useEffect(() => limit(input(), maxRows), [maxRows, input]);
 		useEffect(() => autosize(input()), [input, value]);
 		useEffect(() => {
 			const el = input(),
-				observer = new ResizeObserver(() => requestAnimationFrame(() => autosize(el)));
+				observer = new ResizeObserver(() =>
+					requestAnimationFrame(() => autosize(el))
+				);
 			observer.observe(el);
 			return () => observer.unobserve(el);
 		}, [input]);
-
 	};

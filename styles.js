@@ -3,7 +3,7 @@ export const styles = css`
 	:host {
 		--font-family: var(
 			--cosmoz-input-font-family,
-			var(--paper-font-subhead_-_font-family, "Roboto", "Noto", sans-serif)
+			var(--paper-font-subhead_-_font-family, 'Roboto', 'Noto', sans-serif)
 		);
 		--font-size: var(
 			--cosmoz-input-font-size,
@@ -109,7 +109,7 @@ export const styles = css`
 		position: relative;
 	}
 	.line::before {
-		content: "";
+		content: '';
 		position: absolute;
 		display: block;
 		border-bottom: 2px solid transparent;

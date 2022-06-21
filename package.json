@@ -1,6 +1,6 @@
 {
 	"name": "@neovici/cosmoz-input",
-	"version": "1.7.0",
+	"version": "2.0.0-beta.1",
 	"description": "A input web component",
 	"keywords": [
 		"lit-html",
@@ -23,11 +23,10 @@
 	"scripts": {
 		"lint": "eslint --cache --ext .js .",
 		"lint-tsc": "tsc",
-		"start": "npm run storybook",
+		"start": "wds",
 		"test": "wtr --coverage",
 		"test:watch": "wtr --watch",
 		"prepare": "husky install",
-		"storybook": "start-storybook --node-resolve --watch --open",
 		"storybook:build": "build-storybook",
 		"storybook:deploy": "storybook-to-ghpages"
 	},
@@ -53,22 +52,25 @@
 	"commitlint": {
 		"extends": [
 			"@commitlint/config-conventional"
-		]
+		],
+		"rules": {
+			"body-max-line-length": [1, "always", 100]
+		}
 	},
 	"dependencies": {
-		"@neovici/cosmoz-utils": "^3.23.0",
-		"haunted": "^4.8.0",
-		"lit-html": "^1.4.0"
+		"@neovici/cosmoz-utils": "^4.0.0",
+		"haunted": "^5.0.0",
+		"lit-html": "^2.0.0"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.0.0",
 		"@commitlint/config-conventional": "^17.0.0",
 		"@neovici/cfg": "^1.13.1",
-		"@open-wc/demoing-storybook": "^2.1.0",
-		"@open-wc/testing": "^2.5.0",
+		"@open-wc/testing": "^3.0.0",
 		"@semantic-release/changelog": "^6.0.0",
 		"@semantic-release/git": "^10.0.0",
 		"@storybook/storybook-deployer": "^2.8.5",
+		"@web/dev-server-storybook": "^0.5.1",
 		"husky": "^8.0.0",
 		"semantic-release": "^19.0.0",
 		"sinon": "^14.0.0",

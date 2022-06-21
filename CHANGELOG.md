@@ -1,3 +1,14 @@
+## [2.0.0-beta.1](https://github.com/neovici/cosmoz-input/compare/v1.7.0...v2.0.0-beta.1) (2022-06-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* Upgrade to lit-html@2 & haunted@5
+
+### Features
+
+* upgrade to latest lit/haunted ([bdc808c](https://github.com/neovici/cosmoz-input/commit/bdc808ce308932010cd575a17313daeb9409c68e))
+
 ## [1.7.0](https://github.com/neovici/cosmoz-input/compare/v1.6.2...v1.7.0) (2022-05-05)
 
 

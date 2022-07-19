@@ -16,13 +16,16 @@
 	},
 	"license": "Apache-2.0",
 	"author": "",
-	"main": "cosmoz-input.js",
+	"main": "dist/index.js",
 	"directories": {
 		"test": "test"
 	},
+	"files": [
+		"dist/"
+	],
 	"scripts": {
-		"lint": "eslint --cache --ext .js .",
-		"lint-tsc": "tsc",
+		"lint": "tsc && eslint --cache .",
+		"build": "tsc -p tsconfig.build.json",
 		"start": "wds",
 		"test": "wtr --coverage",
 		"test:watch": "wtr --watch",
@@ -45,10 +48,6 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"files": [
-		"*.js",
-		"lib/**/*.js"
-	],
 	"commitlint": {
 		"extends": [
 			"@commitlint/config-conventional"
@@ -61,8 +60,15 @@
 			]
 		}
 	},
+	"exports": {
+		".": "./dist/index.js",
+		"./use-input": "./dist/use-input.js",
+		"./input": "./dist/cosmoz-input.js",
+		"./textarea": "./dist/cosmoz-textarea.js"
+	},
+
 	"dependencies": {
-		"@neovici/cosmoz-utils": "^4.0.0",
+		"@neovici/cosmoz-utils": "^5.1.0",
 		"haunted": "^5.0.0",
 		"lit-html": "^2.0.0"
 	},

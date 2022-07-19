@@ -1,4 +1,4 @@
-import '../cosmoz-input';
+import '../src/cosmoz-input';
 import { expect, html, fixture } from '@open-wc/testing';
 import { spy } from 'sinon';
 

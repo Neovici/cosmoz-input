@@ -1,3 +1,14 @@
+## [3.0.0](https://github.com/neovici/cosmoz-input/compare/v2.0.0...v3.0.0) (2022-07-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* convert codebase to typescript
+
+### Features
+
+* convert to typescript ([ee5a480](https://github.com/neovici/cosmoz-input/commit/ee5a4803e1671f01fbb0944d0c6565ee5da6408f))
+
 ## [2.0.0](https://github.com/neovici/cosmoz-input/compare/v1.7.0...v2.0.0) (2022-06-21)
 
 

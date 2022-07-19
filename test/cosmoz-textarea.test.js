@@ -1,4 +1,4 @@
-import '../cosmoz-textarea';
+import '../src/cosmoz-textarea';
 import { expect, html, fixture, nextFrame } from '@open-wc/testing';
 
 describe('cosmoz-textarea', () => {

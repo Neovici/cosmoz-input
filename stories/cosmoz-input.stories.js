@@ -1,5 +1,5 @@
 import { html } from 'lit-html';
-import '../cosmoz-input';
+import '../src/cosmoz-input';
 
 export default {
 	title: 'Input',

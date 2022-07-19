@@ -1,3 +1,10 @@
+## [3.1.0](https://github.com/neovici/cosmoz-input/compare/v3.0.0...v3.1.0) (2022-07-19)
+
+
+### Features
+
+* build ([1ad48c8](https://github.com/neovici/cosmoz-input/commit/1ad48c89e74e36d830d9e7113a81f41d0370f57e))
+
 ## [3.0.0](https://github.com/neovici/cosmoz-input/compare/v2.0.0...v3.0.0) (2022-07-19)
 
 

@@ -42,7 +42,8 @@ export const useInput = <T extends BaseInput>(host: T) => {
 			const onMouseDown = <T extends Event>(e: T) => {
 				if (
 					e.defaultPrevented ||
-					(e.target as HTMLElement).matches('input, textarea, label')
+					(e.target as HTMLElement).matches('input, textarea, label') ||
+					(e.target as HTMLElement).disabled
 				) {
 					return;
 				}

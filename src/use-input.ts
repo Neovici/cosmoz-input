@@ -40,10 +40,11 @@ export const useInput = <T extends BaseInput>(host: T) => {
 
 		useEffect(() => {
 			const onMouseDown = <T extends Event>(e: T) => {
+				const element = e.target as HTMLSelectElement | null;
 				if (
 					e.defaultPrevented ||
 					(e.target as HTMLElement).matches('input, textarea, label') ||
-					(e.target as HTMLElement).disabled
+					element?.disabled
 				) {
 					return;
 				}

@@ -40,7 +40,7 @@ export const useInput = <T extends BaseInput>(host: T) => {
 
 		useEffect(() => {
 			const onMouseDown = <T extends Event>(e: T) => {
-				const element = document.querySelector('#input[part="input"]') | null;
+				const element = document.querySelector('#input[part="input"]') as HTMLInputElement | null;
 				if (
 					e.defaultPrevented ||
 					(e.target as HTMLElement).matches('input, textarea, label') ||

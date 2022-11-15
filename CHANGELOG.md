@@ -1,3 +1,20 @@
+## [3.2.0](https://github.com/neovici/cosmoz-input/compare/v3.1.0...v3.2.0) (2022-11-15)
+
+
+### Features
+
+* casting root input to HTMLInputElement and checking disable state ([40992ac](https://github.com/neovici/cosmoz-input/commit/40992ac18d6c944dbee62d777ee760a6acdfde53))
+* check host disable state ([369486c](https://github.com/neovici/cosmoz-input/commit/369486c0a4267fb6cb97fbd8e0e2bdcd6558b87b))
+* fix for event target disabled ([5431c2c](https://github.com/neovici/cosmoz-input/commit/5431c2c476a0bfa929d82c8ef7706701fb0a0c43))
+* getting the input element disabled state ([7f13562](https://github.com/neovici/cosmoz-input/commit/7f135620100a7a4e7e414ebd54584e689b032323))
+* input type assertion as HTMLInputElement ([7569100](https://github.com/neovici/cosmoz-input/commit/7569100a36b81b3620bfdd11121e2a9cff201ac9))
+* prevent mouse down event when target is disabled ([f85823e](https://github.com/neovici/cosmoz-input/commit/f85823ef0831fab4e72bc0950fa54201c61a8083))
+
+
+### Bug Fixes
+
+* **use-input:** don't prevent mousedown when disabled ([b1cab40](https://github.com/neovici/cosmoz-input/commit/b1cab40e46ddb6dc935501891a8c3dd22c4fe801))
+
 ## [3.1.0](https://github.com/neovici/cosmoz-input/compare/v3.0.0...v3.1.0) (2022-07-19)
 
 

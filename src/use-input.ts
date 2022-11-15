@@ -6,6 +6,7 @@ export interface BaseInput extends HTMLElement {
 	value?: string | number;
 	maxRows?: number;
 	focused?: boolean;
+	disabled?: boolean;
 }
 // TODO:  use useRef instead of callback with querySelector
 export const useInput = <T extends BaseInput>(host: T) => {
@@ -42,6 +43,7 @@ export const useInput = <T extends BaseInput>(host: T) => {
 			const onMouseDown = <T extends Event>(e: T) => {
 				if (
 					e.defaultPrevented ||
+					host.disabled ||
 					(e.target as HTMLElement).matches('input, textarea, label')
 				) {
 					return;

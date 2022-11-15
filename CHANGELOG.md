@@ -1,3 +1,10 @@
+## [3.3.0](https://github.com/neovici/cosmoz-input/compare/v3.2.0...v3.3.0) (2022-11-15)
+
+
+### Features
+
+* update deps ([fe80623](https://github.com/neovici/cosmoz-input/commit/fe8062363d76e3f35623b8f22965da7943ffb861))
+
 ## [3.2.0](https://github.com/neovici/cosmoz-input/compare/v3.1.0...v3.2.0) (2022-11-15)
 
 

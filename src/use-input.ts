@@ -6,6 +6,7 @@ export interface BaseInput extends HTMLElement {
 	value?: string | number;
 	maxRows?: number;
 	focused?: boolean;
+	disabled?: boolean;
 }
 // TODO:  use useRef instead of callback with querySelector
 export const useInput = <T extends BaseInput>(host: T) => {
@@ -40,11 +41,10 @@ export const useInput = <T extends BaseInput>(host: T) => {
 
 		useEffect(() => {
 			const onMouseDown = <T extends Event>(e: T) => {
-				const isInputDisabled = (root.querySelector('#input') as HTMLInputElement)?.disabled;
 				if (
 					e.defaultPrevented ||
-					(e.target as HTMLElement).matches('input, textarea, label') ||
-					isInputDisabled
+					host.disabled ||
+					(e.target as HTMLElement).matches('input, textarea, label')
 				) {
 					return;
 				}

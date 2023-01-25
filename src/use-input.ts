@@ -16,11 +16,12 @@ export const useInput = <T extends BaseInput>(host: T) => {
 					host.dispatchEvent(new Event(e.type, { bubbles: e.bubbles })),
 				[]
 			),
-			onInput = useCallback(
-				(e: InputEvent) =>
-					notifyProperty(host, 'value', (e.target as HTMLInputElement).value),
-				[]
-			),
+			onInput = useCallback((e: InputEvent) => {
+				notifyProperty(host, 'value', (e.target as HTMLInputElement).value);
+
+				e.stopPropagation();
+				host.dispatchEvent(new InputEvent(e.type, { bubbles: e.bubbles }));
+			}, []),
 			onFocus = useCallback(
 				(e: FocusEvent) => notifyProperty(host, 'focused', e.type === 'focus'),
 				[]

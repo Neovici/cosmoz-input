@@ -94,6 +94,10 @@ export const styles = css`
 		text-overflow: ellipsis;
 	}
 
+	:host([float-label-value-selected]) label {
+		width: auto;
+	}
+
 	:host([always-float-label]) label,
 	#input:not(:placeholder-shown) + label {
 		transform: translateY(calc(var(--label-scale) * -100%))

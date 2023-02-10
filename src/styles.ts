@@ -157,4 +157,20 @@ export const styles = css`
 	#input::-webkit-inner-spin-button {
 		z-index: 1;
 	}
+
+	.value {
+		opacity: 0;
+	}
+	.value + #input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+	:host([autosize]) {
+		width: max-content;
+	}
+	:host([type='number']) .value {
+		padding-right: 15px;
+	}
 `;

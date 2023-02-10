@@ -3,25 +3,27 @@ import '../src/cosmoz-input';
 
 export default {
 	title: 'Input',
-	component: 'cosmoz-input'
+	component: 'cosmoz-input',
 };
 
 const basic = () => html`
-		<cosmoz-input
-			.label=${ 'Choose color' }
-			.value=${ 'Red' }
-		></cosmoz-input>
+		<cosmoz-input .label=${'Choose color'} .value=${'Red'}></cosmoz-input>
 	`,
-
 	error = () => html`
 		<cosmoz-input
-			.label=${ 'Choose color' }
-			.value=${ 'Red' }
+			.label=${'Choose color'}
+			.value=${'Red'}
 			invalid
-			.errorMessage=${ 'Something is wrong!' }
+			.errorMessage=${'Something is wrong!'}
+		></cosmoz-input>
+	`,
+	autosize = () => html`
+		<cosmoz-input
+			autosize
+			no-label-float
+			type="number"
+			.value=${3.12}
 		></cosmoz-input>
 	`;
-export {
-	basic,
-	error
-};
+
+export { basic, error, autosize };

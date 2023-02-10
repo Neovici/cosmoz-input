@@ -3,7 +3,7 @@ import { when } from 'lit-html/directives/when.js';
 import { styles } from './styles';
 
 export type ObjectFromList<T extends ReadonlyArray<string>, V = string> = {
-  [K in (T extends ReadonlyArray<infer U> ? U : never)]: V
+	[K in T extends ReadonlyArray<infer U> ? U : never]: V;
 };
 
 export interface Render {
@@ -11,6 +11,7 @@ export interface Render {
 	invalid?: boolean;
 	errorMessage?: string;
 }
+
 export const render = <T>(
 		control: T,
 		{ label, invalid, errorMessage }: Render

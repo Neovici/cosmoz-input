@@ -38,14 +38,13 @@ export const Input = (host: CosmozInput) => {
 			max,
 			step,
 			maxlength,
-			autosize,
 		} = host,
 		{ onChange, onFocus, onInput } = useInput(host);
 	const onBeforeInput = useAllowedPattern(allowedPattern);
 	return render(
 		html`
-			${when(autosize, () => html`<div class="value">${value ?? ' '}</div>`)}
 			<input
+				style="--chars: ${value?.toString()?.length ?? 0}ch"
 				id="input"
 				part="input"
 				type=${type}

@@ -5,7 +5,8 @@ import { spy } from 'sinon';
 describe('cosmoz-input', () => {
 	it('render', async () => {
 		const el = await fixture(html`<cosmoz-input></cosmoz-input>`);
-		expect(el).shadowDom.to.equal(`
+		expect(el).shadowDom.to.equal(
+			`
 			<div class="float" part="float"></div>
 			<div class="wrap" part="wrap">
 				<slot name="prefix"> </slot>
@@ -15,12 +16,17 @@ describe('cosmoz-input', () => {
 				<slot name="suffix"></slot>
 			</div>
 			<div class="line" part="line"></div>
-		`);
+		`,
+			{ ignoreAttributes: ['style'] }
+		);
 	});
 
 	it('render label and value', async () => {
-		const el = await fixture(html`<cosmoz-input .label=${ 'Label' } .value=${ 'value' }></cosmoz-input>`);
-		expect(el).shadowDom.to.equal(`
+		const el = await fixture(
+			html`<cosmoz-input .label=${'Label'} .value=${'value'}></cosmoz-input>`
+		);
+		expect(el).shadowDom.to.equal(
+			`
 			<div class="float" part="float"></div>
 			<div class="wrap" part="wrap">
 				<slot name="prefix"> </slot>
@@ -33,13 +39,21 @@ describe('cosmoz-input', () => {
 				<slot name="suffix"> </slot>
 			</div>
 			<div class="line" part="line"></div>
-		`);
+		`,
+			{ ignoreAttributes: ['style'] }
+		);
 	});
 
-
 	it('render errorMessage', async () => {
-		const el = await fixture(html`<cosmoz-input invalid .errorMessage=${ 'Something is wrong!' } .value=${ 'wrong' }></cosmoz-input>`);
-		expect(el).shadowDom.to.equal(`
+		const el = await fixture(
+			html`<cosmoz-input
+				invalid
+				.errorMessage=${'Something is wrong!'}
+				.value=${'wrong'}
+			></cosmoz-input>`
+		);
+		expect(el).shadowDom.to.equal(
+			`
 			<div class="float" part="float"></div>
 			<div class="wrap" part="wrap">
 				<slot name="prefix"> </slot>
@@ -52,7 +66,9 @@ describe('cosmoz-input', () => {
 			<div class="error" part="error">
 				Something is wrong!
 			</div>
-		`);
+		`,
+			{ ignoreAttributes: ['style'] }
+		);
 	});
 
 	it('focus', async () => {
@@ -74,28 +90,38 @@ describe('cosmoz-input', () => {
 	});
 
 	it('validate', async () => {
-		const el = await fixture(html`<cosmoz-input .value=${ 'a' } pattern="[2]"></cosmoz-input>`);
+		const el = await fixture(
+			html`<cosmoz-input .value=${'a'} pattern="[2]"></cosmoz-input>`
+		);
 		expect(el.validate()).to.be.false;
 	});
 
 	it('allowed-pattern', async () => {
-		const el = await fixture(html`<cosmoz-input allowed-pattern="[c]"></cosmoz-input>`);
-		expect(el.shadowRoot.querySelector('input').dispatchEvent(new InputEvent(
-			'beforeinput',
-			{
-				data: 'c',
-				cancelable: true
-			}))).to.be.true;
+		const el = await fixture(
+			html`<cosmoz-input allowed-pattern="[c]"></cosmoz-input>`
+		);
+		expect(
+			el.shadowRoot.querySelector('input').dispatchEvent(
+				new InputEvent('beforeinput', {
+					data: 'c',
+					cancelable: true,
+				})
+			)
+		).to.be.true;
 	});
 
 	it('allowed-pattern fail', async () => {
-		const el = await fixture(html`<cosmoz-input allowed-pattern="[c]"></cosmoz-input>`);
-		expect(el.shadowRoot.querySelector('input').dispatchEvent(new InputEvent(
-			'beforeinput',
-			{
-				data: '2',
-				cancelable: true
-			}))).to.be.false;
+		const el = await fixture(
+			html`<cosmoz-input allowed-pattern="[c]"></cosmoz-input>`
+		);
+		expect(
+			el.shadowRoot.querySelector('input').dispatchEvent(
+				new InputEvent('beforeinput', {
+					data: '2',
+					cancelable: true,
+				})
+			)
+		).to.be.false;
 	});
 
 	it('value', async () => {
@@ -103,24 +129,33 @@ describe('cosmoz-input', () => {
 			el = await fixture(html`<cosmoz-input></cosmoz-input>`);
 		el.addEventListener('value-changed', inputSpy, { once: true });
 		expect(inputSpy).not.to.have.been.called;
-		el.shadowRoot.querySelector('input').dispatchEvent(new Event('input', { bubbles: true }));
+		el.shadowRoot
+			.querySelector('input')
+			.dispatchEvent(new Event('input', { bubbles: true }));
 		expect(inputSpy).to.have.been.calledOnce;
 	});
 
 	it('mousedown', async () => {
 		const focusSpy = spy(),
-			el = await fixture(html`<cosmoz-input><div slot="suffix"></div></cosmoz-input>`);
+			el = await fixture(
+				html`<cosmoz-input><div slot="suffix"></div></cosmoz-input>`
+			);
 		el.addEventListener('focused-changed', focusSpy, { once: true });
 		expect(focusSpy).not.to.have.been.called;
 
-		el.shadowRoot.querySelector('input').dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+		el.shadowRoot
+			.querySelector('input')
+			.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
 		expect(focusSpy).not.to.have.been.called;
 
-		el.querySelector('div').dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+		el.querySelector('div').dispatchEvent(
+			new MouseEvent('mousedown', { bubbles: true })
+		);
 		expect(focusSpy).to.have.been.calledOnce;
 
-		el.querySelector('div').dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+		el.querySelector('div').dispatchEvent(
+			new MouseEvent('mousedown', { bubbles: true })
+		);
 		expect(focusSpy).to.have.been.calledOnce;
 	});
 });
-

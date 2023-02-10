@@ -3,7 +3,8 @@ import { live } from 'lit-html/directives/live.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 import { component } from 'haunted';
-import { BaseInput, useInput, useAllowedPattern } from './use-input';
+import { BaseInput, useInput } from './use-input';
+import { useAllowedPattern } from './use-allowed-pattern';
 import { Render, ObjectFromList, render, attributes } from './render';
 
 const observedAttributes = [
@@ -36,8 +37,8 @@ export const Input = (host: CosmozInput) => {
 			step,
 			maxlength,
 		} = host,
-		{ onChange, onFocus, onInput } = useInput(host),
-		onBeforeInput = useAllowedPattern(allowedPattern);
+		{ onChange, onFocus, onInput } = useInput(host);
+	const onBeforeInput = useAllowedPattern(allowedPattern);
 	return render(
 		html`<input
 			id="input"

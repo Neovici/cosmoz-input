@@ -3,7 +3,8 @@ import { live } from 'lit-html/directives/live.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 import { component } from 'haunted';
-import { BaseInput, useInput, useAutosize } from './use-input';
+import { BaseInput, useInput } from './use-input';
+import { useAutoHeight } from './use-auto-height';
 import { Render, ObjectFromList, render, attributes } from './render';
 
 const observedAttributes = ['rows', ...attributes];
@@ -26,7 +27,7 @@ export const Textarea = (host: CosmozInput) => {
 		} = host,
 		{ onChange, onFocus, onInput } = useInput(host);
 
-	useAutosize(host);
+	useAutoHeight(host);
 
 	return render(
 		html`

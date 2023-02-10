@@ -1,3 +1,11 @@
+## [3.4.0](https://github.com/neovici/cosmoz-input/compare/v3.3.0...v3.4.0) (2023-02-10)
+
+
+### Features
+
+* **input:** autosize with ch units ([bac6986](https://github.com/neovici/cosmoz-input/commit/bac6986a94a3c0a3a15ba74a0b95e2cdc16fc042))
+* **input:** implement autosize ([734f211](https://github.com/neovici/cosmoz-input/commit/734f211865a1b8ec9e4039e425ea53bf559e9edf))
+
 ## [3.3.0](https://github.com/neovici/cosmoz-input/compare/v3.2.0...v3.3.0) (2022-11-15)
 
 

@@ -1,7 +1,6 @@
-import { html } from 'lit-html'; // eslint-disable-line object-curly-newline
+import { html } from 'lit-html';
 import { live } from 'lit-html/directives/live.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
-import { when } from 'lit-html/directives/when.js';
 import { component } from 'haunted';
 
 import { BaseInput, useInput } from './use-input';

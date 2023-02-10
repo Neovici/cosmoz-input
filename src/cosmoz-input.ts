@@ -1,9 +1,10 @@
-import { html } from 'lit-html'; // eslint-disable-line object-curly-newline
+import { html } from 'lit-html';
 import { live } from 'lit-html/directives/live.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
-
 import { component } from 'haunted';
-import { BaseInput, useInput, useAllowedPattern } from './use-input';
+
+import { BaseInput, useInput } from './use-input';
+import { useAllowedPattern } from './use-allowed-pattern';
 import { Render, ObjectFromList, render, attributes } from './render';
 
 const observedAttributes = [
@@ -13,6 +14,7 @@ const observedAttributes = [
 	'min',
 	'max',
 	'step',
+	'autosize',
 	...attributes,
 ];
 
@@ -36,30 +38,33 @@ export const Input = (host: CosmozInput) => {
 			step,
 			maxlength,
 		} = host,
-		{ onChange, onFocus, onInput } = useInput(host),
-		onBeforeInput = useAllowedPattern(allowedPattern);
+		{ onChange, onFocus, onInput } = useInput(host);
+	const onBeforeInput = useAllowedPattern(allowedPattern);
 	return render(
-		html`<input
-			id="input"
-			part="input"
-			type=${type}
-			pattern=${ifDefined(pattern)}
-			autocomplete=${ifDefined(autocomplete)}
-			placeholder=${placeholder || ' '}
-			?readonly=${readonly}
-			?aria-disabled=${disabled}
-			?disabled=${disabled}
-			.value=${live(value ?? '')}
-			maxlength=${ifDefined(maxlength)}
-			@beforeinput=${onBeforeInput}
-			@input=${onInput}
-			@change=${onChange}
-			@focus=${onFocus}
-			@blur=${onFocus}
-			min=${ifDefined(min)}
-			max=${ifDefined(max)}
-			step=${ifDefined(step)}
-		/>`,
+		html`
+			<input
+				style="--chars: ${value?.toString()?.length ?? 0}ch"
+				id="input"
+				part="input"
+				type=${type}
+				pattern=${ifDefined(pattern)}
+				autocomplete=${ifDefined(autocomplete)}
+				placeholder=${placeholder || ' '}
+				?readonly=${readonly}
+				?aria-disabled=${disabled}
+				?disabled=${disabled}
+				.value=${live(value ?? '')}
+				maxlength=${ifDefined(maxlength)}
+				@beforeinput=${onBeforeInput}
+				@input=${onInput}
+				@change=${onChange}
+				@focus=${onFocus}
+				@blur=${onFocus}
+				min=${ifDefined(min)}
+				max=${ifDefined(max)}
+				step=${ifDefined(step)}
+			/>
+		`,
 		host
 	);
 };

@@ -157,4 +157,30 @@ export const styles = css`
 	#input::-webkit-inner-spin-button {
 		z-index: 1;
 	}
+
+	:host([no-spinner]) #input::-webkit-inner-spin-button {
+		display: none;
+	}
+	:host([no-spinner]) #input {
+		-moz-appearence: textfield;
+	}
+
+	:host([autosize]) {
+		width: max-content;
+	}
+	:host([autosize]) #input {
+		min-width: 2ch;
+		width: var(--chars);
+	}
+	:host([autosize][type='number']) #input {
+		--width: calc(var(--chars) + 0.25em);
+	}
+	:host([autosize][type='number']:not([no-spinner])) #input {
+		width: calc(var(--width) + 15px);
+		min-width: calc(2ch + 0.25em + 15px);
+	}
+	:host([autosize][type='number'][no-spinner]) #input {
+		width: var(--width);
+		min-width: calc(2ch + 0.25em);
+	}
 `;

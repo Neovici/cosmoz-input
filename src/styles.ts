@@ -172,6 +172,10 @@ export const styles = css`
 		min-width: 2ch;
 		width: var(--chars);
 	}
+	:host([autosize]) .control {
+		max-width: 100%;
+	}
+
 	:host([autosize][type='number']) #input {
 		--width: calc(var(--chars) + 0.25em);
 	}

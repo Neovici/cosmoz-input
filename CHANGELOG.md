@@ -1,3 +1,10 @@
+## [3.4.2](https://github.com/neovici/cosmoz-input/compare/v3.4.1...v3.4.2) (2023-02-13)
+
+
+### Bug Fixes
+
+* **input:** autosize control max width ([8448a6c](https://github.com/neovici/cosmoz-input/commit/8448a6cd11351d2eb3cca4cee18ffcf67bc2b930))
+
 ## [3.4.1](https://github.com/neovici/cosmoz-input/compare/v3.4.0...v3.4.1) (2023-02-13)
 
 

@@ -1,3 +1,10 @@
+## [3.4.1](https://github.com/neovici/cosmoz-input/compare/v3.4.0...v3.4.1) (2023-02-13)
+
+
+### Bug Fixes
+
+* **input:** autosize with min-content ([edea9b3](https://github.com/neovici/cosmoz-input/commit/edea9b335c1b8b8563c8005dc3863335ff6a1672))
+
 ## [3.4.0](https://github.com/neovici/cosmoz-input/compare/v3.3.0...v3.4.0) (2023-02-10)
 
 

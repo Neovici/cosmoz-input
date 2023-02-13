@@ -166,7 +166,7 @@ export const styles = css`
 	}
 
 	:host([autosize]) {
-		width: max-content;
+		width: min-content;
 	}
 	:host([autosize]) #input {
 		min-width: 2ch;

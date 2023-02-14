@@ -1,3 +1,10 @@
+## [3.5.0](https://github.com/neovici/cosmoz-input/compare/v3.4.2...v3.5.0) (2023-02-14)
+
+
+### Features
+
+* **input:** bg on wrap ([54e28ab](https://github.com/neovici/cosmoz-input/commit/54e28abb556bec1ae4029f94c2ec8fc2de46dd57))
+
 ## [3.4.2](https://github.com/neovici/cosmoz-input/compare/v3.4.1...v3.4.2) (2023-02-13)
 
 

@@ -58,6 +58,7 @@ export const styles = css`
 		display: flex;
 		align-items: center;
 		position: relative;
+		background: var(--bg);
 	}
 
 	.control {
@@ -73,14 +74,14 @@ export const styles = css`
 		width: 100%;
 		max-width: 100%;
 		display: block;
-		background: var(--bg);
+		background: transparent;
 		line-height: inherit;
 		font-size: inherit;
 	}
-
-	:host(:focus-within) #input {
+	:host(:focus-within) .wrap {
 		background: var(--focused-bg);
 	}
+
 	label {
 		position: absolute;
 		top: 0;

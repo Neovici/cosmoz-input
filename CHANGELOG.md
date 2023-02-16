@@ -1,3 +1,10 @@
+## [3.6.0](https://github.com/neovici/cosmoz-input/compare/v3.5.0...v3.6.0) (2023-02-16)
+
+
+### Features
+
+* **style:** inherit font family ([7e919f4](https://github.com/neovici/cosmoz-input/commit/7e919f40e055052d00f1440925f44b5fbcce2cbe))
+
 ## [3.5.0](https://github.com/neovici/cosmoz-input/compare/v3.4.2...v3.5.0) (2023-02-14)
 
 

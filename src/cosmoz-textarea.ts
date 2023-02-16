@@ -31,7 +31,7 @@ export const Textarea = (host: CosmozInput) => {
 
 	return render(
 		html`
-			<textarea id="input" part="input" style="resize: none"
+			<textarea id="input" part="input"
 				autocomplete=${ifDefined(autocomplete)}
 				placeholder=${placeholder || ' '}
 				rows=${rows ?? 1} cols=${ifDefined(cols)}

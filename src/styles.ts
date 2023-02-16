@@ -77,6 +77,8 @@ export const styles = css`
 		background: transparent;
 		line-height: inherit;
 		font-size: inherit;
+		font-family: inherit;
+		resize: none;
 	}
 	:host(:focus-within) .wrap {
 		background: var(--focused-bg);

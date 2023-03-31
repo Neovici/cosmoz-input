@@ -24,6 +24,13 @@ const basic = () => html`
 			type="number"
 			.value=${3.12}
 		></cosmoz-input>
-	`;
+	`,
+	color = () => html`
+		<cosmoz-input
+			no-label-float
+			type="color"
+			.value=${'#ff0000'}
+		></cosmoz-input>
+	`
 
-export { basic, error, autosize };
+export { basic, error, autosize, color };

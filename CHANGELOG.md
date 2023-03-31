@@ -1,3 +1,10 @@
+## [3.7.0](https://github.com/neovici/cosmoz-input/compare/v3.6.0...v3.7.0) (2023-03-31)
+
+
+### Features
+
+* added a storybook for color input ([aed014e](https://github.com/neovici/cosmoz-input/commit/aed014e7a2e6d16b4b77534a83468b66d96cf1de))
+
 ## [3.6.0](https://github.com/neovici/cosmoz-input/compare/v3.5.0...v3.6.0) (2023-02-16)
 
 

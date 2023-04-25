@@ -23,6 +23,7 @@ export const render = <T>(
 		<div class="wrap" part="wrap">
 			<slot name="prefix"></slot>
 			<div class="control" part="control">
+				<slot name="control"></slot>
 				${control}
 				${when(
 					label,

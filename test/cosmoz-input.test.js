@@ -5,42 +5,14 @@ import { spy } from 'sinon';
 describe('cosmoz-input', () => {
 	it('render', async () => {
 		const el = await fixture(html`<cosmoz-input></cosmoz-input>`);
-		expect(el).shadowDom.to.equal(
-			`
-			<div class="float" part="float"></div>
-			<div class="wrap" part="wrap">
-				<slot name="prefix"> </slot>
-				<div class="control" part="control">
-					<input id="input" part="input" placeholder=" " type="text" />
-				</div>
-				<slot name="suffix"></slot>
-			</div>
-			<div class="line" part="line"></div>
-		`,
-			{ ignoreAttributes: ['style'] }
-		);
+		await expect(el).shadowDom.to.equalSnapshot({ ignoreAttributes: ['style'] });
 	});
 
 	it('render label and value', async () => {
 		const el = await fixture(
 			html`<cosmoz-input .label=${'Label'} .value=${'value'}></cosmoz-input>`
 		);
-		expect(el).shadowDom.to.equal(
-			`
-			<div class="float" part="float"></div>
-			<div class="wrap" part="wrap">
-				<slot name="prefix"> </slot>
-				<div class="control" part="control">
-					<input id="input" part="input" placeholder=" " type="text" />
-					<label for="input" part="label">
-					Label
-					</label>
-				</div>
-				<slot name="suffix"> </slot>
-			</div>
-			<div class="line" part="line"></div>
-		`,
-			{ ignoreAttributes: ['style'] }
+		await expect(el).shadowDom.to.equalSnapshot({ ignoreAttributes: ['style'] }
 		);
 	});
 
@@ -52,23 +24,7 @@ describe('cosmoz-input', () => {
 				.value=${'wrong'}
 			></cosmoz-input>`
 		);
-		expect(el).shadowDom.to.equal(
-			`
-			<div class="float" part="float"></div>
-			<div class="wrap" part="wrap">
-				<slot name="prefix"> </slot>
-				<div class="control" part="control">
-					<input id="input" part="input" placeholder=" " type="text" />
-				</div>
-				<slot name="suffix"> </slot>
-			</div>
-			<div class="line" part="line"></div>
-			<div class="error" part="error">
-				Something is wrong!
-			</div>
-		`,
-			{ ignoreAttributes: ['style'] }
-		);
+		await expect(el).shadowDom.to.equalSnapshot({ ignoreAttributes: ['style'] });
 	});
 
 	it('focus', async () => {

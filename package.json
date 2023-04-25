@@ -81,7 +81,7 @@
 		"@storybook/storybook-deployer": "^2.8.5",
 		"@web/dev-server-storybook": "^0.5.1",
 		"husky": "^8.0.0",
-		"semantic-release": "^19.0.0",
+		"semantic-release": "^21.0.1",
 		"sinon": "^14.0.0",
 		"typescript": "^4.6.0"
 	}

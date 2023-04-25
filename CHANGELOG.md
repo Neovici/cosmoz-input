@@ -1,3 +1,10 @@
+## [3.8.0](https://github.com/neovici/cosmoz-input/compare/v3.7.0...v3.8.0) (2023-04-25)
+
+
+### Features
+
+* **render:** add control slot ([c749dd5](https://github.com/neovici/cosmoz-input/commit/c749dd57cccc30dbbd7b081690eef63aaeeca05a))
+
 ## [3.7.0](https://github.com/neovici/cosmoz-input/compare/v3.6.0...v3.7.0) (2023-03-31)
 
 

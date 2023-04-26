@@ -9,18 +9,12 @@ export interface BaseInput extends HTMLElement {
 	maxRows?: number;
 	focused?: boolean;
 	disabled?: boolean;
-	onInputRef?: (el: Input) => void;
 }
 export const useInput = <T extends BaseInput>(host: T) => {
-	const { onInputRef } = host;
 	const inputRef = useRef<Input | undefined>(undefined);
 	const onRef = useCallback(
-		(el?: Element) => {
-			const ref = el as Input;
-			inputRef.current = ref;
-			onInputRef?.(ref);
-		},
-		[onInputRef]
+		(el?: Element) => (inputRef.current = el as Input),
+		[]
 	);
 	const root = host.shadowRoot as ShadowRoot,
 		onChange = useCallback(

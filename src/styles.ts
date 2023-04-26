@@ -102,8 +102,10 @@ export const styles = css`
 		transform: translateY(calc(var(--label-scale) * -100%))
 			scale(var(--label-scale));
 	}
-	#input:not(:placeholder-shown):focus + label {
+	:host(:not(always-float-label):focus-within) #input::placeholder,
+	:host(:focus-within) label {
 		color: var(--focused-color);
+		opacity: 1;
 	}
 
 	.line {
@@ -137,7 +139,7 @@ export const styles = css`
 	}
 
 	:host([no-label-float]) .float,
-	:host([no-label-float]) #input:not(:placeholder-shown) + label {
+	:host([no-label-float]) label {
 		display: none;
 	}
 
@@ -190,7 +192,7 @@ export const styles = css`
 		width: var(--width);
 		min-width: calc(2ch + 0.25em);
 	}
-	:host([type="color"]) .line {
+	:host([type='color']) .line {
 		display: none;
 	}
 `;

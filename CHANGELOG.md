@@ -1,3 +1,10 @@
+## [3.11.0](https://github.com/neovici/cosmoz-input/compare/v3.10.0...v3.11.0) (2023-04-26)
+
+
+### Features
+
+* remove onInputRef ([e2abb3d](https://github.com/neovici/cosmoz-input/commit/e2abb3d84e684cc18e2ab031dc154f8af85ca069))
+
 ## [3.10.0](https://github.com/neovici/cosmoz-input/compare/v3.9.0...v3.10.0) (2023-04-26)
 
 

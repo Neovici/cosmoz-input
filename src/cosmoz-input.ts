@@ -6,6 +6,7 @@ import { component } from 'haunted';
 import { BaseInput, useInput } from './use-input';
 import { useAllowedPattern } from './use-allowed-pattern';
 import { Render, ObjectFromList, render, attributes } from './render';
+import { getPlaceholder } from './util';
 
 const observedAttributes = [
 	'type',
@@ -30,7 +31,6 @@ export const Input = (host: CosmozInput) => {
 			allowedPattern,
 			autocomplete,
 			value,
-			placeholder,
 			readonly,
 			disabled,
 			min,
@@ -49,7 +49,7 @@ export const Input = (host: CosmozInput) => {
 				type=${type}
 				pattern=${ifDefined(pattern)}
 				autocomplete=${ifDefined(autocomplete)}
-				placeholder=${placeholder || ' '}
+				placeholder=${getPlaceholder(host)}
 				?readonly=${readonly}
 				?aria-disabled=${disabled}
 				?disabled=${disabled}

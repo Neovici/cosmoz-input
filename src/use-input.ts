@@ -1,15 +1,27 @@
-import { useCallback, useEffect } from 'haunted';
+import { useCallback, useEffect, useRef } from 'haunted';
 import { useImperativeApi } from '@neovici/cosmoz-utils/hooks/use-imperative-api';
 import { notifyProperty } from '@neovici/cosmoz-utils/hooks/use-notify-property';
+
+type Input = HTMLInputElement | HTMLTextAreaElement;
 
 export interface BaseInput extends HTMLElement {
 	value?: string | number;
 	maxRows?: number;
 	focused?: boolean;
 	disabled?: boolean;
+	onInputRef?: (el: Input) => void;
 }
-// TODO:  use useRef instead of callback with querySelector
 export const useInput = <T extends BaseInput>(host: T) => {
+	const { onInputRef } = host;
+	const inputRef = useRef<Input | undefined>(undefined);
+	const onRef = useCallback(
+		(el?: Element) => {
+			const ref = el as Input;
+			inputRef.current = ref;
+			onInputRef?.(ref);
+		},
+		[onInputRef]
+	);
 	const root = host.shadowRoot as ShadowRoot,
 		onChange = useCallback(
 			(e: Event) =>
@@ -25,14 +37,9 @@ export const useInput = <T extends BaseInput>(host: T) => {
 			(e: FocusEvent) => notifyProperty(host, 'focused', e.type === 'focus'),
 			[]
 		),
-		focus = useCallback(
-			() => (root.querySelector('#input') as HTMLInputElement)?.focus(),
-			[]
-		),
+		focus = useCallback(() => inputRef.current?.focus(), []),
 		validate = useCallback(() => {
-			const valid = (
-				root.querySelector('#input') as HTMLInputElement
-			)?.checkValidity();
+			const valid = inputRef.current?.checkValidity();
 			host.toggleAttribute('invalid', !valid);
 			return valid;
 		}, []);
@@ -63,5 +70,6 @@ export const useInput = <T extends BaseInput>(host: T) => {
 		onChange,
 		onFocus,
 		onInput,
+		onRef,
 	};
 };

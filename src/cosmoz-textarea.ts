@@ -1,5 +1,6 @@
 import { html } from 'lit-html'; // eslint-disable-line object-curly-newline
 import { live } from 'lit-html/directives/live.js';
+import { ref } from 'lit-html/directives/ref.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 import { component } from 'haunted';
@@ -25,13 +26,14 @@ export const Textarea = (host: CosmozInput) => {
 			cols,
 			maxlength,
 		} = host,
-		{ onChange, onFocus, onInput } = useInput(host);
+		{ onChange, onFocus, onInput, onRef } = useInput(host);
 
 	useAutoHeight(host);
 
 	return render(
 		html`
 			<textarea id="input" part="input"
+				${ref(onRef)}
 				autocomplete=${ifDefined(autocomplete)}
 				placeholder=${placeholder || ' '}
 				rows=${rows ?? 1} cols=${ifDefined(cols)}

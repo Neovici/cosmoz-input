@@ -1,5 +1,6 @@
 import { html } from 'lit-html';
 import { live } from 'lit-html/directives/live.js';
+import { ref } from 'lit-html/directives/ref.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { component } from 'haunted';
 
@@ -38,11 +39,12 @@ export const Input = (host: CosmozInput) => {
 			step,
 			maxlength,
 		} = host,
-		{ onChange, onFocus, onInput } = useInput(host);
+		{ onChange, onFocus, onInput, onRef } = useInput(host);
 	const onBeforeInput = useAllowedPattern(allowedPattern);
 	return render(
 		html`
 			<input
+				${ref(onRef)}
 				style="--chars: ${value?.toString()?.length ?? 0}ch"
 				id="input"
 				part="input"

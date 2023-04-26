@@ -1,3 +1,10 @@
+## [3.9.0](https://github.com/neovici/cosmoz-input/compare/v3.8.0...v3.9.0) (2023-04-26)
+
+
+### Features
+
+* **input:** use placeholder when noLabelFloat ([bfdd965](https://github.com/neovici/cosmoz-input/commit/bfdd96595df37d20451ef3e3a779856cc3b28cec))
+
 ## [3.8.0](https://github.com/neovici/cosmoz-input/compare/v3.7.0...v3.8.0) (2023-04-25)
 
 

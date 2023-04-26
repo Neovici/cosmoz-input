@@ -1,3 +1,10 @@
+## [3.10.0](https://github.com/neovici/cosmoz-input/compare/v3.9.0...v3.10.0) (2023-04-26)
+
+
+### Features
+
+* **cosmoz-input:** get input with useRef ([dbb337c](https://github.com/neovici/cosmoz-input/commit/dbb337c24046347e063b7ea2779e0a96a21e4cb8))
+
 ## [3.9.0](https://github.com/neovici/cosmoz-input/compare/v3.8.0...v3.9.0) (2023-04-26)
 
 

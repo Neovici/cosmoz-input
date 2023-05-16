@@ -29,6 +29,7 @@ export const styles = css`
 		--bg: var(--cosmoz-input-background);
 		--focused-bg: var(--cosmoz-input-focused-background, var(--bg));
 		--color: var(--cosmoz-input-color, var(--secondary-text-color, #737373));
+		--line-color: var(--cosmoz-input-line-color, var(--color));
 		--focused-color: var(
 			--cosmoz-input-focused-color,
 			var(--primary-color, #3f51b5)
@@ -110,7 +111,7 @@ export const styles = css`
 
 	.line {
 		padding-top: 1px;
-		border-bottom: 1px solid var(--color);
+		border-bottom: 1px solid var(--line-color);
 		position: relative;
 	}
 	.line::before {

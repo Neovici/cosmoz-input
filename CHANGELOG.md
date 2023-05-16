@@ -1,3 +1,10 @@
+## [3.12.0](https://github.com/neovici/cosmoz-input/compare/v3.11.0...v3.12.0) (2023-05-16)
+
+
+### Features
+
+* **input:** add line color variable ([8e0d660](https://github.com/neovici/cosmoz-input/commit/8e0d660b74c50fe125c6153143498f59177157d5))
+
 ## [3.11.0](https://github.com/neovici/cosmoz-input/compare/v3.10.0...v3.11.0) (2023-04-26)
 
 

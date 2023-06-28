@@ -193,7 +193,10 @@ export const styles = css`
 		width: var(--width);
 		min-width: calc(2ch + 0.25em);
 	}
-	:host([type='color']) .line {
+	:host([type='color']) .line,
+	:host([type='checkbox']) .line {
 		display: none;
 	}
+
+	
 `;

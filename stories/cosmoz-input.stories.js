@@ -5,7 +5,6 @@ export default {
 	title: 'Input',
 	component: 'cosmoz-input',
 };
-
 export const basic = () => html`
 	<cosmoz-input .label=${'Choose color'}></cosmoz-input>
 `;

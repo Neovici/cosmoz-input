@@ -2,7 +2,7 @@ import { html, component } from 'haunted';
 import { toggleStyles } from '../src/toggle-styles.ts';
 
 export const CosmozToggle = (host) => {
-	const { label, value, onChange } = host;
+	const { label, checked, onChange } = host;
 	const onChecked = (event) => {
 		onChange?.(event.target.checked);
 		host.dispatchEvent(
@@ -20,7 +20,7 @@ export const CosmozToggle = (host) => {
 					type="checkbox"
 					id="toggle"
 					@change=${onChecked}
-					?checked=${value}
+					?checked=${checked}
 				/>
 				<div class="slider round"></div>
 			</label>

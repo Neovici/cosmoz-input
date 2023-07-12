@@ -8,20 +8,25 @@ export default {
 
 const handler1 = (event) => {
 	//eslint-disable-next-line no-console
-	console.log(event.detail.value);
+	console.log(
+		'The event listener handler says the toggle is',
+		event.detail.value ? 'checked' : 'not checked'
+	);
 };
 const handler2 = (checked) => {
 	//eslint-disable-next-line no-console
-	console.log(checked);
+	console.log(
+		'The callback handler says the toggle is',
+		checked ? 'checked' : 'not checked'
+	);
 };
 
-let test;
-
+const test = false;
 const basic = () => {
 	return html`
 		<cosmoz-toggle
 			label="Cosmoz Toggle"
-			.value=${test}
+			.checked=${test}
 			@change=${handler1}
 			.onChange=${handler2}
 		></cosmoz-toggle>

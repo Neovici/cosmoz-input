@@ -1,8 +1,9 @@
 import { html, component } from 'haunted';
 import { toggleStyles } from '../src/toggle-styles.ts';
+import { renderWarning } from '@neovici/cosmoz-frontend/cz-components/cz-form';
 
 export const CosmozToggle = (host) => {
-	const { label, checked, onChange } = host;
+	const { label, checked, error, warning, onChange } = host;
 	const onChecked = (event) => {
 		onChange?.(event.target.checked);
 		host.dispatchEvent(
@@ -12,19 +13,21 @@ export const CosmozToggle = (host) => {
 
 	return html`
 		<style>
-			${toggleStyles}
+			${toggleStyles} .line {
+				display: none;
+			}
 		</style>
-			<label class="switch">
-				<input
-					type="checkbox"
-					id="toggle"
-					@change=${onChecked}
-					?checked=${checked}
-				/>
-				<div class="slider round"></div>
-			</label>
-			<label for="toggle" class="label">${label}</label>
-		
+		<label class="switch">
+			<input
+				type="checkbox"
+				id="toggle"
+				@change=${onChecked}
+				?checked=${checked}
+			/>
+			<div class="slider round"></div>
+		</label>
+		<label for="toggle" class="label">${label}${renderWarning(warning, '')}</label>
+		${error && html`<div class="failure">${error}</div>`}</label>
 	`;
 };
 customElements.define(

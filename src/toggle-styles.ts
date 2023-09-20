@@ -1,6 +1,6 @@
 import { tagged as css } from '@neovici/cosmoz-utils';
 export const toggleStyles = css`
-	.container {
+	:host {
 		display: flex;
 		flex-flow: row nowrap;
 	}

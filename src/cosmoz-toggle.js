@@ -14,7 +14,6 @@ export const CosmozToggle = (host) => {
 		<style>
 			${toggleStyles}
 		</style>
-		<div class="container">
 			<label class="switch">
 				<input
 					type="checkbox"
@@ -24,8 +23,8 @@ export const CosmozToggle = (host) => {
 				/>
 				<div class="slider round"></div>
 			</label>
-			<p class="label">${label}</p>
-		</div>
+			<label for="toggle" class="label">${label}</label>
+		
 	`;
 };
 customElements.define(

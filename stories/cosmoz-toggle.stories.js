@@ -1,4 +1,4 @@
-import { html } from 'lit-html';
+import { html } from 'haunted';
 import '../src/cosmoz-toggle.js';
 
 export default {
@@ -6,19 +6,24 @@ export default {
 	component: 'cosmoz-toggle',
 };
 
-const handler1 = (event) => {
+const handlerEvent = (event) => {
 	//eslint-disable-next-line no-console
 	console.log(
 		'The event listener handler says the toggle is',
 		event.detail.value ? 'checked' : 'not checked'
 	);
 };
-const handler2 = (checked) => {
+const handlerCallback = (checked) => {
 	//eslint-disable-next-line no-console
 	console.log(
 		'The callback handler says the toggle is',
 		checked ? 'checked' : 'not checked'
 	);
+};
+
+const testError = 'ERROR!';
+const testWarning = () => {
+	return html`<h1>WARNING!</h1>`;
 };
 
 const test = false;
@@ -27,8 +32,10 @@ const basic = () => {
 		<cosmoz-toggle
 			label="Cosmoz Toggle"
 			.checked=${test}
-			@change=${handler1}
-			.onChange=${handler2}
+			@change=${handlerEvent}
+			.onChange=${handlerCallback}
+			.renderWarning=${testWarning()}
+			.error=${testError}
 		></cosmoz-toggle>
 	`;
 };

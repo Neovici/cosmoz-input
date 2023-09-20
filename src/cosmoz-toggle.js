@@ -1,9 +1,9 @@
 import { html, component } from 'haunted';
 import { toggleStyles } from '../src/toggle-styles.ts';
-import { renderWarning } from '@neovici/cosmoz-frontend/cz-components/cz-form';
+import { when } from 'lit-html/directives/when.js';
 
 export const CosmozToggle = (host) => {
-	const { label, checked, error, warning, onChange } = host;
+	const { label, checked, error, renderWarning, onChange } = host;
 	const onChecked = (event) => {
 		onChange?.(event.target.checked);
 		host.dispatchEvent(
@@ -16,6 +16,9 @@ export const CosmozToggle = (host) => {
 			${toggleStyles} .line {
 				display: none;
 			}
+			.toggle + label {
+				vertical-align: top;
+			}
 		</style>
 		<label class="switch">
 			<input
@@ -26,8 +29,10 @@ export const CosmozToggle = (host) => {
 			/>
 			<div class="slider round"></div>
 		</label>
-		<label for="toggle" class="label">${label}${renderWarning(warning, '')}</label>
-		${error && html`<div class="failure">${error}</div>`}</label>
+		<label for="toggle" class="label"
+			>${label}${when(renderWarning, () => renderWarning)}
+			${error && html`<div class="failure">${error}</div>`}</label
+		>
 	`;
 };
 customElements.define(

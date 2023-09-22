@@ -1,3 +1,10 @@
+## [3.13.1](https://github.com/neovici/cosmoz-input/compare/v3.13.0...v3.13.1) (2023-09-22)
+
+
+### Bug Fixes
+
+* added a story containing scoped styling ([7616a53](https://github.com/neovici/cosmoz-input/commit/7616a5375375ba43a05cf09ebe56920cd216b4e7))
+
 ## [3.13.0](https://github.com/neovici/cosmoz-input/compare/v3.12.0...v3.13.0) (2023-09-22)
 
 

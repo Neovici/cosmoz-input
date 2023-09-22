@@ -41,3 +41,14 @@ export const autosize = () => html`
 export const color = () => html`
 	<cosmoz-input no-label-float type="color" .value=${'#ff0000'}></cosmoz-input>
 `;
+
+export const styledLocally = () => html`
+	<style>
+		cosmoz-input {
+			--cosmoz-input-border: 1px solid black;
+			--cosmoz-input-border-radius: 12px;
+			padding: 10px;
+		}
+	</style>
+	<cosmoz-input .label=${'Choose color'}></cosmoz-input>
+`;

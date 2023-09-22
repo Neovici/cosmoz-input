@@ -1,3 +1,10 @@
+## [3.13.0](https://github.com/neovici/cosmoz-input/compare/v3.12.0...v3.13.0) (2023-09-22)
+
+
+### Features
+
+* input styling made accessible through the shadow dom via css vars ([07f16c6](https://github.com/neovici/cosmoz-input/commit/07f16c619c457444083005330d7413c64291d608))
+
 ## [3.12.0](https://github.com/neovici/cosmoz-input/compare/v3.11.0...v3.12.0) (2023-05-16)
 
 

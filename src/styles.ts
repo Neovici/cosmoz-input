@@ -40,10 +40,12 @@ export const styles = css`
 		padding-top: var(--paper-input-container_-_padding-top, 8px);
 		padding-bottom: var(--paper-input-container_-_padding-bottom, 8px);
 		position: relative;
-
-		font-family: var(--font-family);
+		border: var(--cosmoz-input-border, none);
+		border-radius: var(--cosmoz-input-border-radius, 0px);
+		max-height: var(--cosmoz-input-max-height);
 		font-size: var(--font-size);
 		line-height: var(--line-height);
+		font-family: var(--font-family);
 	}
 
 	:host([disabled]) {
@@ -81,6 +83,7 @@ export const styles = css`
 		font-family: inherit;
 		resize: none;
 	}
+
 	:host(:focus-within) .wrap {
 		background: var(--focused-bg);
 	}
@@ -117,7 +120,7 @@ export const styles = css`
 	.line::before {
 		content: '';
 		position: absolute;
-		display: block;
+		display: var(--cosmoz-input-line-display, block);
 		border-bottom: 2px solid transparent;
 		border-bottom-color: inherit;
 		left: 0;

@@ -1,3 +1,10 @@
+## [3.13.2](https://github.com/neovici/cosmoz-input/compare/v3.13.1...v3.13.2) (2023-10-04)
+
+
+### Bug Fixes
+
+* **disabled:** user cannot select text in a disabled input ([58fc7d3](https://github.com/neovici/cosmoz-input/commit/58fc7d325c7d44960a1449f4535bd8a0c7f632b8))
+
 ## [3.13.1](https://github.com/neovici/cosmoz-input/compare/v3.13.0...v3.13.1) (2023-09-22)
 
 

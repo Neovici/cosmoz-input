@@ -50,7 +50,6 @@ export const styles = css`
 
 	:host([disabled]) {
 		opacity: var(--disabled-opacity);
-		pointer-events: none;
 	}
 
 	.float {

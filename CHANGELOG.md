@@ -1,3 +1,10 @@
+## [3.14.0](https://github.com/neovici/cosmoz-input/compare/v3.13.2...v3.14.0) (2023-11-01)
+
+
+### Features
+
+* update dependencies and workflows ([27cf591](https://github.com/neovici/cosmoz-input/commit/27cf5913639a6a02ec797c155f2427445346d8b8))
+
 ## [3.13.2](https://github.com/neovici/cosmoz-input/compare/v3.13.1...v3.13.2) (2023-10-04)
 
 

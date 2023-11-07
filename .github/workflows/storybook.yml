@@ -1,4 +1,3 @@
----
 name: Storybook
 on:
   push:
@@ -8,4 +7,3 @@ jobs:
   storybook:
     uses: Neovici/cfg/.github/workflows/story.yml@master
     secrets: inherit
-

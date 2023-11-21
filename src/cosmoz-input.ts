@@ -17,6 +17,7 @@ const observedAttributes = [
 	'max',
 	'step',
 	'autosize',
+	'label',
 	...attributes,
 ];
 
@@ -67,11 +68,11 @@ export const Input = (host: CosmozInput) => {
 				step=${ifDefined(step)}
 			/>
 		`,
-		host
+		host,
 	);
 };
 
 customElements.define(
 	'cosmoz-input',
-	component<CosmozInput>(Input, { observedAttributes })
+	component<CosmozInput>(Input, { observedAttributes }),
 );

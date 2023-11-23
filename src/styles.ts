@@ -92,12 +92,16 @@ export const styles = css`
 		top: 0;
 		left: 0;
 		width: 100%;
-		transition: transform 0.25s, width 0.25s;
+		transition:
+			transform 0.25s,
+			width 0.25s;
 		transform-origin: left top;
 		color: var(--color);
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+		text-transform: var(--cosmoz-input-label-text-transform);
+		font-weight: var(--cosmoz-input-label-font-weight);
 	}
 
 	:host([always-float-label]) label,

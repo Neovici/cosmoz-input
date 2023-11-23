@@ -1,3 +1,10 @@
+## [3.17.0](https://github.com/neovici/cosmoz-input/compare/v3.16.0...v3.17.0) (2023-11-23)
+
+
+### Features
+
+* **style:** add some vars to style label ([64d67c9](https://github.com/neovici/cosmoz-input/commit/64d67c9a23cd4c3e0f39fdce5e2d28b05db02ef4))
+
 ## [3.16.0](https://github.com/neovici/cosmoz-input/compare/v3.15.0...v3.16.0) (2023-11-21)
 
 

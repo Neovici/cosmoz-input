@@ -40,8 +40,7 @@ export const styles = css`
 		padding-top: var(--paper-input-container_-_padding-top, 8px);
 		padding-bottom: var(--paper-input-container_-_padding-bottom, 8px);
 		position: relative;
-		border: var(--cosmoz-input-border, none);
-		border-radius: var(--cosmoz-input-border-radius, 0px);
+
 		max-height: var(--cosmoz-input-max-height);
 		font-size: var(--font-size);
 		line-height: var(--line-height);
@@ -54,13 +53,17 @@ export const styles = css`
 
 	.float {
 		line-height: calc(var(--line-height) * var(--label-scale));
+		background-color: var(--cosmoz-input-float-bg-color, none);
 	}
 
 	.wrap {
+		padding: var(--cosmoz-input-padding, 0px);
 		display: flex;
 		align-items: center;
 		position: relative;
 		background: var(--bg);
+		border: var(--cosmoz-input-border, none);
+		border-radius: var(--cosmoz-input-border-radius, 0px);
 	}
 
 	.control {
@@ -91,10 +94,8 @@ export const styles = css`
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 100%;
-		transition:
-			transform 0.25s,
-			width 0.25s;
+		width: var(--cosmoz-input-label-width, 100%);
+		transition: transform 0.25s, width 0.25s;
 		transform-origin: left top;
 		color: var(--color);
 		white-space: nowrap;
@@ -140,6 +141,11 @@ export const styles = css`
 	:host(:focus-within) .line {
 		border-bottom-color: var(--focused-color);
 	}
+
+	:host(:focus-within) {
+		border-color: var(--focused-color);
+	}
+
 	:host([disabled]) .line {
 		border-bottom-style: dashed;
 		opacity: var(--disabled-line-opacity);

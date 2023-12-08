@@ -45,9 +45,20 @@ export const color = () => html`
 export const styledLocally = () => html`
 	<style>
 		cosmoz-input {
-			--cosmoz-input-border: 1px solid black;
-			--cosmoz-input-border-radius: 12px;
-			padding: 10px;
+			--cosmoz-input-border: 1px solid gray;
+			--cosmoz-input-border-radius: 4px;
+			--cosmoz-input-padding: 8px;
+			--cosmoz-input-label-width: auto;
+		}
+		cosmoz-input:focus-within {
+			--cosmoz-input-border: 2px solid var(--focused-color);
+		}
+		cosmoz-input::part(label) {
+			padding: 0 2px;
+			background-color: white;
+		}
+		cosmoz-input::part(line) {
+			display: none;
 		}
 	</style>
 	<cosmoz-input .label=${'Choose color'}></cosmoz-input>

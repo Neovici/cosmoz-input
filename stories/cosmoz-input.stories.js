@@ -49,13 +49,16 @@ export const styledLocally = () => html`
 			--cosmoz-input-border-radius: 4px;
 			--cosmoz-input-padding: 8px;
 			--cosmoz-input-label-width: auto;
+			--cosmoz-input-no-placeholder-label-bg: white;
+			transition: transform 0.25s, width 0.25s;
+			transform-origin: left top;
 		}
 		cosmoz-input:focus-within {
 			--cosmoz-input-border: 2px solid var(--focused-color);
 		}
 		cosmoz-input::part(label) {
 			padding: 0 2px;
-			background-color: white;
+			caret-color: black;
 		}
 		cosmoz-input::part(line) {
 			display: none;

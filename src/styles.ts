@@ -109,6 +109,7 @@ export const styles = css`
 	#input:not(:placeholder-shown) + label {
 		transform: translateY(calc(var(--label-scale) * -100%))
 			scale(var(--label-scale));
+		background-color: var(--cosmoz-input-no-placeholder-label-bg, transparent);
 	}
 	:host(:not(always-float-label):focus-within) #input::placeholder,
 	:host(:focus-within) label {

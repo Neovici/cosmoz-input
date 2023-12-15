@@ -1,3 +1,15 @@
+## [3.18.0](https://github.com/neovici/cosmoz-input/compare/v3.17.0...v3.18.0) (2023-12-15)
+
+
+### Features
+
+* **input-fields:** local styling dedicated to travel requests ([498fd55](https://github.com/neovici/cosmoz-input/commit/498fd55e8a77066ff9ff70d2eae83eb5a424f212))
+
+
+### Bug Fixes
+
+* **style:** better responsiveness for the input ([1a45bcc](https://github.com/neovici/cosmoz-input/commit/1a45bccad1ee26d4a1d2f361355a01aa0697417a))
+
 ## [3.17.0](https://github.com/neovici/cosmoz-input/compare/v3.16.0...v3.17.0) (2023-11-23)
 
 

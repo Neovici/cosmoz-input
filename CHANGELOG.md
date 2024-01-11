@@ -1,3 +1,14 @@
+## [4.0.0](https://github.com/neovici/cosmoz-input/compare/v3.18.0...v4.0.0) (2024-01-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update to @pionjs/pion and allow lit-html@3
+
+### Features
+
+* update to pion ([b903546](https://github.com/neovici/cosmoz-input/commit/b903546bdd017ad226b1e8db5f70bb724a7a72ec))
+
 ## [3.18.0](https://github.com/neovici/cosmoz-input/compare/v3.17.0...v3.18.0) (2023-12-15)
 
 

@@ -1,4 +1,4 @@
-import { useMemo } from 'haunted';
+import { useMemo } from '@pionjs/pion';
 
 export const useAllowedPattern = (allowedPattern: string | RegExp) =>
 	useMemo(() => {

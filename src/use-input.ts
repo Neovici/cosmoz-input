@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'haunted';
+import { useCallback, useEffect, useRef } from '@pionjs/pion';
 import { useImperativeApi } from '@neovici/cosmoz-utils/hooks/use-imperative-api';
 import { notifyProperty } from '@neovici/cosmoz-utils/hooks/use-notify-property';
 

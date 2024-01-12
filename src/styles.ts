@@ -34,13 +34,14 @@ export const styles = css`
 			--cosmoz-input-focused-color,
 			var(--primary-color, #3f51b5)
 		);
-
+		--cosmoz-input-box-shadow-color: #737373;
 		display: block;
 		padding: var(--cosmoz-input-padding, 8px 0);
 		padding-top: var(--paper-input-container_-_padding-top, 8px);
 		padding-bottom: var(--paper-input-container_-_padding-bottom, 8px);
 		position: relative;
-
+		transition: transform 0.25s, width 0.25s;
+		transform-origin: left top;
 		max-height: var(--cosmoz-input-max-height);
 		font-size: var(--font-size);
 		line-height: var(--line-height);
@@ -62,8 +63,9 @@ export const styles = css`
 		align-items: center;
 		position: relative;
 		background: var(--bg);
-		border: var(--cosmoz-input-border, none);
-		border-radius: var(--cosmoz-input-border-radius, 0px);
+		border-radius: var(--cosmoz-input-border-radius);
+		box-shadow: 0 0 0 var(--cosmoz-input-box-shadow-width)
+			var(--cosmoz-input-box-shadow-color);
 	}
 
 	.control {
@@ -103,13 +105,14 @@ export const styles = css`
 		text-overflow: ellipsis;
 		text-transform: var(--cosmoz-input-label-text-transform);
 		font-weight: var(--cosmoz-input-label-font-weight);
+		padding: var(--cosmoz-input-label-padding);
 	}
 
 	:host([always-float-label]) label,
 	#input:not(:placeholder-shown) + label {
 		transform: translateY(calc(var(--label-scale) * -100%))
 			scale(var(--label-scale));
-		background-color: var(--cosmoz-input-no-placeholder-label-bg, transparent);
+		background-color: var(--cosmoz-input-floating-label-bg, transparent);
 	}
 	:host(:not(always-float-label):focus-within) #input::placeholder,
 	:host(:focus-within) label {
@@ -121,11 +124,11 @@ export const styles = css`
 		padding-top: 1px;
 		border-bottom: 1px solid var(--line-color);
 		position: relative;
+		display: var(--cosmoz-input-line-display, block);
 	}
 	.line::before {
 		content: '';
 		position: absolute;
-		display: var(--cosmoz-input-line-display, block);
 		border-bottom: 2px solid transparent;
 		border-bottom-color: inherit;
 		left: 0;
@@ -144,6 +147,7 @@ export const styles = css`
 	}
 
 	:host(:focus-within) {
+		--cosmoz-input-box-shadow-color: var(--focused-color);
 		border-color: var(--focused-color);
 	}
 
@@ -165,6 +169,11 @@ export const styles = css`
 		position: absolute;
 		max-width: 100%;
 	}
+
+	:host([invalid]) {
+		--cosmoz-input-box-shadow-color: var(--invalid-color);
+	}
+
 	:host([invalid]) label,
 	.error {
 		color: var(--invalid-color);

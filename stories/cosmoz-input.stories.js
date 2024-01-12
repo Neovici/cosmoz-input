@@ -45,24 +45,28 @@ export const color = () => html`
 export const styledLocally = () => html`
 	<style>
 		cosmoz-input {
-			--cosmoz-input-border: 1px solid gray;
 			--cosmoz-input-border-radius: 4px;
 			--cosmoz-input-padding: 8px;
 			--cosmoz-input-label-width: auto;
 			--cosmoz-input-no-placeholder-label-bg: white;
-			transition: transform 0.25s, width 0.25s;
-			transform-origin: left top;
+			--cosmoz-input-label-padding: 0 5px;
+			--cosmoz-input-floating-label-bg: white;
+			--cosmoz-input-line-display: none;
+			--cosmoz-input-box-shadow-width: 1px;
 		}
-		cosmoz-input:focus-within {
-			--cosmoz-input-border: 2px solid var(--focused-color);
+		
+		:focus-within {
+			--cosmoz-input-box-shadow-width: 1.5px;
 		}
-		cosmoz-input::part(label) {
-			padding: 0 2px;
-			caret-color: black;
-		}
-		cosmoz-input::part(line) {
-			display: none;
-		}
+
 	</style>
-	<cosmoz-input .label=${'Choose color'}></cosmoz-input>
+	<cosmoz-input .label=${'Insert a text input!'}></cosmoz-input>
+	<cosmoz-input
+		invalid
+		.label=${'This input is always invalid!'}
+	></cosmoz-input>
+	<cosmoz-input
+		disabled
+		.label=${'This input is always disabled!'}
+	></cosmoz-input>
 `;

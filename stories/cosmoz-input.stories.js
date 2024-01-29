@@ -54,11 +54,6 @@ export const styledLocally = () => html`
 			--cosmoz-input-line-display: none;
 			--cosmoz-input-box-shadow-width: 1px;
 		}
-		
-		:focus-within {
-			--cosmoz-input-box-shadow-width: 1.5px;
-		}
-
 	</style>
 	<cosmoz-input .label=${'Insert a text input!'}></cosmoz-input>
 	<cosmoz-input

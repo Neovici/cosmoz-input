@@ -34,7 +34,7 @@ export const styles = css`
 			--cosmoz-input-focused-color,
 			var(--primary-color, #3f51b5)
 		);
-		--cosmoz-input-box-shadow-color: #737373;
+		--cosmoz-input-box-shadow-color: var(--line-color);
 		display: block;
 		padding: var(--cosmoz-input-padding, 8px 0);
 		padding-top: var(--paper-input-container_-_padding-top, 8px);

@@ -49,7 +49,7 @@ export const styledLocally = () => html`
 			--cosmoz-input-padding: 8px;
 			--cosmoz-input-label-width: auto;
 			--cosmoz-input-no-placeholder-label-bg: white;
-			--cosmoz-input-label-padding: 0 5px;
+			--cosmoz-input-label-padding: 0;
 			--cosmoz-input-floating-label-bg: white;
 			--cosmoz-input-line-display: none;
 			--cosmoz-input-box-shadow-width: 1px;

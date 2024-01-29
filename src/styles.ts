@@ -110,6 +110,7 @@ export const styles = css`
 
 	:host([always-float-label]) label,
 	#input:not(:placeholder-shown) + label {
+		--cosmoz-input-label-padding: 0 1px;
 		transform: translateY(calc(var(--label-scale) * -100%))
 			scale(var(--label-scale));
 		background-color: var(--cosmoz-input-floating-label-bg, transparent);

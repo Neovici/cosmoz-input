@@ -42,7 +42,7 @@ export const color = () => html`
 	<cosmoz-input no-label-float type="color" .value=${'#ff0000'}></cosmoz-input>
 `;
 
-export const styledLocally = () => html`
+export const contour = () => html`
 	<style>
 		cosmoz-input {
 			--cosmoz-input-border-radius: 4px;
@@ -52,16 +52,10 @@ export const styledLocally = () => html`
 			--cosmoz-input-label-padding: 0;
 			--cosmoz-input-floating-label-bg: white;
 			--cosmoz-input-line-display: none;
-			--cosmoz-input-box-shadow-width: 1px;
+			--cosmoz-input-contour-size: 1px;
 		}
 	</style>
 	<cosmoz-input .label=${'Insert a text input!'}></cosmoz-input>
-	<cosmoz-input
-		invalid
-		.label=${'This input is always invalid!'}
-	></cosmoz-input>
-	<cosmoz-input
-		disabled
-		.label=${'This input is always disabled!'}
-	></cosmoz-input>
+	<cosmoz-input invalid .label=${'This input is invalid!'}></cosmoz-input>
+	<cosmoz-input disabled .label=${'This input is disabled!'}></cosmoz-input>
 `;

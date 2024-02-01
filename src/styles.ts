@@ -1,4 +1,5 @@
 import { tagged as css } from '@neovici/cosmoz-utils';
+
 export const styles = css`
 	:host {
 		--font-family: var(
@@ -34,13 +35,16 @@ export const styles = css`
 			--cosmoz-input-focused-color,
 			var(--primary-color, #3f51b5)
 		);
-		--cosmoz-input-box-shadow-color: var(--line-color);
+		--contour-color: var(--line-color);
+		--contour-size: var(--cosmoz-input-contour-size);
 		display: block;
 		padding: var(--cosmoz-input-padding, 8px 0);
 		padding-top: var(--paper-input-container_-_padding-top, 8px);
 		padding-bottom: var(--paper-input-container_-_padding-bottom, 8px);
 		position: relative;
-		transition: transform 0.25s, width 0.25s;
+		transition:
+			transform 0.25s,
+			width 0.25s;
 		transform-origin: left top;
 		max-height: var(--cosmoz-input-max-height);
 		font-size: var(--font-size);
@@ -64,8 +68,7 @@ export const styles = css`
 		position: relative;
 		background: var(--bg);
 		border-radius: var(--cosmoz-input-border-radius);
-		box-shadow: 0 0 0 var(--cosmoz-input-box-shadow-width)
-			var(--cosmoz-input-box-shadow-color);
+		box-shadow: 0 0 0 var(--contour-size) var(--contour-color);
 	}
 
 	.control {
@@ -97,7 +100,9 @@ export const styles = css`
 		top: 0;
 		left: 0;
 		width: var(--cosmoz-input-label-width, 100%);
-		transition: transform 0.25s, width 0.25s;
+		transition:
+			transform 0.25s,
+			width 0.25s;
 		transform-origin: left top;
 		color: var(--color);
 		white-space: nowrap;
@@ -148,8 +153,8 @@ export const styles = css`
 	}
 
 	:host(:focus-within) {
-		--cosmoz-input-box-shadow-color: var(--focused-color);
-		border-color: var(--focused-color);
+		--contour-color: var(--focused-color);
+		caret-color: var(--focused-color);
 	}
 
 	:host([disabled]) .line {
@@ -172,7 +177,8 @@ export const styles = css`
 	}
 
 	:host([invalid]) {
-		--cosmoz-input-box-shadow-color: var(--invalid-color);
+		--contour-color: var(--invalid-color);
+		caret-color: var(--invalid-color);
 	}
 
 	:host([invalid]) label,

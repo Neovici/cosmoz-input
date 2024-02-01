@@ -1,3 +1,12 @@
+## [4.1.0](https://github.com/neovici/cosmoz-input/compare/v4.0.0...v4.1.0) (2024-02-01)
+
+
+### Features
+
+* **floating-label:** added padding only when floating ([c27a54d](https://github.com/neovici/cosmoz-input/commit/c27a54d4a442bf330ce84d1940604622ff9e8d64))
+* **input-styling-vars:** new dynamic design for cosmoz input ([96cdc9c](https://github.com/neovici/cosmoz-input/commit/96cdc9cd79dd37edde0a627eab3a83f087753ed7))
+* **input:** add contour styling ([9eb85fd](https://github.com/neovici/cosmoz-input/commit/9eb85fd204693143fa96397290c0655a0ada469c))
+
 ## [4.0.0](https://github.com/neovici/cosmoz-input/compare/v3.18.0...v4.0.0) (2024-01-11)
 
 

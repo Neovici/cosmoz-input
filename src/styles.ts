@@ -118,7 +118,7 @@ export const styles = css`
 		--cosmoz-input-label-padding: 0 1px;
 		transform: translateY(calc(var(--label-scale) * -100%))
 			scale(var(--label-scale));
-		background-color: var(--cosmoz-input-floating-label-bg, transparent);
+		background-color: var(--cosmoz-input-floating-label-bg, var(--bg));
 	}
 	:host(:not(always-float-label):focus-within) #input::placeholder,
 	:host(:focus-within) label {

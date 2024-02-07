@@ -50,9 +50,9 @@ export const contour = () => html`
 			--cosmoz-input-label-width: auto;
 			--cosmoz-input-no-placeholder-label-bg: white;
 			--cosmoz-input-label-padding: 0;
-			--cosmoz-input-floating-label-bg: white;
 			--cosmoz-input-line-display: none;
 			--cosmoz-input-contour-size: 1px;
+			--cosmoz-input-background: white;
 		}
 	</style>
 	<cosmoz-input .label=${'Insert a text input!'}></cosmoz-input>

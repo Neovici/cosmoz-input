@@ -1,3 +1,10 @@
+## [4.1.1](https://github.com/neovici/cosmoz-input/compare/v4.1.0...v4.1.1) (2024-02-07)
+
+
+### Bug Fixes
+
+* **float-label:** background color settable to be the same of the background ([945a3da](https://github.com/neovici/cosmoz-input/commit/945a3dabc8a6f6273f0506acc429f24af9403b10))
+
 ## [4.1.0](https://github.com/neovici/cosmoz-input/compare/v4.0.0...v4.1.0) (2024-02-01)
 
 

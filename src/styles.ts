@@ -35,16 +35,16 @@ export const styles = css`
 			--cosmoz-input-focused-color,
 			var(--primary-color, #3f51b5)
 		);
+		--cosmoz-input-border-color: var(--line-color);
 		--contour-color: var(--line-color);
 		--contour-size: var(--cosmoz-input-contour-size);
+		--cosmoz-input-border-color: var(--contour-color);
 		display: block;
 		padding: var(--cosmoz-input-padding, 8px 0);
 		padding-top: var(--paper-input-container_-_padding-top, 8px);
 		padding-bottom: var(--paper-input-container_-_padding-bottom, 8px);
 		position: relative;
-		transition:
-			transform 0.25s,
-			width 0.25s;
+		transition: transform 0.25s, width 0.25s;
 		transform-origin: left top;
 		max-height: var(--cosmoz-input-max-height);
 		font-size: var(--font-size);
@@ -101,9 +101,7 @@ export const styles = css`
 		top: 0;
 		left: 0;
 		width: var(--cosmoz-input-label-width, 100%);
-		transition:
-			transform 0.25s,
-			width 0.25s;
+		transition: transform 0.25s, width 0.25s;
 		transform-origin: left top;
 		color: var(--color);
 		white-space: nowrap;
@@ -173,7 +171,7 @@ export const styles = css`
 		line-height: 20px;
 		overflow: hidden;
 		text-overflow: clip;
-		position: absolute;
+		position: var(--cosmoz-input-error-message-position, absolute);
 		max-width: 100%;
 	}
 

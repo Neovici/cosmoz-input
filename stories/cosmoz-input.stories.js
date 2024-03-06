@@ -47,45 +47,22 @@ export const contour = () => html`
 		cosmoz-input {
 			--cosmoz-input-color: #aeacac;
 			--cosmoz-input-border-radius: 4px;
-			--cosmoz-input-padding: 8px;
-			--cosmoz-input-label-width: auto;
-			--cosmoz-input-no-placeholder-label-bg: white;
-			--cosmoz-input-label-padding: 0;
+			--cosmoz-input-padding: 10px;
 			--cosmoz-input-line-display: none;
 			--cosmoz-input-contour-size: 1px;
-			--cosmoz-input-background: white;
+			--cosmoz-input-label-translate-y: 43%;
 		}
 	</style>
-	<cosmoz-input .label=${'Insert a text input!'}></cosmoz-input>
-	<cosmoz-input invalid .label=${'This input is invalid!'}></cosmoz-input>
+	<cosmoz-input .label=${'Insert a text input'}></cosmoz-input>
+	<cosmoz-input
+		always-float-label
+		.label=${'This label always floats'}
+	></cosmoz-input>
+
+	<cosmoz-input
+		invalid
+		.label=${'This input is invalid!'}
+		.errorMessage=${'Something is rotten in the state of Denmark.'}
+	></cosmoz-input>
 	<cosmoz-input disabled .label=${'This input is disabled!'}></cosmoz-input>
 `;
-
-export const contourLabelNext = () => html`<style>
-		cosmoz-input {
-			--cosmoz-input-line-display: none;
-			--cosmoz-input-error-message-position: relative;
-			padding: 4px;
-			border: 2px solid var(--cosmoz-input-border-color);
-			margin: 4px;
-			border-radius: 4px;
-		}
-		cosmoz-input::part(label) {
-			font-weight: 700;
-		}
-	</style>
-	<cosmoz-input
-		always-float-label
-		.label=${'Insert a text input!'}
-	></cosmoz-input>
-	<cosmoz-input
-		always-float-label
-		invalid
-		.errorMessage=${'It\'s all quiet. Too quiet'}
-		.label=${'This input is invalid!'}
-	></cosmoz-input>
-	<cosmoz-input
-		always-float-label
-		disabled
-		.label=${'This input is disabled!'}
-	></cosmoz-input> `;

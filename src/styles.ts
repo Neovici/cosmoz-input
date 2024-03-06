@@ -35,10 +35,9 @@ export const styles = css`
 			--cosmoz-input-focused-color,
 			var(--primary-color, #3f51b5)
 		);
-		--cosmoz-input-border-color: var(--line-color);
 		--contour-color: var(--line-color);
 		--contour-size: var(--cosmoz-input-contour-size);
-		--cosmoz-input-border-color: var(--contour-color);
+		--label-translate-y: var(--cosmoz-input-label-translate-y, 0%);
 		display: block;
 		padding: var(--cosmoz-input-padding, 8px 0);
 		padding-top: var(--paper-input-container_-_padding-top, 8px);
@@ -115,10 +114,18 @@ export const styles = css`
 	:host([always-float-label]) label,
 	#input:not(:placeholder-shown) + label {
 		--cosmoz-input-label-padding: 0 1px;
-		transform: translateY(calc(var(--label-scale) * -100%))
+		transform: translateY(
+				calc(var(--label-scale) * -100% + var(--label-translate-y))
+			)
 			scale(var(--label-scale));
 		background-color: var(--cosmoz-input-floating-label-bg, var(--bg));
 	}
+
+	:host([always-float-label]) input,
+	#input:not(:placeholder-shown) {
+		transform: translateY(var(--label-translate-y));
+	}
+
 	:host(:not(always-float-label):focus-within) #input::placeholder,
 	:host(:focus-within) label {
 		color: var(--focused-color);
@@ -171,7 +178,7 @@ export const styles = css`
 		line-height: 20px;
 		overflow: hidden;
 		text-overflow: clip;
-		position: var(--cosmoz-input-error-message-position, absolute);
+		position: absolute;
 		max-width: 100%;
 	}
 

@@ -53,7 +53,6 @@ export const contour = () => html`
 			--cosmoz-input-line-display: none;
 			--cosmoz-input-contour-size: 1px;
 			--cosmoz-input-background: white;
-			--cosmoz-input-opacity: 0.7;
 		}
 	</style>
 	<cosmoz-input .label=${'Insert a text input!'}></cosmoz-input>

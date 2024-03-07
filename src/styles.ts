@@ -42,8 +42,8 @@ export const styles = css`
 		padding-top: var(--paper-input-container_-_padding-top, 8px);
 		padding-bottom: var(--paper-input-container_-_padding-bottom, 8px);
 		position: relative;
-		transition: 
-			transform 0.25s, 
+		transition:
+			transform 0.25s,
 			width 0.25s;
 		transform-origin: left top;
 		max-height: var(--cosmoz-input-max-height);
@@ -101,8 +101,8 @@ export const styles = css`
 		top: 0;
 		left: 0;
 		width: var(--cosmoz-input-label-width, 100%);
-		transition: 
-			transform 0.25s, 
+		transition:
+			transform 0.25s,
 			width 0.25s;
 		transform-origin: left top;
 		color: var(--color);

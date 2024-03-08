@@ -1,3 +1,16 @@
+## [4.3.0](https://github.com/neovici/cosmoz-input/compare/v4.2.0...v4.3.0) (2024-03-08)
+
+
+### Features
+
+* **style:** adjustments to the input styling ([12b48b1](https://github.com/neovici/cosmoz-input/commit/12b48b10bda67f3f58e3a59c1b9b159aa25c69ce))
+
+
+### Bug Fixes
+
+* **inputs:** contour styling adjusted to fit the label into the field ([601d262](https://github.com/neovici/cosmoz-input/commit/601d2622ce0f0aa302af75affae9ced8b85bbce0))
+* **style:** input readability improved ([55c1fbd](https://github.com/neovici/cosmoz-input/commit/55c1fbdef4a7e7a2f49a62ec87c86cdba239c7ea))
+
 ## [4.2.0](https://github.com/neovici/cosmoz-input/compare/v4.1.1...v4.2.0) (2024-03-08)
 
 

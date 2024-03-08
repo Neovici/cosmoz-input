@@ -108,12 +108,10 @@ export const styles = css`
 		text-overflow: ellipsis;
 		text-transform: var(--cosmoz-input-label-text-transform);
 		font-weight: var(--cosmoz-input-label-font-weight);
-		padding: var(--cosmoz-input-label-padding);
 	}
 
 	:host([always-float-label]) label,
 	#input:not(:placeholder-shown) + label {
-		--cosmoz-input-label-padding: 0 1px;
 		transform: translateY(
 				calc(var(--label-scale) * -100% + var(--label-translate-y))
 			)

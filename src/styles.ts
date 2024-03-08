@@ -67,6 +67,7 @@ export const styles = css`
 		align-items: center;
 		position: relative;
 		background: var(--bg);
+		opacity: var(--cosmoz-input-opacity);
 		border-radius: var(--cosmoz-input-border-radius);
 		box-shadow: 0 0 0 var(--contour-size) var(--contour-color);
 	}

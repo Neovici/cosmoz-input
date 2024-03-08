@@ -1,3 +1,16 @@
+## [4.2.0](https://github.com/neovici/cosmoz-input/compare/v4.1.1...v4.2.0) (2024-03-08)
+
+
+### Features
+
+* **opacity:** input opacity linked to a variable for modifications ([3c7eaf3](https://github.com/neovici/cosmoz-input/commit/3c7eaf398f2cbf32e2f9319fc44f84d32da52adf))
+
+
+### Bug Fixes
+
+* **color:** already existing var for the input color ([a06b5ff](https://github.com/neovici/cosmoz-input/commit/a06b5ff28338d21143d96549a4be298db40c8570))
+* **styling:** addressed review comments ([0520d39](https://github.com/neovici/cosmoz-input/commit/0520d395b551ef23c0da9965b451e7f9c5440d60))
+
 ## [4.1.1](https://github.com/neovici/cosmoz-input/compare/v4.1.0...v4.1.1) (2024-02-07)
 
 

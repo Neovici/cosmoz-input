@@ -5,7 +5,8 @@ export default {
 	title: 'Textarea',
 	component: 'cosmoz-textarea',
 };
-const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mi magna, tincidunt ac feugiat sed, ultrices luctus orci. Quisque ultricies hendrerit ultricies. Nam vestibulum mauris a arcu facilisis, ut gravida lorem sagittis. Cras sagittis arcu felis, in consectetur ante tempor vitae. Duis leo ex, sagittis id eros id, dictum egestas nibh. Etiam at porta turpis. Proin maximus mauris vitae quam fringilla, iaculis facilisis ex tempor. Sed eu risus eget nibh accumsan pharetra. Integer et orci lorem. Proin imperdiet facilisis neque, vel luctus lorem bibendum a. Donec gravida sodales gravida. Mauris interdum dignissim faucibus.'
+const loremIpsum =
+	'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mi magna, tincidunt ac feugiat sed, ultrices luctus orci. Quisque ultricies hendrerit ultricies. Nam vestibulum mauris a arcu facilisis, ut gravida lorem sagittis. Cras sagittis arcu felis, in consectetur ante tempor vitae. Duis leo ex, sagittis id eros id, dictum egestas nibh. Etiam at porta turpis. Proin maximus mauris vitae quam fringilla, iaculis facilisis ex tempor. Sed eu risus eget nibh accumsan pharetra. Integer et orci lorem. Proin imperdiet facilisis neque, vel luctus lorem bibendum a. Donec gravida sodales gravida. Mauris interdum dignissim faucibus.';
 const basic = () => html`
 		<cosmoz-textarea .label=${'Choose color'} .value=${'Red'}></cosmoz-textarea>
 	`,
@@ -30,7 +31,7 @@ const basic = () => html`
 			}
 		</style>
 		<cosmoz-textarea
-			.label=${'Choose color'}
+			.label=${'Write your comment here'}
 			.value=${loremIpsum}
 		></cosmoz-textarea> `;
 export { basic, error, contour };

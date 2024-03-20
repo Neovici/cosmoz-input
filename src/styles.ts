@@ -38,10 +38,7 @@ export const styles = css`
 		--contour-color: var(--line-color);
 		--contour-size: var(--cosmoz-input-contour-size);
 		--label-translate-y: var(--cosmoz-input-label-translate-y, 0%);
-		--input-translate-y: var(
-			--cosmoz-input-input-translate-y,
-			var(--label-translate-y)
-		);
+
 		display: block;
 		padding: var(--cosmoz-input-padding, 8px 0);
 		padding-top: var(--paper-input-container_-_padding-top, 8px);
@@ -125,7 +122,7 @@ export const styles = css`
 
 	:host([always-float-label]) input,
 	#input:not(:placeholder-shown) {
-		transform: translateY(var(--input-translate-y));
+		transform: translateY(var(--label-translate-y));
 	}
 
 	:host(:not(always-float-label):focus-within) #input::placeholder,

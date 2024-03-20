@@ -26,8 +26,7 @@ const basic = () => html`
 				--cosmoz-input-padding: 12px;
 				--cosmoz-input-line-display: none;
 				--cosmoz-input-contour-size: 1px;
-				--cosmoz-input-label-translate-y: 35%;
-				--cosmoz-input-input-translate-y: 8px;
+				--cosmoz-input-label-translate-y: 10px;
 			}
 		</style>
 		<cosmoz-textarea

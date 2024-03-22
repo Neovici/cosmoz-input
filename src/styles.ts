@@ -4,7 +4,7 @@ export const styles = css`
 	:host {
 		--font-family: var(
 			--cosmoz-input-font-family,
-			var(--paper-font-subhead_-_font-family, 'Roboto', 'Noto', sans-serif)
+			var(--paper-font-subhead_-_font-family, inherit)
 		);
 		--font-size: var(
 			--cosmoz-input-font-size,

@@ -1,3 +1,10 @@
+## [4.3.1](https://github.com/neovici/cosmoz-input/compare/v4.3.0...v4.3.1) (2024-03-22)
+
+
+### Bug Fixes
+
+* inherit font-family by default ([d39a14a](https://github.com/neovici/cosmoz-input/commit/d39a14a7a18113a8956350d2530da0ff3e6fb3b7))
+
 ## [4.3.0](https://github.com/neovici/cosmoz-input/compare/v4.2.0...v4.3.0) (2024-03-08)
 
 

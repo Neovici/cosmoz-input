@@ -35,10 +35,11 @@ export const styles = css`
 			--cosmoz-input-focused-color,
 			var(--primary-color, #3f51b5)
 		);
-		--float-display: var(--cosmoz-input-float-display, block)
+		--float-display: var(--cosmoz-input-float-display, block);
 		--contour-color: var(--line-color);
 		--contour-size: var(--cosmoz-input-contour-size);
 		--label-translate-y: var(--cosmoz-input-label-translate-y, 0%);
+		--margin-top-not-first: var(--cosmoz-input-margin-top-not-first, 0px);
 
 		display: block;
 		padding: var(--cosmoz-input-padding, 8px 0);
@@ -52,7 +53,9 @@ export const styles = css`
 		line-height: var(--line-height);
 		font-family: var(--font-family);
 	}
-
+	:host:not(:first-child) {
+		margin-top: var(--margin-top-not-first);
+	}
 	:host([disabled]) {
 		opacity: var(--disabled-opacity);
 	}
@@ -60,7 +63,7 @@ export const styles = css`
 	.float {
 		line-height: calc(var(--line-height) * var(--label-scale));
 		background-color: var(--cosmoz-input-float-bg-color, none);
-		display: var(--float-display, block);
+		display: var(--float-display);
 	}
 
 	.wrap {

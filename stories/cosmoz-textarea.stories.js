@@ -34,10 +34,24 @@ const basic = () => html`
 				--cosmoz-input-label-translate-y: 10px;
 				--cosmoz-input-float-display: none;
 			}
+			cosmoz-textarea:not(:first-child) {
+				margin-top: 10px;
+			}
 		</style>
 		<cosmoz-textarea
 			.label=${'Write your comment here'}
 			.value=${loremIpsum}
+		></cosmoz-textarea>
+		<cosmoz-textarea
+			invalid
+			.errorMessage=${'Something is rotten in the state of Denmark'}
+			.label=${'Write another comment here'}
+			.value=${loremIpsum.toUpperCase()}
+		></cosmoz-textarea>
+		<cosmoz-textarea
+			disabled
+			.label=${'Write another comment here'}
+			.value=${'You cannot type anything here!'}
 		></cosmoz-textarea>
 	`;
 export { basic, error, contour };

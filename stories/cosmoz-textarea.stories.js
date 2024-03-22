@@ -32,6 +32,7 @@ const basic = () => html`
 				--cosmoz-input-line-display: none;
 				--cosmoz-input-contour-size: 1px;
 				--cosmoz-input-label-translate-y: 10px;
+				--cosmoz-input-float-display: none;
 			}
 		</style>
 		<cosmoz-textarea

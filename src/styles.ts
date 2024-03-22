@@ -35,6 +35,7 @@ export const styles = css`
 			--cosmoz-input-focused-color,
 			var(--primary-color, #3f51b5)
 		);
+		--float-display: var(--cosmoz-input-float-display, block)
 		--contour-color: var(--line-color);
 		--contour-size: var(--cosmoz-input-contour-size);
 		--label-translate-y: var(--cosmoz-input-label-translate-y, 0%);
@@ -59,6 +60,7 @@ export const styles = css`
 	.float {
 		line-height: calc(var(--line-height) * var(--label-scale));
 		background-color: var(--cosmoz-input-float-bg-color, none);
+		display: var(--float-display, block);
 	}
 
 	.wrap {

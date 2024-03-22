@@ -1,5 +1,6 @@
 import { html } from 'lit-html';
 import '../src/cosmoz-input';
+import { style } from './style';
 
 export default {
 	title: 'Input',
@@ -7,10 +8,12 @@ export default {
 };
 
 export const basic = () => html`
+	${style}
 	<cosmoz-input .label=${'Choose color'}></cosmoz-input>
 `;
 
 export const alwaysFloatLabel = () => html`
+	${style}
 	<cosmoz-input
 		always-float-label
 		.label=${'Choose color'}
@@ -19,10 +22,12 @@ export const alwaysFloatLabel = () => html`
 `;
 
 export const noLabelFloat = () => html`
+	${style}
 	<cosmoz-input no-label-float .label=${'Choose color'}></cosmoz-input>
 `;
 
 export const error = () => html`
+	${style}
 	<cosmoz-input
 		.label=${'Choose color'}
 		.value=${'Red'}
@@ -31,6 +36,7 @@ export const error = () => html`
 	></cosmoz-input>
 `;
 export const autosize = () => html`
+	${style}
 	<cosmoz-input
 		autosize
 		no-label-float
@@ -39,10 +45,12 @@ export const autosize = () => html`
 	></cosmoz-input>
 `;
 export const color = () => html`
+	${style}
 	<cosmoz-input no-label-float type="color" .value=${'#ff0000'}></cosmoz-input>
 `;
 
 export const contour = () => html`
+	${style}
 	<style>
 		cosmoz-input {
 			--cosmoz-input-color: #aeacac;

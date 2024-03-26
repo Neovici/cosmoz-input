@@ -39,7 +39,6 @@ export const styles = css`
 		--contour-color: var(--line-color);
 		--contour-size: var(--cosmoz-input-contour-size);
 		--label-translate-y: var(--cosmoz-input-label-translate-y, 0%);
-		--margin-top-not-first: var(--cosmoz-input-margin-top-not-first, 0px);
 
 		display: block;
 		padding: var(--cosmoz-input-padding, 8px 0);
@@ -53,9 +52,7 @@ export const styles = css`
 		line-height: var(--line-height);
 		font-family: var(--font-family);
 	}
-	:host:not(:first-child) {
-		margin-top: var(--margin-top-not-first);
-	}
+
 	:host([disabled]) {
 		opacity: var(--disabled-opacity);
 	}

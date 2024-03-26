@@ -1,3 +1,10 @@
+## [4.3.2](https://github.com/neovici/cosmoz-input/compare/v4.3.1...v4.3.2) (2024-03-26)
+
+
+### Bug Fixes
+
+* **inputs-float:** display of float div linked to a var ([#80](https://github.com/neovici/cosmoz-input/issues/80)) ([4a772be](https://github.com/neovici/cosmoz-input/commit/4a772be04b9bfb75169a7772dfa216b75bead506))
+
 ## [4.3.1](https://github.com/neovici/cosmoz-input/compare/v4.3.0...v4.3.1) (2024-03-22)
 
 

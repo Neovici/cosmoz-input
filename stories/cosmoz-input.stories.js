@@ -65,7 +65,12 @@ export const contour = () => html`
 			margin-top: 10px;
 		}
 	</style>
-	<cosmoz-input .label=${'Insert a text input'}></cosmoz-input>
+	<!--The following input contains a placeholder strictly equal to the label, 
+	for testing the anti-duplication condition set in util.ts-->
+	<cosmoz-input
+		.label=${'Insert a text input'}
+		.placeholder=${'Insert a text input'} 
+	></cosmoz-input>
 	<cosmoz-input
 		always-float-label
 		.label=${'This label always floats'}

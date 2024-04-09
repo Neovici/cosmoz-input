@@ -55,7 +55,7 @@ export const contour = () => html`
 		cosmoz-input {
 			--cosmoz-input-color: #aeacac;
 			--cosmoz-input-border-radius: 4px;
-			--cosmoz-input-padding: 12px;
+			--cosmoz-input-wrap-padding: 12px;
 			--cosmoz-input-line-display: none;
 			--cosmoz-input-contour-size: 1px;
 			--cosmoz-input-label-translate-y: 10px;

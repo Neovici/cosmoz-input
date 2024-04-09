@@ -64,7 +64,7 @@ export const styles = css`
 	}
 
 	.wrap {
-		padding: var(--cosmoz-input-padding, 0px);
+		padding: var(--cosmoz-input-wrap-padding, 0px);
 		display: flex;
 		align-items: center;
 		position: relative;

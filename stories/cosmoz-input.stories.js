@@ -60,6 +60,8 @@ export const contour = () => html`
 			--cosmoz-input-contour-size: 1px;
 			--cosmoz-input-label-translate-y: 10px;
 			--cosmoz-input-float-display: none;
+			--cosmoz-input-margin-top: 2px;
+			--cosmoz-input-margin-bottom: 2px;
 		}
 		cosmoz-input:not(:first-child) {
 			margin-top: 10px;

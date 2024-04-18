@@ -42,14 +42,6 @@ export const styles = css`
 
 		display: block;
 		padding: var(--cosmoz-input-padding, 8px 0);
-		padding-top: var(
-			--cosmoz-input-padding-top,
-			var(--paper-input-container_-_padding-top, 8px)
-		);
-		padding-bottom: var(
-			--cosmoz-input-padding-bottom
-				var(--paper-input-container_-_padding-bottom, 8px)
-		);
 		position: relative;
 		transition: transform 0.25s, width 0.25s;
 		transform-origin: left top;

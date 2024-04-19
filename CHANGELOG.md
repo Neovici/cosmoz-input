@@ -1,3 +1,14 @@
+## [5.0.0](https://github.com/neovici/cosmoz-input/compare/v4.3.3...v5.0.0) (2024-04-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* **padding:** the css vars `paper-input-container_-_padding-top` and `paper-input-container_-_padding-bottom` are not used anymore
+
+### Bug Fixes
+
+* **padding:** supplementary control over padding for inputs ([#83](https://github.com/neovici/cosmoz-input/issues/83)) ([d0c08a5](https://github.com/neovici/cosmoz-input/commit/d0c08a54504c51ea4849ac34fee314f05a7d4c7f))
+
 ## [4.3.3](https://github.com/neovici/cosmoz-input/compare/v4.3.2...v4.3.3) (2024-04-09)
 
 

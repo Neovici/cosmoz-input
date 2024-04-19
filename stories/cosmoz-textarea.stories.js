@@ -33,6 +33,7 @@ const basic = () => html`
 				--cosmoz-input-contour-size: 1px;
 				--cosmoz-input-label-translate-y: 10px;
 				--cosmoz-input-float-display: none;
+				--cosmoz-input-padding: 10px 8px;
 			}
 			cosmoz-textarea:not(:first-child) {
 				margin-top: 10px;

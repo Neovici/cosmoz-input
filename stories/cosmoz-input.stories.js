@@ -61,13 +61,21 @@ export const contour = () => html`
 			--cosmoz-input-label-translate-y: 10px;
 			--cosmoz-input-float-display: none;
 			--cosmoz-input-padding: 10px 8px;
+			--cosmoz-input-slot-padding: 4px;
 		}
 	</style>
 	<cosmoz-input .label=${'Insert a text input'}></cosmoz-input>
 	<cosmoz-input
-		always-float-label
-		.label=${'This label always floats'}
-	></cosmoz-input>
+		.label=${'I want this input to have the suffix match the same placing!'}
+		type="number"
+		><span slot="suffix">${'suffix'}</span></cosmoz-input
+	>
+	<cosmoz-input .label=${'Same thing of above, with the prefix!'}
+		><span slot="prefix">${'Prefix:'}</span></cosmoz-input
+	>
+	<cosmoz-input always-float-label .label=${'This label always floats'}
+		><span slot="prefix">${'Example:'}</span></cosmoz-input
+	>
 
 	<cosmoz-input
 		invalid

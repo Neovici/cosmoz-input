@@ -39,7 +39,7 @@ export const styles = css`
 		--contour-color: var(--line-color);
 		--contour-size: var(--cosmoz-input-contour-size);
 		--label-translate-y: var(--cosmoz-input-label-translate-y, 0%);
-
+		--slot-padding: var(--cosmoz-input-slot-padding);
 		display: block;
 		padding: var(--cosmoz-input-padding, 8px 0);
 		position: relative;
@@ -71,10 +71,17 @@ export const styles = css`
 		border-radius: var(--cosmoz-input-border-radius);
 		box-shadow: 0 0 0 var(--contour-size) var(--contour-color);
 	}
-
+	.wrap:has(#input:not(:placeholder-shown)) slot[name='suffix']::slotted(*),
+	.wrap:has(#input:not(:placeholder-shown)) slot[name='prefix']::slotted(*) {
+		transform: translateY(var(--label-translate-y));
+	}
 	.control {
 		flex: 1;
 		position: relative;
+	}
+
+	::slotted(*) {
+		padding: var(--slot-padding);
 	}
 
 	#input {
@@ -119,9 +126,17 @@ export const styles = css`
 			scale(var(--label-scale));
 		background-color: var(--cosmoz-input-floating-label-bg, var(--bg));
 	}
-
+	:host([always-float-label])::slotted(*),
+	#input:not(:placeholder-shown)::slotted(*) {
+		transform: translateY(var(--label-translate-y));
+	}
 	:host([always-float-label]) input,
 	#input:not(:placeholder-shown) {
+		transform: translateY(var(--label-translate-y));
+	}
+
+	:host([always-float-label]) slot[name='suffix']::slotted(*),
+	:host([always-float-label]) slot[name='prefix']::slotted(*) {
 		transform: translateY(var(--label-translate-y));
 	}
 

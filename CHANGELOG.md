@@ -1,3 +1,11 @@
+## [5.0.1](https://github.com/neovici/cosmoz-input/compare/v5.0.0...v5.0.1) (2024-05-27)
+
+
+### Bug Fixes
+
+* **prefix-suffix:** prefix and suffix slots need ([5315639](https://github.com/neovici/cosmoz-input/commit/5315639663bd8617abc79c35ba907c6ab9e16ebe))
+* **review:** slots are already styleable from the outside without vars ([3eb71e7](https://github.com/neovici/cosmoz-input/commit/3eb71e7d6520afa6ea19731c084ee8bf48a372d5))
+
 ## [5.0.0](https://github.com/neovici/cosmoz-input/compare/v4.3.3...v5.0.0) (2024-04-19)
 
 

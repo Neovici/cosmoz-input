@@ -77,10 +77,6 @@ export const styles = css`
 		position: relative;
 	}
 
-	::slotted(*) {
-		padding: var(--slot-padding);
-	}
-
 	#input {
 		padding: 0;
 		margin: 0;

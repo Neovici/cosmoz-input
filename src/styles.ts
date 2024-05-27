@@ -39,8 +39,8 @@ export const styles = css`
 		--contour-color: var(--line-color);
 		--contour-size: var(--cosmoz-input-contour-size);
 		--label-translate-y: var(--cosmoz-input-label-translate-y, 0%);
-		display: block;
 		
+		display: block;
 		padding: var(--cosmoz-input-padding, 8px 0);
 		position: relative;
 		transition: transform 0.25s, width 0.25s;

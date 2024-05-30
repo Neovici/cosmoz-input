@@ -1,3 +1,10 @@
+## [5.0.2](https://github.com/neovici/cosmoz-input/compare/v5.0.1...v5.0.2) (2024-05-30)
+
+
+### Bug Fixes
+
+* make shadowRoot input focusable ([cca397b](https://github.com/neovici/cosmoz-input/commit/cca397b3fb3712b9eb8e144f26fc1be89119941f))
+
 ## [5.0.1](https://github.com/neovici/cosmoz-input/compare/v5.0.0...v5.0.1) (2024-05-27)
 
 

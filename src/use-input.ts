@@ -13,23 +13,22 @@ export interface BaseInput extends HTMLElement {
 export const useInput = <T extends BaseInput>(host: T) => {
 	const inputRef = useRef<Input | undefined>(undefined);
 	const onRef = useCallback(
-		(el?: Element) => (inputRef.current = el as Input),
-		[]
-	);
-	const root = host.shadowRoot as ShadowRoot,
+			(el?: Element) => (inputRef.current = el as Input),
+			[],
+		),
 		onChange = useCallback(
 			(e: Event) =>
 				host.dispatchEvent(new Event(e.type, { bubbles: e.bubbles })),
-			[]
+			[],
 		),
 		onInput = useCallback(
 			(e: InputEvent) =>
 				notifyProperty(host, 'value', (e.target as HTMLInputElement).value),
-			[]
+			[],
 		),
 		onFocus = useCallback(
 			(e: FocusEvent) => notifyProperty(host, 'focused', e.type === 'focus'),
-			[]
+			[],
 		),
 		focus = useCallback(() => inputRef.current?.focus(), []),
 		validate = useCallback(() => {
@@ -56,8 +55,8 @@ export const useInput = <T extends BaseInput>(host: T) => {
 			}
 		};
 
-		root.addEventListener('mousedown', onMouseDown);
-		return () => root.removeEventListener('mousedown', onMouseDown);
+		host.addEventListener('mousedown', onMouseDown);
+		return () => host.removeEventListener('mousedown', onMouseDown);
 	}, [focus]);
 
 	return {

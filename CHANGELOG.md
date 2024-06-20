@@ -1,3 +1,10 @@
+## [5.0.3](https://github.com/neovici/cosmoz-input/compare/v5.0.2...v5.0.3) (2024-06-20)
+
+
+### Bug Fixes
+
+* make input focus on cosmoz-input click ([6487f85](https://github.com/neovici/cosmoz-input/commit/6487f856cf731b18a0094506038b5f558dca8ecb))
+
 ## [5.0.2](https://github.com/neovici/cosmoz-input/compare/v5.0.1...v5.0.2) (2024-05-30)
 
 

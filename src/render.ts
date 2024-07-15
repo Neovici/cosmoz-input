@@ -28,14 +28,9 @@ export const render = <T>(
 				${control}
 				${when(
 					label,
-					() => html`<label for="input" part="label">${label}</label>`
-				)}
-				${when(
-					label && required,
-					() =>
-						html`<label for="input" part="label"
-							>${label + ' *'}
-						</label>`
+					required
+						? () => html`<label for="input" part="label">${label} *</label>`
+						: () => html`<label for="input" part="label">${label}</label>`
 				)}
 			</div>
 			<slot name="suffix"></slot>

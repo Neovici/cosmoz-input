@@ -10,11 +10,12 @@ export interface Render {
 	label?: string;
 	invalid?: boolean;
 	errorMessage?: string;
+	required?: boolean;
 }
 
 export const render = <T>(
 		control: T,
-		{ label, invalid, errorMessage }: Render
+		{ label, invalid, errorMessage, required }: Render
 	) => html`
 		<style>
 			${styles}
@@ -28,6 +29,13 @@ export const render = <T>(
 				${when(
 					label,
 					() => html`<label for="input" part="label">${label}</label>`
+				)}
+				${when(
+					label && required,
+					() =>
+						html`<label for="input" part="label"
+							>${label + ' *'}
+						</label>`
 				)}
 			</div>
 			<slot name="suffix"></slot>
@@ -44,6 +52,7 @@ export const render = <T>(
 		'disabled',
 		'maxlength',
 		'invalid',
+		'required',
 		'no-label-float',
 		'always-float-label',
 	];

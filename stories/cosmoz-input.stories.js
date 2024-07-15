@@ -49,6 +49,11 @@ export const color = () => html`
 	<cosmoz-input no-label-float type="color" .value=${'#ff0000'}></cosmoz-input>
 `;
 
+export const required = () => html`
+	${style}
+	<cosmoz-input required .label=${'This input is required'}></cosmoz-input>
+`;
+
 export const contour = () => html`
 	${style}
 	<style>

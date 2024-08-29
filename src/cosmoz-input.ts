@@ -65,7 +65,7 @@ export const Input = (host: CosmozInput) => {
 				autocomplete=${ifDefined(autocomplete)}
 				placeholder=${getPlaceholder(host)}
 				?readonly=${readonly}
-				.accept=${accept}
+				accept=${accept ?? '*/*'}
 				?aria-disabled=${disabled}
 				?disabled=${disabled}
 				.value=${live(value ?? '')}

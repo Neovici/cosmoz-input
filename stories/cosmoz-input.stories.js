@@ -86,3 +86,41 @@ export const contour = () => html`
 	></cosmoz-input>
 	<cosmoz-input disabled .label=${'This input is disabled!'}></cosmoz-input>
 `;
+
+export const file = () => html`
+	${style}
+	<style>
+		cosmoz-input {
+			--cosmoz-input-color: #aeacac;
+			--cosmoz-input-border-radius: 4px;
+			--cosmoz-input-wrap-padding: 12px;
+			--cosmoz-input-line-display: none;
+			--cosmoz-input-contour-size: 1px;
+			--cosmoz-input-label-translate-y: 10px;
+			--cosmoz-input-float-display: none;
+			--cosmoz-input-padding: 10px 8px;
+		}
+	</style>
+	<cosmoz-input .label=${'Upload any file'} type="file"></cosmoz-input>
+`;
+
+export const fileImage = () => html`
+	${style}
+	<style>
+		cosmoz-input {
+			--cosmoz-input-color: #aeacac;
+			--cosmoz-input-border-radius: 4px;
+			--cosmoz-input-wrap-padding: 12px;
+			--cosmoz-input-line-display: none;
+			--cosmoz-input-contour-size: 1px;
+			--cosmoz-input-label-translate-y: 10px;
+			--cosmoz-input-float-display: none;
+			--cosmoz-input-padding: 10px 8px;
+		}
+	</style>
+	<cosmoz-input
+		.label=${'Upload only JPG, JPEG, PNG or GIF files'}
+		type="file"
+		.accept=${'.jpg, .jpeg, .png, .gif'}
+	></cosmoz-input>
+`;

@@ -40,6 +40,7 @@ export const Input = (host: CosmozInput) => {
 			max,
 			step,
 			maxlength,
+			accept,
 		} = host,
 		{ onChange, onFocus, onInput, onRef } = useInput(host);
 	const onBeforeInput = useAllowedPattern(allowedPattern);
@@ -49,7 +50,7 @@ export const Input = (host: CosmozInput) => {
 			focus: () =>
 				(host.shadowRoot?.querySelector('#input') as HTMLInputElement)?.focus(),
 		},
-		[],
+		[]
 	);
 
 	return render(
@@ -64,6 +65,7 @@ export const Input = (host: CosmozInput) => {
 				autocomplete=${ifDefined(autocomplete)}
 				placeholder=${getPlaceholder(host)}
 				?readonly=${readonly}
+				accept=${accept}
 				?aria-disabled=${disabled}
 				?disabled=${disabled}
 				.value=${live(value ?? '')}
@@ -78,11 +80,11 @@ export const Input = (host: CosmozInput) => {
 				step=${ifDefined(step)}
 			/>
 		`,
-		host,
+		host
 	);
 };
 
 customElements.define(
 	'cosmoz-input',
-	component<CosmozInput>(Input, { observedAttributes }),
+	component<CosmozInput>(Input, { observedAttributes })
 );

@@ -1,3 +1,10 @@
+## [5.0.4](https://github.com/neovici/cosmoz-input/compare/v5.0.3...v5.0.4) (2024-09-20)
+
+
+### Bug Fixes
+
+* inputs are unselectable ([648ed2a](https://github.com/neovici/cosmoz-input/commit/648ed2a2b12715d6cd2997ba7c248d055801baca))
+
 ## [5.0.3](https://github.com/neovici/cosmoz-input/compare/v5.0.2...v5.0.3) (2024-06-20)
 
 

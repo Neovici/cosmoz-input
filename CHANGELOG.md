@@ -1,3 +1,10 @@
+## [5.0.5](https://github.com/neovici/cosmoz-input/compare/v5.0.4...v5.0.5) (2024-12-04)
+
+
+### Bug Fixes
+
+* performance issues in virtualized setting ([#93](https://github.com/neovici/cosmoz-input/issues/93)) ([b6fc4f4](https://github.com/neovici/cosmoz-input/commit/b6fc4f44200255f0aa9c978f65ba8b284a79a303))
+
 ## [5.0.4](https://github.com/neovici/cosmoz-input/compare/v5.0.3...v5.0.4) (2024-09-20)
 
 

@@ -2,13 +2,14 @@ import { html } from 'lit-html';
 import { live } from 'lit-html/directives/live.js';
 import { ref } from 'lit-html/directives/ref.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
-import { component } from '@pionjs/pion';
+import { component, sheet } from '@pionjs/pion';
 import { useImperativeApi } from '@neovici/cosmoz-utils/hooks/use-imperative-api';
 
 import { BaseInput, useInput } from './use-input';
 import { useAllowedPattern } from './use-allowed-pattern';
 import { Render, ObjectFromList, render, attributes } from './render';
 import { getPlaceholder } from './util';
+import { styles } from './styles';
 
 const observedAttributes = [
 	'type',
@@ -84,5 +85,8 @@ export const Input = (host: CosmozInput) => {
 
 customElements.define(
 	'cosmoz-input',
-	component<CosmozInput>(Input, { observedAttributes }),
+	component<CosmozInput>(Input, {
+		observedAttributes,
+		styleSheets: [sheet(styles)],
+	}),
 );

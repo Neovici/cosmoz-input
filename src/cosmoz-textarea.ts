@@ -3,10 +3,11 @@ import { live } from 'lit-html/directives/live.js';
 import { ref } from 'lit-html/directives/ref.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 
-import { component } from '@pionjs/pion';
+import { component, sheet } from '@pionjs/pion';
 import { BaseInput, useInput } from './use-input';
 import { useAutoHeight } from './use-auto-height';
 import { Render, ObjectFromList, render, attributes } from './render';
+import { styles } from './styles';
 
 const observedAttributes = ['rows', ...attributes];
 
@@ -40,11 +41,14 @@ export const Textarea = (host: CosmozInput) => {
 				?readonly=${readonly} ?aria-disabled=${disabled} ?disabled=${disabled}
 				.value=${live(value ?? '')} maxlength=${ifDefined(maxlength)} @input=${onInput}
 				@change=${onChange} @focus=${onFocus} @blur=${onFocus}>`,
-		host
+		host,
 	);
 };
 
 customElements.define(
 	'cosmoz-textarea',
-	component<CosmozInput>(Textarea, { observedAttributes })
+	component<CosmozInput>(Textarea, {
+		observedAttributes,
+		styleSheets: [sheet(styles)],
+	}),
 );

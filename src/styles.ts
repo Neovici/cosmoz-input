@@ -43,8 +43,6 @@ export const styles = css`
 		display: block;
 		padding: var(--cosmoz-input-padding, 8px 0);
 		position: relative;
-		transition: transform 0.25s, width 0.25s;
-		transform-origin: left top;
 		max-height: var(--cosmoz-input-max-height);
 		font-size: var(--font-size);
 		line-height: var(--line-height);
@@ -101,7 +99,9 @@ export const styles = css`
 		top: 0;
 		left: 0;
 		width: var(--cosmoz-input-label-width, 100%);
-		transition: transform 0.25s, width 0.25s;
+		transition:
+			transform 0.25s,
+			width 0.25s;
 		transform-origin: left top;
 		color: var(--color);
 		white-space: nowrap;
@@ -153,7 +153,7 @@ export const styles = css`
 		left: 0;
 		right: 0;
 		top: 0;
-		transform: scale3d(0, 1, 1);
+		transform: scaleX(0);
 		transform-origin: center center;
 		z-index: 1;
 	}

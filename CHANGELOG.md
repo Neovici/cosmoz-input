@@ -1,3 +1,10 @@
+## [5.1.1](https://github.com/neovici/cosmoz-input/compare/v5.1.0...v5.1.1) (2025-08-04)
+
+
+### Bug Fixes
+
+* automerge workflow ([b709548](https://github.com/neovici/cosmoz-input/commit/b709548bd1762edd277a320019d2969fac804085))
+
 ## [5.1.0](https://github.com/neovici/cosmoz-input/compare/v5.0.5...v5.1.0) (2025-07-21)
 
 

@@ -17,7 +17,7 @@ export const alwaysFloatLabel = () => html`
 	<cosmoz-input
 		always-float-label
 		.label=${'Choose color'}
-		.placeholder=${'placeholder text'}
+		placeholder=${'placeholder text'}
 	></cosmoz-input>
 `;
 

@@ -9,7 +9,7 @@ import { useAutoHeight } from './use-auto-height';
 import { Render, ObjectFromList, render, attributes } from './render';
 import { styles } from './styles';
 
-const observedAttributes = ['rows', ...attributes];
+const observedAttributes = ['rows', 'placeholder', ...attributes];
 
 type CosmozInput = HTMLElement &
 	ObjectFromList<typeof observedAttributes> &

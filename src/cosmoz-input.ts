@@ -20,6 +20,7 @@ const observedAttributes = [
 	'step',
 	'autosize',
 	'label',
+	'placeholder',
 	...attributes,
 ];
 

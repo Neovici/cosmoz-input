@@ -5,15 +5,18 @@ import { spy } from 'sinon';
 describe('cosmoz-input', () => {
 	it('render', async () => {
 		const el = await fixture(html`<cosmoz-input></cosmoz-input>`);
-		await expect(el).shadowDom.to.equalSnapshot({ ignoreAttributes: ['style'] });
+		await expect(el).shadowDom.to.equalSnapshot({
+			ignoreAttributes: ['style'],
+		});
 	});
 
 	it('render label and value', async () => {
 		const el = await fixture(
-			html`<cosmoz-input .label=${'Label'} .value=${'value'}></cosmoz-input>`
+			html`<cosmoz-input .label=${'Label'} .value=${'value'}></cosmoz-input>`,
 		);
-		await expect(el).shadowDom.to.equalSnapshot({ ignoreAttributes: ['style'] }
-		);
+		await expect(el).shadowDom.to.equalSnapshot({
+			ignoreAttributes: ['style'],
+		});
 	});
 
 	it('render errorMessage', async () => {
@@ -22,9 +25,11 @@ describe('cosmoz-input', () => {
 				invalid
 				.errorMessage=${'Something is wrong!'}
 				.value=${'wrong'}
-			></cosmoz-input>`
+			></cosmoz-input>`,
 		);
-		await expect(el).shadowDom.to.equalSnapshot({ ignoreAttributes: ['style'] });
+		await expect(el).shadowDom.to.equalSnapshot({
+			ignoreAttributes: ['style'],
+		});
 	});
 
 	it('focus', async () => {
@@ -47,36 +52,36 @@ describe('cosmoz-input', () => {
 
 	it('validate', async () => {
 		const el = await fixture(
-			html`<cosmoz-input .value=${'a'} pattern="[2]"></cosmoz-input>`
+			html`<cosmoz-input .value=${'a'} pattern="[2]"></cosmoz-input>`,
 		);
 		expect(el.validate()).to.be.false;
 	});
 
 	it('allowed-pattern', async () => {
 		const el = await fixture(
-			html`<cosmoz-input allowed-pattern="[c]"></cosmoz-input>`
+			html`<cosmoz-input allowed-pattern="[c]"></cosmoz-input>`,
 		);
 		expect(
 			el.shadowRoot.querySelector('input').dispatchEvent(
 				new InputEvent('beforeinput', {
 					data: 'c',
 					cancelable: true,
-				})
-			)
+				}),
+			),
 		).to.be.true;
 	});
 
 	it('allowed-pattern fail', async () => {
 		const el = await fixture(
-			html`<cosmoz-input allowed-pattern="[c]"></cosmoz-input>`
+			html`<cosmoz-input allowed-pattern="[c]"></cosmoz-input>`,
 		);
 		expect(
 			el.shadowRoot.querySelector('input').dispatchEvent(
 				new InputEvent('beforeinput', {
 					data: '2',
 					cancelable: true,
-				})
-			)
+				}),
+			),
 		).to.be.false;
 	});
 
@@ -91,10 +96,18 @@ describe('cosmoz-input', () => {
 		expect(inputSpy).to.have.been.calledOnce;
 	});
 
+	it('placeholder attribute', async () => {
+		const el = await fixture(
+			html`<cosmoz-input placeholder="Search..."></cosmoz-input>`,
+		);
+		const input = el.shadowRoot.querySelector('input');
+		expect(input.placeholder).to.equal('Search...');
+	});
+
 	it('mousedown', async () => {
 		const focusSpy = spy(),
 			el = await fixture(
-				html`<cosmoz-input><div slot="suffix"></div></cosmoz-input>`
+				html`<cosmoz-input><div slot="suffix"></div></cosmoz-input>`,
 			);
 		el.addEventListener('focused-changed', focusSpy, { once: true });
 		expect(focusSpy).not.to.have.been.called;
@@ -105,12 +118,12 @@ describe('cosmoz-input', () => {
 		expect(focusSpy).not.to.have.been.called;
 
 		el.querySelector('div').dispatchEvent(
-			new MouseEvent('mousedown', { bubbles: true })
+			new MouseEvent('mousedown', { bubbles: true }),
 		);
 		expect(focusSpy).to.have.been.calledOnce;
 
 		el.querySelector('div').dispatchEvent(
-			new MouseEvent('mousedown', { bubbles: true })
+			new MouseEvent('mousedown', { bubbles: true }),
 		);
 		expect(focusSpy).to.have.been.calledOnce;
 	});

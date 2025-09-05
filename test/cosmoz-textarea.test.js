@@ -11,7 +11,7 @@ describe('cosmoz-textarea', () => {
 
 	it('auto grows', async () => {
 		const el = await fixture(
-				html`<cosmoz-textarea .value=${'1\n2\n3'} .maxRows=${2} />`
+				html`<cosmoz-textarea .value=${'1\n2\n3'} .maxRows=${2} />`,
 			),
 			input = el.shadowRoot.querySelector('#input');
 		await nextFrame();
@@ -19,5 +19,13 @@ describe('cosmoz-textarea', () => {
 		const { height } = input.getBoundingClientRect();
 		expect(height).to.be.above(40);
 		expect(height).to.be.below(61);
+	});
+
+	it('placeholder attribute', async () => {
+		const el = await fixture(
+			html`<cosmoz-textarea placeholder="Enter text..."></cosmoz-textarea>`,
+		);
+		const textarea = el.shadowRoot.querySelector('textarea');
+		expect(textarea.placeholder).to.equal('Enter text...');
 	});
 });

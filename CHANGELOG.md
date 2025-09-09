@@ -1,3 +1,10 @@
+## [5.1.2](https://github.com/neovici/cosmoz-input/compare/v5.1.1...v5.1.2) (2025-09-09)
+
+
+### Bug Fixes
+
+* add placeholder attribute ([508896e](https://github.com/neovici/cosmoz-input/commit/508896e310ee56654e2ffd45b6d6ef36fe4cfa3b))
+
 ## [5.1.1](https://github.com/neovici/cosmoz-input/compare/v5.1.0...v5.1.1) (2025-08-04)
 
 

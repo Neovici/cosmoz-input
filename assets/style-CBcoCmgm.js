@@ -1,4 +1,4 @@
-import{f as U,w as E,T as C,m as J,j as K,x as z}from"./iframe-W5vG8Jch.js";/**
+import{f as U,w as E,T as C,m as J,j as K,x as z}from"./iframe-D_1uvEP4.js";/**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
@@ -69,7 +69,7 @@ import{f as U,w as E,T as C,m as J,j as K,x as z}from"./iframe-W5vG8Jch.js";/**
 		--float-display: var(--cosmoz-input-float-display, block);
 		--contour-color: var(--line-color);
 		--contour-size: var(--cosmoz-input-contour-size);
-		--label-translate-y: var(--cosmoz-input-label-translate-y, 0%);
+		--label-translate-y: var(--cosmoz-input-label-translate-y, none);
 
 		display: block;
 		padding: var(--cosmoz-input-padding, 8px 0);

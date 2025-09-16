@@ -1,3 +1,10 @@
+## [5.1.4](https://github.com/neovici/cosmoz-input/compare/v5.1.3...v5.1.4) (2025-09-16)
+
+
+### Bug Fixes
+
+* **cosmoz-input:** change --label-translate-y default value ([cdb8826](https://github.com/neovici/cosmoz-input/commit/cdb88261eb970f11038ee8cbced6b9eaf89df58e))
+
 ## [5.1.3](https://github.com/neovici/cosmoz-input/compare/v5.1.2...v5.1.3) (2025-09-16)
 
 

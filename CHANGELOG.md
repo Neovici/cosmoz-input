@@ -1,3 +1,10 @@
+## [5.1.3](https://github.com/neovici/cosmoz-input/compare/v5.1.2...v5.1.3) (2025-09-16)
+
+
+### Bug Fixes
+
+* focus imperative api is defined twice ([27707a3](https://github.com/neovici/cosmoz-input/commit/27707a380e35858dead38128947a16c450beae0c))
+
 ## [5.1.2](https://github.com/neovici/cosmoz-input/compare/v5.1.1...v5.1.2) (2025-09-09)
 
 

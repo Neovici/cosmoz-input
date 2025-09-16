@@ -3,7 +3,6 @@ import { live } from 'lit-html/directives/live.js';
 import { ref } from 'lit-html/directives/ref.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { component, sheet } from '@pionjs/pion';
-import { useImperativeApi } from '@neovici/cosmoz-utils/hooks/use-imperative-api';
 
 import { BaseInput, useInput } from './use-input';
 import { useAllowedPattern } from './use-allowed-pattern';
@@ -45,14 +44,6 @@ export const Input = (host: CosmozInput) => {
 		} = host,
 		{ onChange, onFocus, onInput, onRef } = useInput(host);
 	const onBeforeInput = useAllowedPattern(allowedPattern);
-
-	useImperativeApi(
-		{
-			focus: () =>
-				(host.shadowRoot?.querySelector('#input') as HTMLInputElement)?.focus(),
-		},
-		[],
-	);
 
 	return render(
 		html`

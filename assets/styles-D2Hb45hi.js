@@ -1,4 +1,4 @@
-import{f as x,T as f,x as p}from"./iframe-CdLhvHCV.js";import{i as $,t as _,e as A,u as k,h as w,H as g,d as n,b as C,n as b}from"./style-DF15A1oU.js";/**
+import{f as x,T as f,x as p}from"./iframe-BhK6uOE-.js";import{i as $,t as _,e as A,u as k,h as w,H as g,d as n,b as C,n as b}from"./style-CZnR83uS.js";/**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
@@ -57,7 +57,7 @@ import{f as x,T as f,x as p}from"./iframe-CdLhvHCV.js";import{i as $,t as _,e as
 		--float-display: var(--cosmoz-input-float-display, block);
 		--contour-color: var(--line-color);
 		--contour-size: var(--cosmoz-input-contour-size);
-		--label-translate-y: var(--cosmoz-input-label-translate-y, none);
+		--label-translate-y: var(--cosmoz-input-label-translate-y, 0%);
 
 		display: block;
 		padding: var(--cosmoz-input-padding, 8px 0);

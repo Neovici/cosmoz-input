@@ -1,3 +1,10 @@
+## [5.2.0](https://github.com/neovici/cosmoz-input/compare/v5.1.4...v5.2.0) (2025-10-14)
+
+
+### Features
+
+* cosmoz-toggle ([fb66d61](https://github.com/neovici/cosmoz-input/commit/fb66d61796b2385fd62843e7b13fbec5a0447808))
+
 ## [5.1.4](https://github.com/neovici/cosmoz-input/compare/v5.1.3...v5.1.4) (2025-09-16)
 
 

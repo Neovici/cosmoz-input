@@ -1,6 +1,6 @@
 {
 	"name": "@neovici/cosmoz-input",
-	"version": "5.2.1",
+	"version": "5.2.2",
 	"description": "A input web component",
 	"keywords": [
 		"lit-html",

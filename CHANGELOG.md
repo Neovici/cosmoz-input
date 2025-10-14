@@ -1,3 +1,10 @@
+## [5.2.2](https://github.com/neovici/cosmoz-input/compare/v5.2.1...v5.2.2) (2025-10-14)
+
+
+### Bug Fixes
+
+* **cosmoz-input:** label does not float anymore ([7af5859](https://github.com/neovici/cosmoz-input/commit/7af58596d0a41932da3ba340e0b7f20957bbd2c9))
+
 ## [5.2.1](https://github.com/neovici/cosmoz-input/compare/v5.2.0...v5.2.1) (2025-10-14)
 
 

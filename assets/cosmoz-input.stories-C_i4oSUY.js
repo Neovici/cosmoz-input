@@ -1,17 +1,17 @@
-import{x as t}from"./iframe-D_1uvEP4.js";import{u as T,c as E,s as F,a as M,b as L,r as P,n as R,o as s,l as D,d as _,e as n}from"./style-CBcoCmgm.js";const k=o=>T(()=>{if(o==null)return;const a=new RegExp(o,"u");return e=>{!e.defaultPrevented&&e.data&&!a.test(e.data)&&e.preventDefault()}},[o]),A=({placeholder:o,noLabelFloat:a,label:e})=>(a?e:void 0)||o||" ",B=["type","pattern","allowed-pattern","min","max","step","autosize","label","placeholder",...M],O=o=>{const{type:a="text",pattern:e,allowedPattern:b,autocomplete:h,value:d,readonly:f,disabled:z,min:x,max:y,step:g,maxlength:v}=o,{onChange:w,onFocus:$,onInput:S,onRef:I}=L(o),C=k(b);return P(t`
+import{x as t}from"./iframe-CdLhvHCV.js";import{u as T,c as E,s as F,l as M,a as n}from"./style-DF15A1oU.js";import{a as L,u as P,r as R,n as D,o as s,s as _}from"./styles-DkZGiOTx.js";const k=o=>T(()=>{if(o==null)return;const a=new RegExp(o,"u");return e=>{!e.defaultPrevented&&e.data&&!a.test(e.data)&&e.preventDefault()}},[o]),A=({placeholder:o,noLabelFloat:a,label:e})=>(a?e:void 0)||o||" ",B=["type","pattern","allowed-pattern","min","max","step","autosize","label","placeholder",...L],O=o=>{const{type:a="text",pattern:e,allowedPattern:b,autocomplete:f,value:d,readonly:h,disabled:z,min:x,max:y,step:g,maxlength:v}=o,{onChange:w,onFocus:$,onInput:S,onRef:I}=P(o),C=k(b);return R(t`
 			<input
-				${R(I)}
+				${D(I)}
 				style="--chars: ${d?.toString()?.length??0}ch"
 				id="input"
 				part="input"
 				type=${a}
 				pattern=${s(e)}
-				autocomplete=${s(h)}
+				autocomplete=${s(f)}
 				placeholder=${A(o)}
-				?readonly=${f}
+				?readonly=${h}
 				?aria-disabled=${z}
 				?disabled=${z}
-				.value=${D(d??"")}
+				.value=${M(d??"")}
 				maxlength=${s(v)}
 				@beforeinput=${C}
 				@input=${S}
@@ -22,7 +22,7 @@ import{x as t}from"./iframe-D_1uvEP4.js";import{u as T,c as E,s as F,a as M,b as
 				max=${s(y)}
 				step=${s(g)}
 			/>
-		`,o)};customElements.define("cosmoz-input",E(O,{observedAttributes:B,styleSheets:[F(_)]}));const G={title:"Input",component:"cosmoz-input"},l=()=>t`
+		`,o)};customElements.define("cosmoz-input",E(O,{observedAttributes:B,styleSheets:[F(_)]}));const H={title:"Input",component:"cosmoz-input"},l=()=>t`
     ${n}
     <cosmoz-input .label=${"Choose color"}></cosmoz-input>
 `,r=()=>t`
@@ -152,4 +152,4 @@ import{x as t}from"./iframe-D_1uvEP4.js";import{u as T,c as E,s as F,a as M,b as
         .errorMessage=\${'Something is rotten in the state of Denmark.'}
     ></cosmoz-input>
     <cosmoz-input disabled .label=\${'This input is disabled!'}></cosmoz-input>
-\``,...m.parameters?.docs?.source}}};const H=["basic","alwaysFloatLabel","noLabelFloat","error","autosize","color","contour"];export{H as __namedExportsOrder,r as alwaysFloatLabel,c as autosize,l as basic,u as color,m as contour,G as default,i as error,p as noLabelFloat};
+\``,...m.parameters?.docs?.source}}};const J=["basic","alwaysFloatLabel","noLabelFloat","error","autosize","color","contour"];export{J as __namedExportsOrder,r as alwaysFloatLabel,c as autosize,l as basic,u as color,m as contour,H as default,i as error,p as noLabelFloat};

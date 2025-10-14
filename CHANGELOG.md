@@ -1,3 +1,10 @@
+## [5.2.1](https://github.com/neovici/cosmoz-input/compare/v5.2.0...v5.2.1) (2025-10-14)
+
+
+### Bug Fixes
+
+* export cosmoz-toggle ([9987196](https://github.com/neovici/cosmoz-input/commit/9987196b667a9cf4207130afeac3132a35ca26be))
+
 ## [5.2.0](https://github.com/neovici/cosmoz-input/compare/v5.1.4...v5.2.0) (2025-10-14)
 
 

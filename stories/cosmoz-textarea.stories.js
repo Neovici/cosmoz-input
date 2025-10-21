@@ -44,6 +44,11 @@ const basic = () => html`
 			.value=${loremIpsum}
 		></cosmoz-textarea>
 		<cosmoz-textarea
+			no-label-float
+			placeholder=${'Write your comment here'}
+			.value=${loremIpsum}
+		></cosmoz-textarea>
+		<cosmoz-textarea
 			invalid
 			.errorMessage=${'Something is rotten in the state of Denmark'}
 			.label=${'Write another comment here'}

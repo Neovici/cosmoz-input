@@ -110,10 +110,14 @@ export const styles = css`
 		text-transform: var(--cosmoz-input-label-text-transform);
 		font-weight: var(--cosmoz-input-label-font-weight);
 	}
-	.wrap:has(#input:not(:placeholder-shown)) slot[name='suffix']::slotted(*),
-	.wrap:has(#input:not(:placeholder-shown)) slot[name='prefix']::slotted(*) {
-		transform: translateY(var(--label-translate-y));
+
+	.wrap:has(#input:not(:placeholder-shown)) {
+		slot[name='suffix']::slotted(*),
+		slot[name='prefix']::slotted(*) {
+			transform: translateY(var(--label-translate-y));
+		}
 	}
+
 	:host([always-float-label]) label,
 	#input:not(:placeholder-shown) + label {
 		transform: translateY(
@@ -128,9 +132,11 @@ export const styles = css`
 		transform: translateY(var(--label-translate-y));
 	}
 
-	:host([always-float-label]) slot[name='suffix']::slotted(*),
-	:host([always-float-label]) slot[name='prefix']::slotted(*) {
-		transform: translateY(var(--label-translate-y));
+	:host([always-float-label]) {
+		slot[name='suffix']::slotted(*),
+		slot[name='prefix']::slotted(*) {
+			transform: translateY(var(--label-translate-y));
+		}
 	}
 
 	:host(:not(always-float-label):focus-within) #input::placeholder,
@@ -139,12 +145,31 @@ export const styles = css`
 		opacity: 1;
 	}
 
+	:host([no-label-float]) {
+		.float,
+		label {
+			display: none;
+		}
+	}
+
+	:host([no-label-float]) #input:not(:placeholder-shown) {
+		transform: translateY(0%);
+	}
+
+	:host([no-label-float]) {
+		.wrap:has(#input:not(:placeholder-shown)) slot[name='suffix']::slotted(*),
+		.wrap:has(#input:not(:placeholder-shown)) slot[name='prefix']::slotted(*) {
+			transform: translateY(0%);
+		}
+	}
+
 	.line {
 		padding-top: 1px;
 		border-bottom: 1px solid var(--line-color);
 		position: relative;
 		display: var(--cosmoz-input-line-display, block);
 	}
+
 	.line::before {
 		content: '';
 		position: absolute;
@@ -173,11 +198,6 @@ export const styles = css`
 	:host([disabled]) .line {
 		border-bottom-style: dashed;
 		opacity: var(--disabled-line-opacity);
-	}
-
-	:host([no-label-float]) .float,
-	:host([no-label-float]) label {
-		display: none;
 	}
 
 	.error {

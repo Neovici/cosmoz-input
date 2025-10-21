@@ -54,13 +54,13 @@ export const contour = () => html`
 	<style>
 		cosmoz-input {
 			--cosmoz-input-color: #aeacac;
-			--cosmoz-input-border-radius: 4px;
-			--cosmoz-input-wrap-padding: 12px;
+			--cosmoz-input-border-radius: 8px;
+			--cosmoz-input-wrap-padding: 12px 16px;
+			--cosmoz-input-padding: 14px 0px;
 			--cosmoz-input-line-display: none;
 			--cosmoz-input-contour-size: 1px;
-			--cosmoz-input-label-translate-y: 10px;
+			--cosmoz-input-label-translate-y: 8px;
 			--cosmoz-input-float-display: none;
-			--cosmoz-input-padding: 10px 8px;
 		}
 		span {
 			margin: 0 4px;
@@ -78,7 +78,16 @@ export const contour = () => html`
 	<cosmoz-input always-float-label .label=${'This label always floats'}
 		><span slot="prefix">${'Example:'}</span></cosmoz-input
 	>
-
+	<cosmoz-input
+		no-label-float
+		.label=${'This label never floats'}
+	></cosmoz-input>
+	<cosmoz-input no-label-float .label=${'This label never floats with prefix'}
+		><span slot="prefix">${'Example:'}</span></cosmoz-input
+	>
+	<cosmoz-input no-label-float .label=${'This label never floats with sufix'}
+		><span slot="suffix">${'suffix'}</span></cosmoz-input
+	>
 	<cosmoz-input
 		invalid
 		.label=${'This input is invalid!'}

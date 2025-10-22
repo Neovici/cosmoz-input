@@ -109,6 +109,7 @@ export const styles = css`
 		text-overflow: ellipsis;
 		text-transform: var(--cosmoz-input-label-text-transform);
 		font-weight: var(--cosmoz-input-label-font-weight);
+		user-select: none;
 	}
 
 	.wrap:has(#input:not(:placeholder-shown)) {

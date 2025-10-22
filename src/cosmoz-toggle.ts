@@ -75,6 +75,7 @@ export const toggleStyles = css`
 		font-size: 14px;
 		line-height: 18px;
 		cursor: pointer;
+		user-select: none;
 	}
 	.toggle[disabled] {
 		opacity: 0.6;

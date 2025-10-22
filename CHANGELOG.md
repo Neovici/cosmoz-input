@@ -1,3 +1,10 @@
+## [5.2.3](https://github.com/neovici/cosmoz-input/compare/v5.2.2...v5.2.3) (2025-10-22)
+
+
+### Bug Fixes
+
+* center text for no-label-float attribute in contour style input ([#119](https://github.com/neovici/cosmoz-input/issues/119)) ([32848a9](https://github.com/neovici/cosmoz-input/commit/32848a9d232f2a64d1630868a10e9e342dfa8da8))
+
 ## [5.2.2](https://github.com/neovici/cosmoz-input/compare/v5.2.1...v5.2.2) (2025-10-14)
 
 

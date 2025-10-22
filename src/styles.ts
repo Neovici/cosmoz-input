@@ -150,13 +150,11 @@ export const styles = css`
 		label {
 			display: none;
 		}
-	}
 
-	:host([no-label-float]) #input:not(:placeholder-shown) {
-		transform: translateY(0%);
-	}
+		#input:not(:placeholder-shown) {
+			transform: translateY(0%);
+		}
 
-	:host([no-label-float]) {
 		.wrap:has(#input:not(:placeholder-shown)) slot[name='suffix']::slotted(*),
 		.wrap:has(#input:not(:placeholder-shown)) slot[name='prefix']::slotted(*) {
 			transform: translateY(0%);

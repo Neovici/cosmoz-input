@@ -1,3 +1,10 @@
+## [5.2.4](https://github.com/neovici/cosmoz-input/compare/v5.2.3...v5.2.4) (2025-10-28)
+
+
+### Bug Fixes
+
+* set  label text not selectable to improve input focus usability ([#120](https://github.com/neovici/cosmoz-input/issues/120)) ([0520714](https://github.com/neovici/cosmoz-input/commit/0520714241d646ea99986d7e8d679bcd3f3b28cc))
+
 ## [5.2.3](https://github.com/neovici/cosmoz-input/compare/v5.2.2...v5.2.3) (2025-10-22)
 
 

@@ -1,15 +1,15 @@
-import{x as e}from"./iframe-C0QvUTxu.js";import{f as a,c as r,d,l as p,n as s,a as b}from"./style-dVw60XmW.js";const h=t=>{const{label:l,value:c,disabled:n,error:g}=t,i=d(o=>t.dispatchEvent(new CustomEvent("change",{detail:o.target.checked})),[]);return e`<input
+import{x as e}from"./iframe-CdTQgOew.js";import{f as c,c as r,d,l as p,n as s,a as b}from"./style-BCaZ1FAs.js";const h=t=>{const{label:l,value:a,disabled:n,error:g}=t,i=d(o=>t.dispatchEvent(new CustomEvent("change",{detail:o.target.checked})),[]);return e`<input
 			id="toggle"
 			class="toggle"
 			part="toggle"
 			type="checkbox"
-			.checked=${p(!!c)}
+			.checked=${p(!!a)}
 			?disabled=${n}
 			@change=${i}
 		/>
 		${s(l,()=>e`<label for="toggle">${l}</label>`)}
 		<slot name="suffix"></slot>
-		${s(g,o=>e`<div class="failure">${o}</div>`)} `},u=a`
+		${s(g,o=>e`<div class="failure">${o}</div>`)} `},u=c`
 	.toggle {
 		appearance: none;
 		width: 35px;
@@ -49,11 +49,12 @@ import{x as e}from"./iframe-C0QvUTxu.js";import{f as a,c as r,d,l as p,n as s,a 
 		font-size: 14px;
 		line-height: 18px;
 		cursor: pointer;
+		user-select: none;
 	}
 	.toggle[disabled] {
 		opacity: 0.6;
 	}
-`,m=a`
+`,m=c`
 	:host {
 		display: block;
 	}

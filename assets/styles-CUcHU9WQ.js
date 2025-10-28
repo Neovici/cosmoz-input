@@ -1,4 +1,4 @@
-import{f as x,T as f,x as h}from"./iframe-C0QvUTxu.js";import{i as $,t as _,e as A,u as k,h as w,H as g,d as n,b as C,n as b}from"./style-dVw60XmW.js";/**
+import{f as x,T as f,x as h}from"./iframe-CdTQgOew.js";import{i as $,t as _,e as A,u as k,h as w,H as g,d as n,b as C,n as b}from"./style-BCaZ1FAs.js";/**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
@@ -128,6 +128,7 @@ import{f as x,T as f,x as h}from"./iframe-C0QvUTxu.js";import{i as $,t as _,e as
 		text-overflow: ellipsis;
 		text-transform: var(--cosmoz-input-label-text-transform);
 		font-weight: var(--cosmoz-input-label-font-weight);
+		user-select: none;
 	}
 
 	.wrap:has(#input:not(:placeholder-shown)) {

@@ -1,3 +1,10 @@
+## [5.3.0](https://github.com/neovici/cosmoz-input/compare/v5.2.4...v5.3.0) (2025-11-03)
+
+
+### Features
+
+* export render and styles from package ([16fe4ea](https://github.com/neovici/cosmoz-input/commit/16fe4ea368a5cfccdabb5b420997f1d59fb3058a))
+
 ## [5.2.4](https://github.com/neovici/cosmoz-input/compare/v5.2.3...v5.2.4) (2025-10-28)
 
 

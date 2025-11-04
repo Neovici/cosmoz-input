@@ -100,7 +100,7 @@ const style = css`
 customElements.define(
 	'cosmoz-toggle',
 	component(CosmozToggle, {
-		observedAttributes: ['label', 'value', 'disabled', 'error'],
+		observedAttributes: ['label', 'disabled', 'error'],
 		styleSheets: [style, toggleStyles],
 	}),
 );

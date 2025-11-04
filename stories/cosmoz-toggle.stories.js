@@ -11,4 +11,10 @@ const basic = () => html`
 	${style}
 	<cosmoz-toggle .label=${'Is active'} .value=${true}></cosmoz-toggle>
 `;
-export { basic };
+
+const disabled = () => html`
+	${style}
+	<cosmoz-toggle .label=${'Disabled toggle'} .value=${true} .disabled=${true}></cosmoz-toggle>
+`;
+
+export { basic, disabled };

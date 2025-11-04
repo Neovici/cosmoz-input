@@ -1,3 +1,10 @@
+## [5.4.0](https://github.com/neovici/cosmoz-input/compare/v5.3.0...v5.4.0) (2025-11-04)
+
+
+### Features
+
+* add disabled as an observed attribute ([2012477](https://github.com/neovici/cosmoz-input/commit/20124779d6bf692a250268caefa6ee442ee5795f))
+
 ## [5.3.0](https://github.com/neovici/cosmoz-input/compare/v5.2.4...v5.3.0) (2025-11-03)
 
 

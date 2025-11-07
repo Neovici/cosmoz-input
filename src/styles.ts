@@ -116,24 +116,7 @@ export const styles = css`
 	}
 
 	.wrap:has(#input:not(:placeholder-shown)) {
-		slot[name='suffix']::slotted(*),
-		slot[name='prefix']::slotted(*) {
-			transform: translateY(var(--label-translate-y));
-		}
-	}
-
-	:host([always-float-label]) label,
-	#input:not(:placeholder-shown) + label {
-		transform: translateY(
-				calc(var(--label-scale) * -100% + var(--label-translate-y))
-			)
-			scale(var(--label-scale));
-		background-color: var(--cosmoz-input-floating-label-bg, var(--bg));
-	}
-
-	:host([always-float-label]) input,
-	#input:not(:placeholder-shown) {
-		transform: translateY(var(--label-translate-y));
+		--with-value: 1;
 	}
 
 	:host([always-float-label]) {
@@ -148,15 +131,11 @@ export const styles = css`
 		label {
 			display: none;
 		}
+	}
 
-		#input:not(:placeholder-shown) {
-			transform: translateY(0%);
-		}
-
-		.wrap:has(#input:not(:placeholder-shown)) slot[name='suffix']::slotted(*),
-		.wrap:has(#input:not(:placeholder-shown)) slot[name='prefix']::slotted(*) {
-			transform: translateY(0%);
-		}
+	:host([no-label-float]) .wrap:has(#input:not(:placeholder-shown)),
+	:host([no-label-float]) #input:not(:placeholder-shown) {
+		--with-value: 0;
 	}
 
 	.line {
@@ -270,6 +249,29 @@ export const styles = css`
 		:host {
 			--contour-color: var(--focused-color);
 			caret-color: var(--focused-color);
+		}
+	}
+
+	@container style(--with-value: 1) {
+		:host(:not([always-float-label])) #input::placeholder {
+			opacity: 0;
+		}
+
+		label {
+			transform: translateY(
+					calc(var(--label-scale) * -100% + var(--label-translate-y))
+				)
+				scale(var(--label-scale));
+			background-color: var(--cosmoz-input-floating-label-bg, var(--bg));
+		}
+
+		#input {
+			transform: translateY(var(--label-translate-y));
+		}
+
+		slot[name='suffix']::slotted(*),
+		slot[name='prefix']::slotted(*) {
+			transform: translateY(var(--label-translate-y));
 		}
 	}
 `;

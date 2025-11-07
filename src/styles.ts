@@ -2,6 +2,7 @@ import { tagged as css } from '@neovici/cosmoz-utils';
 
 export const styles = css`
 	:host {
+		container: inline-size;
 		--font-family: var(
 			--cosmoz-input-font-family,
 			var(--paper-font-subhead_-_font-family, inherit)
@@ -39,6 +40,7 @@ export const styles = css`
 		--contour-color: var(--line-color);
 		--contour-size: var(--cosmoz-input-contour-size);
 		--label-translate-y: var(--cosmoz-input-label-translate-y, 0%);
+		--is-focused: var(--cosmoz-input-is-focused, 0);
 
 		display: block;
 		padding: var(--cosmoz-input-padding, 8px 0);
@@ -90,8 +92,8 @@ export const styles = css`
 		resize: none;
 	}
 
-	:host(:focus-within) .wrap {
-		background: var(--focused-bg);
+	:host(:focus-within) {
+		--is-focused: 1;
 	}
 
 	label {
@@ -140,12 +142,6 @@ export const styles = css`
 		}
 	}
 
-	:host(:not(always-float-label):focus-within) #input::placeholder,
-	:host(:focus-within) label {
-		color: var(--focused-color);
-		opacity: 1;
-	}
-
 	:host([no-label-float]) {
 		.float,
 		label {
@@ -180,18 +176,6 @@ export const styles = css`
 		transform: scaleX(0);
 		transform-origin: center center;
 		z-index: 1;
-	}
-	:host(:focus-within) .line::before {
-		transform: none;
-		transition: 0.25s transform ease;
-	}
-	:host(:focus-within) .line {
-		border-bottom-color: var(--focused-color);
-	}
-
-	:host(:focus-within) {
-		--contour-color: var(--focused-color);
-		caret-color: var(--focused-color);
 	}
 
 	:host([disabled]) .line {
@@ -256,5 +240,35 @@ export const styles = css`
 	}
 	:host([type='color']) .line {
 		display: none;
+	}
+
+	@container style(--is-focused: 1) {
+		.wrap {
+			background: var(--focused-bg);
+		}
+
+		:host(:not([always-float-label])) #input::placeholder {
+			color: var(--focused-color);
+			opacity: 1;
+		}
+
+		label {
+			color: var(--focused-color);
+			opacity: 1;
+		}
+
+		.line::before {
+			transform: none;
+			transition: 0.25s transform ease;
+		}
+
+		.line {
+			border-bottom-color: var(--focused-color);
+		}
+
+		:host {
+			--contour-color: var(--focused-color);
+			caret-color: var(--focused-color);
+		}
 	}
 `;

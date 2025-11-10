@@ -78,6 +78,9 @@ export const styles = css`
 		font-size: var(--font-size);
 		line-height: var(--line-height);
 		font-family: var(--font-family);
+
+		container: inline-size;
+		container-name: var(--focused);
 	}
 
 	:host([disabled]) {
@@ -270,8 +273,8 @@ export const styles = css`
 	:host([type='color']) .line {
 		display: none;
 	}
-	/* Modern browsers with @container style query support */
-	@container style(--focused: focused) {
+
+	@container focused (min-width: 0) {
 		${focusedStyle}
 	}
 `;

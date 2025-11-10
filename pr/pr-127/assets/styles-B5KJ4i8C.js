@@ -1,24 +1,24 @@
-import{f as $,T as f,x as u}from"./iframe-0141gMJu.js";import{i as _,t as A,e as k,u as C,h as y,H as g,d as n,b as G,n as b}from"./style-C-yUvW-L.js";/**
+import{f as $,T as f,x as h}from"./iframe-D_qc8vYA.js";import{i as _,t as A,e as k,u as C,h as y,H as g,d as s,b as G,n as b}from"./style-CRjTrbeT.js";/**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const r=(t,o)=>{const e=t._$AN;if(e===void 0)return!1;for(const a of e)a._$AO?.(o,!1),r(a,o);return!0},d=t=>{let o,e;do{if((o=t._$AM)===void 0)break;e=o._$AN,e.delete(t),t=o}while(e?.size===0)},w=t=>{for(let o;o=t._$AM;t=o){let e=o._$AN;if(e===void 0)o._$AN=e=new Set;else if(e.has(t))break;e.add(t),N(o)}};function M(t){this._$AN!==void 0?(d(this),this._$AM=t,w(this)):this._$AM=t}function E(t,o=!1,e=0){const a=this._$AH,l=this._$AN;if(l!==void 0&&l.size!==0)if(o)if(Array.isArray(a))for(let s=e;s<a.length;s++)r(a[s],!1),d(a[s]);else a!=null&&(r(a,!1),d(a));else r(this,t)}const N=t=>{t.type==A.CHILD&&(t._$AP??=E,t._$AQ??=M)};class I extends _{constructor(){super(...arguments),this._$AN=void 0}_$AT(o,e,a){super._$AT(o,e,a),w(this),this.isConnected=o._$AU}_$AO(o,e=!0){o!==this.isConnected&&(this.isConnected=o,o?this.reconnected?.():this.disconnected?.()),e&&(r(this,o),d(this))}setValue(o){if($(this._$Ct))this._$Ct._$AI(o,this);else{const e=[...this._$Ct._$AH];e[this._$Ci]=o,this._$Ct._$AI(e,this,0)}}disconnected(){}reconnected(){}}const h=new WeakMap,O=k(class extends I{render(t){return f}update(t,[o]){const e=o!==this.G;return e&&this.G!==void 0&&this.ot(void 0),(e||this.rt!==this.lt)&&(this.G=o,this.ct=t.options?.host,this.ot(this.lt=t.element)),f}ot(t){if(typeof this.G=="function"){const o=this.ct??globalThis;let e=h.get(o);e===void 0&&(e=new WeakMap,h.set(o,e)),e.get(this.G)!==void 0&&this.G.call(this.ct,void 0),e.set(this.G,t),t!==void 0&&this.G.call(this.ct,t)}else this.G.value=t}get rt(){return typeof this.G=="function"?h.get(this.ct??globalThis)?.get(this.G):this.G?.value}disconnected(){this.rt===this.lt&&this.ot(void 0)}reconnected(){this.ot(this.lt)}});/**
+ */const r=(t,o)=>{const e=t._$AN;if(e===void 0)return!1;for(const a of e)a._$AO?.(o,!1),r(a,o);return!0},d=t=>{let o,e;do{if((o=t._$AM)===void 0)break;e=o._$AN,e.delete(t),t=o}while(e?.size===0)},w=t=>{for(let o;o=t._$AM;t=o){let e=o._$AN;if(e===void 0)o._$AN=e=new Set;else if(e.has(t))break;e.add(t),N(o)}};function E(t){this._$AN!==void 0?(d(this),this._$AM=t,w(this)):this._$AM=t}function M(t,o=!1,e=0){const a=this._$AH,l=this._$AN;if(l!==void 0&&l.size!==0)if(o)if(Array.isArray(a))for(let n=e;n<a.length;n++)r(a[n],!1),d(a[n]);else a!=null&&(r(a,!1),d(a));else r(this,t)}const N=t=>{t.type==A.CHILD&&(t._$AP??=M,t._$AQ??=E)};class I extends _{constructor(){super(...arguments),this._$AN=void 0}_$AT(o,e,a){super._$AT(o,e,a),w(this),this.isConnected=o._$AU}_$AO(o,e=!0){o!==this.isConnected&&(this.isConnected=o,o?this.reconnected?.():this.disconnected?.()),e&&(r(this,o),d(this))}setValue(o){if($(this._$Ct))this._$Ct._$AI(o,this);else{const e=[...this._$Ct._$AH];e[this._$Ci]=o,this._$Ct._$AI(e,this,0)}}disconnected(){}reconnected(){}}const u=new WeakMap,O=k(class extends I{render(t){return f}update(t,[o]){const e=o!==this.G;return e&&this.G!==void 0&&this.ot(void 0),(e||this.rt!==this.lt)&&(this.G=o,this.ct=t.options?.host,this.ot(this.lt=t.element)),f}ot(t){if(typeof this.G=="function"){const o=this.ct??globalThis;let e=u.get(o);e===void 0&&(e=new WeakMap,u.set(o,e)),e.get(this.G)!==void 0&&this.G.call(this.ct,void 0),e.set(this.G,t),t!==void 0&&this.G.call(this.ct,t)}else this.G.value=t}get rt(){return typeof this.G=="function"?u.get(this.ct??globalThis)?.get(this.G):this.G?.value}disconnected(){this.rt===this.lt&&this.ot(void 0)}reconnected(){this.ot(this.lt)}});/**
  * @license
  * Copyright 2018 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const j=t=>t??f;function Y(t){return C(()=>({current:t}),[])}const H=y(class extends g{values;constructor(t,o,e,a){super(t,o),Object.assign(o.host,e),this.values=a}update(t,o){this.hasChanged(o)&&(this.values=o,Object.assign(this.state.host,t))}hasChanged(t=[]){return t.some((o,e)=>this.values[e]!==o)}});y(class extends g{update(){return this.state.host}});const P=/([A-Z])/gu,m=(t,o,e)=>{t[o]=e,t.dispatchEvent(new CustomEvent(o.replace(P,"-$1").toLowerCase()+"-changed",{detail:{value:e}}))},D=t=>{const o=Y(void 0),e=n(i=>o.current=i,[]),a=t.shadowRoot,l=n(i=>t.dispatchEvent(new Event(i.type,{bubbles:i.bubbles})),[]),s=n(i=>m(t,"value",i.target.value),[]),x=n(i=>m(t,"focused",i.type==="focus"),[]),c=n(()=>o.current?.focus(),[]),v=n(()=>{const i=o.current?.checkValidity();return t.toggleAttribute("invalid",!i),i},[]);return H({focus:c,validate:v},[c,v]),G(()=>{const i=p=>{p.defaultPrevented||t.disabled||p.target.matches("input, textarea, label")||(p.preventDefault(),t.matches(":focus-within")||c())};return a.addEventListener("mousedown",i),()=>a.removeEventListener("mousedown",i)},[c]),{onChange:l,onFocus:x,onInput:s,onRef:e}},S=(t,{label:o,invalid:e,errorMessage:a})=>u`
+ */const j=t=>t??f;function Y(t){return C(()=>({current:t}),[])}const H=y(class extends g{values;constructor(t,o,e,a){super(t,o),Object.assign(o.host,e),this.values=a}update(t,o){this.hasChanged(o)&&(this.values=o,Object.assign(this.state.host,t))}hasChanged(t=[]){return t.some((o,e)=>this.values[e]!==o)}});y(class extends g{update(){return this.state.host}});const P=/([A-Z])/gu,m=(t,o,e)=>{t[o]=e,t.dispatchEvent(new CustomEvent(o.replace(P,"-$1").toLowerCase()+"-changed",{detail:{value:e}}))},D=t=>{const o=Y(void 0),e=s(i=>o.current=i,[]),a=t.shadowRoot,l=s(i=>t.dispatchEvent(new Event(i.type,{bubbles:i.bubbles})),[]),n=s(i=>m(t,"value",i.target.value),[]),x=s(i=>m(t,"focused",i.type==="focus"),[]),c=s(()=>o.current?.focus(),[]),v=s(()=>{const i=o.current?.checkValidity();return t.toggleAttribute("invalid",!i),i},[]);return H({focus:c,validate:v},[c,v]),G(()=>{const i=p=>{p.defaultPrevented||t.disabled||p.target.matches("input, textarea, label")||(p.preventDefault(),t.matches(":focus-within")||c())};return a.addEventListener("mousedown",i),()=>a.removeEventListener("mousedown",i)},[c]),{onChange:l,onFocus:x,onInput:n,onRef:e}},S=(t,{label:o,invalid:e,errorMessage:a})=>h`
 		<div class="float" part="float">&nbsp;</div>
 		<div class="wrap" part="wrap">
 			<slot name="prefix"></slot>
 			<div class="control" part="control">
 				<slot name="control"></slot>
 				${t}
-				${b(o,()=>u`<label for="input" part="label">${o}</label>`)}
+				${b(o,()=>h`<label for="input" part="label">${o}</label>`)}
 			</div>
 			<slot name="suffix"></slot>
 		</div>
 		<div class="line" part="line"></div>
-		${b(e&&a,()=>u`<div class="error" part="error">${a}</div>`)}
+		${b(e&&a,()=>h`<div class="error" part="error">${a}</div>`)}
 	`,U=["autocomplete","readonly","disabled","maxlength","invalid","no-label-float","always-float-label"],z=(t,...o)=>t.flatMap((e,a)=>[e,o[a]||""]).join(""),R=z`
 	.wrap {
 		background: var(--focused-bg);
@@ -95,6 +95,9 @@ import{f as $,T as f,x as u}from"./iframe-0141gMJu.js";import{i as _,t as A,e as
 		font-size: var(--font-size);
 		line-height: var(--line-height);
 		font-family: var(--font-family);
+
+		container: inline-size;
+		container-name: var(--focused);
 	}
 
 	:host([disabled]) {
@@ -287,8 +290,8 @@ import{f as $,T as f,x as u}from"./iframe-0141gMJu.js";import{i as _,t as A,e as
 	:host([type='color']) .line {
 		display: none;
 	}
-	/* Modern browsers with @container style query support */
-	@container style(--focused: focused) {
+
+	@container focused (min-width: 0) {
 		${R}
 	}
 `;export{U as a,O as n,j as o,S as r,V as s,D as u};

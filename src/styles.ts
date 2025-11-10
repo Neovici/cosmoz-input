@@ -32,8 +32,6 @@ export const focusedStyle = css`
 
 export const styles = css`
 	:host {
-		container-name: var(--input-state);
-		container: inline-size;
 		--font-family: var(
 			--cosmoz-input-font-family,
 			var(--paper-font-subhead_-_font-family, inherit)
@@ -272,36 +270,6 @@ export const styles = css`
 	:host([type='color']) .line {
 		display: none;
 	}
-
-	/* Firefox fallback for focus */
-	:host([data-focus]) .wrap {
-		background: var(--focused-bg);
-	}
-
-	:host([data-focus]:not([always-float-label])) #input::placeholder {
-		color: var(--focused-color);
-		opacity: 1;
-	}
-
-	:host([data-focus]) label {
-		color: var(--focused-color);
-		opacity: 1;
-	}
-
-	:host([data-focus]) .line::before {
-		transform: none;
-		transition: 0.25s transform ease;
-	}
-
-	:host([data-focus]) .line {
-		border-bottom-color: var(--focused-color);
-	}
-
-	:host([data-focus]) {
-		--contour-color: var(--focused-color);
-		caret-color: var(--focused-color);
-	}
-
 	/* Modern browsers with @container style query support */
 	@container style(--focused: focused) {
 		${focusedStyle}

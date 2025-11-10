@@ -126,6 +126,18 @@ export const styles = css`
 		}
 	}
 
+	:host([always-float-label]) label {
+		transform: translateY(
+				calc(var(--label-scale) * -100% + var(--label-translate-y))
+			)
+			scale(var(--label-scale));
+		background-color: var(--cosmoz-input-floating-label-bg, var(--bg));
+	}
+
+	:host([always-float-label]) input {
+		transform: translateY(var(--label-translate-y));
+	}
+
 	:host([no-label-float]) {
 		.float,
 		label {

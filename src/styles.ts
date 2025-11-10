@@ -136,13 +136,6 @@ export const styles = css`
 		transform: translateY(var(--label-translate-y));
 	}
 
-	:host([always-float-label]) {
-		slot[name='suffix']::slotted(*),
-		slot[name='prefix']::slotted(*) {
-			transform: translateY(var(--label-translate-y));
-		}
-	}
-
 	:host([no-label-float]) {
 		.float,
 		label {
@@ -243,6 +236,36 @@ export const styles = css`
 		display: none;
 	}
 
+	/* Firefox fallback for focus */
+	:host([data-focus]) .wrap {
+		background: var(--focused-bg);
+	}
+
+	:host([data-focus]:not([always-float-label])) #input::placeholder {
+		color: var(--focused-color);
+		opacity: 1;
+	}
+
+	:host([data-focus]) label {
+		color: var(--focused-color);
+		opacity: 1;
+	}
+
+	:host([data-focus]) .line::before {
+		transform: none;
+		transition: 0.25s transform ease;
+	}
+
+	:host([data-focus]) .line {
+		border-bottom-color: var(--focused-color);
+	}
+
+	:host([data-focus]) {
+		--contour-color: var(--focused-color);
+		caret-color: var(--focused-color);
+	}
+
+	/* Modern browsers with @container style query support */
 	@container style(--input-state: focus) {
 		.wrap {
 			background: var(--focused-bg);

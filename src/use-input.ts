@@ -22,15 +22,15 @@ export const useInput = <T extends BaseInput>(host: T) => {
 				host.dispatchEvent(new Event(e.type, { bubbles: e.bubbles })),
 			[],
 		),
-		onInput = useCallback((e: InputEvent) => {
-			const input = e.target as HTMLInputElement;
-			notifyProperty(host, 'value', input.value);
-		}, []),
-		onFocus = useCallback((e: FocusEvent) => {
-			notifyProperty(host, 'focused', e.type === 'focus');
-			// Firefox fallback: update data-focus attribute
-			host.toggleAttribute('data-focus', e.type === 'focus');
-		}, []),
+		onInput = useCallback(
+			(e: InputEvent) =>
+				notifyProperty(host, 'value', (e.target as HTMLInputElement).value),
+			[],
+		),
+		onFocus = useCallback(
+			(e: FocusEvent) => notifyProperty(host, 'focused', e.type === 'focus'),
+			[],
+		),
 		focus = useCallback(() => inputRef.current?.focus(), []),
 		validate = useCallback(() => {
 			const valid = inputRef.current?.checkValidity();

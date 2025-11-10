@@ -2,6 +2,8 @@ import { tagged as css } from '@neovici/cosmoz-utils';
 
 export const styles = css`
 	:host {
+		container-name: var(--input-state);
+		container: inline-size;
 		--font-family: var(
 			--cosmoz-input-font-family,
 			var(--paper-font-subhead_-_font-family, inherit)
@@ -39,6 +41,7 @@ export const styles = css`
 		--contour-color: var(--line-color);
 		--contour-size: var(--cosmoz-input-contour-size);
 		--label-translate-y: var(--cosmoz-input-label-translate-y, 0%);
+		--input-state: var(--cosmoz-input-state, initial);
 
 		display: block;
 		padding: var(--cosmoz-input-padding, 8px 0);
@@ -90,8 +93,8 @@ export const styles = css`
 		resize: none;
 	}
 
-	:host(:focus-within) .wrap {
-		background: var(--focused-bg);
+	:host(:focus-within) {
+		--input-state: focus;
 	}
 
 	label {
@@ -113,24 +116,7 @@ export const styles = css`
 	}
 
 	.wrap:has(#input:not(:placeholder-shown)) {
-		slot[name='suffix']::slotted(*),
-		slot[name='prefix']::slotted(*) {
-			transform: translateY(var(--label-translate-y));
-		}
-	}
-
-	:host([always-float-label]) label,
-	#input:not(:placeholder-shown) + label {
-		transform: translateY(
-				calc(var(--label-scale) * -100% + var(--label-translate-y))
-			)
-			scale(var(--label-scale));
-		background-color: var(--cosmoz-input-floating-label-bg, var(--bg));
-	}
-
-	:host([always-float-label]) input,
-	#input:not(:placeholder-shown) {
-		transform: translateY(var(--label-translate-y));
+		--input-state: with-value;
 	}
 
 	:host([always-float-label]) {
@@ -140,10 +126,16 @@ export const styles = css`
 		}
 	}
 
-	:host(:not(always-float-label):focus-within) #input::placeholder,
-	:host(:focus-within) label {
-		color: var(--focused-color);
-		opacity: 1;
+	:host([always-float-label]) label {
+		transform: translateY(
+				calc(var(--label-scale) * -100% + var(--label-translate-y))
+			)
+			scale(var(--label-scale));
+		background-color: var(--cosmoz-input-floating-label-bg, var(--bg));
+	}
+
+	:host([always-float-label]) input {
+		transform: translateY(var(--label-translate-y));
 	}
 
 	:host([no-label-float]) {
@@ -151,15 +143,11 @@ export const styles = css`
 		label {
 			display: none;
 		}
+	}
 
-		#input:not(:placeholder-shown) {
-			transform: translateY(0%);
-		}
-
-		.wrap:has(#input:not(:placeholder-shown)) slot[name='suffix']::slotted(*),
-		.wrap:has(#input:not(:placeholder-shown)) slot[name='prefix']::slotted(*) {
-			transform: translateY(0%);
-		}
+	:host([no-label-float]) .wrap:has(#input:not(:placeholder-shown)),
+	:host([no-label-float]) #input:not(:placeholder-shown) {
+		--input-state: initial;
 	}
 
 	.line {
@@ -180,18 +168,6 @@ export const styles = css`
 		transform: scaleX(0);
 		transform-origin: center center;
 		z-index: 1;
-	}
-	:host(:focus-within) .line::before {
-		transform: none;
-		transition: 0.25s transform ease;
-	}
-	:host(:focus-within) .line {
-		border-bottom-color: var(--focused-color);
-	}
-
-	:host(:focus-within) {
-		--contour-color: var(--focused-color);
-		caret-color: var(--focused-color);
 	}
 
 	:host([disabled]) .line {
@@ -256,5 +232,111 @@ export const styles = css`
 	}
 	:host([type='color']) .line {
 		display: none;
+	}
+
+	/* Firefox fallback for focus */
+	:host([data-focus]) .wrap {
+		background: var(--focused-bg);
+	}
+
+	:host([data-focus]:not([always-float-label])) #input::placeholder {
+		color: var(--focused-color);
+		opacity: 1;
+	}
+
+	:host([data-focus]) label {
+		color: var(--focused-color);
+		opacity: 1;
+	}
+
+	:host([data-focus]) .line::before {
+		transform: none;
+		transition: 0.25s transform ease;
+	}
+
+	:host([data-focus]) .line {
+		border-bottom-color: var(--focused-color);
+	}
+
+	:host([data-focus]) {
+		--contour-color: var(--focused-color);
+		caret-color: var(--focused-color);
+	}
+
+	/* Modern browsers with @container style query support */
+	@container style(--input-state: focus) {
+		.wrap {
+			background: var(--focused-bg);
+		}
+
+		:host(:not([always-float-label])) #input::placeholder {
+			color: var(--focused-color);
+			opacity: 1;
+		}
+
+		label {
+			color: var(--focused-color);
+			opacity: 1;
+		}
+
+		.line::before {
+			transform: none;
+			transition: 0.25s transform ease;
+		}
+
+		.line {
+			border-bottom-color: var(--focused-color);
+		}
+
+		:host {
+			--contour-color: var(--focused-color);
+			caret-color: var(--focused-color);
+		}
+	}
+
+	/* Firefox fallback for with-value */
+	:host([data-with-value]:not([always-float-label])) #input::placeholder {
+		opacity: 0;
+	}
+
+	:host([data-with-value]) label {
+		transform: translateY(
+				calc(var(--label-scale) * -100% + var(--label-translate-y))
+			)
+			scale(var(--label-scale));
+		background-color: var(--cosmoz-input-floating-label-bg, var(--bg));
+	}
+
+	:host([data-with-value]) #input {
+		transform: translateY(var(--label-translate-y));
+	}
+
+	:host([data-with-value]) slot[name='suffix']::slotted(*),
+	:host([data-with-value]) slot[name='prefix']::slotted(*) {
+		transform: translateY(var(--label-translate-y));
+	}
+
+	/* Modern browsers with @container style query support */
+	@container style(--input-state: with-value) {
+		:host(:not([always-float-label])) #input::placeholder {
+			opacity: 0;
+		}
+
+		label {
+			transform: translateY(
+					calc(var(--label-scale) * -100% + var(--label-translate-y))
+				)
+				scale(var(--label-scale));
+			background-color: var(--cosmoz-input-floating-label-bg, var(--bg));
+		}
+
+		#input {
+			transform: translateY(var(--label-translate-y));
+		}
+
+		slot[name='suffix']::slotted(*),
+		slot[name='prefix']::slotted(*) {
+			transform: translateY(var(--label-translate-y));
+		}
 	}
 `;

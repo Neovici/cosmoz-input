@@ -15,13 +15,13 @@ export const focusedStyle = css`
 		opacity: 1;
 	}
 
+	.line {
+		border-bottom-color: var(--focused-color);
+	}
+
 	.line::before {
 		transform: none;
 		transition: 0.25s transform ease;
-	}
-
-	.line {
-		border-bottom-color: var(--focused-color);
 	}
 
 	:host {
@@ -79,7 +79,7 @@ export const styles = css`
 		line-height: var(--line-height);
 		font-family: var(--font-family);
 
-		container: inline-size;
+		container: size;
 		container-name: var(--focused);
 	}
 

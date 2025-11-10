@@ -2,6 +2,7 @@ import { tagged as css } from '@neovici/cosmoz-utils';
 
 export const styles = css`
 	:host {
+		container-name: var(--input-state);
 		container: inline-size;
 		--font-family: var(
 			--cosmoz-input-font-family,
@@ -40,7 +41,7 @@ export const styles = css`
 		--contour-color: var(--line-color);
 		--contour-size: var(--cosmoz-input-contour-size);
 		--label-translate-y: var(--cosmoz-input-label-translate-y, 0%);
-		--is-focused: var(--cosmoz-input-is-focused, 0);
+		--input-state: var(--cosmoz-input-state, initial);
 
 		display: block;
 		padding: var(--cosmoz-input-padding, 8px 0);
@@ -93,7 +94,7 @@ export const styles = css`
 	}
 
 	:host(:focus-within) {
-		--is-focused: 1;
+		--input-state: focus;
 	}
 
 	label {
@@ -242,7 +243,7 @@ export const styles = css`
 		display: none;
 	}
 
-	@container style(--is-focused: 1) {
+	@container style(--input-state: focus) {
 		.wrap {
 			background: var(--focused-bg);
 		}

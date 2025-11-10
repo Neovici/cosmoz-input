@@ -1,25 +1,25 @@
-import{f as $,T as f,x as p}from"./iframe-BIdVP2do.js";import{i as _,t as A,e as k,u as C,h as y,H as g,d as i,b as G,n as b}from"./style-DNhP-_QB.js";/**
+import{f as $,T as f,x as u}from"./iframe-i3spEhNl.js";import{i as _,t as A,e as k,u as C,h as y,H as g,d as n,b as G,n as b}from"./style-DxCavBt9.js";/**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const l=(o,t)=>{const e=o._$AN;if(e===void 0)return!1;for(const a of e)a._$AO?.(t,!1),l(a,t);return!0},u=o=>{let t,e;do{if((t=o._$AM)===void 0)break;e=t._$AN,e.delete(o),o=t}while(e?.size===0)},w=o=>{for(let t;t=o._$AM;o=t){let e=t._$AN;if(e===void 0)t._$AN=e=new Set;else if(e.has(o))break;e.add(o),N(t)}};function M(o){this._$AN!==void 0?(u(this),this._$AM=o,w(this)):this._$AM=o}function E(o,t=!1,e=0){const a=this._$AH,c=this._$AN;if(c!==void 0&&c.size!==0)if(t)if(Array.isArray(a))for(let n=e;n<a.length;n++)l(a[n],!1),u(a[n]);else a!=null&&(l(a,!1),u(a));else l(this,o)}const N=o=>{o.type==A.CHILD&&(o._$AP??=E,o._$AQ??=M)};class I extends _{constructor(){super(...arguments),this._$AN=void 0}_$AT(t,e,a){super._$AT(t,e,a),w(this),this.isConnected=t._$AU}_$AO(t,e=!0){t!==this.isConnected&&(this.isConnected=t,t?this.reconnected?.():this.disconnected?.()),e&&(l(this,t),u(this))}setValue(t){if($(this._$Ct))this._$Ct._$AI(t,this);else{const e=[...this._$Ct._$AH];e[this._$Ci]=t,this._$Ct._$AI(e,this,0)}}disconnected(){}reconnected(){}}const h=new WeakMap,O=k(class extends I{render(o){return f}update(o,[t]){const e=t!==this.G;return e&&this.G!==void 0&&this.ot(void 0),(e||this.rt!==this.lt)&&(this.G=t,this.ct=o.options?.host,this.ot(this.lt=o.element)),f}ot(o){if(typeof this.G=="function"){const t=this.ct??globalThis;let e=h.get(t);e===void 0&&(e=new WeakMap,h.set(t,e)),e.get(this.G)!==void 0&&this.G.call(this.ct,void 0),e.set(this.G,o),o!==void 0&&this.G.call(this.ct,o)}else this.G.value=o}get rt(){return typeof this.G=="function"?h.get(this.ct??globalThis)?.get(this.G):this.G?.value}disconnected(){this.rt===this.lt&&this.ot(void 0)}reconnected(){this.ot(this.lt)}});/**
+ */const l=(t,o)=>{const e=t._$AN;if(e===void 0)return!1;for(const a of e)a._$AO?.(o,!1),l(a,o);return!0},p=t=>{let o,e;do{if((o=t._$AM)===void 0)break;e=o._$AN,e.delete(t),t=o}while(e?.size===0)},w=t=>{for(let o;o=t._$AM;t=o){let e=o._$AN;if(e===void 0)o._$AN=e=new Set;else if(e.has(t))break;e.add(t),N(o)}};function M(t){this._$AN!==void 0?(p(this),this._$AM=t,w(this)):this._$AM=t}function E(t,o=!1,e=0){const a=this._$AH,c=this._$AN;if(c!==void 0&&c.size!==0)if(o)if(Array.isArray(a))for(let s=e;s<a.length;s++)l(a[s],!1),p(a[s]);else a!=null&&(l(a,!1),p(a));else l(this,t)}const N=t=>{t.type==A.CHILD&&(t._$AP??=E,t._$AQ??=M)};class I extends _{constructor(){super(...arguments),this._$AN=void 0}_$AT(o,e,a){super._$AT(o,e,a),w(this),this.isConnected=o._$AU}_$AO(o,e=!0){o!==this.isConnected&&(this.isConnected=o,o?this.reconnected?.():this.disconnected?.()),e&&(l(this,o),p(this))}setValue(o){if($(this._$Ct))this._$Ct._$AI(o,this);else{const e=[...this._$Ct._$AH];e[this._$Ci]=o,this._$Ct._$AI(e,this,0)}}disconnected(){}reconnected(){}}const h=new WeakMap,O=k(class extends I{render(t){return f}update(t,[o]){const e=o!==this.G;return e&&this.G!==void 0&&this.ot(void 0),(e||this.rt!==this.lt)&&(this.G=o,this.ct=t.options?.host,this.ot(this.lt=t.element)),f}ot(t){if(typeof this.G=="function"){const o=this.ct??globalThis;let e=h.get(o);e===void 0&&(e=new WeakMap,h.set(o,e)),e.get(this.G)!==void 0&&this.G.call(this.ct,void 0),e.set(this.G,t),t!==void 0&&this.G.call(this.ct,t)}else this.G.value=t}get rt(){return typeof this.G=="function"?h.get(this.ct??globalThis)?.get(this.G):this.G?.value}disconnected(){this.rt===this.lt&&this.ot(void 0)}reconnected(){this.ot(this.lt)}});/**
  * @license
  * Copyright 2018 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const j=o=>o??f;function Y(o){return C(()=>({current:o}),[])}const H=y(class extends g{values;constructor(o,t,e,a){super(o,t),Object.assign(t.host,e),this.values=a}update(o,t){this.hasChanged(t)&&(this.values=t,Object.assign(this.state.host,o))}hasChanged(o=[]){return o.some((t,e)=>this.values[e]!==t)}});y(class extends g{update(){return this.state.host}});const P=/([A-Z])/gu,m=(o,t,e)=>{o[t]=e,o.dispatchEvent(new CustomEvent(t.replace(P,"-$1").toLowerCase()+"-changed",{detail:{value:e}}))},D=o=>{const t=Y(void 0),e=i(s=>t.current=s,[]),a=o.shadowRoot,c=i(s=>o.dispatchEvent(new Event(s.type,{bubbles:s.bubbles})),[]),n=i(s=>{const r=s.target;m(o,"value",r.value)},[]),x=i(s=>{m(o,"focused",s.type==="focus"),o.toggleAttribute("data-focus",s.type==="focus")},[]),d=i(()=>t.current?.focus(),[]),v=i(()=>{const s=t.current?.checkValidity();return o.toggleAttribute("invalid",!s),s},[]);return H({focus:d,validate:v},[d,v]),G(()=>{const s=r=>{r.defaultPrevented||o.disabled||r.target.matches("input, textarea, label")||(r.preventDefault(),o.matches(":focus-within")||d())};return a.addEventListener("mousedown",s),()=>a.removeEventListener("mousedown",s)},[d]),{onChange:c,onFocus:x,onInput:n,onRef:e}},F=(o,{label:t,invalid:e,errorMessage:a})=>p`
+ */const j=t=>t??f;function Y(t){return C(()=>({current:t}),[])}const H=y(class extends g{values;constructor(t,o,e,a){super(t,o),Object.assign(o.host,e),this.values=a}update(t,o){this.hasChanged(o)&&(this.values=o,Object.assign(this.state.host,t))}hasChanged(t=[]){return t.some((o,e)=>this.values[e]!==o)}});y(class extends g{update(){return this.state.host}});const P=/([A-Z])/gu,m=(t,o,e)=>{t[o]=e,t.dispatchEvent(new CustomEvent(o.replace(P,"-$1").toLowerCase()+"-changed",{detail:{value:e}}))},D=t=>{const o=Y(void 0),e=n(i=>o.current=i,[]),a=t.shadowRoot,c=n(i=>t.dispatchEvent(new Event(i.type,{bubbles:i.bubbles})),[]),s=n(i=>{const r=i.target;m(t,"value",r.value)},[]),x=n(i=>{m(t,"focused",i.type==="focus"),t.toggleAttribute("data-focus",i.type==="focus")},[]),d=n(()=>o.current?.focus(),[]),v=n(()=>{const i=o.current?.checkValidity();return t.toggleAttribute("invalid",!i),i},[]);return H({focus:d,validate:v},[d,v]),G(()=>{const i=r=>{r.defaultPrevented||t.disabled||r.target.matches("input, textarea, label")||(r.preventDefault(),t.matches(":focus-within")||d())};return a.addEventListener("mousedown",i),()=>a.removeEventListener("mousedown",i)},[d]),{onChange:c,onFocus:x,onInput:s,onRef:e}},S=(t,{label:o,invalid:e,errorMessage:a})=>u`
 		<div class="float" part="float">&nbsp;</div>
 		<div class="wrap" part="wrap">
 			<slot name="prefix"></slot>
 			<div class="control" part="control">
 				<slot name="control"></slot>
-				${o}
-				${b(t,()=>p`<label for="input" part="label">${t}</label>`)}
+				${t}
+				${b(o,()=>u`<label for="input" part="label">${o}</label>`)}
 			</div>
 			<slot name="suffix"></slot>
 		</div>
 		<div class="line" part="line"></div>
-		${b(e&&a,()=>p`<div class="error" part="error">${a}</div>`)}
-	`,S=["autocomplete","readonly","disabled","maxlength","invalid","no-label-float","always-float-label"],z=(o,...t)=>o.flatMap((e,a)=>[e,t[a]||""]).join(""),R=z`
+		${b(e&&a,()=>u`<div class="error" part="error">${a}</div>`)}
+	`,U=["autocomplete","readonly","disabled","maxlength","invalid","no-label-float","always-float-label"],z=(t,...o)=>t.flatMap((e,a)=>[e,o[a]||""]).join(""),R=z`
 	.wrap {
 		background: var(--focused-bg);
 	}
@@ -47,10 +47,8 @@ import{f as $,T as f,x as p}from"./iframe-BIdVP2do.js";import{i as _,t as A,e as
 		--contour-color: var(--focused-color);
 		caret-color: var(--focused-color);
 	}
-`,U=z`
+`,V=z`
 	:host {
-		container-name: var(--input-state);
-		container: inline-size;
 		--font-family: var(
 			--cosmoz-input-font-family,
 			var(--paper-font-subhead_-_font-family, inherit)
@@ -289,38 +287,8 @@ import{f as $,T as f,x as p}from"./iframe-BIdVP2do.js";import{i as _,t as A,e as
 	:host([type='color']) .line {
 		display: none;
 	}
-
-	/* Firefox fallback for focus */
-	:host([data-focus]) .wrap {
-		background: var(--focused-bg);
-	}
-
-	:host([data-focus]:not([always-float-label])) #input::placeholder {
-		color: var(--focused-color);
-		opacity: 1;
-	}
-
-	:host([data-focus]) label {
-		color: var(--focused-color);
-		opacity: 1;
-	}
-
-	:host([data-focus]) .line::before {
-		transform: none;
-		transition: 0.25s transform ease;
-	}
-
-	:host([data-focus]) .line {
-		border-bottom-color: var(--focused-color);
-	}
-
-	:host([data-focus]) {
-		--contour-color: var(--focused-color);
-		caret-color: var(--focused-color);
-	}
-
 	/* Modern browsers with @container style query support */
 	@container style(--focused: focused) {
 		${R}
 	}
-`;export{S as a,O as n,j as o,F as r,U as s,D as u};
+`;export{U as a,O as n,j as o,S as r,V as s,D as u};

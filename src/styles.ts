@@ -222,6 +222,36 @@ export const styles = css`
 		display: none;
 	}
 
+	/* Firefox fallback for focus */
+	:host([data-focus]) .wrap {
+		background: var(--focused-bg);
+	}
+
+	:host([data-focus]:not([always-float-label])) #input::placeholder {
+		color: var(--focused-color);
+		opacity: 1;
+	}
+
+	:host([data-focus]) label {
+		color: var(--focused-color);
+		opacity: 1;
+	}
+
+	:host([data-focus]) .line::before {
+		transform: none;
+		transition: 0.25s transform ease;
+	}
+
+	:host([data-focus]) .line {
+		border-bottom-color: var(--focused-color);
+	}
+
+	:host([data-focus]) {
+		--contour-color: var(--focused-color);
+		caret-color: var(--focused-color);
+	}
+
+	/* Modern browsers with @container style query support */
 	@container style(--input-state: focus) {
 		.wrap {
 			background: var(--focused-bg);
@@ -252,6 +282,29 @@ export const styles = css`
 		}
 	}
 
+	/* Firefox fallback for with-value */
+	:host([data-with-value]:not([always-float-label])) #input::placeholder {
+		opacity: 0;
+	}
+
+	:host([data-with-value]) label {
+		transform: translateY(
+				calc(var(--label-scale) * -100% + var(--label-translate-y))
+			)
+			scale(var(--label-scale));
+		background-color: var(--cosmoz-input-floating-label-bg, var(--bg));
+	}
+
+	:host([data-with-value]) #input {
+		transform: translateY(var(--label-translate-y));
+	}
+
+	:host([data-with-value]) slot[name='suffix']::slotted(*),
+	:host([data-with-value]) slot[name='prefix']::slotted(*) {
+		transform: translateY(var(--label-translate-y));
+	}
+
+	/* Modern browsers with @container style query support */
 	@container style(--input-state: with-value) {
 		:host(:not([always-float-label])) #input::placeholder {
 			opacity: 0;

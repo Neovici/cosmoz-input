@@ -1,5 +1,6 @@
 import { html } from 'lit-html';
 import { when } from 'lit-html/directives/when.js';
+import { observeInputState } from './util';
 
 export type ObjectFromList<T extends ReadonlyArray<string>, V = string> = {
 	[K in T extends ReadonlyArray<infer U> ? U : never]: V;
@@ -11,10 +12,13 @@ export interface Render {
 	errorMessage?: string;
 }
 
-export const render = <T>(
-		control: T,
-		{ label, invalid, errorMessage }: Render,
-	) => html`
+export const render = <T>(control: T, host: Render & HTMLElement) => {
+	const { label, invalid, errorMessage } = host;
+
+	// Firefox workaround: observe CSS variable for input states
+	observeInputState(host);
+
+	return html`
 		<div class="float" part="float">&nbsp;</div>
 		<div class="wrap" part="wrap">
 			<slot name="prefix"></slot>
@@ -33,13 +37,15 @@ export const render = <T>(
 			invalid && errorMessage,
 			() => html`<div class="error" part="error">${errorMessage}</div>`,
 		)}
-	`,
-	attributes = [
-		'autocomplete',
-		'readonly',
-		'disabled',
-		'maxlength',
-		'invalid',
-		'no-label-float',
-		'always-float-label',
-	];
+	`;
+};
+
+export const attributes = [
+	'autocomplete',
+	'readonly',
+	'disabled',
+	'maxlength',
+	'invalid',
+	'no-label-float',
+	'always-float-label',
+];

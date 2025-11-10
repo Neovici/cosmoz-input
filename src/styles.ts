@@ -2,14 +2,11 @@ import { tagged as css } from '@neovici/cosmoz-utils';
 
 export const focusedStyle = css`
 	.wrap {
+		--contour-color: var(--focused-color);
 		background: var(--focused-bg);
 	}
 
-	:host(:not([always-float-label])) #input::placeholder {
-		color: var(--focused-color);
-		opacity: 1;
-	}
-
+	#input::placeholder,
 	label {
 		color: var(--focused-color);
 		opacity: 1;
@@ -22,11 +19,6 @@ export const focusedStyle = css`
 	.line::before {
 		transform: none;
 		transition: 0.25s transform ease;
-	}
-
-	:host {
-		--contour-color: var(--focused-color);
-		caret-color: var(--focused-color);
 	}
 `;
 
@@ -78,9 +70,10 @@ export const styles = css`
 		font-size: var(--font-size);
 		line-height: var(--line-height);
 		font-family: var(--font-family);
+		caret-color: var(--focused-color);
 
-		container: size;
 		container-name: var(--focused);
+		container-type: size;
 	}
 
 	:host([disabled]) {
@@ -274,7 +267,7 @@ export const styles = css`
 		display: none;
 	}
 
-	@container focused (min-width: 0) {
+	@container focused (width > 0) {
 		${focusedStyle}
 	}
 `;

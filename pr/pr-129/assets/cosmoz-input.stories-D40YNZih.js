@@ -1,41 +1,41 @@
-import{x as e}from"./iframe-D8gdp0Eu.js";import{u as C,c as E,s as F,l as M,a as s}from"./style-DO2JzS6Y.js";import{a as L,u as P,r as R,n as D,o as t,g as _,s as k}from"./styles-CauXPa9D.js";const A=o=>C(()=>{if(o==null)return;const m=new RegExp(o,"u");return n=>{!n.defaultPrevented&&n.data&&!m.test(n.data)&&n.preventDefault()}},[o]),B=["type","pattern","allowed-pattern","min","max","step","autosize","label","placeholder",...L],O=o=>{const{type:m="text",pattern:n,allowedPattern:d,autocomplete:b,value:z,readonly:h,disabled:f,min:x,max:y,step:g,maxlength:v}=o,{onChange:w,onFocus:$,onInput:S,onRef:T}=P(o),I=A(d);return R(e`
+import{x as n}from"./iframe-CwaoGBMI.js";import{u as C,c as E,s as F,l as M,a as s}from"./style-w7dyvgXP.js";import{a as L,u as P,r as R,n as D,o as t,s as _}from"./styles-BvonfgjV.js";const k=o=>C(()=>{if(o==null)return;const a=new RegExp(o,"u");return e=>{!e.defaultPrevented&&e.data&&!a.test(e.data)&&e.preventDefault()}},[o]),A=({placeholder:o,noLabelFloat:a,label:e})=>(a?e:void 0)||o||" ",B=["type","pattern","allowed-pattern","min","max","step","autosize","label","placeholder",...L],O=o=>{const{type:a="text",pattern:e,allowedPattern:$,autocomplete:b,value:z,readonly:h,disabled:d,min:x,max:y,step:g,maxlength:v}=o,{onChange:w,onFocus:f,onInput:S,onRef:T}=P(o),I=k($);return R(n`
 			<input
 				${D(T)}
 				style="--chars: ${z?.toString()?.length??0}ch"
 				id="input"
 				part="input"
-				type=${m}
-				pattern=${t(n)}
+				type=${a}
+				pattern=${t(e)}
 				autocomplete=${t(b)}
-				placeholder=${_(o)}
+				placeholder=${A(o)}
 				?readonly=${h}
-				?aria-disabled=${f}
-				?disabled=${f}
+				?aria-disabled=${d}
+				?disabled=${d}
 				.value=${M(z??"")}
 				maxlength=${t(v)}
 				@beforeinput=${I}
 				@input=${S}
 				@change=${w}
-				@focus=${$}
-				@blur=${$}
+				@focus=${f}
+				@blur=${f}
 				min=${t(x)}
 				max=${t(y)}
 				step=${t(g)}
 			/>
-		`,o)};customElements.define("cosmoz-input",E(O,{observedAttributes:B,styleSheets:[F(k)]}));const H={title:"Input",component:"cosmoz-input"},a=()=>e`
+		`,o)};customElements.define("cosmoz-input",E(O,{observedAttributes:B,styleSheets:[F(_)]}));const H={title:"Input",component:"cosmoz-input"},l=()=>n`
     ${s}
     <cosmoz-input .label=${"Choose color"}></cosmoz-input>
-`,l=()=>e`
+`,i=()=>n`
     ${s}
     <cosmoz-input
         always-float-label
         .label=${"Choose color"}
         placeholder=${"placeholder text"}
     ></cosmoz-input>
-`,i=()=>e`
+`,p=()=>n`
     ${s}
     <cosmoz-input no-label-float .label=${"Choose color"}></cosmoz-input>
-`,p=()=>e`
+`,r=()=>n`
     ${s}
     <cosmoz-input
         .label=${"Choose color"}
@@ -43,7 +43,7 @@ import{x as e}from"./iframe-D8gdp0Eu.js";import{u as C,c as E,s as F,l as M,a as
         invalid
         .errorMessage=${"Something is wrong!"}
     ></cosmoz-input>
-`,r=()=>e`
+`,c=()=>n`
     ${s}
     <cosmoz-input
         autosize
@@ -51,10 +51,10 @@ import{x as e}from"./iframe-D8gdp0Eu.js";import{u as C,c as E,s as F,l as M,a as
         type="number"
         .value=${3.12}
     ></cosmoz-input>
-`,c=()=>e`
+`,u=()=>n`
     ${s}
     <cosmoz-input no-label-float type="color" .value=${"#ff0000"}></cosmoz-input>
-`,u=()=>e`
+`,m=()=>n`
     ${s}
     <style>
         cosmoz-input {
@@ -99,14 +99,14 @@ import{x as e}from"./iframe-D8gdp0Eu.js";import{u as C,c as E,s as F,l as M,a as
         .errorMessage=${"Something is rotten in the state of Denmark."}
     ></cosmoz-input>
     <cosmoz-input disabled .label=${"This input is disabled!"}></cosmoz-input>
-`;a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:"() => html`\n    ${style}\n    <cosmoz-input .label=${'Choose color'}></cosmoz-input>\n`",...a.parameters?.docs?.source}}};l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`() => html\`
+`;l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:"() => html`\n    ${style}\n    <cosmoz-input .label=${'Choose color'}></cosmoz-input>\n`",...l.parameters?.docs?.source}}};i.parameters={...i.parameters,docs:{...i.parameters?.docs,source:{originalSource:`() => html\`
     \${style}
     <cosmoz-input
         always-float-label
         .label=\${'Choose color'}
         placeholder=\${'placeholder text'}
     ></cosmoz-input>
-\``,...l.parameters?.docs?.source}}};i.parameters={...i.parameters,docs:{...i.parameters?.docs,source:{originalSource:"() => html`\n    ${style}\n    <cosmoz-input no-label-float .label=${'Choose color'}></cosmoz-input>\n`",...i.parameters?.docs?.source}}};p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`() => html\`
+\``,...i.parameters?.docs?.source}}};p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:"() => html`\n    ${style}\n    <cosmoz-input no-label-float .label=${'Choose color'}></cosmoz-input>\n`",...p.parameters?.docs?.source}}};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`() => html\`
     \${style}
     <cosmoz-input
         .label=\${'Choose color'}
@@ -114,7 +114,7 @@ import{x as e}from"./iframe-D8gdp0Eu.js";import{u as C,c as E,s as F,l as M,a as
         invalid
         .errorMessage=\${'Something is wrong!'}
     ></cosmoz-input>
-\``,...p.parameters?.docs?.source}}};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`() => html\`
+\``,...r.parameters?.docs?.source}}};c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`() => html\`
     \${style}
     <cosmoz-input
         autosize
@@ -122,10 +122,10 @@ import{x as e}from"./iframe-D8gdp0Eu.js";import{u as C,c as E,s as F,l as M,a as
         type="number"
         .value=\${3.12}
     ></cosmoz-input>
-\``,...r.parameters?.docs?.source}}};c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`() => html\`
+\``,...c.parameters?.docs?.source}}};u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`() => html\`
     \${style}
     <cosmoz-input no-label-float type="color" .value=\${'#ff0000'}></cosmoz-input>
-\``,...c.parameters?.docs?.source}}};u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`() => html\`
+\``,...u.parameters?.docs?.source}}};m.parameters={...m.parameters,docs:{...m.parameters?.docs,source:{originalSource:`() => html\`
     \${style}
     <style>
         cosmoz-input {
@@ -170,4 +170,4 @@ import{x as e}from"./iframe-D8gdp0Eu.js";import{u as C,c as E,s as F,l as M,a as
         .errorMessage=\${'Something is rotten in the state of Denmark.'}
     ></cosmoz-input>
     <cosmoz-input disabled .label=\${'This input is disabled!'}></cosmoz-input>
-\``,...u.parameters?.docs?.source}}};const J=["basic","alwaysFloatLabel","noLabelFloat","error","autosize","color","contour"];export{J as __namedExportsOrder,l as alwaysFloatLabel,r as autosize,a as basic,c as color,u as contour,H as default,p as error,i as noLabelFloat};
+\``,...m.parameters?.docs?.source}}};const J=["basic","alwaysFloatLabel","noLabelFloat","error","autosize","color","contour"];export{J as __namedExportsOrder,i as alwaysFloatLabel,c as autosize,l as basic,u as color,m as contour,H as default,r as error,p as noLabelFloat};

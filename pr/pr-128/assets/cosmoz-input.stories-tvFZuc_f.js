@@ -1,4 +1,4 @@
-import{x as n}from"./iframe-CsY4JatV.js";import{u as C,c as E,s as F,l as M,a as s}from"./style-DDyx8HMJ.js";import{a as L,u as P,r as R,n as D,o as t,s as _}from"./styles-D1QYL8oU.js";const k=o=>C(()=>{if(o==null)return;const a=new RegExp(o,"u");return e=>{!e.defaultPrevented&&e.data&&!a.test(e.data)&&e.preventDefault()}},[o]),A=({placeholder:o,noLabelFloat:a,label:e})=>(a?e:void 0)||o||" ",B=["type","pattern","allowed-pattern","min","max","step","autosize","label","placeholder",...L],O=o=>{const{type:a="text",pattern:e,allowedPattern:$,autocomplete:b,value:z,readonly:h,disabled:d,min:x,max:y,step:g,maxlength:v}=o,{onChange:w,onFocus:f,onInput:S,onRef:T}=P(o),I=k($);return R(n`
+import{x as n}from"./iframe-Cbp1VrNi.js";import{u as C,c as E,s as F,l as M,a as s}from"./style-LS81oD3x.js";import{a as L,u as P,r as R,n as D,o as t,s as _}from"./styles-CIglBvYF.js";const k=o=>C(()=>{if(o==null)return;const a=new RegExp(o,"u");return e=>{!e.defaultPrevented&&e.data&&!a.test(e.data)&&e.preventDefault()}},[o]),A=({placeholder:o,noLabelFloat:a,label:e})=>(a?e:void 0)||o||" ",B=["type","pattern","allowed-pattern","min","max","step","autosize","label","placeholder",...L],O=o=>{const{type:a="text",pattern:e,allowedPattern:$,autocomplete:b,value:z,readonly:h,disabled:d,min:x,max:y,step:g,maxlength:v}=o,{onChange:w,onFocus:f,onInput:S,onRef:T}=P(o),I=k($);return R(n`
 			<input
 				${D(T)}
 				style="--chars: ${z?.toString()?.length??0}ch"
@@ -24,10 +24,7 @@ import{x as n}from"./iframe-CsY4JatV.js";import{u as C,c as E,s as F,l as M,a as
 			/>
 		`,o)};customElements.define("cosmoz-input",E(O,{observedAttributes:B,styleSheets:[F(_)]}));const H={title:"Input",component:"cosmoz-input"},l=()=>n`
     ${s}
-    <cosmoz-input
-        style="--cosmoz-input-with-value: 1"
-        .label=${"Choose color"}
-    ></cosmoz-input>
+    <cosmoz-input .label=${"Choose color"}></cosmoz-input>
 `,i=()=>n`
     ${s}
     <cosmoz-input
@@ -102,13 +99,7 @@ import{x as n}from"./iframe-CsY4JatV.js";import{u as C,c as E,s as F,l as M,a as
         .errorMessage=${"Something is rotten in the state of Denmark."}
     ></cosmoz-input>
     <cosmoz-input disabled .label=${"This input is disabled!"}></cosmoz-input>
-`;l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`() => html\`
-    \${style}
-    <cosmoz-input
-        style="--cosmoz-input-with-value: 1"
-        .label=\${'Choose color'}
-    ></cosmoz-input>
-\``,...l.parameters?.docs?.source}}};i.parameters={...i.parameters,docs:{...i.parameters?.docs,source:{originalSource:`() => html\`
+`;l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:"() => html`\n    ${style}\n    <cosmoz-input .label=${'Choose color'}></cosmoz-input>\n`",...l.parameters?.docs?.source}}};i.parameters={...i.parameters,docs:{...i.parameters?.docs,source:{originalSource:`() => html\`
     \${style}
     <cosmoz-input
         always-float-label

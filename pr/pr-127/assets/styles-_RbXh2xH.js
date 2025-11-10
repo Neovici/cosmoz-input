@@ -1,4 +1,4 @@
-import{f as $,T as f,x as h}from"./iframe-D_qc8vYA.js";import{i as _,t as A,e as k,u as C,h as y,H as g,d as s,b as G,n as b}from"./style-CRjTrbeT.js";/**
+import{f as $,T as f,x as h}from"./iframe-Dg28Yzpj.js";import{i as _,t as A,e as k,u as C,h as y,H as g,d as s,b as G,n as b}from"./style-BzrKCH9A.js";/**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
@@ -34,13 +34,13 @@ import{f as $,T as f,x as h}from"./iframe-D_qc8vYA.js";import{i as _,t as A,e as
 		opacity: 1;
 	}
 
+	.line {
+		border-bottom-color: var(--focused-color);
+	}
+
 	.line::before {
 		transform: none;
 		transition: 0.25s transform ease;
-	}
-
-	.line {
-		border-bottom-color: var(--focused-color);
 	}
 
 	:host {
@@ -96,7 +96,7 @@ import{f as $,T as f,x as h}from"./iframe-D_qc8vYA.js";import{i as _,t as A,e as
 		line-height: var(--line-height);
 		font-family: var(--font-family);
 
-		container: inline-size;
+		container: size;
 		container-name: var(--focused);
 	}
 

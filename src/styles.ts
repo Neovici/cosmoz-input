@@ -136,6 +136,13 @@ export const styles = css`
 		transform: translateY(var(--label-translate-y));
 	}
 
+	:host([always-float-label]) {
+		slot[name='suffix']::slotted(*),
+		slot[name='prefix']::slotted(*) {
+			transform: translateY(var(--label-translate-y));
+		}
+	}
+
 	:host([no-label-float]) {
 		.float,
 		label {

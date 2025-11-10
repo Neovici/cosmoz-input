@@ -1,5 +1,35 @@
 import { tagged as css } from '@neovici/cosmoz-utils';
 
+export const focusedStyle = css`
+	.wrap {
+		background: var(--focused-bg);
+	}
+
+	:host(:not([always-float-label])) #input::placeholder {
+		color: var(--focused-color);
+		opacity: 1;
+	}
+
+	label {
+		color: var(--focused-color);
+		opacity: 1;
+	}
+
+	.line::before {
+		transform: none;
+		transition: 0.25s transform ease;
+	}
+
+	.line {
+		border-bottom-color: var(--focused-color);
+	}
+
+	:host {
+		--contour-color: var(--focused-color);
+		caret-color: var(--focused-color);
+	}
+`;
+
 export const styles = css`
 	:host {
 		container-name: var(--input-state);
@@ -41,7 +71,7 @@ export const styles = css`
 		--contour-color: var(--line-color);
 		--contour-size: var(--cosmoz-input-contour-size);
 		--label-translate-y: var(--cosmoz-input-label-translate-y, 0%);
-		--input-state: var(--cosmoz-input-state, initial);
+		--focused: var(--cosmoz-input-focused, none);
 
 		display: block;
 		padding: var(--cosmoz-input-padding, 8px 0);
@@ -94,7 +124,7 @@ export const styles = css`
 	}
 
 	:host(:focus-within) {
-		--input-state: focus;
+		--focused: focused;
 	}
 
 	label {
@@ -273,33 +303,7 @@ export const styles = css`
 	}
 
 	/* Modern browsers with @container style query support */
-	@container style(--input-state: focus) {
-		.wrap {
-			background: var(--focused-bg);
-		}
-
-		:host(:not([always-float-label])) #input::placeholder {
-			color: var(--focused-color);
-			opacity: 1;
-		}
-
-		label {
-			color: var(--focused-color);
-			opacity: 1;
-		}
-
-		.line::before {
-			transform: none;
-			transition: 0.25s transform ease;
-		}
-
-		.line {
-			border-bottom-color: var(--focused-color);
-		}
-
-		:host {
-			--contour-color: var(--focused-color);
-			caret-color: var(--focused-color);
-		}
+	@container style(--focused: focused) {
+		${focusedStyle}
 	}
 `;

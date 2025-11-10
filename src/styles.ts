@@ -116,7 +116,7 @@ export const styles = css`
 	}
 
 	.wrap:has(#input:not(:placeholder-shown)) {
-		--with-value: 1;
+		--input-state: with-value;
 	}
 
 	:host([always-float-label]) {
@@ -135,7 +135,7 @@ export const styles = css`
 
 	:host([no-label-float]) .wrap:has(#input:not(:placeholder-shown)),
 	:host([no-label-float]) #input:not(:placeholder-shown) {
-		--with-value: 0;
+		--input-state: initial;
 	}
 
 	.line {
@@ -252,7 +252,7 @@ export const styles = css`
 		}
 	}
 
-	@container style(--with-value: 1) {
+	@container style(--input-state: with-value) {
 		:host(:not([always-float-label])) #input::placeholder {
 			opacity: 0;
 		}

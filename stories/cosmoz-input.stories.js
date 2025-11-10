@@ -9,10 +9,7 @@ export default {
 
 export const basic = () => html`
 	${style}
-	<cosmoz-input
-		style="--cosmoz-input-with-value: 1"
-		.label=${'Choose color'}
-	></cosmoz-input>
+	<cosmoz-input .label=${'Choose color'}></cosmoz-input>
 `;
 
 export const alwaysFloatLabel = () => html`

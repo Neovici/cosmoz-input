@@ -71,9 +71,6 @@ export const styles = css`
 		line-height: var(--line-height);
 		font-family: var(--font-family);
 		caret-color: var(--focused-color);
-
-		container-name: var(--focused);
-		container-type: size;
 	}
 
 	:host([disabled]) {
@@ -115,10 +112,6 @@ export const styles = css`
 		font-size: inherit;
 		font-family: inherit;
 		resize: none;
-	}
-
-	:host(:focus-within) {
-		--focused: focused;
 	}
 
 	label {
@@ -267,7 +260,10 @@ export const styles = css`
 		display: none;
 	}
 
-	@container focused (width > 0) {
+	:host(:focus-within) {
+		${focusedStyle}
+	}
+	@container style(--focused: focused) {
 		${focusedStyle}
 	}
 `;

@@ -1,5 +1,27 @@
 import { tagged as css } from '@neovici/cosmoz-utils';
 
+export const focusedStyle = css`
+	.wrap {
+		--contour-color: var(--focused-color);
+		background: var(--focused-bg);
+	}
+
+	#input::placeholder,
+	label {
+		color: var(--focused-color);
+		opacity: 1;
+	}
+
+	.line {
+		border-bottom-color: var(--focused-color);
+	}
+
+	.line::before {
+		transform: none;
+		transition: 0.25s transform ease;
+	}
+`;
+
 export const styles = css`
 	:host {
 		--font-family: var(
@@ -39,6 +61,7 @@ export const styles = css`
 		--contour-color: var(--line-color);
 		--contour-size: var(--cosmoz-input-contour-size);
 		--label-translate-y: var(--cosmoz-input-label-translate-y, 0%);
+		--focused: var(--cosmoz-input-focused, none);
 
 		display: block;
 		padding: var(--cosmoz-input-padding, 8px 0);
@@ -47,6 +70,7 @@ export const styles = css`
 		font-size: var(--font-size);
 		line-height: var(--line-height);
 		font-family: var(--font-family);
+		caret-color: var(--focused-color);
 	}
 
 	:host([disabled]) {
@@ -88,10 +112,6 @@ export const styles = css`
 		font-size: inherit;
 		font-family: inherit;
 		resize: none;
-	}
-
-	:host(:focus-within) .wrap {
-		background: var(--focused-bg);
 	}
 
 	label {
@@ -140,12 +160,6 @@ export const styles = css`
 		}
 	}
 
-	:host(:not(always-float-label):focus-within) #input::placeholder,
-	:host(:focus-within) label {
-		color: var(--focused-color);
-		opacity: 1;
-	}
-
 	:host([no-label-float]) {
 		.float,
 		label {
@@ -180,18 +194,6 @@ export const styles = css`
 		transform: scaleX(0);
 		transform-origin: center center;
 		z-index: 1;
-	}
-	:host(:focus-within) .line::before {
-		transform: none;
-		transition: 0.25s transform ease;
-	}
-	:host(:focus-within) .line {
-		border-bottom-color: var(--focused-color);
-	}
-
-	:host(:focus-within) {
-		--contour-color: var(--focused-color);
-		caret-color: var(--focused-color);
 	}
 
 	:host([disabled]) .line {
@@ -256,5 +258,12 @@ export const styles = css`
 	}
 	:host([type='color']) .line {
 		display: none;
+	}
+
+	:host(:focus-within) {
+		${focusedStyle}
+	}
+	@container style(--focused: focused) {
+		${focusedStyle}
 	}
 `;

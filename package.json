@@ -29,7 +29,7 @@
 		"start": "wds",
 		"test": "wtr --coverage",
 		"test:watch": "wtr --watch",
-		"prepare": "husky install",
+		"prepare": "husky",
 		"storybook:start": "storybook dev -p 8000",
 		"storybook:build": "storybook build",
 		"storybook:deploy": "storybook-to-ghpages",
@@ -75,9 +75,9 @@
 		"lit-html": "^2.0.0 || ^3.0.0"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^18.0.0",
-		"@commitlint/config-conventional": "^18.0.0",
-		"@neovici/cfg": "^1.13.1",
+		"@commitlint/cli": "^20.0.0",
+		"@commitlint/config-conventional": "^20.0.0",
+		"@neovici/cfg": "^2.0.0",
 		"@open-wc/testing": "^4.0.0",
 		"@semantic-release/changelog": "^6.0.0",
 		"@semantic-release/git": "^10.0.0",

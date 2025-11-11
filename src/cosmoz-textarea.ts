@@ -1,4 +1,4 @@
-import { html } from 'lit-html';  
+import { html } from 'lit-html';
 import { live } from 'lit-html/directives/live.js';
 import { ref } from 'lit-html/directives/ref.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';

@@ -1,3 +1,19 @@
+## 5.5.0 (2025-11-13)
+
+* feat: implement external focus ([4c140e2](https://github.com/neovici/cosmoz-input/commit/4c140e2))
+* Implemented external focus styling control via CSS variable (#127) ([b3c3fc6](https://github.com/neovici/cosmoz-input/commit/b3c3fc6)), closes [#127](https://github.com/neovici/cosmoz-input/issues/127)
+* Merge pull request #130 from Neovici/dependabot/npm_and_yarn/husky-9.1.7 ([4c3eeb8](https://github.com/neovici/cosmoz-input/commit/4c3eeb8)), closes [#130](https://github.com/neovici/cosmoz-input/issues/130)
+* Merge pull request #132 from Neovici/dependabot/npm_and_yarn/semantic-release-25.0.2 ([dc03dac](https://github.com/neovici/cosmoz-input/commit/dc03dac)), closes [#132](https://github.com/neovici/cosmoz-input/issues/132)
+* Merge pull request #133 from Neovici/dependabot/npm_and_yarn/sinon-21.0.0 ([3819ceb](https://github.com/neovici/cosmoz-input/commit/3819ceb)), closes [#133](https://github.com/neovici/cosmoz-input/issues/133)
+* Merge pull request #136 from Neovici/dependabot/npm_and_yarn/lit-html-3.3.1 ([29ff896](https://github.com/neovici/cosmoz-input/commit/29ff896)), closes [#136](https://github.com/neovici/cosmoz-input/issues/136)
+* Merge pull request #137 from Neovici/dependabot/npm_and_yarn/npm_and_yarn-80850359f9 ([1219bb0](https://github.com/neovici/cosmoz-input/commit/1219bb0)), closes [#137](https://github.com/neovici/cosmoz-input/issues/137)
+* chore: configure dependabot for npm package updates ([2aec520](https://github.com/neovici/cosmoz-input/commit/2aec520))
+* chore(deps-dev): bump husky from 8.0.3 to 9.1.7 ([c4c7acf](https://github.com/neovici/cosmoz-input/commit/c4c7acf))
+* chore(deps-dev): bump semantic-release from 22.0.12 to 25.0.2 ([709e0d7](https://github.com/neovici/cosmoz-input/commit/709e0d7))
+* chore(deps-dev): bump sinon from 17.0.1 to 21.0.0 ([d8b7205](https://github.com/neovici/cosmoz-input/commit/d8b7205))
+* chore(deps): bump ip in the npm_and_yarn group across 1 directory ([567ee9b](https://github.com/neovici/cosmoz-input/commit/567ee9b))
+* chore(deps): bump lit-html from 3.1.1 to 3.3.1 ([6e1553c](https://github.com/neovici/cosmoz-input/commit/6e1553c))
+
 ## [5.4.0](https://github.com/neovici/cosmoz-input/compare/v5.3.0...v5.4.0) (2025-11-04)
 
 

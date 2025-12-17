@@ -1,16 +1,21 @@
 {
-	"compilerOptions": {
-		"allowSyntheticDefaultImports": true,
-		"noEmit": true,
-		"module": "esnext",
-		"moduleResolution": "node",
-		"strict": true,
-		"target": "esnext",
-		"allowJs": true,
-		"paths": {
-				"@neovici/cosmoz-utils/hooks/*": [
-					"./node_modules/@neovici/cosmoz-utils/dist/hooks/*"
-				]
-			}
-	}
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "noEmit": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "target": "esnext",
+    "allowJs": true,
+    "paths": {
+      "@neovici/cosmoz-utils/hooks/*": [
+        "./node_modules/@neovici/cosmoz-utils/dist/hooks/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "storybook-static",
+    "dist"
+  ]
 }

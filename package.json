@@ -6,13 +6,13 @@
 		"lit-html",
 		"web-components"
 	],
-	"homepage": "https://github.com/neovici/cosmoz-input#readme",
+	"homepage": "https://github.com/Neovici/cosmoz-input#readme",
 	"bugs": {
-		"url": "https://github.com/neovici/cosmoz-input/issues"
+		"url": "https://github.com/Neovici/cosmoz-input/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/neovici/cosmoz-input.git"
+		"url": "git+https://github.com/Neovici/cosmoz-input.git"
 	},
 	"license": "Apache-2.0",
 	"author": "",

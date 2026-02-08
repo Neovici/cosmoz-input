@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { expect, waitFor } from 'storybook/test';
 import '../src/cosmoz-input';
 import { style } from './style';
 
@@ -48,6 +49,16 @@ export const Error: Story = {
 			.errorMessage=${'Something is wrong!'}
 		></cosmoz-input>
 	`,
+	play: async ({ canvasElement, step }) => {
+		const el = canvasElement.querySelector('cosmoz-input')!;
+		await step('error message is rendered', async () => {
+			await waitFor(() => {
+				const error = el.shadowRoot!.querySelector('.error');
+				expect(error).not.toBeNull();
+				expect(error!.textContent).toBe('Something is wrong!');
+			});
+		});
+	},
 };
 
 export const Autosize: Story = {

@@ -1,18 +1,37 @@
+import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { expect, waitFor } from 'storybook/test';
 import '../src/cosmoz-textarea';
 import { style } from './style';
 
-export default {
+const meta: Meta = {
 	title: 'Textarea',
 	component: 'cosmoz-textarea',
+	tags: ['autodocs'],
 };
+
+export default meta;
+
+type Story = StoryObj;
+
 const loremIpsum =
 	'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mi magna, tincidunt ac feugiat sed, ultrices luctus orci. Quisque ultricies hendrerit ultricies. Nam vestibulum mauris a arcu facilisis, ut gravida lorem sagittis. Cras sagittis arcu felis, in consectetur ante tempor vitae. Duis leo ex, sagittis id eros id, dictum egestas nibh. Etiam at porta turpis. Proin maximus mauris vitae quam fringilla, iaculis facilisis ex tempor. Sed eu risus eget nibh accumsan pharetra. Integer et orci lorem. Proin imperdiet facilisis neque, vel luctus lorem bibendum a. Donec gravida sodales gravida. Mauris interdum dignissim faucibus.';
-const basic = () => html`
+
+export const Basic: Story = {
+	render: () => html`
 		${style}
 		<cosmoz-textarea .label=${'Choose color'} .value=${'Red'}></cosmoz-textarea>
 	`,
-	error = () => html`
+	play: async ({ canvas, step }) => {
+		await step('Renders textarea element', async () => {
+			await canvas.findByShadowRole('textbox');
+		});
+	},
+};
+
+export const ErrorStory: Story = {
+	name: 'Error',
+	render: () => html`
 		${style}
 		<cosmoz-textarea
 			invalid
@@ -22,7 +41,10 @@ const basic = () => html`
 			.maxRows=${2}
 		></cosmoz-textarea>
 	`,
-	contour = () => html`
+};
+
+export const Contour: Story = {
+	render: () => html`
 		${style}
 		<style>
 			cosmoz-textarea {
@@ -59,5 +81,41 @@ const basic = () => html`
 			.label=${'Write another comment here'}
 			.value=${'You cannot type anything here!'}
 		></cosmoz-textarea>
-	`;
-export { basic, error, contour };
+	`,
+};
+
+export const AutoGrow: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-textarea .value=${'1\n2\n3'} .maxRows=${2}></cosmoz-textarea>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const el = canvasElement.querySelector('cosmoz-textarea')!;
+		await step('textarea auto grows based on content', async () => {
+			await waitFor(() => {
+				const input = el.shadowRoot!.querySelector('#input')!;
+				const { height } = input.getBoundingClientRect();
+				expect(height).toBeGreaterThan(40);
+				expect(height).toBeLessThan(61);
+			});
+		});
+	},
+};
+
+export const PlaceholderAttr: Story = {
+	name: 'Placeholder',
+	render: () => html`
+		${style}
+		<cosmoz-textarea placeholder="Enter text..."></cosmoz-textarea>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const el = canvasElement.querySelector('cosmoz-textarea')!;
+		await step(
+			'placeholder attribute is forwarded to inner textarea',
+			async () => {
+				const textarea = el.shadowRoot!.querySelector('textarea')!;
+				expect(textarea.placeholder).toBe('Enter text...');
+			},
+		);
+	},
+};

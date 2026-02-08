@@ -1,4 +1,4 @@
-import{b as l}from"./iframe-BRs-rZB5.js";import"./cosmoz-textarea-Djolxgn5.js";import{s as d}from"./style-CNIi10bU.js";import"./preload-helper-PPVm8Dsz.js";import"./use-input-Bj5AD63v.js";const{expect:c,waitFor:p}=__STORYBOOK_MODULE_TEST__,w={title:"Tests/Textarea"},a={render:()=>l`
+import{b as l}from"./iframe-Rx89eJWD.js";import"./cosmoz-textarea-BLU6aa_O.js";import{s as d}from"./style-CPxh4gSl.js";import"./preload-helper-PPVm8Dsz.js";import"./use-input-BFfmYaks.js";const{expect:c,waitFor:p}=__STORYBOOK_MODULE_TEST__,w={title:"Tests/Textarea"},a={render:()=>l`
         ${d}
         <cosmoz-textarea .label=${"Choose color"} .value=${"Red"}></cosmoz-textarea>
     `,play:async({canvas:e,step:t})=>{await t("Renders textarea element",async()=>{await e.findByShadowRole("textbox")})}},o={render:()=>l`

@@ -1,4 +1,4 @@
-import{b as s}from"./iframe-BRs-rZB5.js";import"./cosmoz-input-HcMOIrJP.js";import{s as c}from"./style-CNIi10bU.js";import"./preload-helper-PPVm8Dsz.js";import"./use-input-Bj5AD63v.js";const{expect:a,fn:h,waitFor:w}=__STORYBOOK_MODULE_TEST__,b={title:"Tests/Input"},r={render:()=>s`
+import{b as s}from"./iframe-Rx89eJWD.js";import"./cosmoz-input--DCIQ67V.js";import{s as c}from"./style-CPxh4gSl.js";import"./preload-helper-PPVm8Dsz.js";import"./use-input-BFfmYaks.js";const{expect:a,fn:h,waitFor:w}=__STORYBOOK_MODULE_TEST__,q={title:"Tests/Input"},r={render:()=>s`
         ${c}
         <cosmoz-input .label=${"Choose color"}></cosmoz-input>
     `,play:async({canvas:o,step:t})=>{await t("Renders input element",async()=>{await o.findByShadowRole("textbox")})}},u={render:()=>s`
@@ -7,7 +7,7 @@ import{b as s}from"./iframe-BRs-rZB5.js";import"./cosmoz-input-HcMOIrJP.js";impo
     `,play:async({canvasElement:o,step:t})=>{const n=o.querySelector("cosmoz-input");await t("focus() triggers focused-changed",async()=>{const e=h();n.addEventListener("focused-changed",e,{once:!0}),a(e).not.toHaveBeenCalled(),n.focus(),await w(()=>{a(e).toHaveBeenCalledTimes(1)})})}},l={render:()=>s`
         ${c}
         <cosmoz-input></cosmoz-input>
-    `,play:async({canvasElement:o,step:t})=>{const n=o.querySelector("cosmoz-input");await t("change event propagates from inner input",async()=>{const e=h();n.addEventListener("change",e,{once:!0}),a(e).not.toHaveBeenCalled(),n.shadowRoot.querySelector("input").dispatchEvent(new Event("change")),a(e).toHaveBeenCalledTimes(1)})}},p={render:()=>s`
+    `,play:async({canvasElement:o,step:t})=>{const n=o.querySelector("cosmoz-input");await t("change event is re-dispatched on the host",async()=>{const e=h();n.addEventListener("change",e);const f=n.shadowRoot.querySelector("input");f.focus(),f.value="hello",f.dispatchEvent(new Event("change",{bubbles:!0})),await w(()=>{a(e).toHaveBeenCalledTimes(1)})})}},p={render:()=>s`
         ${c}
         <cosmoz-input .value=${"a"} pattern="[2]"></cosmoz-input>
     `,play:async({canvasElement:o,step:t})=>{const n=o.querySelector("cosmoz-input");await t("validate returns false for invalid pattern",async()=>{a(n.validate()).toBe(!1)})}},i={render:()=>s`
@@ -70,14 +70,18 @@ import{b as s}from"./iframe-BRs-rZB5.js";import"./cosmoz-input-HcMOIrJP.js";impo
     step
   }) => {
     const el = canvasElement.querySelector('cosmoz-input')!;
-    await step('change event propagates from inner input', async () => {
+    await step('change event is re-dispatched on the host', async () => {
       const changeSpy = fn();
-      el.addEventListener('change', changeSpy, {
-        once: true
+      el.addEventListener('change', changeSpy);
+      const input = el.shadowRoot!.querySelector('input')!;
+      input.focus();
+      input.value = 'hello';
+      input.dispatchEvent(new Event('change', {
+        bubbles: true
+      }));
+      await waitFor(() => {
+        expect(changeSpy).toHaveBeenCalledTimes(1);
       });
-      expect(changeSpy).not.toHaveBeenCalled();
-      el.shadowRoot!.querySelector('input')!.dispatchEvent(new Event('change'));
-      expect(changeSpy).toHaveBeenCalledTimes(1);
     });
   }
 }`,...l.parameters?.docs?.source}}};p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`{
@@ -213,4 +217,4 @@ import{b as s}from"./iframe-BRs-rZB5.js";import"./cosmoz-input-HcMOIrJP.js";impo
       });
     });
   }
-}`,...v.parameters?.docs?.source}}};const B=["Render","Focus","Change","Validate","AllowedPattern","ValueChanged","Placeholder","Mousedown","DelegatesFocus"];export{i as AllowedPattern,l as Change,v as DelegatesFocus,u as Focus,y as Mousedown,m as Placeholder,r as Render,p as Validate,d as ValueChanged,B as __namedExportsOrder,b as default};
+}`,...v.parameters?.docs?.source}}};const B=["Render","Focus","Change","Validate","AllowedPattern","ValueChanged","Placeholder","Mousedown","DelegatesFocus"];export{i as AllowedPattern,l as Change,v as DelegatesFocus,u as Focus,y as Mousedown,m as Placeholder,r as Render,p as Validate,d as ValueChanged,B as __namedExportsOrder,q as default};

@@ -1,4 +1,4 @@
-import{b as o}from"./iframe-BRs-rZB5.js";import"./cosmoz-input-HcMOIrJP.js";import{s as n}from"./style-CNIi10bU.js";import"./preload-helper-PPVm8Dsz.js";import"./use-input-Bj5AD63v.js";const d={title:"Components/Input",component:"cosmoz-input",tags:["autodocs"]},e={render:()=>o`
+import{b as o}from"./iframe-Rx89eJWD.js";import"./cosmoz-input--DCIQ67V.js";import{s as n}from"./style-CPxh4gSl.js";import"./preload-helper-PPVm8Dsz.js";import"./use-input-BFfmYaks.js";const d={title:"Components/Input",component:"cosmoz-input",tags:["autodocs"]},e={render:()=>o`
         ${n}
         <cosmoz-input .label=${"Choose color"}></cosmoz-input>
     `},s={render:()=>o`

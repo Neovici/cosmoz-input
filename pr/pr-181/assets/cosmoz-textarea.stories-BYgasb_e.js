@@ -1,7 +1,7 @@
-import{b as r}from"./iframe-CFPCSjlc.js";import"./cosmoz-textarea-ByvoT8ma.js";import{s as n}from"./style-C9mthg0Y.js";import"./preload-helper-PPVm8Dsz.js";import"./styles-Bzad0hSH.js";const u={title:"Components/Textarea",component:"cosmoz-textarea",tags:["autodocs"]},t="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mi magna, tincidunt ac feugiat sed, ultrices luctus orci. Quisque ultricies hendrerit ultricies. Nam vestibulum mauris a arcu facilisis, ut gravida lorem sagittis. Cras sagittis arcu felis, in consectetur ante tempor vitae. Duis leo ex, sagittis id eros id, dictum egestas nibh. Etiam at porta turpis. Proin maximus mauris vitae quam fringilla, iaculis facilisis ex tempor. Sed eu risus eget nibh accumsan pharetra. Integer et orci lorem. Proin imperdiet facilisis neque, vel luctus lorem bibendum a. Donec gravida sodales gravida. Mauris interdum dignissim faucibus.",e={render:()=>r`
+import{b as r}from"./iframe-BNrFvIP3.js";import"./cosmoz-textarea-Cvw_6FMU.js";import{s as n}from"./style-EMe_gBJw.js";import"./preload-helper-PPVm8Dsz.js";import"./styles-B26ureYT.js";const d={title:"Components/Textarea",component:"cosmoz-textarea",tags:["autodocs"]},t="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mi magna, tincidunt ac feugiat sed, ultrices luctus orci. Quisque ultricies hendrerit ultricies. Nam vestibulum mauris a arcu facilisis, ut gravida lorem sagittis. Cras sagittis arcu felis, in consectetur ante tempor vitae. Duis leo ex, sagittis id eros id, dictum egestas nibh. Etiam at porta turpis. Proin maximus mauris vitae quam fringilla, iaculis facilisis ex tempor. Sed eu risus eget nibh accumsan pharetra. Integer et orci lorem. Proin imperdiet facilisis neque, vel luctus lorem bibendum a. Donec gravida sodales gravida. Mauris interdum dignissim faucibus.",e={render:()=>r`
         ${n}
         <cosmoz-textarea .label=${"Choose color"} .value=${"Red"}></cosmoz-textarea>
-    `},o={name:"Error",render:()=>r`
+    `,play:async({canvas:s,step:i})=>{await i("Renders textarea element",async()=>{await s.findByShadowRole("textbox")})}},o={name:"Error",render:()=>r`
         ${n}
         <cosmoz-textarea
             invalid
@@ -49,7 +49,20 @@ Blue`}
             .label=${"Write another comment here"}
             .value=${"You cannot type anything here!"}
         ></cosmoz-textarea>
-    `};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:"{\n  render: () => html`\n        ${style}\n        <cosmoz-textarea .label=${'Choose color'} .value=${'Red'}></cosmoz-textarea>\n    `\n}",...e.parameters?.docs?.source}}};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+    `};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        \${style}
+        <cosmoz-textarea .label=\${'Choose color'} .value=\${'Red'}></cosmoz-textarea>
+    \`,
+  play: async ({
+    canvas,
+    step
+  }) => {
+    await step('Renders textarea element', async () => {
+      await canvas.findByShadowRole('textbox');
+    });
+  }
+}`,...e.parameters?.docs?.source}}};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
   name: 'Error',
   render: () => html\`
         \${style}
@@ -100,4 +113,4 @@ Blue`}
             .value=\${'You cannot type anything here!'}
         ></cosmoz-textarea>
     \`
-}`,...a.parameters?.docs?.source}}};const p=["Basic","ErrorStory","Contour"];export{e as Basic,a as Contour,o as ErrorStory,p as __namedExportsOrder,u as default};
+}`,...a.parameters?.docs?.source}}};const x=["Basic","ErrorStory","Contour"];export{e as Basic,a as Contour,o as ErrorStory,x as __namedExportsOrder,d as default};

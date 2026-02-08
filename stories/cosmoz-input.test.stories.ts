@@ -171,3 +171,23 @@ export const Mousedown: Story = {
 		});
 	},
 };
+
+export const DelegatesFocus: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-input></cosmoz-input>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const el = canvasElement.querySelector('cosmoz-input')!;
+		await step(
+			'host.focus() delegates to inner input via delegatesFocus',
+			async () => {
+				el.focus();
+				await waitFor(() => {
+					const input = el.shadowRoot!.querySelector('input')!;
+					expect(el.shadowRoot!.activeElement).toBe(input);
+				});
+			},
+		);
+	},
+};

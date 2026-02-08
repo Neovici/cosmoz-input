@@ -1,15 +1,15 @@
-import{b as o}from"./iframe-Rx89eJWD.js";import{f as r,c as d,d as p,l as b,n as a,s as u}from"./style-CPxh4gSl.js";import"./preload-helper-PPVm8Dsz.js";const m=l=>{const{label:s,value:c,disabled:n,error:i}=l,g=p(t=>l.dispatchEvent(new CustomEvent("change",{detail:t.target.checked})),[]);return o`<input
+import{f as n,c as g,d,l as p,n as i}from"./style-_WWn2IB-.js";import{b as o}from"./iframe-CeOOcqer.js";const b=t=>{const{label:l,value:s,disabled:a,error:r}=t,c=d(e=>t.dispatchEvent(new CustomEvent("change",{detail:e.target.checked})),[]);return o`<input
 			id="toggle"
 			class="toggle"
 			part="toggle"
 			type="checkbox"
-			.checked=${b(!!c)}
-			?disabled=${n}
-			@change=${g}
+			.checked=${p(!!s)}
+			?disabled=${a}
+			@change=${c}
 		/>
-		${a(s,()=>o`<label for="toggle">${s}</label>`)}
+		${i(l,()=>o`<label for="toggle">${l}</label>`)}
 		<slot name="suffix"></slot>
-		${a(i,t=>o`<div class="failure">${t}</div>`)} `},h=r`
+		${i(r,e=>o`<div class="failure">${e}</div>`)} `},h=n`
 	.toggle {
 		appearance: none;
 		width: 35px;
@@ -54,7 +54,7 @@ import{b as o}from"./iframe-Rx89eJWD.js";import{f as r,c as d,d as p,l as b,n as
 	.toggle[disabled] {
 		opacity: 0.6;
 	}
-`,f=r`
+`,u=n`
 	:host {
 		display: block;
 	}
@@ -67,7 +67,4 @@ import{b as o}from"./iframe-Rx89eJWD.js";import{f as r,c as d,d as p,l as b,n as
 	::slotted(*) {
 		margin-left: 5px;
 	}
-`;customElements.define("cosmoz-toggle",d(m,{styleSheets:[f,h],observedAttributes:["disabled"]}));const $={title:"Components/Toggle",component:"cosmoz-toggle",tags:["autodocs"]},e={render:()=>o`
-        ${u}
-        <cosmoz-toggle .label=${"Is active"} .value=${!0}></cosmoz-toggle>
-    `};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:"{\n  render: () => html`\n        ${style}\n        <cosmoz-toggle .label=${'Is active'} .value=${true}></cosmoz-toggle>\n    `\n}",...e.parameters?.docs?.source}}};const z=["Basic"];export{e as Basic,z as __namedExportsOrder,$ as default};
+`;customElements.define("cosmoz-toggle",g(b,{styleSheets:[u,h],observedAttributes:["disabled"]}));

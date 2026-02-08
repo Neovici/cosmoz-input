@@ -1,7 +1,7 @@
-import{b as o}from"./iframe-CTos_gcS.js";import"./cosmoz-input-BW4lwPBl.js";import{s as e}from"./style-Dtgi7mhh.js";import"./preload-helper-PPVm8Dsz.js";import"./use-input-0jlO44TR.js";const{expect:c,waitFor:d}=__STORYBOOK_MODULE_TEST__,y={title:"Components/Input",component:"cosmoz-input",tags:["autodocs"]},n={render:()=>o`
+import{b as o}from"./iframe-Dva1N4O_.js";import"./cosmoz-input-BgKBF6nH.js";import{s as e}from"./style-B25iUjjS.js";import"./preload-helper-PPVm8Dsz.js";import"./use-input-C1HRFeVg.js";const{expect:u,waitFor:z}=__STORYBOOK_MODULE_TEST__,y={title:"Components/Input",component:"cosmoz-input",tags:["autodocs"]},n={render:()=>o`
         ${e}
         <cosmoz-input .label=${"Choose color"}></cosmoz-input>
-    `},s={render:()=>o`
+    `,play:async({canvas:p,step:c})=>{await c("Renders input element",async()=>{await p.findByShadowRole("textbox")})}},s={render:()=>o`
         ${e}
         <cosmoz-input
             always-float-label
@@ -19,7 +19,7 @@ import{b as o}from"./iframe-CTos_gcS.js";import"./cosmoz-input-BW4lwPBl.js";impo
             invalid
             .errorMessage=${"Something is wrong!"}
         ></cosmoz-input>
-    `,play:async({canvasElement:m,step:u})=>{const z=m.querySelector("cosmoz-input");await u("error message is rendered",async()=>{await d(()=>{const p=z.shadowRoot.querySelector(".error");c(p).not.toBeNull(),c(p.textContent).toBe("Something is wrong!")})})}},l={render:()=>o`
+    `,play:async({canvasElement:p,step:c})=>{const d=p.querySelector("cosmoz-input");await c("error message is rendered",async()=>{await z(()=>{const m=d.shadowRoot.querySelector(".error");u(m).not.toBeNull(),u(m.textContent).toBe("Something is wrong!")})})}},l={render:()=>o`
         ${e}
         <cosmoz-input
             autosize
@@ -83,7 +83,15 @@ import{b as o}from"./iframe-CTos_gcS.js";import"./cosmoz-input-BW4lwPBl.js";impo
   render: () => html\`
         \${style}
         <cosmoz-input .label=\${'Choose color'}></cosmoz-input>
-    \`
+    \`,
+  play: async ({
+    canvas,
+    step
+  }) => {
+    await step('Renders input element', async () => {
+      await canvas.findByShadowRole('textbox');
+    });
+  }
 }`,...n.parameters?.docs?.source}}};s.parameters={...s.parameters,docs:{...s.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
@@ -187,4 +195,4 @@ import{b as o}from"./iframe-CTos_gcS.js";import"./cosmoz-input-BW4lwPBl.js";impo
         ></cosmoz-input>
         <cosmoz-input disabled .label=\${'This input is disabled!'}></cosmoz-input>
     \`
-}`,...i.parameters?.docs?.source}}};const g=["Basic","AlwaysFloatLabel","NoLabelFloat","Error","Autosize","Color","Contour"];export{s as AlwaysFloatLabel,l as Autosize,n as Basic,r as Color,i as Contour,a as Error,t as NoLabelFloat,g as __namedExportsOrder,y as default};
+}`,...i.parameters?.docs?.source}}};const w=["Basic","AlwaysFloatLabel","NoLabelFloat","Error","Autosize","Color","Contour"];export{s as AlwaysFloatLabel,l as Autosize,n as Basic,r as Color,i as Contour,a as Error,t as NoLabelFloat,w as __namedExportsOrder,y as default};

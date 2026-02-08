@@ -12,18 +12,6 @@ export default meta;
 
 type Story = StoryObj;
 
-export const Render: Story = {
-	render: () => html`
-		${style}
-		<cosmoz-input .label=${'Choose color'}></cosmoz-input>
-	`,
-	play: async ({ canvas, step }) => {
-		await step('Renders input element', async () => {
-			await canvas.findByShadowRole('textbox');
-		});
-	},
-};
-
 export const Focus: Story = {
 	render: () => html`
 		${style}

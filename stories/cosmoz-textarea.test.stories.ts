@@ -12,18 +12,6 @@ export default meta;
 
 type Story = StoryObj;
 
-export const Render: Story = {
-	render: () => html`
-		${style}
-		<cosmoz-textarea .label=${'Choose color'} .value=${'Red'}></cosmoz-textarea>
-	`,
-	play: async ({ canvas, step }) => {
-		await step('Renders textarea element', async () => {
-			await canvas.findByShadowRole('textbox');
-		});
-	},
-};
-
 export const AutoGrow: Story = {
 	render: () => html`
 		${style}

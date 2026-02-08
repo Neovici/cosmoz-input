@@ -19,6 +19,11 @@ export const Basic: Story = {
 		${style}
 		<cosmoz-input .label=${'Choose color'}></cosmoz-input>
 	`,
+	play: async ({ canvas, step }) => {
+		await step('Renders input element', async () => {
+			await canvas.findByShadowRole('textbox');
+		});
+	},
 };
 
 export const AlwaysFloatLabel: Story = {

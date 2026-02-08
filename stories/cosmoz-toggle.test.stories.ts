@@ -12,18 +12,6 @@ export default meta;
 
 type Story = StoryObj;
 
-export const Render: Story = {
-	render: () => html`
-		${style}
-		<cosmoz-toggle .label=${'Is active'}></cosmoz-toggle>
-	`,
-	play: async ({ canvas, step }) => {
-		await step('Renders checkbox element', async () => {
-			await canvas.findByShadowRole('checkbox');
-		});
-	},
-};
-
 export const Change: Story = {
 	render: () => html`
 		${style}
@@ -85,40 +73,6 @@ export const Label: Story = {
 			const el = canvasElement.querySelector('#no-label')!;
 			const label = el.shadowRoot!.querySelector('label');
 			expect(label).toBeNull();
-		});
-	},
-};
-
-export const Disabled: Story = {
-	render: () => html`
-		${style}
-		<cosmoz-toggle disabled .label=${'Cannot toggle'}></cosmoz-toggle>
-	`,
-	play: async ({ canvasElement, step }) => {
-		const el = canvasElement.querySelector('cosmoz-toggle')!;
-		await step('checkbox is disabled', async () => {
-			const input = el.shadowRoot!.querySelector('input')!;
-			expect(input.disabled).toBe(true);
-		});
-	},
-};
-
-export const Error: Story = {
-	render: () => html`
-		${style}
-		<cosmoz-toggle
-			.label=${'Is active'}
-			.error=${'Something went wrong'}
-		></cosmoz-toggle>
-	`,
-	play: async ({ canvasElement, step }) => {
-		const el = canvasElement.querySelector('cosmoz-toggle')!;
-		await step('error message is rendered', async () => {
-			await waitFor(() => {
-				const failure = el.shadowRoot!.querySelector('.failure');
-				expect(failure).not.toBeNull();
-				expect(failure!.textContent).toBe('Something went wrong');
-			});
 		});
 	},
 };

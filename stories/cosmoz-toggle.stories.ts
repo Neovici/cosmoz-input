@@ -4,7 +4,7 @@ import '../src/cosmoz-toggle';
 import { style } from './style';
 
 const meta: Meta = {
-	title: 'Toggle',
+	title: 'Components/Toggle',
 	component: 'cosmoz-toggle',
 	tags: ['autodocs'],
 };

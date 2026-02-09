@@ -1,15 +1,15 @@
-import{b as e}from"./iframe-CMQY5466.js";import{f as a,c as r,d,l as p,n as s,a as b}from"./style-RnHVXvPP.js";const u=t=>{const{label:l,value:c,disabled:n,error:i}=t,g=d(o=>t.dispatchEvent(new CustomEvent("change",{detail:o.target.checked})),[]);return e`<input
+import{f as n,c as g,d,l as p,n as i}from"./style-EMe_gBJw.js";import{b as o}from"./iframe-BNrFvIP3.js";const b=t=>{const{label:l,value:s,disabled:a,error:r}=t,c=d(e=>t.dispatchEvent(new CustomEvent("change",{detail:e.target.checked})),[]);return o`<input
 			id="toggle"
 			class="toggle"
 			part="toggle"
 			type="checkbox"
-			.checked=${p(!!c)}
-			?disabled=${n}
-			@change=${g}
+			.checked=${p(!!s)}
+			?disabled=${a}
+			@change=${c}
 		/>
-		${s(l,()=>e`<label for="toggle">${l}</label>`)}
+		${i(l,()=>o`<label for="toggle">${l}</label>`)}
 		<slot name="suffix"></slot>
-		${s(i,o=>e`<div class="failure">${o}</div>`)} `},h=a`
+		${i(r,e=>o`<div class="failure">${e}</div>`)} `},h=n`
 	.toggle {
 		appearance: none;
 		width: 35px;
@@ -54,7 +54,7 @@ import{b as e}from"./iframe-CMQY5466.js";import{f as a,c as r,d,l as p,n as s,a 
 	.toggle[disabled] {
 		opacity: 0.6;
 	}
-`,m=a`
+`,u=n`
 	:host {
 		display: block;
 	}
@@ -67,7 +67,4 @@ import{b as e}from"./iframe-CMQY5466.js";import{f as a,c as r,d,l as p,n as s,a 
 	::slotted(*) {
 		margin-left: 5px;
 	}
-`;customElements.define("cosmoz-toggle",r(u,{styleSheets:[m,h],observedAttributes:["disabled"]}));const k={title:"Toggle",component:"cosmoz-toggle"},v=()=>e`
-    ${b}
-    <cosmoz-toggle .label=${"Is active"} .value=${!0}></cosmoz-toggle>
-`,z=["basic"];export{z as __namedExportsOrder,v as basic,k as default};
+`;customElements.define("cosmoz-toggle",g(b,{styleSheets:[u,h],observedAttributes:["disabled"]}));

@@ -1,4 +1,4 @@
-import{b as o}from"./iframe-Dva1N4O_.js";import"./cosmoz-input-BgKBF6nH.js";import{s as e}from"./style-B25iUjjS.js";import"./preload-helper-PPVm8Dsz.js";import"./use-input-C1HRFeVg.js";const{expect:u,waitFor:z}=__STORYBOOK_MODULE_TEST__,y={title:"Components/Input",component:"cosmoz-input",tags:["autodocs"]},n={render:()=>o`
+import{b as o}from"./iframe-YaSc1rsN.js";import"./cosmoz-input-jBbvpJ1O.js";import{s as e}from"./style-BcANZBK2.js";import"./preload-helper-PPVm8Dsz.js";import"./use-input-BBQul79t.js";const{expect:u,waitFor:z}=__STORYBOOK_MODULE_TEST__,y={title:"Components/Input",component:"cosmoz-input",tags:["autodocs"]},n={render:()=>o`
         ${e}
         <cosmoz-input .label=${"Choose color"}></cosmoz-input>
     `,play:async({canvas:p,step:c})=>{await c("Renders input element",async()=>{await p.findByShadowRole("textbox")})}},s={render:()=>o`

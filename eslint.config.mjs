@@ -4,7 +4,6 @@ export default [
 	{
 		ignores: [
 			'coverage/**',
-			'test/__snapshots__/**',
 			'storybook-static/**',
 			'dist/**',
 		],

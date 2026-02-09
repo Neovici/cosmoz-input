@@ -1,4 +1,4 @@
-import{b as g}from"./iframe-BNrFvIP3.js";import"./cosmoz-toggle-DUsUwF2E.js";import{s as d}from"./style-EMe_gBJw.js";import"./preload-helper-PPVm8Dsz.js";const{expect:n,fn:r,waitFor:i}=__STORYBOOK_MODULE_TEST__,u={title:"Tests/Toggle"},c={render:()=>g`
+import{b as g}from"./iframe-YaSc1rsN.js";import"./cosmoz-toggle-B9lYhefJ.js";import{s as d}from"./style-BcANZBK2.js";import"./preload-helper-PPVm8Dsz.js";const{expect:n,fn:r,waitFor:i}=__STORYBOOK_MODULE_TEST__,u={title:"Tests/Toggle"},c={render:()=>g`
         ${d}
         <cosmoz-toggle .label=${"Is active"}></cosmoz-toggle>
     `,play:async({canvasElement:o,step:a})=>{const l=o.querySelector("cosmoz-toggle"),e=l.shadowRoot.querySelector("input");await a("clicking toggle dispatches change with detail: true",async()=>{const t=r();l.addEventListener("change",t,{once:!0}),e.click(),await i(()=>{n(t).toHaveBeenCalledTimes(1),n(t.mock.calls[0][0].detail).toBe(!0)})}),await a("clicking again dispatches change with detail: false",async()=>{const t=r();l.addEventListener("change",t,{once:!0}),e.click(),await i(()=>{n(t).toHaveBeenCalledTimes(1),n(t.mock.calls[0][0].detail).toBe(!1)})})}},s={render:()=>g`

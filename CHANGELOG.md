@@ -1,3 +1,9 @@
+## [5.6.0](https://github.com/Neovici/cosmoz-input/compare/v5.5.1...v5.6.0) (2026-02-09)
+
+### Features
+
+* add delegatesFocus to shadow root ([#180](https://github.com/Neovici/cosmoz-input/issues/180)) ([a559079](https://github.com/Neovici/cosmoz-input/commit/a559079bb2300fefedcab978a09180d93f80ba91))
+
 ## <small>5.5.1 (2026-01-27)</small>
 
 * fix: repository URL case sensitivity ([1109800](https://github.com/Neovici/cosmoz-input/commit/1109800))

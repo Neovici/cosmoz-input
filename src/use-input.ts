@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useRef } from '@pionjs/pion';
 import { useImperativeApi } from '@neovici/cosmoz-utils/hooks/use-imperative-api';
 import { notifyProperty } from '@neovici/cosmoz-utils/hooks/use-notify-property';
+import { useCallback, useEffect, useRef } from '@pionjs/pion';
 
 type Input = HTMLInputElement | HTMLTextAreaElement;
 
@@ -31,34 +31,25 @@ export const useInput = <T extends BaseInput>(host: T) => {
 			(e: FocusEvent) => notifyProperty(host, 'focused', e.type === 'focus'),
 			[],
 		),
-		focus = useCallback(() => inputRef.current?.focus(), []),
 		validate = useCallback(() => {
 			const valid = inputRef.current?.checkValidity();
 			host.toggleAttribute('invalid', !valid);
 			return valid;
 		}, []);
 
-	useImperativeApi({ focus, validate }, [focus, validate]);
+	useImperativeApi({ validate }, [validate]);
 
+	// delegatesFocus doesn't cover clicks on slotted light-DOM content
 	useEffect(() => {
-		const onMouseDown = <T extends Event>(e: T) => {
-			if (
-				e.defaultPrevented ||
-				host.disabled ||
-				(e.target as HTMLElement).matches('input, textarea, label')
-			) {
-				return;
-			}
-			e.preventDefault(); // don't blur
+		const onMouseDown = () => {
 			if (!host.matches(':focus-within')) {
-				// if input not focused
-				focus(); // focus input
+				host.focus();
 			}
 		};
 
 		root.addEventListener('mousedown', onMouseDown);
 		return () => root.removeEventListener('mousedown', onMouseDown);
-	}, [focus]);
+	}, []);
 
 	return {
 		onChange,

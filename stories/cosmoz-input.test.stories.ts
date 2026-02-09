@@ -144,30 +144,66 @@ export const Mousedown: Story = {
 	`,
 	play: async ({ canvasElement, step }) => {
 		const el = canvasElement.querySelector('cosmoz-input')!;
-		await step('mousedown on suffix focuses input without blur', async () => {
-			const focusSpy = fn();
-			el.addEventListener('focused-changed', focusSpy, { once: true });
-			expect(focusSpy).not.toHaveBeenCalled();
+		const input = el.shadowRoot!.querySelector('input')!;
 
-			// mousedown on inner input should not trigger our handler
-			el.shadowRoot!.querySelector('input')!.dispatchEvent(
-				new MouseEvent('mousedown', { bubbles: true }),
-			);
-			expect(focusSpy).not.toHaveBeenCalled();
-
-			// mousedown on suffix span should focus input
+		await step('mousedown on suffix focuses input', async () => {
 			el.querySelector('span')!.dispatchEvent(
 				new MouseEvent('mousedown', { bubbles: true }),
 			);
 			await waitFor(() => {
-				expect(focusSpy).toHaveBeenCalledTimes(1);
+				expect(el.shadowRoot!.activeElement).toBe(input);
 			});
-
-			// second mousedown should not trigger focused-changed again
-			el.querySelector('span')!.dispatchEvent(
-				new MouseEvent('mousedown', { bubbles: true }),
-			);
-			expect(focusSpy).toHaveBeenCalledTimes(1);
 		});
+	},
+};
+
+export const DelegatesFocus: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-input></cosmoz-input>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const el = canvasElement.querySelector('cosmoz-input')!;
+		await step(
+			'host.focus() delegates to inner input via delegatesFocus',
+			async () => {
+				el.focus();
+				await waitFor(() => {
+					const input = el.shadowRoot!.querySelector('input')!;
+					expect(el.shadowRoot!.activeElement).toBe(input);
+				});
+			},
+		);
+	},
+};
+
+export const BlurPrevention: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-input label="Test"></cosmoz-input>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const el = canvasElement.querySelector('cosmoz-input')!;
+		const input = el.shadowRoot!.querySelector('input')!;
+
+		await step(
+			'mousedown on shadow DOM wrap does not blur a focused input',
+			async () => {
+				// focus the input first
+				input.focus();
+				await waitFor(() => {
+					expect(el.shadowRoot!.activeElement).toBe(input);
+				});
+
+				// mousedown on the .wrap div inside shadow DOM
+				const wrap = el.shadowRoot!.querySelector('.wrap')!;
+				wrap.dispatchEvent(
+					new MouseEvent('mousedown', { bubbles: true, composed: true }),
+				);
+
+				// input should still be focused
+				expect(el.shadowRoot!.activeElement).toBe(input);
+			},
+		);
 	},
 };

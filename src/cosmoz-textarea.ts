@@ -1,13 +1,13 @@
 import { html } from 'lit-html';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { live } from 'lit-html/directives/live.js';
 import { ref } from 'lit-html/directives/ref.js';
-import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 import { component, sheet } from '@pionjs/pion';
-import { BaseInput, useInput } from './use-input';
-import { useAutoHeight } from './use-auto-height';
-import { Render, ObjectFromList, render, attributes } from './render';
+import { attributes, ObjectFromList, Render, render } from './render';
 import { styles } from './styles';
+import { useAutoHeight } from './use-auto-height';
+import { BaseInput, useInput } from './use-input';
 
 const observedAttributes = ['rows', 'placeholder', ...attributes];
 
@@ -50,5 +50,6 @@ customElements.define(
 	component<CosmozInput>(Textarea, {
 		observedAttributes,
 		styleSheets: [sheet(styles)],
+		shadowRootInit: { mode: 'open', delegatesFocus: true },
 	}),
 );

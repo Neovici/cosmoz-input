@@ -39,18 +39,11 @@ export const useInput = <T extends BaseInput>(host: T) => {
 
 	useImperativeApi({ validate }, [validate]);
 
+	// delegatesFocus doesn't cover clicks on slotted light-DOM content
 	useEffect(() => {
-		const onMouseDown = <T extends Event>(e: T) => {
-			if (
-				e.defaultPrevented ||
-				host.disabled ||
-				(e.target as HTMLElement).matches('input, textarea, label')
-			) {
-				return;
-			}
-			e.preventDefault(); // don't blur
+		const onMouseDown = () => {
 			if (!host.matches(':focus-within')) {
-				host.focus(); // delegates to input via delegatesFocus
+				host.focus();
 			}
 		};
 

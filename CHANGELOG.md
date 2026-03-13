@@ -1,3 +1,9 @@
+## [5.6.1](https://github.com/Neovici/cosmoz-input/compare/v5.6.0...v5.6.1) (2026-03-13)
+
+### Bug Fixes
+
+* improve focus delegation and cursor style for input ([#214](https://github.com/Neovici/cosmoz-input/issues/214)) ([e1c1b0c](https://github.com/Neovici/cosmoz-input/commit/e1c1b0c8ad81395a7a6214d390f793b1b141eaca))
+
 ## [5.6.0](https://github.com/Neovici/cosmoz-input/compare/v5.5.1...v5.6.0) (2026-02-09)
 
 ### Features

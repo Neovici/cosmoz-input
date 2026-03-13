@@ -1,17 +1,17 @@
-import{r as x,A as h,b as d}from"./iframe-YaSc1rsN.js";import{u as $,i as _,t as A,e as k,n as f,h as m,H as y,d as n,b as C}from"./style-BcANZBK2.js";function G(t){return $(()=>({current:t}),[])}const r=(t,o)=>{const e=t._$AN;if(e===void 0)return!1;for(const a of e)a._$AO?.(o,!1),r(a,o);return!0},c=t=>{let o,e;do{if((o=t._$AM)===void 0)break;e=o._$AN,e.delete(t),t=o}while(e?.size===0)},g=t=>{for(let o;o=t._$AM;t=o){let e=o._$AN;if(e===void 0)o._$AN=e=new Set;else if(e.has(t))break;e.add(t),N(o)}};function E(t){this._$AN!==void 0?(c(this),this._$AM=t,g(this)):this._$AM=t}function M(t,o=!1,e=0){const a=this._$AH,l=this._$AN;if(l!==void 0&&l.size!==0)if(o)if(Array.isArray(a))for(let s=e;s<a.length;s++)r(a[s],!1),c(a[s]);else a!=null&&(r(a,!1),c(a));else r(this,t)}const N=t=>{t.type==A.CHILD&&(t._$AP??=M,t._$AQ??=E)};class I extends _{constructor(){super(...arguments),this._$AN=void 0}_$AT(o,e,a){super._$AT(o,e,a),g(this),this.isConnected=o._$AU}_$AO(o,e=!0){o!==this.isConnected&&(this.isConnected=o,o?this.reconnected?.():this.disconnected?.()),e&&(r(this,o),c(this))}setValue(o){if(x(this._$Ct))this._$Ct._$AI(o,this);else{const e=[...this._$Ct._$AH];e[this._$Ci]=o,this._$Ct._$AI(e,this,0)}}disconnected(){}reconnected(){}}const O=t=>t??h,p=new WeakMap,P=k(class extends I{render(t){return h}update(t,[o]){const e=o!==this.G;return e&&this.G!==void 0&&this.rt(void 0),(e||this.lt!==this.ct)&&(this.G=o,this.ht=t.options?.host,this.rt(this.ct=t.element)),h}rt(t){if(this.isConnected||(t=void 0),typeof this.G=="function"){const o=this.ht??globalThis;let e=p.get(o);e===void 0&&(e=new WeakMap,p.set(o,e)),e.get(this.G)!==void 0&&this.G.call(this.ht,void 0),e.set(this.G,t),t!==void 0&&this.G.call(this.ht,t)}else this.G.value=t}get lt(){return typeof this.G=="function"?p.get(this.ht??globalThis)?.get(this.G):this.G?.value}disconnected(){this.lt===this.ct&&this.rt(void 0)}reconnected(){this.rt(this.ct)}}),T=(t,{label:o,invalid:e,errorMessage:a})=>d`
+import{r as $,A as h,b as d}from"./iframe-h0e9UktP.js";import{u as _,i as A,t as k,e as C,n as v,h as g,H as y,d as n,b as G}from"./style-CoV7s8Y3.js";function E(t){return _(()=>({current:t}),[])}const r=(t,o)=>{const e=t._$AN;if(e===void 0)return!1;for(const a of e)a._$AO?.(o,!1),r(a,o);return!0},c=t=>{let o,e;do{if((o=t._$AM)===void 0)break;e=o._$AN,e.delete(t),t=o}while(e?.size===0)},w=t=>{for(let o;o=t._$AM;t=o){let e=o._$AN;if(e===void 0)o._$AN=e=new Set;else if(e.has(t))break;e.add(t),I(o)}};function M(t){this._$AN!==void 0?(c(this),this._$AM=t,w(this)):this._$AM=t}function N(t,o=!1,e=0){const a=this._$AH,l=this._$AN;if(l!==void 0&&l.size!==0)if(o)if(Array.isArray(a))for(let s=e;s<a.length;s++)r(a[s],!1),c(a[s]);else a!=null&&(r(a,!1),c(a));else r(this,t)}const I=t=>{t.type==k.CHILD&&(t._$AP??=N,t._$AQ??=M)};class Y extends A{constructor(){super(...arguments),this._$AN=void 0}_$AT(o,e,a){super._$AT(o,e,a),w(this),this.isConnected=o._$AU}_$AO(o,e=!0){o!==this.isConnected&&(this.isConnected=o,o?this.reconnected?.():this.disconnected?.()),e&&(r(this,o),c(this))}setValue(o){if($(this._$Ct))this._$Ct._$AI(o,this);else{const e=[...this._$Ct._$AH];e[this._$Ci]=o,this._$Ct._$AI(e,this,0)}}disconnected(){}reconnected(){}}const T=t=>t??h,p=new WeakMap,j=C(class extends Y{render(t){return h}update(t,[o]){const e=o!==this.G;return e&&this.G!==void 0&&this.rt(void 0),(e||this.lt!==this.ct)&&(this.G=o,this.ht=t.options?.host,this.rt(this.ct=t.element)),h}rt(t){if(this.isConnected||(t=void 0),typeof this.G=="function"){const o=this.ht??globalThis;let e=p.get(o);e===void 0&&(e=new WeakMap,p.set(o,e)),e.get(this.G)!==void 0&&this.G.call(this.ht,void 0),e.set(this.G,t),t!==void 0&&this.G.call(this.ht,t)}else this.G.value=t}get lt(){return typeof this.G=="function"?p.get(this.ht??globalThis)?.get(this.G):this.G?.value}disconnected(){this.lt===this.ct&&this.rt(void 0)}reconnected(){this.rt(this.ct)}}),D=(t,{label:o,invalid:e,errorMessage:a})=>d`
 		<div class="float" part="float">&nbsp;</div>
 		<div class="wrap" part="wrap">
 			<slot name="prefix"></slot>
 			<div class="control" part="control">
 				<slot name="control"></slot>
 				${t}
-				${f(o,()=>d`<label for="input" part="label">${o}</label>`)}
+				${v(o,()=>d`<label for="input" part="label">${o}</label>`)}
 			</div>
 			<slot name="suffix"></slot>
 		</div>
 		<div class="line" part="line"></div>
-		${f(e&&a,()=>d`<div class="error" part="error">${a}</div>`)}
-	`,j=["autocomplete","readonly","disabled","maxlength","invalid","no-label-float","always-float-label"],w=(t,...o)=>t.flatMap((e,a)=>[e,o[a]??""]).join(""),v=w`
+		${v(e&&a,()=>d`<div class="error" part="error">${a}</div>`)}
+	`,S=["autocomplete","readonly","disabled","maxlength","invalid","no-label-float","always-float-label"],z=(t,...o)=>t.flatMap((e,a)=>[e,o[a]??""]).join(""),b=z`
 	.wrap {
 		--contour-color: var(--focused-color);
 		background: var(--focused-bg);
@@ -31,7 +31,7 @@ import{r as x,A as h,b as d}from"./iframe-YaSc1rsN.js";import{u as $,i as _,t as
 		transform: none;
 		transition: 0.25s transform ease;
 	}
-`,D=w`
+`,U=z`
 	:host {
 		--font-family: var(
 			--cosmoz-input-font-family,
@@ -80,6 +80,7 @@ import{r as x,A as h,b as d}from"./iframe-YaSc1rsN.js";import{u as $,i as _,t as
 		line-height: var(--line-height);
 		font-family: var(--font-family);
 		caret-color: var(--focused-color);
+		cursor: text;
 	}
 
 	:host([disabled]) {
@@ -139,6 +140,7 @@ import{r as x,A as h,b as d}from"./iframe-YaSc1rsN.js";import{u as $,i as _,t as
 		text-transform: var(--cosmoz-input-label-text-transform);
 		font-weight: var(--cosmoz-input-label-font-weight);
 		user-select: none;
+		cursor: text;
 	}
 
 	.wrap:has(#input:not(:placeholder-shown)) {
@@ -270,9 +272,9 @@ import{r as x,A as h,b as d}from"./iframe-YaSc1rsN.js";import{u as $,i as _,t as
 	}
 
 	:host(:focus-within) {
-		${v}
+		${b}
 	}
 	@container style(--focused: focused) {
-		${v}
+		${b}
 	}
-`,Y=m(class extends y{values;constructor(t,o,e,a){super(t,o),Object.assign(o.host,e),this.values=a}update(t,o){this.hasChanged(o)&&(this.values=o,Object.assign(this.state.host,t))}hasChanged(t=[]){return t.some((o,e)=>this.values[e]!==o)}});m(class extends y{update(){return this.state.host}});const H=/([A-Z])/gu,b=(t,o,e)=>{t[o]=e,t.dispatchEvent(new CustomEvent(o.replace(H,"-$1").toLowerCase()+"-changed",{detail:{value:e}}))},S=t=>{const o=G(void 0),e=n(i=>o.current=i,[]),a=t.shadowRoot,l=n(i=>t.dispatchEvent(new Event(i.type,{bubbles:i.bubbles})),[]),s=n(i=>b(t,"value",i.target.value),[]),z=n(i=>b(t,"focused",i.type==="focus"),[]),u=n(()=>{const i=o.current?.checkValidity();return t.toggleAttribute("invalid",!i),i},[]);return Y({validate:u},[u]),C(()=>{const i=()=>{t.matches(":focus-within")||t.focus()};return a.addEventListener("mousedown",i),()=>a.removeEventListener("mousedown",i)},[]),{onChange:l,onFocus:z,onInput:s,onRef:e}};export{j as a,P as n,O as o,T as r,D as s,S as u};
+`,H=g(class extends y{values;constructor(t,o,e,a){super(t,o),Object.assign(o.host,e),this.values=a}update(t,o){this.hasChanged(o)&&(this.values=o,Object.assign(this.state.host,t))}hasChanged(t=[]){return t.some((o,e)=>this.values[e]!==o)}});g(class extends y{update(){return this.state.host}});const P=/([A-Z])/gu,m=(t,o,e)=>{t[o]=e,t.dispatchEvent(new CustomEvent(o.replace(P,"-$1").toLowerCase()+"-changed",{detail:{value:e}}))},V=t=>{const o=E(void 0),e=n(i=>o.current=i,[]),a=t.shadowRoot,l=n(i=>t.dispatchEvent(new Event(i.type,{bubbles:i.bubbles})),[]),s=n(i=>m(t,"value",i.target.value),[]),x=n(i=>m(t,"focused",i.type==="focus"),[]),u=n(()=>{const i=o.current?.checkValidity();return t.toggleAttribute("invalid",!i),i},[]);return H({validate:u},[u]),G(()=>{const i=f=>{f.composedPath()[0]?.closest?.("input, textarea")||(f.preventDefault(),o.current?.focus())};return a.addEventListener("mousedown",i),()=>a.removeEventListener("mousedown",i)},[]),{onChange:l,onFocus:x,onInput:s,onRef:e}};export{S as a,j as n,T as o,D as r,U as s,V as u};

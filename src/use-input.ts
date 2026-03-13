@@ -41,10 +41,11 @@ export const useInput = <T extends BaseInput>(host: T) => {
 
 	// delegatesFocus doesn't cover clicks on slotted light-DOM content
 	useEffect(() => {
-		const onMouseDown = () => {
-			if (!host.matches(':focus-within')) {
-				host.focus();
-			}
+		const onMouseDown = (e: Event) => {
+			const target = (e as MouseEvent).composedPath()[0] as Element;
+			if (target?.closest?.('input, textarea')) return;
+			e.preventDefault();
+			inputRef.current?.focus();
 		};
 
 		root.addEventListener('mousedown', onMouseDown);

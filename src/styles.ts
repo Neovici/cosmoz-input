@@ -71,6 +71,7 @@ export const styles = css`
 		line-height: var(--line-height);
 		font-family: var(--font-family);
 		caret-color: var(--focused-color);
+		cursor: text;
 	}
 
 	:host([disabled]) {
@@ -130,6 +131,7 @@ export const styles = css`
 		text-transform: var(--cosmoz-input-label-text-transform);
 		font-weight: var(--cosmoz-input-label-font-weight);
 		user-select: none;
+		cursor: text;
 	}
 
 	.wrap:has(#input:not(:placeholder-shown)) {

@@ -1,4 +1,4 @@
-import{b as l}from"./iframe-0wfgs31L.js";import"./cosmoz-email-list-CuhbHGGp.js";import{s as i}from"./style-CiHdT7xP.js";import"./preload-helper-PPVm8Dsz.js";import"./use-notify-property-CbNkGZz6.js";import"./util-hjyn66mY.js";const{expect:n,fn:r,waitFor:o}=__STORYBOOK_MODULE_TEST__,L={title:"Tests/EmailList"},m={render:()=>l`
+import{b as l}from"./iframe-PmtfQVGR.js";import"./cosmoz-email-list-DAAnR735.js";import{s as i}from"./style-DfVSaA6O.js";import"./preload-helper-PPVm8Dsz.js";import"./use-notify-property-4R8-UX0a.js";import"./util-hjyn66mY.js";const{expect:n,fn:r,waitFor:o}=__STORYBOOK_MODULE_TEST__,L={title:"Tests/EmailList"},m={render:()=>l`
         ${i}
         <cosmoz-email-list .label=${"Email to"}></cosmoz-email-list>
     `,play:async({canvasElement:s,step:t})=>{const a=s.querySelector("cosmoz-email-list");await t("focus() triggers focused-changed",async()=>{const e=r();a.addEventListener("focused-changed",e,{once:!0}),n(e).not.toHaveBeenCalled(),a.focus(),await o(()=>{n(e).toHaveBeenCalledTimes(1)})})}},u={render:()=>l`

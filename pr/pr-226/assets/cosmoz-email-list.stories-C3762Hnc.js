@@ -1,4 +1,4 @@
-import{b as e}from"./iframe-0wfgs31L.js";import"./cosmoz-email-list-CuhbHGGp.js";import{s as o}from"./style-CiHdT7xP.js";import"./preload-helper-PPVm8Dsz.js";import"./use-notify-property-CbNkGZz6.js";import"./util-hjyn66mY.js";const z={title:"Components/EmailList",component:"cosmoz-email-list",tags:["autodocs"]},a={render:()=>e`
+import{b as e}from"./iframe-PmtfQVGR.js";import"./cosmoz-email-list-DAAnR735.js";import{s as o}from"./style-DfVSaA6O.js";import"./preload-helper-PPVm8Dsz.js";import"./use-notify-property-4R8-UX0a.js";import"./util-hjyn66mY.js";const z={title:"Components/EmailList",component:"cosmoz-email-list",tags:["autodocs"]},a={render:()=>e`
         ${o}
         <cosmoz-email-list .label=${"Email to"}></cosmoz-email-list>
     `},s={render:()=>e`

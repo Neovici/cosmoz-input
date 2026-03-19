@@ -1,4 +1,4 @@
-import{c as n,b as g,d,l as p,n as i}from"./style-CiHdT7xP.js";import{b as o}from"./iframe-0wfgs31L.js";const b=t=>{const{label:l,value:s,disabled:a,error:r}=t,c=d(e=>t.dispatchEvent(new CustomEvent("change",{detail:e.target.checked})),[]);return o`<input
+import{c as n,b as g,d,l as p,n as i}from"./style-DfVSaA6O.js";import{b as o}from"./iframe-PmtfQVGR.js";const b=t=>{const{label:l,value:s,disabled:a,error:r}=t,c=d(e=>t.dispatchEvent(new CustomEvent("change",{detail:e.target.checked})),[]);return o`<input
 			id="toggle"
 			class="toggle"
 			part="toggle"

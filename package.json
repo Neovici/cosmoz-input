@@ -66,9 +66,12 @@
 		"./use-input": "./dist/use-input.js",
 		"./input": "./dist/cosmoz-input.js",
 		"./textarea": "./dist/cosmoz-textarea.js",
-		"./toggle": "./dist/cosmoz-toggle.js"
+		"./toggle": "./dist/cosmoz-toggle.js",
+		"./email-list": "./dist/cosmoz-email-list.js"
 	},
 	"dependencies": {
+		"@neovici/cosmoz-tag": "^1.0.0",
+		"@neovici/cosmoz-tokens": "^3.3.1",
 		"@neovici/cosmoz-utils": "^6.0.0",
 		"@pionjs/pion": "^2.0.0",
 		"lit-html": "^2.0.0 || ^3.0.0"

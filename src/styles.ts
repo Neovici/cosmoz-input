@@ -269,3 +269,45 @@ export const styles = css`
 		${focusedStyle}
 	}
 `;
+export const emailListStyles = css`
+	.control {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--cz-spacing);
+		align-items: center;
+	}
+
+	#input {
+		flex: 1;
+	}
+
+	.wrap {
+		min-height: var(--cosmoz-input-min-height, calc(var(--cz-spacing) * 7.5));
+	}
+
+	/* Float label when tags are present */
+	.control:has(cosmoz-tag) label {
+		transform: translateY(
+				calc(var(--label-scale) * -100% + var(--label-translate-y))
+			)
+			scale(var(--label-scale));
+		background-color: var(--cosmoz-input-floating-label-bg, var(--bg));
+	}
+
+	.control:has(cosmoz-tag) #input,
+	.control:has(cosmoz-tag) cosmoz-tag {
+		transform: translateY(var(--label-translate-y));
+	}
+
+	.prefix {
+		border-radius: var(--cz-radius-full);
+		background-color: var(--cz-color-bg-brand);
+		color: var(--cz-color-text-on-brand);
+		width: calc(var(--cz-spacing) * 6);
+		height: calc(var(--cz-spacing) * 6);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: calc(var(--cz-spacing) * -1.5);
+	}
+`;

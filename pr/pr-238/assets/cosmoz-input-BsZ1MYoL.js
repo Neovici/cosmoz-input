@@ -1,0 +1,25 @@
+import{b as h,a as x,e as y,l as v}from"./style-CCZ_DajM.js";import{b as I}from"./iframe-Cfz3HHtg.js";import{a as w,u as R,r as z,n as A,o as n,s as E}from"./use-input-Bk60hb9T.js";const F=e=>h(()=>{if(e==null)return;const a=new RegExp(e,"u");return t=>{!t.defaultPrevented&&t.data&&!a.test(t.data)&&t.preventDefault()}},[e]),P=({placeholder:e,noLabelFloat:a,label:t})=>(a?t:void 0)||e||" ",S=["type","pattern","allowed-pattern","min","max","step","autosize","label","placeholder",...w],B=e=>{const{type:a="text",pattern:t,allowedPattern:u,autocomplete:l,value:o,readonly:p,disabled:s,min:i,max:d,step:m,maxlength:c}=e,{onChange:$,onFocus:r,onInput:f,onRef:b}=R(e),g=F(u);return z(I`
+			<input
+				${A(b)}
+				style="--chars: ${o?.toString()?.length??0}ch"
+				id="input"
+				part="input"
+				type=${a}
+				pattern=${n(t)}
+				autocomplete=${n(l)}
+				placeholder=${P(e)}
+				?readonly=${p}
+				?aria-disabled=${s}
+				?disabled=${s}
+				.value=${v(o??"")}
+				maxlength=${n(c)}
+				@beforeinput=${g}
+				@input=${f}
+				@change=${$}
+				@focus=${r}
+				@blur=${r}
+				min=${n(i)}
+				max=${n(d)}
+				step=${n(m)}
+			/>
+		`,e)};customElements.define("cosmoz-input",x(B,{observedAttributes:S,styleSheets:[y(E)],shadowRootInit:{mode:"open",delegatesFocus:!0}}));

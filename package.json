@@ -43,7 +43,10 @@
 			"@semantic-release/npm",
 			"@semantic-release/git"
 		],
-		"branch": "master",
+		"branches": [
+			"master",
+			"next"
+		],
 		"preset": "conventionalcommits"
 	},
 	"publishConfig": {
@@ -69,6 +72,9 @@
 		"./toggle": "./dist/cosmoz-toggle.js"
 	},
 	"dependencies": {
+		"@neovici/cosmoz-icons": "^1.6.0",
+		"@neovici/cosmoz-tokens": "^3.3.2",
+		"@neovici/cosmoz-tooltip": "^1.2.1",
 		"@neovici/cosmoz-utils": "^6.0.0",
 		"@pionjs/pion": "^2.0.0",
 		"lit-html": "^2.0.0 || ^3.0.0"
@@ -81,6 +87,7 @@
 		"@playwright/test": "^1.58.1",
 		"@semantic-release/changelog": "^6.0.0",
 		"@semantic-release/git": "^10.0.0",
+		"@storybook/addon-a11y": "^10.3.3",
 		"@storybook/addon-docs": "^10.0.0",
 		"@storybook/addon-vitest": "^10.2.4",
 		"@storybook/web-components-vite": "^10.2.4",
@@ -95,6 +102,9 @@
 		"shadow-dom-testing-library": "^1.13.1",
 		"sinon": "^21.0.0",
 		"storybook": "^10.1.9",
-		"vitest": "^4.0.18"
+		"vitest": "^4.0.18",
+		"@types/mocha": "^10.0.3",
+		"@vitest/coverage-v8": "^4.1.2",
+		"playwright": "^1.58.2"
 	}
 }

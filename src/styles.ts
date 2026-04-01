@@ -116,8 +116,7 @@ export const styles = css`
 	cosmoz-tooltip {
 		display: flex;
 		align-items: center;
-		position: absolute;
-		right: calc(var(--cz-spacing) * 2);
+		margin-right: calc(var(--cz-spacing) * 2);
 	}
 
 	:host([invalid]) cosmoz-tooltip {
@@ -139,11 +138,15 @@ export const styles = css`
 
 	/* === Variant: inline === */
 	:host([variant='inline']) .wrap {
-		margin-top: calc(var(--cz-spacing) * 2);
+		margin-top: calc(var(--cz-spacing) * 2.5);
 	}
 
 	:host([variant='inline']) #input {
 		padding-inline: 0;
+	}
+
+	:host([variant='inline']) #input::placeholder {
+		color: transparent;
 	}
 
 	:host([variant='inline']) .wrap {
@@ -160,24 +163,29 @@ export const styles = css`
 	:host([variant='inline']) .error {
 		display: none;
 	}
-
+	:host([variant='inline'][disabled]) label {
+		color: var(--cz-color-text-disabled);
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
 	:host([variant='inline']) label {
 		position: absolute;
 		top: 25%;
 		left: 0;
 		width: 100%;
-		height: 100%;
+		transform-origin: left;
 		transition:
 			transform 0.25s,
 			width 0.25s;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+		z-index: 1;
 	}
 
 	:host([variant='inline']:focus-within) label,
 	:host([variant='inline'][has-value]) label {
-		transform: translateY(-50%) scale(1);
+		transform: translateY(-75%) scale(0.85);
 	}
 
 	:host([variant='inline']) {
@@ -194,8 +202,12 @@ export const styles = css`
 		border-radius: 0;
 		box-shadow: none;
 	}
+	:host([variant='cell'][invalid]) .wrap {
+		border-color: var(--cz-color-border-error);
+	}
 	:host([variant='cell'][invalid]) .wrap:has(#input:focus) {
 		background: var(--cz-color-bg-error);
+		border: 0.5px solid transparent;
 	}
 	:host([variant='cell']) .wrap:has(#input:focus) {
 		background: var(--cz-color-bg-quaternary);
@@ -247,5 +259,4 @@ export const styles = css`
 	slot[name='suffix']::slotted(*) {
 		padding-inline-end: calc(var(--cz-spacing) * 2);
 	}
-
 `;

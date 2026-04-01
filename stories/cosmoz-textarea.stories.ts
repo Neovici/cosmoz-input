@@ -65,7 +65,6 @@ export const Contour: Story = {
 			.value=${loremIpsum}
 		></cosmoz-textarea>
 		<cosmoz-textarea
-			no-label-float
 			placeholder=${'Write your comment here'}
 			.value=${loremIpsum}
 		></cosmoz-textarea>

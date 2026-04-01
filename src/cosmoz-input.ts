@@ -62,7 +62,7 @@ export const Input = (host: CosmozInput) => {
 				type=${type}
 				pattern=${ifDefined(pattern)}
 				autocomplete=${ifDefined(autocomplete)}
-				placeholder=${getPlaceholder(host)}
+				placeholder=${getPlaceholder({ placeholder: host.placeholder })}
 				?readonly=${readonly}
 				aria-disabled=${disabled ? 'true' : 'false'}
 				?disabled=${disabled}

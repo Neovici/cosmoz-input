@@ -4,7 +4,7 @@ import { html } from 'lit-html';
 import '../src/cosmoz-input';
 
 const meta: Meta = {
-	title: 'Cosmoz Input',
+	title: 'Components/Cosmoz Input',
 	component: 'cosmoz-input',
 	tags: ['autodocs'],
 	argTypes: {
@@ -28,7 +28,7 @@ const meta: Meta = {
 		},
 		variant: {
 			control: 'select',
-			options: [undefined, 'inline', 'cell'],
+			options: ['inline', 'cell'],
 			description: 'Visual variant',
 			table: { defaultValue: { summary: '—' } },
 		},
@@ -189,6 +189,11 @@ export const Inline: Story = {
 	render: () => html`
 		<div class="story-stack">
 			<h1 class="story-section-title">Inline variant</h1>
+			<style>
+				.story-grid cosmoz-input[variant='inline'] {
+					background: var(--cz-color-bg-brand);
+				}
+			</style>
 			<div class="story-grid">
 				<div>
 					<div class="story-label">Empty</div>
@@ -338,17 +343,6 @@ export const Compact: Story = {
 						.errorMessage=${'Cell compact error'}
 					></cosmoz-input>
 				</div>
-				<div>
-					<div class="story-label">Inline + compact</div>
-					<cosmoz-input
-						variant="inline"
-						compact
-						.label=${'Email'}
-						.value=${'bad'}
-						invalid
-						.errorMessage=${'Inline compact error'}
-					></cosmoz-input>
-				</div>
 			</div>
 		</div>
 	`,
@@ -385,6 +379,7 @@ export const LiveValidation: Story = {
 						<cosmoz-input
 							.label=${'Email'}
 							.hint=${'Type an invalid email'}
+							placeholder=${'olivia@untitledui.com'}
 							required
 							@input=${onInput}
 						></cosmoz-input>
@@ -430,7 +425,7 @@ export const PrefixAndSuffix: Story = {
 		return html`
 			<div class="story-stack">
 				<h1 class="story-section-title">Prefix & Suffix slots</h1>
-				<div class="story-grid">
+				<div class="story-stack">
 					<div>
 						<div class="story-label">Prefix</div>
 						<cosmoz-input
@@ -466,25 +461,7 @@ export const PrefixAndSuffix: Story = {
 							invalid
 							.errorMessage=${'Invalid email'}
 						>
-							${prefixIcon}
-						</cosmoz-input>
-					</div>
-					<div>
-						<div class="story-label">Cell + prefix</div>
-						<cosmoz-input variant="cell" placeholder=${'Filter...'}>
-							${prefixIcon}
-						</cosmoz-input>
-					</div>
-					<div>
-						<div class="story-label">Compact + prefix</div>
-						<cosmoz-input compact .label=${'Search'} placeholder=${'Filter...'}>
-							${prefixIcon}
-						</cosmoz-input>
-					</div>
-					<div>
-						<div class="story-label">Inline + prefix</div>
-						<cosmoz-input .label=${'Email'} variant="inline">
-							${prefixIcon}
+							${prefixIcon} ${suffixIcon}
 						</cosmoz-input>
 					</div>
 				</div>

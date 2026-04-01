@@ -38,16 +38,16 @@ const CosmozToggle = (host: Host) => {
 export const toggleStyles = css`
 	.toggle {
 		appearance: none;
-		width: 35px;
-		height: 18px;
+		width: calc(var(--cz-spacing) * 9);
+		height: calc(var(--cz-spacing) * 4.5);
 		display: inline-block;
 		position: relative;
-		border-radius: 18px;
+		border-radius: var(--cz-radius-3xl);
 		overflow: hidden;
 		outline: none;
 		border: none;
 		cursor: pointer;
-		background: var(--cz-toggle-color, #101010);
+		background: var(--cz-color-bg-quaternary);
 		transition: background-color ease 0.25s;
 		margin: 0;
 	}
@@ -56,26 +56,33 @@ export const toggleStyles = css`
 		display: block;
 		position: absolute;
 		z-index: 2;
-		width: 14px;
-		height: 14px;
-		background: var(--cz-toggle-thumb-color, #15b0d3);
-		left: 2px;
-		top: 2px;
-		border-radius: 50%;
+		width: calc(var(--cz-spacing) * 3.5);
+		height: calc(var(--cz-spacing) * 3.5);
+		background: var(--cz-color-brand-25);
+		left: calc(var(--cz-spacing) * 0.5);
+		top: calc(var(--cz-spacing) * 0.5);
+		border-radius: var(--cz-radius-full);
 		transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.25s;
 	}
 	.toggle:checked {
-		background: var(--cz-toggle-checked-color, #66d7f0);
+		background: var(--cz-color-bg-brand-solid);
 	}
 	.toggle:checked::before {
-		left: 19px;
+		left: calc(var(--cz-spacing) * 5);
 	}
-	.toggle + label {
-		padding-left: 16px;
-		font-size: 14px;
-		line-height: 18px;
+	label {
+		padding-left: calc(var(--cz-spacing) * 4);
+		font-size: var(--cz-text-sm);
+		line-height: var(--cz-text-sm-line-height);
+		color: var(--cz-color-text-secondary);
 		cursor: pointer;
 		user-select: none;
+	}
+
+	.failure {
+		font-size: var(--cz-text-sm);
+		line-height: var(--cz-text-sm-line-height);
+		color: var(--cz-color-text-secondary);
 	}
 	.toggle[disabled] {
 		opacity: 0.6;
@@ -93,7 +100,7 @@ const style = css`
 	}
 
 	::slotted(*) {
-		margin-left: 5px;
+		margin-left: calc(var(--cz-spacing) * 1);
 	}
 `;
 

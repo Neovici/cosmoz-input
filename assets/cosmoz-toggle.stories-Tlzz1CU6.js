@@ -1,4 +1,4 @@
-import{b as l}from"./iframe-CrGprHND.js";import"./cosmoz-toggle-BKnEUq6H.js";import{s as i}from"./style-8LtRKO_P.js";import"./preload-helper-PPVm8Dsz.js";const{expect:c,waitFor:g}=__STORYBOOK_MODULE_TEST__,y={title:"Components/Toggle",component:"cosmoz-toggle",tags:["autodocs"]},n={render:()=>l`
+import{b as l}from"./iframe-CyNFwirI.js";import"./cosmoz-toggle-BInooCxq.js";import{s as i}from"./style-DzbXejPt.js";import"./preload-helper-PPVm8Dsz.js";const{expect:c,waitFor:g}=__STORYBOOK_MODULE_TEST__,y={title:"Components/Toggle",component:"cosmoz-toggle",tags:["autodocs"]},n={render:()=>l`
         ${i}
         <cosmoz-toggle .label=${"Is active"} .value=${!0}></cosmoz-toggle>
     `,play:async({canvas:e,step:o})=>{await o("Renders checkbox element",async()=>{await e.findByShadowRole("checkbox")})}},a={render:()=>l`

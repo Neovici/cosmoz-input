@@ -233,7 +233,8 @@ export const styles = css`
 		display: none;
 	}
 	:host([no-spinner]) #input {
-		-moz-appearence: textfield;
+		-moz-appearance: textfield;
+		appearance: textfield;
 	}
 
 	:host([autosize]) {

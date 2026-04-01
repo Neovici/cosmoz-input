@@ -89,6 +89,17 @@ export const Color: Story = {
 	`,
 };
 
+export const NoSpinner: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-input
+			type="number"
+			.label=${'This number input has no spinner'}
+			no-spinner
+		></cosmoz-input>
+	`,
+};
+
 export const Contour: Story = {
 	render: () => html`
 		${style}

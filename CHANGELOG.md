@@ -1,3 +1,9 @@
+## [5.6.2](https://github.com/Neovici/cosmoz-input/compare/v5.6.1...v5.6.2) (2026-04-01)
+
+### Bug Fixes
+
+* no spinner typo ([#244](https://github.com/Neovici/cosmoz-input/issues/244)) ([dc07067](https://github.com/Neovici/cosmoz-input/commit/dc0706782e3803f8723db3e76c9f5f99ccf79271))
+
 ## [5.6.1](https://github.com/Neovici/cosmoz-input/compare/v5.6.0...v5.6.1) (2026-03-13)
 
 ### Bug Fixes

@@ -1,7 +1,7 @@
+import { infoCircleIcon } from '@neovici/cosmoz-icons/untitled';
+import '@neovici/cosmoz-tooltip';
 import { html } from 'lit-html';
 import { when } from 'lit-html/directives/when.js';
-import { infoCircleIcon, helpCircleIcon } from '@neovici/cosmoz-icons/untitled';
-import '@neovici/cosmoz-tooltip';
 
 export type ObjectFromList<T extends ReadonlyArray<string>, V = string> = {
 	[K in T extends ReadonlyArray<infer U> ? U : never]: V;
@@ -36,15 +36,18 @@ export const render = <T>(
 				${control}
 			</div>
 			<!-- compact: tooltip always visible, red icon when invalid -->
-			<cosmoz-tooltip
-				placement="top"
-				description=${invalid ? errorMessage : label}
-				delay="300"
-			>
-				${invalid
-					? infoCircleIcon({ width: '16px', height: '16px' })
-					: helpCircleIcon({ width: '16px', height: '16px' })}
-			</cosmoz-tooltip>
+			${when(
+				invalid,
+				() =>
+					html`<cosmoz-tooltip
+						placement="top"
+						description=${invalid ? errorMessage : label}
+						delay="300"
+					>
+						${infoCircleIcon({ width: '16px', height: '16px' })}
+					</cosmoz-tooltip>`,
+			)}
+
 			<slot name="suffix"></slot>
 		</div>
 		<!-- hint: visible when valid, hidden when invalid or compact -->

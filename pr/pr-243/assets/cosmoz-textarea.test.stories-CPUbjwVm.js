@@ -1,9 +1,9 @@
-import{n as e}from"./chunk-zsgVPwQN.js";import{c as t,s as n}from"./iframe-BabVk6rK.js";import{n as r,t as i}from"./style-zIwD8KBQ.js";import{t as a}from"./cosmoz-textarea-Co3nNMoB.js";var o,s,c,l,u,d;e((()=>{t(),a(),i(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Tests/Textarea`},l={render:()=>n`
+import{n as e}from"./chunk-zsgVPwQN.js";import{c as t,s as n}from"./iframe-AQsdAuvw.js";import{n as r,t as i}from"./style-jW6SSCBF.js";import{t as a}from"./cosmoz-textarea-BJ6g9T3e.js";var o,s,c,l,u,d;e((()=>{t(),a(),i(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Tests/Textarea`},l={render:()=>n`
         ${r}
         <cosmoz-textarea .value=${`1
 2
 3`} .maxRows=${2}></cosmoz-textarea>
-    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-textarea`);await t(`textarea auto grows based on content`,async()=>{await s(()=>{let{height:e}=n.shadowRoot.querySelector(`#input`).getBoundingClientRect();o(e).toBeGreaterThan(40),o(e).toBeLessThan(61)})})}},u={render:()=>n`
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-textarea`);await t(`textarea auto grows based on content`,async()=>{await s(()=>{let{height:e}=n.shadowRoot.querySelector(`#input`).getBoundingClientRect();o(e).toBeGreaterThan(40),o(e).toBeLessThan(66)})})}},u={render:()=>n`
         ${r}
         <cosmoz-textarea placeholder="Enter text..."></cosmoz-textarea>
     `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-textarea`);await t(`placeholder attribute is forwarded to inner textarea`,async()=>{o(n.shadowRoot.querySelector(`textarea`).placeholder).toBe(`Enter text...`)})}},l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
@@ -23,7 +23,7 @@ import{n as e}from"./chunk-zsgVPwQN.js";import{c as t,s as n}from"./iframe-BabVk
           height
         } = input.getBoundingClientRect();
         expect(height).toBeGreaterThan(40);
-        expect(height).toBeLessThan(61);
+        expect(height).toBeLessThan(66);
       });
     });
   }

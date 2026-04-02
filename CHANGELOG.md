@@ -1,3 +1,21 @@
+## [6.0.0-beta.1](https://github.com/Neovici/cosmoz-input/compare/v5.6.2...v6.0.0-beta.1) (2026-04-02)
+
+### ⚠ BREAKING CHANGES
+
+* relies on @neovici/cosmoz-tokens
+
+### Features
+
+* adopt untitled ui look ([32d70d9](https://github.com/Neovici/cosmoz-input/commit/32d70d9d189eb67e26b072d22faad60c9ed59177))
+* refine inline variant and clean up storybook ([2705df4](https://github.com/Neovici/cosmoz-input/commit/2705df4fbcc116503d93b7ad88f6cd8f9788a1d3))
+* set toggle to untitled ui/tokens and fix test ([00053ba](https://github.com/Neovici/cosmoz-input/commit/00053baaf8430ea2bcf53105d84492474bb9d2fd))
+
+### Bug Fixes
+
+* add explicit rootDir for TypeScript 6 compatibility ([4f08400](https://github.com/Neovici/cosmoz-input/commit/4f0840086a93e4df7915e3bd9209b6f225358d74))
+* list next branch to CI workflow ([bde65aa](https://github.com/Neovici/cosmoz-input/commit/bde65aaff05ac10ed35f9b46e31d3ebace73c114))
+* single quote lint issue ([83912cb](https://github.com/Neovici/cosmoz-input/commit/83912cb7a159000fee3ad091ab8a1b6719905733))
+
 ## [5.6.2](https://github.com/Neovici/cosmoz-input/compare/v5.6.1...v5.6.2) (2026-04-01)
 
 ### Bug Fixes

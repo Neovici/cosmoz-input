@@ -1,3 +1,9 @@
+## [6.0.0-beta.2](https://github.com/Neovici/cosmoz-input/compare/v6.0.0-beta.1...v6.0.0-beta.2) (2026-04-09)
+
+### Bug Fixes
+
+* use attribute bindings for error-message, hint and fix tooltip/error rendering ([#255](https://github.com/Neovici/cosmoz-input/issues/255)) ([892bed1](https://github.com/Neovici/cosmoz-input/commit/892bed17d9700385d12154e4820c97dd1a9f0905))
+
 ## [6.0.0-beta.1](https://github.com/Neovici/cosmoz-input/compare/v5.6.2...v6.0.0-beta.1) (2026-04-02)
 
 ### ⚠ BREAKING CHANGES

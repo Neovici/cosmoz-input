@@ -49,7 +49,7 @@ export const styles = css`
 	}
 
 	.wrap:has(#input:focus) {
-		box-shadow: 0 0 0 2px var(--cz-color-border-brand);
+		box-shadow: var(--cz-focus-ring);
 	}
 
 	:host([invalid]) .wrap {
@@ -57,7 +57,7 @@ export const styles = css`
 	}
 
 	:host([invalid]) .wrap:has(#input:focus) {
-		box-shadow: 0 0 0 2px var(--cz-color-border-error);
+		box-shadow: var(--cz-focus-ring-error);
 	}
 
 	.control {

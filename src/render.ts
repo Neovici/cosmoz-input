@@ -37,11 +37,11 @@ export const render = <T>(
 			</div>
 			<!-- compact: tooltip always visible, red icon when invalid -->
 			${when(
-				invalid,
+				compact && invalid && errorMessage,
 				() =>
 					html`<cosmoz-tooltip
 						placement="top"
-						description=${invalid ? errorMessage : label}
+						description=${errorMessage}
 						delay="300"
 					>
 						${infoCircleIcon({ width: '16px', height: '16px' })}

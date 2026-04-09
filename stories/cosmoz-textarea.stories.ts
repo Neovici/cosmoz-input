@@ -14,7 +14,11 @@ type Story = StoryObj;
 
 export const Basic: Story = {
 	render: () => html`
-		<cosmoz-textarea .label=${'Choose color'} .value=${'Red'}></cosmoz-textarea>
+		<cosmoz-textarea
+			.label=${'Choose color'}
+			.value=${'Red'}
+			hint=${'Hint text'}
+		></cosmoz-textarea>
 	`,
 	play: async ({ canvas, step }) => {
 		await step('Renders textarea element', async () => {
@@ -30,7 +34,7 @@ export const ErrorStory: Story = {
 			invalid
 			.label=${'Choose color'}
 			.value=${'Red\nGreen\nBlue'}
-			.errorMessage=${'Something is wrong!'}
+			error-message=${'Something is wrong!'}
 			.maxRows=${2}
 		></cosmoz-textarea>
 	`,

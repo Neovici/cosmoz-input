@@ -8,7 +8,7 @@ import { attributes, ObjectFromList, Render, render } from './render';
 import { styles } from './styles';
 import { useAllowedPattern } from './use-allowed-pattern';
 import { BaseInput, useInput } from './use-input';
-import { getPlaceholder } from './util';
+import { defaultMax, getPlaceholder } from './util';
 
 const observedAttributes = [
 	'type',
@@ -67,7 +67,7 @@ export const Input = (host: CosmozInput) => {
 				@focus=${onFocus}
 				@blur=${onFocus}
 				min=${ifDefined(min)}
-				max=${ifDefined(max)}
+				max=${ifDefined(defaultMax(type, max))}
 				step=${ifDefined(step)}
 			/>
 		`,

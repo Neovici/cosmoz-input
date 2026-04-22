@@ -1,3 +1,9 @@
+## [5.7.0](https://github.com/Neovici/cosmoz-input/compare/v5.6.2...v5.7.0) (2026-04-22)
+
+### Features
+
+* default limit to year 9999 ([#269](https://github.com/Neovici/cosmoz-input/issues/269)) ([f276b79](https://github.com/Neovici/cosmoz-input/commit/f276b797a00c3f54e1694cffc7e51a265ab308e2))
+
 ## [5.6.2](https://github.com/Neovici/cosmoz-input/compare/v5.6.1...v5.6.2) (2026-04-01)
 
 ### Bug Fixes

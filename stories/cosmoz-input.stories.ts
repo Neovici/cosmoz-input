@@ -100,6 +100,13 @@ export const NoSpinner: Story = {
 	`,
 };
 
+export const Date: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-input no-label-float type="date"></cosmoz-input>
+	`,
+};
+
 export const Contour: Story = {
 	render: () => html`
 		${style}

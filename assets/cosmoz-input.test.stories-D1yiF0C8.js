@@ -1,31 +1,31 @@
-import{b as s}from"./iframe-CyNFwirI.js";import"./cosmoz-input-BGv_5nIC.js";import{s as c}from"./style-DzbXejPt.js";import"./preload-helper-PPVm8Dsz.js";import"./use-input-DEkS1QI1.js";const{expect:a,fn:S,waitFor:r}=__STORYBOOK_MODULE_TEST__,q={title:"Tests/Input"},p={render:()=>s`
-        ${c}
+import{n as e}from"./chunk-zsgVPwQN.js";import{G as t,K as n}from"./iframe-XdIfrZ1A.js";import{n as r,t as i}from"./style-Do7FhrfL.js";import{t as a}from"./cosmoz-input-DCtVKeYR.js";var o,s,c,l,u,d,f,p,m,h,g,_,v,y;e((()=>{n(),a(),i(),{expect:o,fn:s,waitFor:c}=__STORYBOOK_MODULE_TEST__,l={title:`Tests/Input`},u={render:()=>t`
+        ${r}
         <cosmoz-input></cosmoz-input>
-    `,play:async({canvasElement:o,step:t})=>{const e=o.querySelector("cosmoz-input");await t("focus() triggers focused-changed",async()=>{const n=S();e.addEventListener("focused-changed",n,{once:!0}),a(n).not.toHaveBeenCalled(),e.focus(),await r(()=>{a(n).toHaveBeenCalledTimes(1)})})}},l={render:()=>s`
-        ${c}
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`);await t(`focus() triggers focused-changed`,async()=>{let e=s();n.addEventListener(`focused-changed`,e,{once:!0}),o(e).not.toHaveBeenCalled(),n.focus(),await c(()=>{o(e).toHaveBeenCalledTimes(1)})})}},d={render:()=>t`
+        ${r}
         <cosmoz-input></cosmoz-input>
-    `,play:async({canvasElement:o,step:t})=>{const e=o.querySelector("cosmoz-input");await t("change event is re-dispatched on the host",async()=>{const n=S();e.addEventListener("change",n);const u=e.shadowRoot.querySelector("input");u.focus(),u.value="hello",u.dispatchEvent(new Event("change",{bubbles:!0})),await r(()=>{a(n).toHaveBeenCalledTimes(1)})})}},i={render:()=>s`
-        ${c}
-        <cosmoz-input .value=${"a"} pattern="[2]"></cosmoz-input>
-    `,play:async({canvasElement:o,step:t})=>{const e=o.querySelector("cosmoz-input");await t("validate returns false for invalid pattern",async()=>{a(e.validate()).toBe(!1)})}},d={render:()=>s`
-        ${c}
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`);await t(`change event is re-dispatched on the host`,async()=>{let e=s();n.addEventListener(`change`,e);let t=n.shadowRoot.querySelector(`input`);t.focus(),t.value=`hello`,t.dispatchEvent(new Event(`change`,{bubbles:!0})),await c(()=>{o(e).toHaveBeenCalledTimes(1)})})}},f={render:()=>t`
+        ${r}
+        <cosmoz-input .value=${`a`} pattern="[2]"></cosmoz-input>
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`);await t(`validate returns false for invalid pattern`,async()=>{o(n.validate()).toBe(!1)})}},p={render:()=>t`
+        ${r}
         <cosmoz-input allowed-pattern="[c]"></cosmoz-input>
-    `,play:async({canvasElement:o,step:t})=>{const n=o.querySelector("cosmoz-input").shadowRoot.querySelector("input");await t("allowed character is not prevented",async()=>{a(n.dispatchEvent(new InputEvent("beforeinput",{data:"c",cancelable:!0}))).toBe(!0)}),await t("disallowed character is prevented",async()=>{a(n.dispatchEvent(new InputEvent("beforeinput",{data:"2",cancelable:!0}))).toBe(!1)})}},m={render:()=>s`
-        ${c}
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`).shadowRoot.querySelector(`input`);await t(`allowed character is not prevented`,async()=>{o(n.dispatchEvent(new InputEvent(`beforeinput`,{data:`c`,cancelable:!0}))).toBe(!0)}),await t(`disallowed character is prevented`,async()=>{o(n.dispatchEvent(new InputEvent(`beforeinput`,{data:`2`,cancelable:!0}))).toBe(!1)})}},m={render:()=>t`
+        ${r}
         <cosmoz-input></cosmoz-input>
-    `,play:async({canvasElement:o,step:t})=>{const e=o.querySelector("cosmoz-input");await t("input event triggers value-changed",async()=>{const n=S();e.addEventListener("value-changed",n,{once:!0}),a(n).not.toHaveBeenCalled(),e.shadowRoot.querySelector("input").dispatchEvent(new Event("input",{bubbles:!0})),a(n).toHaveBeenCalledTimes(1)})}},y={render:()=>s`
-        ${c}
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`);await t(`input event triggers value-changed`,async()=>{let e=s();n.addEventListener(`value-changed`,e,{once:!0}),o(e).not.toHaveBeenCalled(),n.shadowRoot.querySelector(`input`).dispatchEvent(new Event(`input`,{bubbles:!0})),o(e).toHaveBeenCalledTimes(1)})}},h={render:()=>t`
+        ${r}
         <cosmoz-input placeholder="Search..."></cosmoz-input>
-    `,play:async({canvasElement:o,step:t})=>{const e=o.querySelector("cosmoz-input");await t("placeholder attribute is forwarded to inner input",async()=>{const n=e.shadowRoot.querySelector("input");a(n.placeholder).toBe("Search...")})}},w={render:()=>s`
-        ${c}
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`);await t(`placeholder attribute is forwarded to inner input`,async()=>{o(n.shadowRoot.querySelector(`input`).placeholder).toBe(`Search...`)})}},g={render:()=>t`
+        ${r}
         <cosmoz-input><span slot="suffix">suffix</span></cosmoz-input>
-    `,play:async({canvasElement:o,step:t})=>{const e=o.querySelector("cosmoz-input"),n=e.shadowRoot.querySelector("input");await t("mousedown on suffix focuses input",async()=>{e.querySelector("span").dispatchEvent(new MouseEvent("mousedown",{bubbles:!0})),await r(()=>{a(e.shadowRoot.activeElement).toBe(n)})})}},h={render:()=>s`
-        ${c}
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`),r=n.shadowRoot.querySelector(`input`);await t(`mousedown on suffix focuses input`,async()=>{n.querySelector(`span`).dispatchEvent(new MouseEvent(`mousedown`,{bubbles:!0})),await c(()=>{o(n.shadowRoot.activeElement).toBe(r)})})}},_={render:()=>t`
+        ${r}
         <cosmoz-input></cosmoz-input>
-    `,play:async({canvasElement:o,step:t})=>{const e=o.querySelector("cosmoz-input");await t("host.focus() delegates to inner input via delegatesFocus",async()=>{e.focus(),await r(()=>{const n=e.shadowRoot.querySelector("input");a(e.shadowRoot.activeElement).toBe(n)})})}},v={render:()=>s`
-        ${c}
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`);await t(`host.focus() delegates to inner input via delegatesFocus`,async()=>{n.focus(),await c(()=>{let e=n.shadowRoot.querySelector(`input`);o(n.shadowRoot.activeElement).toBe(e)})})}},v={render:()=>t`
+        ${r}
         <cosmoz-input label="Test"></cosmoz-input>
-    `,play:async({canvasElement:o,step:t})=>{const e=o.querySelector("cosmoz-input"),n=e.shadowRoot.querySelector("input");await t("mousedown on shadow DOM wrap does not blur a focused input",async()=>{n.focus(),await r(()=>{a(e.shadowRoot.activeElement).toBe(n)}),e.shadowRoot.querySelector(".wrap").dispatchEvent(new MouseEvent("mousedown",{bubbles:!0,composed:!0})),a(e.shadowRoot.activeElement).toBe(n)})}};p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`{
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`),r=n.shadowRoot.querySelector(`input`);await t(`mousedown on shadow DOM wrap does not blur a focused input`,async()=>{r.focus(),await c(()=>{o(n.shadowRoot.activeElement).toBe(r)}),n.shadowRoot.querySelector(`.wrap`).dispatchEvent(new MouseEvent(`mousedown`,{bubbles:!0,composed:!0})),o(n.shadowRoot.activeElement).toBe(r)})}},u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input></cosmoz-input>
@@ -47,7 +47,7 @@ import{b as s}from"./iframe-CyNFwirI.js";import"./cosmoz-input-BGv_5nIC.js";impo
       });
     });
   }
-}`,...p.parameters?.docs?.source}}};l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
+}`,...u.parameters?.docs?.source}}},d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input></cosmoz-input>
@@ -71,7 +71,7 @@ import{b as s}from"./iframe-CyNFwirI.js";import"./cosmoz-input-BGv_5nIC.js";impo
       });
     });
   }
-}`,...l.parameters?.docs?.source}}};i.parameters={...i.parameters,docs:{...i.parameters?.docs,source:{originalSource:`{
+}`,...d.parameters?.docs?.source}}},f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input .value=\${'a'} pattern="[2]"></cosmoz-input>
@@ -87,7 +87,7 @@ import{b as s}from"./iframe-CyNFwirI.js";import"./cosmoz-input-BGv_5nIC.js";impo
       expect(el.validate()).toBe(false);
     });
   }
-}`,...i.parameters?.docs?.source}}};d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
+}`,...f.parameters?.docs?.source}}},p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input allowed-pattern="[c]"></cosmoz-input>
@@ -111,7 +111,7 @@ import{b as s}from"./iframe-CyNFwirI.js";import"./cosmoz-input-BGv_5nIC.js";impo
       }))).toBe(false);
     });
   }
-}`,...d.parameters?.docs?.source}}};m.parameters={...m.parameters,docs:{...m.parameters?.docs,source:{originalSource:`{
+}`,...p.parameters?.docs?.source}}},m.parameters={...m.parameters,docs:{...m.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input></cosmoz-input>
@@ -133,7 +133,7 @@ import{b as s}from"./iframe-CyNFwirI.js";import"./cosmoz-input-BGv_5nIC.js";impo
       expect(inputSpy).toHaveBeenCalledTimes(1);
     });
   }
-}`,...m.parameters?.docs?.source}}};y.parameters={...y.parameters,docs:{...y.parameters?.docs,source:{originalSource:`{
+}`,...m.parameters?.docs?.source}}},h.parameters={...h.parameters,docs:{...h.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input placeholder="Search..."></cosmoz-input>
@@ -148,7 +148,7 @@ import{b as s}from"./iframe-CyNFwirI.js";import"./cosmoz-input-BGv_5nIC.js";impo
       expect(input.placeholder).toBe('Search...');
     });
   }
-}`,...y.parameters?.docs?.source}}};w.parameters={...w.parameters,docs:{...w.parameters?.docs,source:{originalSource:`{
+}`,...h.parameters?.docs?.source}}},g.parameters={...g.parameters,docs:{...g.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input><span slot="suffix">suffix</span></cosmoz-input>
@@ -168,7 +168,7 @@ import{b as s}from"./iframe-CyNFwirI.js";import"./cosmoz-input-BGv_5nIC.js";impo
       });
     });
   }
-}`,...w.parameters?.docs?.source}}};h.parameters={...h.parameters,docs:{...h.parameters?.docs,source:{originalSource:`{
+}`,...g.parameters?.docs?.source}}},_.parameters={..._.parameters,docs:{..._.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input></cosmoz-input>
@@ -186,7 +186,7 @@ import{b as s}from"./iframe-CyNFwirI.js";import"./cosmoz-input-BGv_5nIC.js";impo
       });
     });
   }
-}`,...h.parameters?.docs?.source}}};v.parameters={...v.parameters,docs:{...v.parameters?.docs,source:{originalSource:`{
+}`,..._.parameters?.docs?.source}}},v.parameters={...v.parameters,docs:{...v.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input label="Test"></cosmoz-input>
@@ -215,4 +215,4 @@ import{b as s}from"./iframe-CyNFwirI.js";import"./cosmoz-input-BGv_5nIC.js";impo
       expect(el.shadowRoot!.activeElement).toBe(input);
     });
   }
-}`,...v.parameters?.docs?.source}}};const B=["Focus","Change","Validate","AllowedPattern","ValueChanged","Placeholder","Mousedown","DelegatesFocus","BlurPrevention"];export{d as AllowedPattern,v as BlurPrevention,l as Change,h as DelegatesFocus,p as Focus,w as Mousedown,y as Placeholder,i as Validate,m as ValueChanged,B as __namedExportsOrder,q as default};
+}`,...v.parameters?.docs?.source}}},y=[`Focus`,`Change`,`Validate`,`AllowedPattern`,`ValueChanged`,`Placeholder`,`Mousedown`,`DelegatesFocus`,`BlurPrevention`]}))();export{p as AllowedPattern,v as BlurPrevention,d as Change,_ as DelegatesFocus,u as Focus,g as Mousedown,h as Placeholder,f as Validate,m as ValueChanged,y as __namedExportsOrder,l as default};

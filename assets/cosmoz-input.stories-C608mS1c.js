@@ -1,48 +1,51 @@
-import{b as o}from"./iframe-CyNFwirI.js";import"./cosmoz-input-BGv_5nIC.js";import{s as n}from"./style-DzbXejPt.js";import"./preload-helper-PPVm8Dsz.js";import"./use-input-DEkS1QI1.js";const{expect:d,waitFor:b}=__STORYBOOK_MODULE_TEST__,w={title:"Components/Input",component:"cosmoz-input",tags:["autodocs"]},e={render:()=>o`
-        ${n}
-        <cosmoz-input .label=${"Choose color"}></cosmoz-input>
-    `,play:async({canvas:c,step:m})=>{await m("Renders input element",async()=>{await c.findByShadowRole("textbox")})}},s={render:()=>o`
-        ${n}
+import{n as e}from"./chunk-zsgVPwQN.js";import{G as t,K as n}from"./iframe-XdIfrZ1A.js";import{n as r,t as i}from"./style-Do7FhrfL.js";import{t as a}from"./cosmoz-input-DCtVKeYR.js";var o,s,c,l,u,d,f,p,m,h,g,_,v;e((()=>{n(),a(),i(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Components/Input`,component:`cosmoz-input`,tags:[`autodocs`]},l={render:()=>t`
+        ${r}
+        <cosmoz-input .label=${`Choose color`}></cosmoz-input>
+    `,play:async({canvas:e,step:t})=>{await t(`Renders input element`,async()=>{await e.findByShadowRole(`textbox`)})}},u={render:()=>t`
+        ${r}
         <cosmoz-input
             always-float-label
-            .label=${"Choose color"}
-            placeholder=${"placeholder text"}
+            .label=${`Choose color`}
+            placeholder=${`placeholder text`}
         ></cosmoz-input>
-    `},t={render:()=>o`
-        ${n}
-        <cosmoz-input no-label-float .label=${"Choose color"}></cosmoz-input>
-    `},a={render:()=>o`
-        ${n}
+    `},d={render:()=>t`
+        ${r}
+        <cosmoz-input no-label-float .label=${`Choose color`}></cosmoz-input>
+    `},f={render:()=>t`
+        ${r}
         <cosmoz-input
-            .label=${"Choose color"}
-            .value=${"Red"}
+            .label=${`Choose color`}
+            .value=${`Red`}
             invalid
-            .errorMessage=${"Something is wrong!"}
+            .errorMessage=${`Something is wrong!`}
         ></cosmoz-input>
-    `,play:async({canvasElement:c,step:m})=>{const z=c.querySelector("cosmoz-input");await m("error message is rendered",async()=>{await b(()=>{const u=z.shadowRoot.querySelector(".error");d(u).not.toBeNull(),d(u.textContent).toBe("Something is wrong!")})})}},r={render:()=>o`
-        ${n}
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`);await t(`error message is rendered`,async()=>{await s(()=>{let e=n.shadowRoot.querySelector(`.error`);o(e).not.toBeNull(),o(e.textContent).toBe(`Something is wrong!`)})})}},p={render:()=>t`
+        ${r}
         <cosmoz-input
             autosize
             no-label-float
             type="number"
             .value=${3.12}
         ></cosmoz-input>
-    `},l={render:()=>o`
-        ${n}
+    `},m={render:()=>t`
+        ${r}
         <cosmoz-input
             no-label-float
             type="color"
-            .value=${"#ff0000"}
+            .value=${`#ff0000`}
         ></cosmoz-input>
-    `},i={render:()=>o`
-        ${n}
+    `},h={render:()=>t`
+        ${r}
         <cosmoz-input
             type="number"
-            .label=${"This number input has no spinner"}
+            .label=${`This number input has no spinner`}
             no-spinner
         ></cosmoz-input>
-    `},p={render:()=>o`
-        ${n}
+    `},g={render:()=>t`
+        ${r}
+        <cosmoz-input no-label-float type="date"></cosmoz-input>
+    `},_={render:()=>t`
+        ${r}
         <style>
             cosmoz-input {
                 --cosmoz-input-color: #aeacac;
@@ -58,35 +61,35 @@ import{b as o}from"./iframe-CyNFwirI.js";import"./cosmoz-input-BGv_5nIC.js";impo
                 margin: 0 4px;
             }
         </style>
-        <cosmoz-input .label=${"Insert a text input"}></cosmoz-input>
+        <cosmoz-input .label=${`Insert a text input`}></cosmoz-input>
         <cosmoz-input
-            .label=${"I want this input to have the suffix match the same placing!"}
+            .label=${`I want this input to have the suffix match the same placing!`}
             type="number"
-            ><span slot="suffix">${"suffix"}</span></cosmoz-input
+            ><span slot="suffix">${`suffix`}</span></cosmoz-input
         >
-        <cosmoz-input .label=${"Same thing of above, with the prefix!"}
-            ><span slot="prefix">${"Prefix:"}</span></cosmoz-input
+        <cosmoz-input .label=${`Same thing of above, with the prefix!`}
+            ><span slot="prefix">${`Prefix:`}</span></cosmoz-input
         >
-        <cosmoz-input always-float-label .label=${"This label always floats"}
-            ><span slot="prefix">${"Example:"}</span></cosmoz-input
+        <cosmoz-input always-float-label .label=${`This label always floats`}
+            ><span slot="prefix">${`Example:`}</span></cosmoz-input
         >
         <cosmoz-input
             no-label-float
-            .label=${"This label never floats"}
+            .label=${`This label never floats`}
         ></cosmoz-input>
-        <cosmoz-input no-label-float .label=${"This label never floats with prefix"}
-            ><span slot="prefix">${"Example:"}</span></cosmoz-input
+        <cosmoz-input no-label-float .label=${`This label never floats with prefix`}
+            ><span slot="prefix">${`Example:`}</span></cosmoz-input
         >
-        <cosmoz-input no-label-float .label=${"This label never floats with sufix"}
-            ><span slot="suffix">${"suffix"}</span></cosmoz-input
+        <cosmoz-input no-label-float .label=${`This label never floats with sufix`}
+            ><span slot="suffix">${`suffix`}</span></cosmoz-input
         >
         <cosmoz-input
             invalid
-            .label=${"This input is invalid!"}
-            .errorMessage=${"Something is rotten in the state of Denmark."}
+            .label=${`This input is invalid!`}
+            .errorMessage=${`Something is rotten in the state of Denmark.`}
         ></cosmoz-input>
-        <cosmoz-input disabled .label=${"This input is disabled!"}></cosmoz-input>
-    `};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`{
+        <cosmoz-input disabled .label=${`This input is disabled!`}></cosmoz-input>
+    `},l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input .label=\${'Choose color'}></cosmoz-input>
@@ -99,7 +102,7 @@ import{b as o}from"./iframe-CyNFwirI.js";import"./cosmoz-input-BGv_5nIC.js";impo
       await canvas.findByShadowRole('textbox');
     });
   }
-}`,...e.parameters?.docs?.source}}};s.parameters={...s.parameters,docs:{...s.parameters?.docs,source:{originalSource:`{
+}`,...l.parameters?.docs?.source}}},u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input
@@ -108,12 +111,12 @@ import{b as o}from"./iframe-CyNFwirI.js";import"./cosmoz-input-BGv_5nIC.js";impo
             placeholder=\${'placeholder text'}
         ></cosmoz-input>
     \`
-}`,...s.parameters?.docs?.source}}};t.parameters={...t.parameters,docs:{...t.parameters?.docs,source:{originalSource:`{
+}`,...u.parameters?.docs?.source}}},d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input no-label-float .label=\${'Choose color'}></cosmoz-input>
     \`
-}`,...t.parameters?.docs?.source}}};a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
+}`,...d.parameters?.docs?.source}}},f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input
@@ -136,7 +139,7 @@ import{b as o}from"./iframe-CyNFwirI.js";import"./cosmoz-input-BGv_5nIC.js";impo
       });
     });
   }
-}`,...a.parameters?.docs?.source}}};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`{
+}`,...f.parameters?.docs?.source}}},p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input
@@ -146,7 +149,7 @@ import{b as o}from"./iframe-CyNFwirI.js";import"./cosmoz-input-BGv_5nIC.js";impo
             .value=\${3.12}
         ></cosmoz-input>
     \`
-}`,...r.parameters?.docs?.source}}};l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
+}`,...p.parameters?.docs?.source}}},m.parameters={...m.parameters,docs:{...m.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input
@@ -155,7 +158,7 @@ import{b as o}from"./iframe-CyNFwirI.js";import"./cosmoz-input-BGv_5nIC.js";impo
             .value=\${'#ff0000'}
         ></cosmoz-input>
     \`
-}`,...l.parameters?.docs?.source}}};i.parameters={...i.parameters,docs:{...i.parameters?.docs,source:{originalSource:`{
+}`,...m.parameters?.docs?.source}}},h.parameters={...h.parameters,docs:{...h.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input
@@ -164,7 +167,12 @@ import{b as o}from"./iframe-CyNFwirI.js";import"./cosmoz-input-BGv_5nIC.js";impo
             no-spinner
         ></cosmoz-input>
     \`
-}`,...i.parameters?.docs?.source}}};p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`{
+}`,...h.parameters?.docs?.source}}},g.parameters={...g.parameters,docs:{...g.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        \${style}
+        <cosmoz-input no-label-float type="date"></cosmoz-input>
+    \`
+}`,...g.parameters?.docs?.source}}},_.parameters={..._.parameters,docs:{..._.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <style>
@@ -211,4 +219,4 @@ import{b as o}from"./iframe-CyNFwirI.js";import"./cosmoz-input-BGv_5nIC.js";impo
         ></cosmoz-input>
         <cosmoz-input disabled .label=\${'This input is disabled!'}></cosmoz-input>
     \`
-}`,...p.parameters?.docs?.source}}};const g=["Basic","AlwaysFloatLabel","NoLabelFloat","Error","Autosize","Color","NoSpinner","Contour"];export{s as AlwaysFloatLabel,r as Autosize,e as Basic,l as Color,p as Contour,a as Error,t as NoLabelFloat,i as NoSpinner,g as __namedExportsOrder,w as default};
+}`,..._.parameters?.docs?.source}}},v=[`Basic`,`AlwaysFloatLabel`,`NoLabelFloat`,`Error`,`Autosize`,`Color`,`NoSpinner`,`Date`,`Contour`]}))();export{u as AlwaysFloatLabel,p as Autosize,l as Basic,m as Color,_ as Contour,g as Date,f as Error,d as NoLabelFloat,h as NoSpinner,v as __namedExportsOrder,c as default};

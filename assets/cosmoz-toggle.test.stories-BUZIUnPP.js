@@ -1,11 +1,11 @@
-import{b as g}from"./iframe-CyNFwirI.js";import"./cosmoz-toggle-BInooCxq.js";import{s as d}from"./style-DzbXejPt.js";import"./preload-helper-PPVm8Dsz.js";const{expect:n,fn:r,waitFor:i}=__STORYBOOK_MODULE_TEST__,u={title:"Tests/Toggle"},c={render:()=>g`
-        ${d}
-        <cosmoz-toggle .label=${"Is active"}></cosmoz-toggle>
-    `,play:async({canvasElement:o,step:a})=>{const l=o.querySelector("cosmoz-toggle"),e=l.shadowRoot.querySelector("input");await a("clicking toggle dispatches change with detail: true",async()=>{const t=r();l.addEventListener("change",t,{once:!0}),e.click(),await i(()=>{n(t).toHaveBeenCalledTimes(1),n(t.mock.calls[0][0].detail).toBe(!0)})}),await a("clicking again dispatches change with detail: false",async()=>{const t=r();l.addEventListener("change",t,{once:!0}),e.click(),await i(()=>{n(t).toHaveBeenCalledTimes(1),n(t.mock.calls[0][0].detail).toBe(!1)})})}},s={render:()=>g`
-        ${d}
-        <cosmoz-toggle id="with-label" .label=${"Is active"}></cosmoz-toggle>
+import{n as e}from"./chunk-zsgVPwQN.js";import{G as t,K as n}from"./iframe-XdIfrZ1A.js";import{n as r,t as i}from"./style-Do7FhrfL.js";import{t as a}from"./cosmoz-toggle-nm3WP3U0.js";var o,s,c,l,u,d,f;e((()=>{n(),a(),i(),{expect:o,fn:s,waitFor:c}=__STORYBOOK_MODULE_TEST__,l={title:`Tests/Toggle`},u={render:()=>t`
+        ${r}
+        <cosmoz-toggle .label=${`Is active`}></cosmoz-toggle>
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-toggle`),r=n.shadowRoot.querySelector(`input`);await t(`clicking toggle dispatches change with detail: true`,async()=>{let e=s();n.addEventListener(`change`,e,{once:!0}),r.click(),await c(()=>{o(e).toHaveBeenCalledTimes(1),o(e.mock.calls[0][0].detail).toBe(!0)})}),await t(`clicking again dispatches change with detail: false`,async()=>{let e=s();n.addEventListener(`change`,e,{once:!0}),r.click(),await c(()=>{o(e).toHaveBeenCalledTimes(1),o(e.mock.calls[0][0].detail).toBe(!1)})})}},d={render:()=>t`
+        ${r}
+        <cosmoz-toggle id="with-label" .label=${`Is active`}></cosmoz-toggle>
         <cosmoz-toggle id="no-label"></cosmoz-toggle>
-    `,play:async({canvasElement:o,step:a})=>{await a("label is rendered when set",async()=>{const e=o.querySelector("#with-label").shadowRoot.querySelector("label");n(e).not.toBeNull(),n(e.textContent).toBe("Is active")}),await a("label is not rendered when absent",async()=>{const e=o.querySelector("#no-label").shadowRoot.querySelector("label");n(e).toBeNull()})}};c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`{
+    `,play:async({canvasElement:e,step:t})=>{await t(`label is rendered when set`,async()=>{let t=e.querySelector(`#with-label`).shadowRoot.querySelector(`label`);o(t).not.toBeNull(),o(t.textContent).toBe(`Is active`)}),await t(`label is not rendered when absent`,async()=>{o(e.querySelector(`#no-label`).shadowRoot.querySelector(`label`)).toBeNull()})}},u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-toggle .label=\${'Is active'}></cosmoz-toggle>
@@ -39,7 +39,7 @@ import{b as g}from"./iframe-CyNFwirI.js";import"./cosmoz-toggle-BInooCxq.js";imp
       });
     });
   }
-}`,...c.parameters?.docs?.source}}};s.parameters={...s.parameters,docs:{...s.parameters?.docs,source:{originalSource:`{
+}`,...u.parameters?.docs?.source}}},d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-toggle id="with-label" .label=\${'Is active'}></cosmoz-toggle>
@@ -61,4 +61,4 @@ import{b as g}from"./iframe-CyNFwirI.js";import"./cosmoz-toggle-BInooCxq.js";imp
       expect(label).toBeNull();
     });
   }
-}`,...s.parameters?.docs?.source}}};const w=["Change","Label"];export{c as Change,s as Label,w as __namedExportsOrder,u as default};
+}`,...d.parameters?.docs?.source}}},f=[`Change`,`Label`]}))();export{u as Change,d as Label,f as __namedExportsOrder,l as default};

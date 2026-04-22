@@ -1,15 +1,15 @@
-import{c as n,a as g,u as d,l as p,n as i}from"./style-DzbXejPt.js";import{b as o}from"./iframe-CyNFwirI.js";const b=t=>{const{label:l,value:s,disabled:a,error:r}=t,c=d(e=>t.dispatchEvent(new CustomEvent("change",{detail:e.target.checked})),[]);return o`<input
+import{n as e}from"./chunk-zsgVPwQN.js";import{G as t}from"./iframe-XdIfrZ1A.js";import{a as n,c as r,i,m as a,o,r as s,s as c,y as l}from"./style-Do7FhrfL.js";var u,d,f,p=e((()=>{c(),n(),s(),u=e=>{let{label:n,value:r,disabled:s,error:c}=e,l=a(t=>e.dispatchEvent(new CustomEvent(`change`,{detail:t.target.checked})),[]);return t`<input
 			id="toggle"
 			class="toggle"
 			part="toggle"
 			type="checkbox"
-			.checked=${p(!!s)}
-			?disabled=${a}
-			@change=${c}
+			.checked=${o(!!r)}
+			?disabled=${s}
+			@change=${l}
 		/>
-		${i(l,()=>o`<label for="toggle">${l}</label>`)}
+		${i(n,()=>t`<label for="toggle">${n}</label>`)}
 		<slot name="suffix"></slot>
-		${i(r,e=>o`<div class="failure">${e}</div>`)} `},h=n`
+		${i(c,e=>t`<div class="failure">${e}</div>`)} `},d=l`
 	.toggle {
 		appearance: none;
 		width: 35px;
@@ -54,7 +54,7 @@ import{c as n,a as g,u as d,l as p,n as i}from"./style-DzbXejPt.js";import{b as 
 	.toggle[disabled] {
 		opacity: 0.6;
 	}
-`,u=n`
+`,f=l`
 	:host {
 		display: block;
 	}
@@ -67,4 +67,4 @@ import{c as n,a as g,u as d,l as p,n as i}from"./style-DzbXejPt.js";import{b as 
 	::slotted(*) {
 		margin-left: 5px;
 	}
-`;customElements.define("cosmoz-toggle",g(b,{styleSheets:[u,h],observedAttributes:["disabled"]}));
+`,customElements.define(`cosmoz-toggle`,r(u,{styleSheets:[f,d],observedAttributes:[`disabled`]}))}));export{p as t};

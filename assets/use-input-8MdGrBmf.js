@@ -1,17 +1,17 @@
-import{r as $,A as h,b as d}from"./iframe-CyNFwirI.js";import{b as _,i as A,t as k,f as C,n as v,h as g,H as y,u as n,d as G}from"./style-DzbXejPt.js";function E(o){let t=o;return{get current(){return t},set current(e){t=e},get value(){return t},set value(e){t=e}}}function M(o){return _(()=>E(o),[])}const r=(o,t)=>{const e=o._$AN;if(e===void 0)return!1;for(const a of e)a._$AO?.(t,!1),r(a,t);return!0},c=o=>{let t,e;do{if((t=o._$AM)===void 0)break;e=t._$AN,e.delete(o),o=t}while(e?.size===0)},w=o=>{for(let t;t=o._$AM;o=t){let e=t._$AN;if(e===void 0)t._$AN=e=new Set;else if(e.has(o))break;e.add(o),R(t)}};function N(o){this._$AN!==void 0?(c(this),this._$AM=o,w(this)):this._$AM=o}function I(o,t=!1,e=0){const a=this._$AH,l=this._$AN;if(l!==void 0&&l.size!==0)if(t)if(Array.isArray(a))for(let s=e;s<a.length;s++)r(a[s],!1),c(a[s]);else a!=null&&(r(a,!1),c(a));else r(this,o)}const R=o=>{o.type==k.CHILD&&(o._$AP??=I,o._$AQ??=N)};class Y extends A{constructor(){super(...arguments),this._$AN=void 0}_$AT(t,e,a){super._$AT(t,e,a),w(this),this.isConnected=t._$AU}_$AO(t,e=!0){t!==this.isConnected&&(this.isConnected=t,t?this.reconnected?.():this.disconnected?.()),e&&(r(this,t),c(this))}setValue(t){if($(this._$Ct))this._$Ct._$AI(t,this);else{const e=[...this._$Ct._$AH];e[this._$Ci]=t,this._$Ct._$AI(e,this,0)}}disconnected(){}reconnected(){}}const j=o=>o??h,p=new WeakMap,D=C(class extends Y{render(o){return h}update(o,[t]){const e=t!==this.G;return e&&this.G!==void 0&&this.rt(void 0),(e||this.lt!==this.ct)&&(this.G=t,this.ht=o.options?.host,this.rt(this.ct=o.element)),h}rt(o){if(this.isConnected||(o=void 0),typeof this.G=="function"){const t=this.ht??globalThis;let e=p.get(t);e===void 0&&(e=new WeakMap,p.set(t,e)),e.get(this.G)!==void 0&&this.G.call(this.ht,void 0),e.set(this.G,o),o!==void 0&&this.G.call(this.ht,o)}else this.G.value=o}get lt(){return typeof this.G=="function"?p.get(this.ht??globalThis)?.get(this.G):this.G?.value}disconnected(){this.lt===this.ct&&this.rt(void 0)}reconnected(){this.rt(this.ct)}}),S=(o,{label:t,invalid:e,errorMessage:a})=>d`
+import{n as e}from"./chunk-zsgVPwQN.js";import{G as t,H as n,K as r}from"./iframe-XdIfrZ1A.js";import{_ as i,d as a,f as o,g as s,i as c,l,m as u,p as d,r as f,s as p,u as m,v as h}from"./style-Do7FhrfL.js";var g,_=e((()=>{r(),g=e=>e??n})),v,y,b=e((()=>{r(),m(),o(),v=new WeakMap,y=a(class extends l{render(e){return n}update(e,[t]){let r=t!==this.G;return r&&this.G!==void 0&&this.rt(void 0),(r||this.lt!==this.ct)&&(this.G=t,this.ht=e.options?.host,this.rt(this.ct=e.element)),n}rt(e){if(this.isConnected||(e=void 0),typeof this.G==`function`){let t=this.ht??globalThis,n=v.get(t);n===void 0&&(n=new WeakMap,v.set(t,n)),n.get(this.G)!==void 0&&this.G.call(this.ht,void 0),n.set(this.G,e),e!==void 0&&this.G.call(this.ht,e)}else this.G.value=e}get lt(){return typeof this.G==`function`?v.get(this.ht??globalThis)?.get(this.G):this.G?.value}disconnected(){this.lt===this.ct&&this.rt(void 0)}reconnected(){this.rt(this.ct)}})})),x,S,C=e((()=>{r(),f(),x=(e,{label:n,invalid:r,errorMessage:i})=>t`
 		<div class="float" part="float">&nbsp;</div>
 		<div class="wrap" part="wrap">
 			<slot name="prefix"></slot>
 			<div class="control" part="control">
 				<slot name="control"></slot>
-				${o}
-				${v(t,()=>d`<label for="input" part="label">${t}</label>`)}
+				${e}
+				${c(n,()=>t`<label for="input" part="label">${n}</label>`)}
 			</div>
 			<slot name="suffix"></slot>
 		</div>
 		<div class="line" part="line"></div>
-		${v(e&&a,()=>d`<div class="error" part="error">${a}</div>`)}
-	`,U=["autocomplete","readonly","disabled","maxlength","invalid","no-label-float","always-float-label"],z=(o,...t)=>o.flatMap((e,a)=>[e,t[a]??""]).join(""),b=z`
+		${c(r&&i,()=>t`<div class="error" part="error">${i}</div>`)}
+	`,S=[`autocomplete`,`readonly`,`disabled`,`maxlength`,`invalid`,`no-label-float`,`always-float-label`]})),w=e((()=>{p()})),T,E=e((()=>{T=(e,...t)=>e.flatMap((e,n)=>[e,t[n]??``]).join(``)})),D=e((()=>{})),O=e((()=>{w(),E(),D()})),k,A,j=e((()=>{O(),k=T`
 	.wrap {
 		--contour-color: var(--focused-color);
 		background: var(--focused-bg);
@@ -31,7 +31,7 @@ import{r as $,A as h,b as d}from"./iframe-CyNFwirI.js";import{b as _,i as A,t as
 		transform: none;
 		transition: 0.25s transform ease;
 	}
-`,V=z`
+`,A=T`
 	:host {
 		--font-family: var(
 			--cosmoz-input-font-family,
@@ -273,9 +273,9 @@ import{r as $,A as h,b as d}from"./iframe-CyNFwirI.js";import{b as _,i as A,t as
 	}
 
 	:host(:focus-within) {
-		${b}
+		${k}
 	}
 	@container style(--focused: focused) {
-		${b}
+		${k}
 	}
-`,H=g(class extends y{values;constructor(o,t,e,a){super(o,t),Object.assign(t.host,e),this.values=a}update(o,t){this.hasChanged(t)&&(this.values=t,Object.assign(this.state.host,o))}hasChanged(o=[]){return o.some((t,e)=>this.values[e]!==t)}});g(class extends y{update(){return this.state.host}});const P=/([A-Z])/gu,m=(o,t,e)=>{o[t]=e,o.dispatchEvent(new CustomEvent(t.replace(P,"-$1").toLowerCase()+"-changed",{detail:{value:e}}))},W=o=>{const t=M(void 0),e=n(i=>t.current=i,[]),a=o.shadowRoot,l=n(i=>o.dispatchEvent(new Event(i.type,{bubbles:i.bubbles})),[]),s=n(i=>m(o,"value",i.target.value),[]),x=n(i=>m(o,"focused",i.type==="focus"),[]),u=n(()=>{const i=t.current?.checkValidity();return o.toggleAttribute("invalid",!i),i},[]);return H({validate:u},[u]),G(()=>{const i=f=>{f.composedPath()[0]?.closest?.("input, textarea")||(f.preventDefault(),t.current?.focus())};return a.addEventListener("mousedown",i),()=>a.removeEventListener("mousedown",i)},[]),{onChange:l,onFocus:x,onInput:s,onRef:e}};export{U as a,D as n,j as o,S as r,V as s,W as u};
+`})),M,N=e((()=>{p(),M=h(class extends i{values;constructor(e,t,n,r){super(e,t),Object.assign(t.host,n),this.values=r}update(e,t){this.hasChanged(t)&&(this.values=t,Object.assign(this.state.host,e))}hasChanged(e=[]){return e.some((e,t)=>this.values[t]!==e)}})})),P=e((()=>{p(),h(class extends i{update(){return this.state.host}})})),F,I,L=e((()=>{p(),P(),F=/([A-Z])/gu,I=(e,t,n)=>{e[t]=n,e.dispatchEvent(new CustomEvent(t.replace(F,`-$1`).toLowerCase()+`-changed`,{detail:{value:n}}))}})),R,z=e((()=>{N(),L(),p(),R=e=>{let t=d(void 0),n=u(e=>t.current=e,[]),r=e.shadowRoot,i=u(t=>e.dispatchEvent(new Event(t.type,{bubbles:t.bubbles})),[]),a=u(t=>I(e,`value`,t.target.value),[]),o=u(t=>I(e,`focused`,t.type===`focus`),[]),c=u(()=>{let n=t.current?.checkValidity();return e.toggleAttribute(`invalid`,!n),n},[]);return M({validate:c},[c]),s(()=>{let e=e=>{e.composedPath()[0]?.closest?.(`input, textarea`)||(e.preventDefault(),t.current?.focus())};return r.addEventListener(`mousedown`,e),()=>r.removeEventListener(`mousedown`,e)},[]),{onChange:i,onFocus:o,onInput:a,onRef:n}}}));export{S as a,b as c,g as d,A as i,y as l,R as n,C as o,j as r,x as s,z as t,_ as u};

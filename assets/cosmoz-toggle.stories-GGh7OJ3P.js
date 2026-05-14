@@ -1,4 +1,4 @@
-import{n as e}from"./chunk-zsgVPwQN.js";import{G as t,K as n}from"./iframe-XdIfrZ1A.js";import{n as r,t as i}from"./style-Do7FhrfL.js";import{t as a}from"./cosmoz-toggle-nm3WP3U0.js";var o,s,c,l,u,d,f;e((()=>{n(),a(),i(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Components/Toggle`,component:`cosmoz-toggle`,tags:[`autodocs`]},l={render:()=>t`
+import{n as e}from"./chunk-zsgVPwQN.js";import{G as t,K as n}from"./iframe-C5SfOkGV.js";import{n as r,t as i}from"./style-B0VKIrsL.js";import{t as a}from"./cosmoz-toggle-oGbCaPrq.js";var o,s,c,l,u,d,f;e((()=>{n(),a(),i(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Components/Toggle`,component:`cosmoz-toggle`,tags:[`autodocs`]},l={render:()=>t`
         ${r}
         <cosmoz-toggle .label=${`Is active`} .value=${!0}></cosmoz-toggle>
     `,play:async({canvas:e,step:t})=>{await t(`Renders checkbox element`,async()=>{await e.findByShadowRole(`checkbox`)})}},u={render:()=>t`

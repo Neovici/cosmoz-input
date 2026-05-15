@@ -1,8 +1,8 @@
 interface Props {
 	placeholder?: string;
 }
-export const getPlaceholder = ({ placeholder, noLabelFloat, label }: Props) => {
-	return (noLabelFloat ? label : undefined) || placeholder || ' ';
+export const getPlaceholder = ({ placeholder }: Props) => {
+	return placeholder || ' ';
 };
 
 export const defaultMax = (type: string, max?: string) =>

@@ -1,3 +1,14 @@
+## [6.0.0-beta.3](https://github.com/Neovici/cosmoz-input/compare/v6.0.0-beta.2...v6.0.0-beta.3) (2026-05-15)
+
+### Features
+
+* default limit to year 9999 ([#269](https://github.com/Neovici/cosmoz-input/issues/269)) ([f276b79](https://github.com/Neovici/cosmoz-input/commit/f276b797a00c3f54e1694cffc7e51a265ab308e2))
+
+### Bug Fixes
+
+* release 5.7.1 to address npm publish conflict ([a6ab13a](https://github.com/Neovici/cosmoz-input/commit/a6ab13a3a0151c81cfe14a47fe84631bc142f147))
+* remove unused props ([d3af067](https://github.com/Neovici/cosmoz-input/commit/d3af067b7e6e75d39dbe337977de710585cca166))
+
 ## [5.7.1](https://github.com/Neovici/cosmoz-input/compare/v5.7.0...v5.7.1) (2026-04-22)
 
 ### Bug Fixes

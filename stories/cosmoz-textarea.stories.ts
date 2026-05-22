@@ -34,7 +34,7 @@ export const ErrorStory: Story = {
 			invalid
 			.label=${'Choose color'}
 			.value=${'Red\nGreen\nBlue'}
-			error-message=${'Something is wrong!'}
+			.errorMessage=${'Something is wrong!'}
 			.maxRows=${2}
 		></cosmoz-textarea>
 	`,

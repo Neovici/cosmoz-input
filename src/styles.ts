@@ -11,6 +11,7 @@ export const styles = css`
 		font-size: var(--cz-text-base);
 		line-height: var(--cz-text-base-line-height);
 		font-family: var(--cz-font-body);
+		margin-bottom: calc(var(--cz-spacing) * 6);
 	}
 
 	:host(:focus-within) {
@@ -105,10 +106,14 @@ export const styles = css`
 	.hint {
 		font-size: var(--cz-text-xs);
 		color: var(--cz-color-text-tertiary);
+		position: absolute;
+		bottom: calc(var(--cz-spacing) * -6);
 	}
 
 	.error {
 		font-size: var(--cz-text-xs);
+		position: absolute;
+		bottom: calc(var(--cz-spacing) * -6);
 	}
 
 	/* === Tooltip (fluid error indicator) === */

@@ -100,7 +100,6 @@
 		"storybook": "^10.1.9",
 		"vitest": "^4.0.18",
 		"@types/mocha": "^10.0.3",
-		"@vitest/coverage-v8": "^4.1.2",
 		"playwright": "^1.58.2"
 	}
 }

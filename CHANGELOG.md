@@ -1,3 +1,9 @@
+## [6.0.0-beta.4](https://github.com/Neovici/cosmoz-input/compare/v6.0.0-beta.3...v6.0.0-beta.4) (2026-05-27)
+
+### Features
+
+* position hint and error absolutely to prevent autocomplete dropdown offset ([#291](https://github.com/Neovici/cosmoz-input/issues/291)) ([9282102](https://github.com/Neovici/cosmoz-input/commit/9282102d10727b3ffc98f9fbac75610d98e3182f))
+
 ## [6.0.0-beta.3](https://github.com/Neovici/cosmoz-input/compare/v6.0.0-beta.2...v6.0.0-beta.3) (2026-05-15)
 
 ### Features

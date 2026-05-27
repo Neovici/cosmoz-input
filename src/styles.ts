@@ -202,24 +202,49 @@ export const styles = css`
 
 	/* === Variant: cell === */
 
-	:host([variant='cell']) .wrap {
+	:host([variant='cell']) {
+		margin-bottom: 0;
+		font-size: var(--cz-text-sm);
+		line-height: var(--cz-text-sm-line-height);
+	}
+
+	:host([variant='cell']) .wrap:has(#input) {
 		border: 0.5px solid var(--cz-color-bg-quaternary);
 		border-radius: 0;
 		box-shadow: none;
 	}
-	:host([variant='cell'][invalid]) .wrap {
-		border-color: var(--cz-color-border-error);
-	}
-	:host([variant='cell'][invalid]) .wrap:has(#input:focus) {
-		background: var(--cz-color-bg-error);
-		border: 0.5px solid transparent;
-	}
+
 	:host([variant='cell']) .wrap:has(#input:focus) {
 		background: var(--cz-color-bg-quaternary);
 	}
 
+	:host([variant='cell'][invalid]) .wrap:has(#input) {
+		border-color: var(--cz-color-border-error);
+		box-shadow: none;
+	}
+
+	:host([variant='cell'][invalid]) .wrap:has(#input:focus) {
+		background: var(--cz-color-bg-error);
+		border: 0.5px solid transparent;
+	}
+
 	:host([variant='cell']) label {
 		display: none;
+	}
+
+	:host([variant='cell']) .error {
+		left: calc(var(--cz-spacing) * 3);
+		bottom: 50%;
+		transform: translateY(50%);
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		max-width: calc(100% - calc(var(--cz-spacing) * 6));
+	}
+
+	:host([variant='cell']:focus-within) .error,
+	:host([variant='cell'][has-value]) .error {
+		visibility: hidden;
 	}
 
 	/* === No spinner === */

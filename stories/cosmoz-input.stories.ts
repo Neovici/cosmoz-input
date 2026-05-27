@@ -83,7 +83,7 @@ const renderInput = (args: Record<string, unknown>) => html`
 		placeholder=${args.placeholder || ''}
 		.value=${args.value || ''}
 		hint=${args.hint || ''}
-		error-message=${args.errorMessage || ''}
+		.errorMessage=${args.errorMessage || ''}
 		type=${args.type || 'text'}
 		variant=${args.variant || ''}
 		?compact=${args.compact}
@@ -151,7 +151,7 @@ export const Default: Story = {
 						hint=${'This is a hint text to help user.'}
 						invalid
 						required
-						error-message=${'This is an error message.'}
+						.errorMessage=${'This is an error message.'}
 					></cosmoz-input>
 				</div>
 				<div>
@@ -214,7 +214,7 @@ export const Inline: Story = {
 						.value=${'not-an-email'}
 						variant="inline"
 						invalid
-						error-message=${'Please enter a valid email'}
+						.errorMessage=${'Please enter a valid email'}
 					></cosmoz-input>
 				</div>
 				<div>
@@ -264,6 +264,8 @@ export const Cell: Story = {
 					<div class="story-label">Invalid</div>
 					<cosmoz-input
 						variant="cell"
+						required
+						placeholder=${'Required...'}
 						.value=${'bad value'}
 						invalid
 					></cosmoz-input>
@@ -320,7 +322,7 @@ export const Compact: Story = {
 						.label=${'Email'}
 						.value=${'bad value'}
 						invalid
-						error-message=${'Invalid value'}
+						.errorMessage=${'Invalid value'}
 					></cosmoz-input>
 				</div>
 				<div>
@@ -340,7 +342,7 @@ export const Compact: Story = {
 						.label=${'Filter'}
 						.value=${'bad'}
 						invalid
-						error-message=${'Cell compact error'}
+						.errorMessage=${'Cell compact error'}
 					></cosmoz-input>
 				</div>
 			</div>
@@ -364,13 +366,14 @@ export const LiveValidation: Story = {
 		const onInput = (e: InputEvent) => {
 			const el = e.target as HTMLElement & {
 				value: string;
+				errorMessage?: string;
 			};
 			const valid = !el.value || emailRegex.test(el.value);
 			el.toggleAttribute('invalid', !valid);
 			if (valid) {
-				el.removeAttribute('error-message');
+				el.errorMessage = undefined;
 			} else {
-				el.setAttribute('error-message', 'Please enter a valid email');
+				el.errorMessage = 'Please enter a valid email';
 			}
 		};
 		return html`
@@ -462,7 +465,7 @@ export const PrefixAndSuffix: Story = {
 							.label=${'Email'}
 							.value=${'bad'}
 							invalid
-							error-message=${'Invalid email'}
+							.errorMessage=${'Invalid email'}
 						>
 							${prefixIcon} ${suffixIcon}
 						</cosmoz-input>

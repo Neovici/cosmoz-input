@@ -14,7 +14,6 @@ const observedAttributes = [
 	'type',
 	'variant',
 	'hint',
-	'error-message',
 	'compact',
 	'required',
 	'pattern',

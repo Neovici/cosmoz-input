@@ -26,7 +26,7 @@ Use in HTML:
 <cosmoz-input label="Email" required hint="This field is required"></cosmoz-input>
 
 <!-- Invalid with error -->
-<cosmoz-input label="Email" value="bad" invalid error-message="Please enter a valid email"></cosmoz-input>
+<cosmoz-input label="Email" value="bad" invalid .errorMessage=${"Please enter a valid email"}></cosmoz-input>
 
 <!-- Inline variant -->
 <cosmoz-input label="Email" variant="inline"></cosmoz-input>
@@ -46,28 +46,35 @@ Use in HTML:
 
 ## Attributes
 
-| Attribute         | Type      | Default  | Description                                              |
-| ----------------- | --------- | -------- | -------------------------------------------------------- |
-| `label`           | `string`  | —        | Label text displayed above the input                     |
-| `placeholder`     | `string`  | `' '`    | Placeholder text                                         |
-| `value`           | `string`  | —        | Input value                                              |
-| `type`            | `string`  | `'text'` | Native input type (`text`, `number`, `color`, etc.)      |
-| `variant`         | `string`  | —        | Visual variant: `inline`, `cell`                         |
-| `compact`         | `boolean` | `false`  | Hides label/hint/error text; shows tooltip icon instead  |
-| `required`        | `boolean` | `false`  | Marks field as required, shows `*` on label              |
-| `invalid`         | `boolean` | `false`  | Toggles error state (red border, error message)          |
-| `error-message`   | `string`  | —        | Error text shown below input (or in tooltip when compact)|
-| `hint`            | `string`  | —        | Helper text below input (hidden when invalid)            |
-| `disabled`        | `boolean` | `false`  | Disables input, reduces opacity, `not-allowed` cursor    |
-| `readonly`        | `boolean` | `false`  | Makes input read-only                                    |
-| `autosize`        | `boolean` | `false`  | Input width adjusts to content length                    |
-| `no-spinner`      | `boolean` | `false`  | Hides number input spinner                               |
-| `autocomplete`    | `string`  | —        | Native autocomplete attribute                            |
-| `maxlength`       | `string`  | —        | Maximum character length                                 |
-| `min` / `max`     | `string`  | —        | Number input min/max constraints                         |
-| `step`            | `string`  | —        | Number input step value                                  |
-| `pattern`         | `string`  | —        | Regex validation pattern                                 |
-| `allowed-pattern` | `string`  | —        | Restricts input to matching characters                   |
+| Attribute         | Type      | Default  | Description                                             |
+| ----------------- | --------- | -------- | ------------------------------------------------------- |
+| `label`           | `string`  | —        | Label text displayed above the input                    |
+| `placeholder`     | `string`  | `' '`    | Placeholder text                                        |
+| `type`            | `string`  | `'text'` | Native input type (`text`, `number`, `color`, etc.)     |
+| `variant`         | `string`  | —        | Visual variant: `inline`, `cell`                        |
+| `compact`         | `boolean` | `false`  | Hides label/hint/error text; shows tooltip icon instead |
+| `required`        | `boolean` | `false`  | Marks field as required, shows `*` on label             |
+| `invalid`         | `boolean` | `false`  | Toggles error state (red border, error message)         |
+| `hint`            | `string`  | —        | Helper text below input (hidden when invalid)           |
+| `disabled`        | `boolean` | `false`  | Disables input, reduces opacity, `not-allowed` cursor   |
+| `readonly`        | `boolean` | `false`  | Makes input read-only                                   |
+| `autosize`        | `boolean` | `false`  | Input width adjusts to content length                   |
+| `no-spinner`      | `boolean` | `false`  | Hides number input spinner                              |
+| `autocomplete`    | `string`  | —        | Native autocomplete attribute                           |
+| `maxlength`       | `string`  | —        | Maximum character length                                |
+| `min` / `max`     | `string`  | —        | Number input min/max constraints                        |
+| `step`            | `string`  | —        | Number input step value                                 |
+| `pattern`         | `string`  | —        | Regex validation pattern                                |
+| `allowed-pattern` | `string`  | —        | Restricts input to matching characters                  |
+
+## Properties
+
+These are set via JavaScript property binding (`.prop=${value}`) and are **not** reflected as HTML attributes.
+
+| Property       | Type     | Default | Description                                                                              |
+| -------------- | -------- | ------- | ---------------------------------------------------------------------------------------- |
+| `value`        | `string` | —       | Input value                                                                              |
+| `errorMessage` | `string` | —       | Error text shown below input (or in tooltip when compact). Use with `invalid` attribute. |
 
 ## Variants
 
@@ -76,7 +83,10 @@ Use in HTML:
 Standard bordered input with label above, hint/error text below, and a tooltip icon.
 
 ```html
-<cosmoz-input label="Email" hint="We will never share your email"></cosmoz-input>
+<cosmoz-input
+	label="Email"
+	hint="We will never share your email"
+></cosmoz-input>
 ```
 
 ### Inline (`variant="inline"`)
@@ -131,10 +141,10 @@ const isValid = input.validate(); // returns boolean, toggles invalid attribute
 
 ```javascript
 const onInput = (e) => {
-  const el = e.target;
-  const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/u.test(el.value);
-  el.toggleAttribute('invalid', !valid);
-  el.errorMessage = valid ? '' : 'Please enter a valid email';
+	const el = e.target;
+	const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/u.test(el.value);
+	el.toggleAttribute('invalid', !valid);
+	el.errorMessage = valid ? '' : 'Please enter a valid email';
 };
 ```
 
@@ -144,15 +154,15 @@ const onInput = (e) => {
 
 ## Slots
 
-| Slot      | Description                          |
-| --------- | ------------------------------------ |
-| `prefix`  | Content before the input (e.g. icon) |
-| `suffix`  | Content after the input (e.g. icon)  |
+| Slot     | Description                          |
+| -------- | ------------------------------------ |
+| `prefix` | Content before the input (e.g. icon) |
+| `suffix` | Content after the input (e.g. icon)  |
 
 ```html
 <cosmoz-input label="Email">
-  <svg slot="prefix" ...></svg>
-  <svg slot="suffix" ...></svg>
+	<svg slot="prefix" ...></svg>
+	<svg slot="suffix" ...></svg>
 </cosmoz-input>
 ```
 
@@ -169,13 +179,13 @@ const onInput = (e) => {
 
 ## State-driven rendering
 
-| Condition                              | Renders                                      |
-| -------------------------------------- | -------------------------------------------- |
-| `!compact && label`                    | Label (with `*` if `required`)               |
-| `compact` (valid)                      | Tooltip with help icon, shows `label`        |
-| `compact` (invalid)                    | Tooltip with info icon (red), shows `errorMessage` |
-| `!compact && hint && !invalid`         | Hint text below input                        |
-| `!compact && invalid && errorMessage`  | Error text below input (replaces hint)       |
+| Condition                             | Renders                                            |
+| ------------------------------------- | -------------------------------------------------- |
+| `!compact && label`                   | Label (with `*` if `required`)                     |
+| `compact` (valid)                     | Tooltip with help icon, shows `label`              |
+| `compact` (invalid)                   | Tooltip with info icon (red), shows `errorMessage` |
+| `!compact && hint && !invalid`        | Hint text below input                              |
+| `!compact && invalid && errorMessage` | Error text below input (replaces hint)             |
 
 ## Development
 

@@ -142,6 +142,10 @@ export const styles = css`
 	}
 
 	/* === Variant: inline === */
+	:host([variant='inline']) {
+		margin-bottom: 0;
+	}
+
 	:host([variant='inline']) .wrap {
 		margin-top: calc(var(--cz-spacing) * 2.5);
 	}

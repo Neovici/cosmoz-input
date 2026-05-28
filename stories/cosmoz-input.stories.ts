@@ -271,6 +271,14 @@ export const Cell: Story = {
 					></cosmoz-input>
 				</div>
 				<div>
+					<div class="story-label">Invalid + error message</div>
+					<cosmoz-input
+						variant="cell"
+						invalid
+						.errorMessage=${'Invalid cell value '}
+					></cosmoz-input>
+				</div>
+				<div>
 					<div class="story-label">Disabled</div>
 					<cosmoz-input
 						variant="cell"

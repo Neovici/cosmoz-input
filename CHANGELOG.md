@@ -1,3 +1,9 @@
+## [6.0.0-beta.5](https://github.com/Neovici/cosmoz-input/compare/v6.0.0-beta.4...v6.0.0-beta.5) (2026-05-28)
+
+### Features
+
+* adapt cell variant for table layout ([#297](https://github.com/Neovici/cosmoz-input/issues/297)) ([4d97f69](https://github.com/Neovici/cosmoz-input/commit/4d97f69e5682807d680b5b92634b3734f0dd5074))
+
 ## [6.0.0-beta.4](https://github.com/Neovici/cosmoz-input/compare/v6.0.0-beta.3...v6.0.0-beta.4) (2026-05-27)
 
 ### Features

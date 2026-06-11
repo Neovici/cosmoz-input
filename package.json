@@ -32,19 +32,8 @@
 		"storybook:start": "storybook dev -p 8000",
 		"storybook:build": "storybook build",
 		"storybook:deploy": "storybook-to-ghpages",
-		"storybook:preview": "npm run storybook:build && http-server ./storybook-static/ --silent"
-	},
-	"release": {
-		"plugins": [
-			"@semantic-release/commit-analyzer",
-			"@semantic-release/release-notes-generator",
-			"@semantic-release/changelog",
-			"@semantic-release/github",
-			"@semantic-release/npm",
-			"@semantic-release/git"
-		],
-		"branch": "master",
-		"preset": "conventionalcommits"
+		"storybook:preview": "npm run storybook:build && http-server ./storybook-static/ --silent",
+		"changeset": "changeset"
 	},
 	"publishConfig": {
 		"access": "public"
@@ -79,8 +68,6 @@
 		"@neovici/cfg": "^2.8.0",
 		"@neovici/testing": "^2.3.0",
 		"@playwright/test": "^1.58.1",
-		"@semantic-release/changelog": "^6.0.0",
-		"@semantic-release/git": "^10.0.0",
 		"@storybook/addon-docs": "^10.0.0",
 		"@storybook/addon-vitest": "^10.2.4",
 		"@storybook/web-components-vite": "^10.2.4",
@@ -91,7 +78,7 @@
 		"husky": "^9.1.7",
 		"jsdom": "^29.0.0",
 		"lint-staged": "^17.0.7",
-		"semantic-release": "^25.0.2",
+		"@changesets/cli": "^2.28.1",
 		"shadow-dom-testing-library": "^1.13.1",
 		"sinon": "^22.0.0",
 		"storybook": "^10.1.9",

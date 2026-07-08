@@ -1,5 +1,11 @@
 ## [6.0.0-beta.5](https://github.com/Neovici/cosmoz-input/compare/v6.0.0-beta.4...v6.0.0-beta.5) (2026-05-28)
 
+## 6.0.0-beta.6
+
+### Patch Changes
+
+- 9b7d2ec: Bump dependencies and add storybook a11y addon
+
 ### Features
 
 - adapt cell variant for table layout ([#297](https://github.com/Neovici/cosmoz-input/issues/297)) ([4d97f69](https://github.com/Neovici/cosmoz-input/commit/4d97f69e5682807d680b5b92634b3734f0dd5074))

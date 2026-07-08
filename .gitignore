@@ -4,3 +4,9 @@ coverage/
 .DS_Store
 dist
 storybook-static
+.npmrc
+
+# Codecov uploader artifacts
+codecov
+codecov.SHA256SUM
+codecov.SHA256SUM.sig

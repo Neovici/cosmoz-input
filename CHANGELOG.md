@@ -1,5 +1,11 @@
 ## [6.0.0-beta.5](https://github.com/Neovici/cosmoz-input/compare/v6.0.0-beta.4...v6.0.0-beta.5) (2026-05-28)
 
+## 6.0.0-beta.7
+
+### Patch Changes
+
+- ea08e4f: Bump cosmoz-tokens version and add smooth transition for wrap
+
 ## 6.0.0-beta.6
 
 ### Patch Changes

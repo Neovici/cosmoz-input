@@ -45,8 +45,11 @@ export const styles = css`
 		position: relative;
 		width: 100%;
 		border-radius: var(--cz-radius-md);
-		box-shadow: 0 0 0 1px var(--cz-color-border-primary);
+		box-shadow: inset 0 0 0 1px var(--cz-color-border-primary);
 		overflow: hidden;
+		transition-duration: 0.1s;
+		transition-timing-function: linear;
+		transition-property: box-shadow, background;
 	}
 
 	.wrap:has(#input:focus) {
@@ -54,7 +57,7 @@ export const styles = css`
 	}
 
 	:host([invalid]) .wrap {
-		box-shadow: 0 0 0 1px var(--cz-color-border-error);
+		box-shadow: inset 0 0 0 1px var(--cz-color-border-error);
 	}
 
 	:host([invalid]) .wrap:has(#input:focus) {

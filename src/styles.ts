@@ -185,6 +185,7 @@ export const styles = css`
 		top: 25%;
 		left: 0;
 		width: 100%;
+		pointer-events: none;
 		transform-origin: left;
 		transition:
 			transform 0.25s,

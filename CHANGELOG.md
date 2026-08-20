@@ -1,5 +1,11 @@
 ## [6.0.0-beta.5](https://github.com/Neovici/cosmoz-input/compare/v6.0.0-beta.4...v6.0.0-beta.5) (2026-05-28)
 
+## 6.0.0-beta.8
+
+### Patch Changes
+
+- fb226bb: Allow clicks to pass through the inline label to the input
+
 ## 6.0.0-beta.7
 
 ### Patch Changes

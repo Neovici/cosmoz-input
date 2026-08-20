@@ -6,6 +6,7 @@
   },
   "changesets": [
     "curly-mugs-remain",
+    "inline-label-pointer-events",
     "ready-guests-hope"
   ]
 }

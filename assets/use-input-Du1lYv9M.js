@@ -1,16 +1,16 @@
-import{n as e}from"./chunk-zsgVPwQN.js";import{K as t,U as n,q as r}from"./iframe-D38OnCO5.js";import{_ as i,d as a,f as o,g as s,i as c,l,m as u,p as d,r as f,s as p,u as m,v as h}from"./style-C2sipk3h.js";var g,_=e((()=>{r(),g=e=>e??n})),v,y,b=e((()=>{r(),m(),o(),v=new WeakMap,y=a(class extends l{render(e){return n}update(e,[t]){let r=t!==this.G;return r&&this.rt(void 0),(r||this.lt!==this.ct)&&(this.G=t,this.ht=e.options?.host,this.rt(this.ct=e.element)),n}rt(e){if(this.G!==void 0)if(this.isConnected||(e=void 0),typeof this.G==`function`){let t=this.ht??globalThis,n=v.get(t);n===void 0&&(n=new WeakMap,v.set(t,n)),n.get(this.G)!==void 0&&this.G.call(this.ht,void 0),n.set(this.G,e),e!==void 0&&this.G.call(this.ht,e)}else this.G.value=e}get lt(){return typeof this.G==`function`?v.get(this.ht??globalThis)?.get(this.G):this.G?.value}disconnected(){this.lt===this.ct&&this.rt(void 0)}reconnected(){this.rt(this.ct)}})})),x,S,C=e((()=>{r(),f(),x=(e,{label:n,invalid:r,errorMessage:i})=>t`
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{d as t,s as n,u as r}from"./iframe-vSK6fqBS.js";import{C as i,S as a,_ as o,d as s,f as c,h as l,i as u,p as d,r as f,s as p,u as m,x as h}from"./style-BZHyfgMI.js";var g,_=e((()=>{t(),g=e=>e??n})),v,y,b=e((()=>{t(),s(),d(),v=new WeakMap,y=c(class extends m{render(e){return n}update(e,[t]){let r=t!==this.G;return r&&this.rt(void 0),(r||this.lt!==this.ct)&&(this.G=t,this.ht=e.options?.host,this.rt(this.ct=e.element)),n}rt(e){if(this.G!==void 0)if(this.isConnected||(e=void 0),typeof this.G==`function`){let t=this.ht??globalThis,n=v.get(t);n===void 0&&(n=new WeakMap,v.set(t,n)),n.get(this.G)!==void 0&&this.G.call(this.ht,void 0),n.set(this.G,e),e!==void 0&&this.G.call(this.ht,e)}else this.G.value=e}get lt(){return typeof this.G==`function`?v.get(this.ht??globalThis)?.get(this.G):this.G?.value}disconnected(){this.lt===this.ct&&this.rt(void 0)}reconnected(){this.rt(this.ct)}})})),x,S,C=e((()=>{t(),f(),x=(e,{label:t,invalid:n,errorMessage:i})=>r`
 		<div class="float" part="float">&nbsp;</div>
 		<div class="wrap" part="wrap">
 			<slot name="prefix"></slot>
 			<div class="control" part="control">
 				<slot name="control"></slot>
 				${e}
-				${c(n,()=>t`<label for="input" part="label">${n}</label>`)}
+				${u(t,()=>r`<label for="input" part="label">${t}</label>`)}
 			</div>
 			<slot name="suffix"></slot>
 		</div>
 		<div class="line" part="line"></div>
-		${c(r&&i,()=>t`<div class="error" part="error">${i}</div>`)}
+		${u(n&&i,()=>r`<div class="error" part="error">${i}</div>`)}
 	`,S=[`autocomplete`,`readonly`,`disabled`,`maxlength`,`invalid`,`no-label-float`,`always-float-label`]})),w=e((()=>{p()})),T,E=e((()=>{T=(e,...t)=>e.flatMap((e,n)=>[e,t[n]??``]).join(``)})),D=e((()=>{})),O=e((()=>{w(),E(),D()})),k,A,j=e((()=>{O(),k=T`
 	.wrap {
 		--contour-color: var(--focused-color);
@@ -129,6 +129,7 @@ import{n as e}from"./chunk-zsgVPwQN.js";import{K as t,U as n,q as r}from"./ifram
 		top: 0;
 		left: 0;
 		width: var(--cosmoz-input-label-width, 100%);
+		pointer-events: none;
 		transition:
 			transform 0.25s,
 			width 0.25s;
@@ -278,4 +279,4 @@ import{n as e}from"./chunk-zsgVPwQN.js";import{K as t,U as n,q as r}from"./ifram
 	@container style(--focused: focused) {
 		${k}
 	}
-`})),M,N=e((()=>{p(),M=h(class extends i{values;constructor(e,t,n,r){super(e,t),Object.assign(t.host,n),this.values=r}update(e,t){this.hasChanged(t)&&(this.values=t,Object.assign(this.state.host,e))}hasChanged(e=[]){return e.some((e,t)=>this.values[t]!==e)}})})),P=e((()=>{p(),h(class extends i{update(){return this.state.host}})})),F,I,L=e((()=>{p(),P(),F=/([A-Z])/gu,I=(e,t,n)=>{e[t]=n,e.dispatchEvent(new CustomEvent(t.replace(F,`-$1`).toLowerCase()+`-changed`,{detail:{value:n}}))}})),R,z=e((()=>{N(),L(),p(),R=e=>{let t=d(void 0),n=u(e=>t.current=e,[]),r=e.shadowRoot,i=u(t=>e.dispatchEvent(new Event(t.type,{bubbles:t.bubbles})),[]),a=u(t=>I(e,`value`,t.target.value),[]),o=u(t=>I(e,`focused`,t.type===`focus`),[]),c=u(()=>{let n=t.current?.checkValidity();return e.toggleAttribute(`invalid`,!n),n},[]);return M({validate:c},[c]),s(()=>{let e=e=>{e.composedPath()[0]?.closest?.(`input, textarea`)||(e.preventDefault(),t.current?.focus())};return r.addEventListener(`mousedown`,e),()=>r.removeEventListener(`mousedown`,e)},[]),{onChange:i,onFocus:o,onInput:a,onRef:n}}}));export{S as a,b as c,g as d,A as i,y as l,R as n,C as o,j as r,x as s,z as t,_ as u};
+`})),M,N=e((()=>{p(),M=i(class extends a{values;constructor(e,t,n,r){super(e,t),Object.assign(t.host,n),this.values=r}update(e,t){this.hasChanged(t)&&(this.values=t,Object.assign(this.state.host,e))}hasChanged(e=[]){return e.some((e,t)=>this.values[t]!==e)}})})),P=e((()=>{p(),i(class extends a{update(){return this.state.host}})})),F,I,L=e((()=>{p(),P(),F=/([A-Z])/gu,I=(e,t,n)=>{e[t]=n,e.dispatchEvent(new CustomEvent(t.replace(F,`-$1`).toLowerCase()+`-changed`,{detail:{value:n}}))}})),R,z=e((()=>{N(),L(),p(),R=e=>{let t=l(void 0),n=o(e=>t.current=e,[]),r=e.shadowRoot,i=o(t=>e.dispatchEvent(new Event(t.type,{bubbles:t.bubbles})),[]),a=o(t=>I(e,`value`,t.target.value),[]),s=o(t=>I(e,`focused`,t.type===`focus`),[]),c=o(()=>{let n=t.current?.checkValidity();return e.toggleAttribute(`invalid`,!n),n},[]);return M({validate:c},[c]),h(()=>{let e=e=>{e.composedPath()[0]?.closest?.(`input, textarea`)||(e.preventDefault(),t.current?.focus())};return r.addEventListener(`mousedown`,e),()=>r.removeEventListener(`mousedown`,e)},[]),{onChange:i,onFocus:s,onInput:a,onRef:n}}}));export{S as a,b as c,g as d,A as i,y as l,R as n,C as o,j as r,x as s,z as t,_ as u};

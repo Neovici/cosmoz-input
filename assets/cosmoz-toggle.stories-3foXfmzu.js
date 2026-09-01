@@ -1,10 +1,10 @@
-import{n as e}from"./chunk-zsgVPwQN.js";import{K as t,q as n}from"./iframe-D38OnCO5.js";import{n as r,t as i}from"./style-C2sipk3h.js";import{t as a}from"./cosmoz-toggle-B38iQPhW.js";var o,s,c,l,u,d,f;e((()=>{n(),a(),i(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Components/Toggle`,component:`cosmoz-toggle`,tags:[`autodocs`]},l={render:()=>t`
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{d as t,u as n}from"./iframe-vSK6fqBS.js";import{n as r,t as i}from"./style-BZHyfgMI.js";import{t as a}from"./cosmoz-toggle-mt_HXYmC.js";var o,s,c,l,u,d,f;e((()=>{t(),a(),i(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Components/Toggle`,component:`cosmoz-toggle`,tags:[`autodocs`]},l={render:()=>n`
         ${r}
         <cosmoz-toggle .label=${`Is active`} .value=${!0}></cosmoz-toggle>
-    `,play:async({canvas:e,step:t})=>{await t(`Renders checkbox element`,async()=>{await e.findByShadowRole(`checkbox`)})}},u={render:()=>t`
+    `,play:async({canvas:e,step:t})=>{await t(`Renders checkbox element`,async()=>{await e.findByShadowRole(`checkbox`)})}},u={render:()=>n`
         ${r}
         <cosmoz-toggle disabled .label=${`Cannot toggle`}></cosmoz-toggle>
-    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-toggle`);await t(`checkbox is disabled`,async()=>{o(n.shadowRoot.querySelector(`input`).disabled).toBe(!0)})}},d={render:()=>t`
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-toggle`);await t(`checkbox is disabled`,async()=>{let e=n.shadowRoot.querySelector(`input`);o(e.disabled).toBe(!0)})}},d={render:()=>n`
         ${r}
         <cosmoz-toggle
             .label=${`Is active`}

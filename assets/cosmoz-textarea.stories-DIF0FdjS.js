@@ -1,7 +1,7 @@
-import{n as e}from"./chunk-zsgVPwQN.js";import{K as t,q as n}from"./iframe-D38OnCO5.js";import{n as r,t as i}from"./style-C2sipk3h.js";import{t as a}from"./cosmoz-textarea-DY9bMD1T.js";var o,s,c,l,u,d;e((()=>{n(),a(),i(),o={title:`Components/Textarea`,component:`cosmoz-textarea`,tags:[`autodocs`]},s=`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mi magna, tincidunt ac feugiat sed, ultrices luctus orci. Quisque ultricies hendrerit ultricies. Nam vestibulum mauris a arcu facilisis, ut gravida lorem sagittis. Cras sagittis arcu felis, in consectetur ante tempor vitae. Duis leo ex, sagittis id eros id, dictum egestas nibh. Etiam at porta turpis. Proin maximus mauris vitae quam fringilla, iaculis facilisis ex tempor. Sed eu risus eget nibh accumsan pharetra. Integer et orci lorem. Proin imperdiet facilisis neque, vel luctus lorem bibendum a. Donec gravida sodales gravida. Mauris interdum dignissim faucibus.`,c={render:()=>t`
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{d as t,u as n}from"./iframe-vSK6fqBS.js";import{n as r,t as i}from"./style-BZHyfgMI.js";import{t as a}from"./cosmoz-textarea-CTvxkPZw.js";var o,s,c,l,u,d;e((()=>{t(),a(),i(),o={title:`Components/Textarea`,component:`cosmoz-textarea`,tags:[`autodocs`]},s=`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mi magna, tincidunt ac feugiat sed, ultrices luctus orci. Quisque ultricies hendrerit ultricies. Nam vestibulum mauris a arcu facilisis, ut gravida lorem sagittis. Cras sagittis arcu felis, in consectetur ante tempor vitae. Duis leo ex, sagittis id eros id, dictum egestas nibh. Etiam at porta turpis. Proin maximus mauris vitae quam fringilla, iaculis facilisis ex tempor. Sed eu risus eget nibh accumsan pharetra. Integer et orci lorem. Proin imperdiet facilisis neque, vel luctus lorem bibendum a. Donec gravida sodales gravida. Mauris interdum dignissim faucibus.`,c={render:()=>n`
         ${r}
         <cosmoz-textarea .label=${`Choose color`} .value=${`Red`}></cosmoz-textarea>
-    `,play:async({canvas:e,step:t})=>{await t(`Renders textarea element`,async()=>{await e.findByShadowRole(`textbox`)})}},l={name:`Error`,render:()=>t`
+    `,play:async({canvas:e,step:t})=>{await t(`Renders textarea element`,async()=>{await e.findByShadowRole(`textbox`)})}},l={name:`Error`,render:()=>n`
         ${r}
         <cosmoz-textarea
             invalid
@@ -12,7 +12,7 @@ Blue`}
             .errorMessage=${`Something is wrong!`}
             .maxRows=${2}
         ></cosmoz-textarea>
-    `},u={render:()=>t`
+    `},u={render:()=>n`
         ${r}
         <style>
             cosmoz-textarea {

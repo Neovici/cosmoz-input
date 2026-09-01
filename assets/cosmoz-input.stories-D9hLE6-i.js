@@ -1,17 +1,17 @@
-import{n as e}from"./chunk-zsgVPwQN.js";import{K as t,q as n}from"./iframe-D38OnCO5.js";import{n as r,t as i}from"./style-C2sipk3h.js";import{t as a}from"./cosmoz-input-CU28jRQw.js";var o,s,c,l,u,d,f,p,m,h,g,_,v;e((()=>{n(),a(),i(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Components/Input`,component:`cosmoz-input`,tags:[`autodocs`]},l={render:()=>t`
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{d as t,u as n}from"./iframe-vSK6fqBS.js";import{n as r,t as i}from"./style-BZHyfgMI.js";import{t as a}from"./cosmoz-input-DlZab2L2.js";var o,s,c,l,u,d,f,p,m,h,g,_,v;e((()=>{t(),a(),i(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Components/Input`,component:`cosmoz-input`,tags:[`autodocs`]},l={render:()=>n`
         ${r}
         <cosmoz-input .label=${`Choose color`}></cosmoz-input>
-    `,play:async({canvas:e,step:t})=>{await t(`Renders input element`,async()=>{await e.findByShadowRole(`textbox`)})}},u={render:()=>t`
+    `,play:async({canvas:e,step:t})=>{await t(`Renders input element`,async()=>{await e.findByShadowRole(`textbox`)})}},u={render:()=>n`
         ${r}
         <cosmoz-input
             always-float-label
             .label=${`Choose color`}
             placeholder=${`placeholder text`}
         ></cosmoz-input>
-    `},d={render:()=>t`
+    `},d={render:()=>n`
         ${r}
         <cosmoz-input no-label-float .label=${`Choose color`}></cosmoz-input>
-    `},f={render:()=>t`
+    `},f={render:()=>n`
         ${r}
         <cosmoz-input
             .label=${`Choose color`}
@@ -19,7 +19,7 @@ import{n as e}from"./chunk-zsgVPwQN.js";import{K as t,q as n}from"./iframe-D38On
             invalid
             .errorMessage=${`Something is wrong!`}
         ></cosmoz-input>
-    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`);await t(`error message is rendered`,async()=>{await s(()=>{let e=n.shadowRoot.querySelector(`.error`);o(e).not.toBeNull(),o(e.textContent).toBe(`Something is wrong!`)})})}},p={render:()=>t`
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`);await t(`error message is rendered`,async()=>{await s(()=>{let e=n.shadowRoot.querySelector(`.error`);o(e).not.toBeNull(),o(e.textContent).toBe(`Something is wrong!`)})})}},p={render:()=>n`
         ${r}
         <cosmoz-input
             autosize
@@ -27,24 +27,24 @@ import{n as e}from"./chunk-zsgVPwQN.js";import{K as t,q as n}from"./iframe-D38On
             type="number"
             .value=${3.12}
         ></cosmoz-input>
-    `},m={render:()=>t`
+    `},m={render:()=>n`
         ${r}
         <cosmoz-input
             no-label-float
             type="color"
             .value=${`#ff0000`}
         ></cosmoz-input>
-    `},h={render:()=>t`
+    `},h={render:()=>n`
         ${r}
         <cosmoz-input
             type="number"
             .label=${`This number input has no spinner`}
             no-spinner
         ></cosmoz-input>
-    `},g={render:()=>t`
+    `},g={render:()=>n`
         ${r}
         <cosmoz-input no-label-float type="date"></cosmoz-input>
-    `},_={render:()=>t`
+    `},_={render:()=>n`
         ${r}
         <style>
             cosmoz-input {

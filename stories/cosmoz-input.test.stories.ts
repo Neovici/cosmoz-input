@@ -207,3 +207,27 @@ export const BlurPrevention: Story = {
 		);
 	},
 };
+
+export const LabelClickThrough: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-input label="Label"></cosmoz-input>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const el = canvasElement.querySelector('cosmoz-input')!;
+		const input = el.shadowRoot!.querySelector('#input')!;
+		const label = el.shadowRoot!.querySelector('label[for="input"]')!;
+
+		await step('label does not intercept pointer events', async () => {
+			expect(getComputedStyle(label).pointerEvents).toBe('none');
+
+			// a click on the label must reach the input (focus it)
+			label.dispatchEvent(
+				new MouseEvent('mousedown', { bubbles: true, composed: true }),
+			);
+			await waitFor(() => {
+				expect(el.shadowRoot!.activeElement).toBe(input);
+			});
+		});
+	},
+};

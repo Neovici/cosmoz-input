@@ -1,5 +1,11 @@
 ## [5.7.1](https://github.com/Neovici/cosmoz-input/compare/v5.7.0...v5.7.1) (2026-04-22)
 
+## 5.8.1
+
+### Patch Changes
+
+- 1f623ef: Allow clicks to pass through the floating label to the input
+
 ## 5.8.0
 
 ### Minor Changes

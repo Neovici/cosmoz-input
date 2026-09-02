@@ -1,5 +1,11 @@
 ## [5.7.1](https://github.com/Neovici/cosmoz-input/compare/v5.7.0...v5.7.1) (2026-04-22)
 
+## 5.8.2
+
+### Patch Changes
+
+- da7f502: Keep the floating label clickable: revert `pointer-events: none` and let label clicks reach the input natively (fixes caret placement when clicking the label).
+
 ## 5.8.1
 
 ### Patch Changes

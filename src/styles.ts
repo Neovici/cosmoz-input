@@ -120,7 +120,6 @@ export const styles = css`
 		top: 0;
 		left: 0;
 		width: var(--cosmoz-input-label-width, 100%);
-		pointer-events: none;
 		transition:
 			transform 0.25s,
 			width 0.25s;

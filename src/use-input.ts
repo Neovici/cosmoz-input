@@ -43,7 +43,7 @@ export const useInput = <T extends BaseInput>(host: T) => {
 	useEffect(() => {
 		const onMouseDown = (e: Event) => {
 			const target = (e as MouseEvent).composedPath()[0] as Element;
-			if (target?.closest?.('input, textarea')) return;
+			if (target?.closest?.('input, textarea, label')) return;
 			e.preventDefault();
 			inputRef.current?.focus();
 		};

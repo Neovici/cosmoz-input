@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { expect, fn, waitFor } from 'storybook/test';
+import { expect, fn, userEvent, waitFor } from 'storybook/test';
 import '../src/cosmoz-input';
 import { style } from './style';
 
@@ -218,13 +218,12 @@ export const LabelClickThrough: Story = {
 		const input = el.shadowRoot!.querySelector('#input')!;
 		const label = el.shadowRoot!.querySelector('label[for="input"]')!;
 
-		await step('label does not intercept pointer events', async () => {
-			expect(getComputedStyle(label).pointerEvents).toBe('none');
+		await step('label is clickable and focuses the input', async () => {
+			// the label must not intercept pointer events
+			expect(getComputedStyle(label).pointerEvents).not.toBe('none');
 
-			// a click on the label must reach the input (focus it)
-			label.dispatchEvent(
-				new MouseEvent('mousedown', { bubbles: true, composed: true }),
-			);
+			// a real click on the label must focus the input
+			await userEvent.click(label);
 			await waitFor(() => {
 				expect(el.shadowRoot!.activeElement).toBe(input);
 			});

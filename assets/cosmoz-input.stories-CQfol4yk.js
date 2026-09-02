@@ -1,4 +1,4 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{d as t,u as n}from"./iframe-vSK6fqBS.js";import{n as r,t as i}from"./style-BZHyfgMI.js";import{t as a}from"./cosmoz-input-DlZab2L2.js";var o,s,c,l,u,d,f,p,m,h,g,_,v;e((()=>{t(),a(),i(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Components/Input`,component:`cosmoz-input`,tags:[`autodocs`]},l={render:()=>n`
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{d as t,u as n}from"./iframe-DHXAR6-K.js";import{n as r,t as i}from"./style-B7MuSHHn.js";import{t as a}from"./cosmoz-input-DTAEXNN4.js";var o,s,c,l,u,d,f,p,m,h,g,_,v;e((()=>{t(),a(),i(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Components/Input`,component:`cosmoz-input`,tags:[`autodocs`]},l={render:()=>n`
         ${r}
         <cosmoz-input .label=${`Choose color`}></cosmoz-input>
     `,play:async({canvas:e,step:t})=>{await t(`Renders input element`,async()=>{await e.findByShadowRole(`textbox`)})}},u={render:()=>n`

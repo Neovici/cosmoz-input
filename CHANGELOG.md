@@ -1,3 +1,29 @@
+## 6.0.0
+
+### Major Changes
+
+- 9626479: Adopt Untitled UI design across cosmoz-input, cosmoz-textarea and cosmoz-toggle:
+  - Complete styles rewrite based on `@neovici/cosmoz-tokens`; removes the
+    underline/line layout and all legacy `--cosmoz-input-*` CSS custom
+    properties and hooks (use `part` selectors instead)
+  - New `variant` attribute with `inline` and `cell` (table layout, #297)
+    modes, plus `hint`, `compact` and `required` support
+  - Label no longer floats (`no-label-float` and `always-float-label` props
+    removed); hint and error render below the field, absolutely positioned to
+    avoid offsetting autocomplete dropdowns (#291)
+  - Inline-variant label ignores pointer events so clicks reach the input;
+    clicking the label focuses the input and places the caret
+  - cosmoz-toggle redesigned on design tokens with new `label`/`error`
+    attributes
+  - New runtime dependencies: `@neovici/cosmoz-icons`,
+    `@neovici/cosmoz-tokens`, `@neovici/cosmoz-tooltip`
+
+### Patch Changes
+
+- 9626479: Bump cosmoz-tokens version and add smooth transition for wrap
+- 9626479: Allow clicks to pass through the inline label to the input
+- 9626479: Add @neovici/cosmoz-icons, @neovici/cosmoz-tokens and @neovici/cosmoz-tooltip as runtime dependencies and add @storybook/addon-a11y
+
 ## 5.8.2
 
 ### Patch Changes

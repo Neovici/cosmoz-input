@@ -1,98 +1,67 @@
 import { tagged as css } from '@neovici/cosmoz-utils';
 
-export const focusedStyle = css`
-	.wrap {
-		--contour-color: var(--focused-color);
-		background: var(--focused-bg);
-	}
-
-	#input::placeholder,
-	label {
-		color: var(--focused-color);
-		opacity: 1;
-	}
-
-	.line {
-		border-bottom-color: var(--focused-color);
-	}
-
-	.line::before {
-		transform: none;
-		transition: 0.25s transform ease;
-	}
-`;
-
 export const styles = css`
+	/* === Host === */
+
 	:host {
-		--font-family: var(
-			--cosmoz-input-font-family,
-			var(--paper-font-subhead_-_font-family, inherit)
-		);
-		--font-size: var(
-			--cosmoz-input-font-size,
-			var(--paper-font-subhead_-_font-size, 16px)
-		);
-		--line-height: var(
-			--cosmoz-input-line-height,
-			var(--paper-font-subhead_-_line-height, 24px)
-		);
-		--label-scale: var(--cosmoz-input-label-scale, 0.75);
-		--disabled-opacity: var(
-			--cosmoz-input-disabled-opacity,
-			var(--paper-input-container-disabled_-_opacity, 0.33)
-		);
-		--disabled-line-opacity: var(
-			--cosmoz-input-disabled-line-opacity,
-			var(--paper-input-container-underline-disabled_-_opacity, 1)
-		);
-		--invalid-color: var(
-			--cosmoz-input-invalid-color,
-			var(--paper-input-container-invalid-color, var(--error-color, #fc5c5b))
-		);
-		--bg: var(--cosmoz-input-background);
-		--focused-bg: var(--cosmoz-input-focused-background, var(--bg));
-		--color: var(--cosmoz-input-color, var(--secondary-text-color, #737373));
-		--line-color: var(--cosmoz-input-line-color, var(--color));
-		--focused-color: var(
-			--cosmoz-input-focused-color,
-			var(--primary-color, #3f51b5)
-		);
-		--float-display: var(--cosmoz-input-float-display, block);
-		--contour-color: var(--line-color);
-		--contour-size: var(--cosmoz-input-contour-size);
-		--label-translate-y: var(--cosmoz-input-label-translate-y, 0%);
-		--focused: var(--cosmoz-input-focused, none);
-
-		display: block;
-		padding: var(--cosmoz-input-padding, 8px 0);
+		display: flex;
+		flex-direction: column;
+		gap: calc(var(--cz-spacing) * 1.5);
 		position: relative;
-		max-height: var(--cosmoz-input-max-height);
-		font-size: var(--font-size);
-		line-height: var(--line-height);
-		font-family: var(--font-family);
-		caret-color: var(--focused-color);
-		cursor: text;
+		font-size: var(--cz-text-base);
+		line-height: var(--cz-text-base-line-height);
+		font-family: var(--cz-font-body);
+		margin-bottom: calc(var(--cz-spacing) * 6);
 	}
 
-	:host([disabled]) {
-		opacity: var(--disabled-opacity);
+	:host(:focus-within) {
+		caret-color: var(--cz-color-text-primary);
 	}
 
-	.float {
-		line-height: calc(var(--line-height) * var(--label-scale));
-		background-color: var(--cosmoz-input-float-bg-color, none);
-		display: var(--float-display);
+	:host([disabled]) .wrap {
+		color: var(--cz-color-text-disabled);
+		opacity: 0.5;
+		cursor: not-allowed;
 	}
+
+	:host([disabled]) #input {
+		cursor: not-allowed;
+	}
+
+	:host([invalid]) {
+		caret-color: var(--cz-color-text-error);
+	}
+
+	:host([invalid]) .required,
+	.error {
+		color: var(--cz-color-text-error);
+	}
+
+	/* === Layout === */
 
 	.wrap {
-		padding: var(--cosmoz-input-wrap-padding, 0px);
 		display: flex;
 		align-items: center;
 		position: relative;
-		background: var(--bg);
-		opacity: var(--cosmoz-input-opacity);
-		border-radius: var(--cosmoz-input-border-radius);
-		box-shadow: 0 0 0 var(--contour-size) var(--contour-color);
+		width: 100%;
+		border-radius: var(--cz-radius-md);
+		box-shadow: inset 0 0 0 1px var(--cz-color-border-primary);
+		overflow: hidden;
+		transition-duration: 0.1s;
+		transition-timing-function: linear;
+		transition-property: box-shadow, background;
+	}
+
+	.wrap:has(#input:focus) {
+		box-shadow: var(--cz-focus-ring);
+	}
+
+	:host([invalid]) .wrap {
+		box-shadow: inset 0 0 0 1px var(--cz-color-border-error);
+	}
+
+	:host([invalid]) .wrap:has(#input:focus) {
+		box-shadow: var(--cz-focus-ring-error);
 	}
 
 	.control {
@@ -100,39 +69,73 @@ export const styles = css`
 		position: relative;
 	}
 
+	/* === Input === */
+
 	#input {
-		padding: 0;
+		box-sizing: border-box;
 		margin: 0;
 		outline: none;
 		border: none;
 		width: 100%;
-		max-width: 100%;
 		display: block;
 		background: transparent;
 		line-height: inherit;
 		font-size: inherit;
 		font-family: inherit;
 		resize: none;
+		color: var(--cz-color-text-primary);
+		padding-block: calc(var(--cz-spacing) * 2);
+		padding-inline: calc(var(--cz-spacing) * 3);
 	}
 
-	label {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: var(--cosmoz-input-label-width, 100%);
-		transition:
-			transform 0.25s,
-			width 0.25s;
-		transform-origin: left top;
-		color: var(--color);
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		text-transform: var(--cosmoz-input-label-text-transform);
-		font-weight: var(--cosmoz-input-label-font-weight);
-		user-select: none;
-		cursor: text;
+	#input::placeholder {
+		color: var(--cz-color-text-placeholder);
 	}
+
+	#input::-webkit-inner-spin-button {
+		z-index: 1;
+	}
+
+	/* === Label === */
+
+	label {
+		position: relative;
+		font-size: var(--cz-text-sm);
+		color: var(--cz-color-text-secondary);
+	}
+
+	/* === Hint & Error === */
+
+	.hint {
+		font-size: var(--cz-text-xs);
+		color: var(--cz-color-text-tertiary);
+		position: absolute;
+		bottom: calc(var(--cz-spacing) * -6);
+	}
+
+	.error {
+		font-size: var(--cz-text-xs);
+		position: absolute;
+		bottom: calc(var(--cz-spacing) * -6);
+	}
+
+	/* === Tooltip (fluid error indicator) === */
+
+	cosmoz-tooltip {
+		display: flex;
+		align-items: center;
+		margin-right: calc(var(--cz-spacing) * 2);
+	}
+
+	:host([invalid]) cosmoz-tooltip {
+		color: var(--cz-color-text-error);
+	}
+
+	:host([variant='inline']) cosmoz-tooltip {
+		display: none;
+	}
+
+	/* === Slots === */
 
 	.wrap:has(#input:not(:placeholder-shown)) {
 		slot[name='suffix']::slotted(*),
@@ -141,93 +144,118 @@ export const styles = css`
 		}
 	}
 
-	:host([always-float-label]) label,
-	#input:not(:placeholder-shown) + label {
-		transform: translateY(
-				calc(var(--label-scale) * -100% + var(--label-translate-y))
-			)
-			scale(var(--label-scale));
-		background-color: var(--cosmoz-input-floating-label-bg, var(--bg));
+	/* === Variant: inline === */
+	:host([variant='inline']) {
+		margin-bottom: 0;
 	}
 
-	:host([always-float-label]) input,
-	#input:not(:placeholder-shown) {
-		transform: translateY(var(--label-translate-y));
+	:host([variant='inline']) .wrap {
+		margin-top: calc(var(--cz-spacing) * 2.5);
 	}
 
-	:host([always-float-label]) {
+	:host([variant='inline']) #input {
+		padding-inline: 0;
+	}
+
+	:host([variant='inline']) #input::placeholder {
+		color: transparent;
+	}
+
+	:host([variant='inline']) .wrap {
+		border-radius: 0;
+		box-shadow: none;
+		padding-inline: 0;
+	}
+
+	:host([variant='inline']) .wrap:has(#input:focus) {
+		box-shadow: none;
+	}
+
+	:host([variant='inline']) .hint,
+	:host([variant='inline']) .error {
+		display: none;
+	}
+	:host([variant='inline'][disabled]) label {
+		color: var(--cz-color-text-disabled);
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+	:host([variant='inline']) label {
+		position: absolute;
+		top: 25%;
+		left: 0;
+		width: 100%;
+		pointer-events: none;
+		transform-origin: left;
+		transition:
+			transform 0.25s,
+			width 0.25s;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		z-index: 1;
+	}
+
+	:host([variant='inline']:focus-within) label,
+	:host([variant='inline'][has-value]) label {
+		transform: translateY(-75%) scale(0.85);
+	}
+
+	:host([variant='inline']) {
 		slot[name='suffix']::slotted(*),
 		slot[name='prefix']::slotted(*) {
-			transform: translateY(var(--label-translate-y));
+			transform: translateY(0);
 		}
 	}
 
-	:host([no-label-float]) {
-		.float,
-		label {
-			display: none;
-		}
+	/* === Variant: cell === */
 
-		#input:not(:placeholder-shown) {
-			transform: translateY(0%);
-		}
-
-		.wrap:has(#input:not(:placeholder-shown)) slot[name='suffix']::slotted(*),
-		.wrap:has(#input:not(:placeholder-shown)) slot[name='prefix']::slotted(*) {
-			transform: translateY(0%);
-		}
+	:host([variant='cell']) {
+		margin-bottom: 0;
+		font-size: var(--cz-text-sm);
+		line-height: var(--cz-text-sm-line-height);
 	}
 
-	.line {
-		padding-top: 1px;
-		border-bottom: 1px solid var(--line-color);
-		position: relative;
-		display: var(--cosmoz-input-line-display, block);
+	:host([variant='cell']) .wrap:has(#input) {
+		border: 0.5px solid var(--cz-color-bg-quaternary);
+		border-radius: 0;
+		box-shadow: none;
 	}
 
-	.line::before {
-		content: '';
-		position: absolute;
-		border-bottom: 2px solid transparent;
-		border-bottom-color: inherit;
-		left: 0;
-		right: 0;
-		top: 0;
-		transform: scaleX(0);
-		transform-origin: center center;
-		z-index: 1;
+	:host([variant='cell']) .wrap:has(#input:focus) {
+		background: var(--cz-color-bg-quaternary);
 	}
 
-	:host([disabled]) .line {
-		border-bottom-style: dashed;
-		opacity: var(--disabled-line-opacity);
+	:host([variant='cell'][invalid]) .wrap:has(#input) {
+		border-color: var(--cz-color-border-error);
+		box-shadow: none;
 	}
 
-	.error {
-		font-size: 12px;
-		line-height: 20px;
+	:host([variant='cell'][invalid]) .wrap:has(#input:focus) {
+		background: var(--cz-color-bg-error);
+		border: 0.5px solid transparent;
+	}
+
+	:host([variant='cell']) label {
+		display: none;
+	}
+
+	:host([variant='cell']) .error {
+		left: calc(var(--cz-spacing) * 3);
+		bottom: 50%;
+		transform: translateY(50%);
+		text-overflow: ellipsis;
+		white-space: nowrap;
 		overflow: hidden;
-		text-overflow: clip;
-		position: absolute;
-		max-width: 100%;
+		max-width: calc(100% - calc(var(--cz-spacing) * 6));
 	}
 
-	:host([invalid]) {
-		--contour-color: var(--invalid-color);
-		caret-color: var(--invalid-color);
+	:host([variant='cell']:focus-within) .error,
+	:host([variant='cell'][has-value]) .error {
+		visibility: hidden;
 	}
 
-	:host([invalid]) label,
-	.error {
-		color: var(--invalid-color);
-	}
-	:host([invalid]) .line {
-		border-bottom-color: var(--invalid-color);
-	}
-
-	#input::-webkit-inner-spin-button {
-		z-index: 1;
-	}
+	/* === No spinner === */
 
 	:host([no-spinner]) #input::-webkit-inner-spin-button {
 		display: none;
@@ -237,12 +265,15 @@ export const styles = css`
 		appearance: textfield;
 	}
 
+	/* === Autosize === */
+
 	:host([autosize]) {
 		width: min-content;
 	}
 	:host([autosize]) #input {
-		min-width: 2ch;
-		width: var(--chars);
+		--_pad: calc(var(--cz-spacing) * 12);
+		min-width: calc(2ch + var(--_pad));
+		width: calc(var(--chars) + var(--_pad));
 	}
 	:host([autosize]) .control {
 		max-width: 100%;
@@ -252,21 +283,18 @@ export const styles = css`
 		--width: calc(var(--chars) + 0.25em);
 	}
 	:host([autosize][type='number']:not([no-spinner])) #input {
-		width: calc(var(--width) + 15px);
-		min-width: calc(2ch + 0.25em + 15px);
+		width: calc(var(--width) + 15px + var(--_pad));
+		min-width: calc(2ch + 0.25em + 15px + var(--_pad));
 	}
 	:host([autosize][type='number'][no-spinner]) #input {
-		width: var(--width);
-		min-width: calc(2ch + 0.25em);
+		width: calc(var(--width) + var(--_pad));
+		min-width: calc(2ch + 0.25em + var(--_pad));
 	}
-	:host([type='color']) .line {
-		display: none;
+	slot[name='prefix']::slotted(*) {
+		padding-inline-start: calc(var(--cz-spacing) * 2);
 	}
 
-	:host(:focus-within) {
-		${focusedStyle}
-	}
-	@container style(--focused: focused) {
-		${focusedStyle}
+	slot[name='suffix']::slotted(*) {
+		padding-inline-end: calc(var(--cz-spacing) * 2);
 	}
 `;

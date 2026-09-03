@@ -3,10 +3,12 @@ on:
   pull_request:
     branches:
       - master
+      - next
   push:
     branches:
       - beta
       - master
+      - next
 
 permissions:
   contents: write 

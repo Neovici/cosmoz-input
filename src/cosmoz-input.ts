@@ -12,6 +12,10 @@ import { defaultMax, getPlaceholder } from './util';
 
 const observedAttributes = [
 	'type',
+	'variant',
+	'hint',
+	'compact',
+	'required',
 	'pattern',
 	'allowed-pattern',
 	'min',
@@ -41,9 +45,12 @@ export const Input = (host: CosmozInput) => {
 			max,
 			step,
 			maxlength,
+			required,
 		} = host,
 		{ onChange, onFocus, onInput, onRef } = useInput(host);
 	const onBeforeInput = useAllowedPattern(allowedPattern);
+
+	host.toggleAttribute('has-value', !!value);
 
 	return render(
 		html`
@@ -55,10 +62,11 @@ export const Input = (host: CosmozInput) => {
 				type=${type}
 				pattern=${ifDefined(pattern)}
 				autocomplete=${ifDefined(autocomplete)}
-				placeholder=${getPlaceholder(host)}
+				placeholder=${getPlaceholder({ placeholder: host.placeholder })}
 				?readonly=${readonly}
-				?aria-disabled=${disabled}
+				aria-disabled=${disabled ? 'true' : 'false'}
 				?disabled=${disabled}
+				?required=${required}
 				.value=${live(value ?? '')}
 				maxlength=${ifDefined(maxlength)}
 				@beforeinput=${onBeforeInput}

@@ -24,7 +24,7 @@ export const AutoGrow: Story = {
 				const input = el.shadowRoot!.querySelector('#input')!;
 				const { height } = input.getBoundingClientRect();
 				expect(height).toBeGreaterThan(40);
-				expect(height).toBeLessThan(61);
+				expect(height).toBeLessThan(66);
 			});
 		});
 	},

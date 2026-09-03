@@ -9,7 +9,14 @@ import { styles } from './styles';
 import { useAutoHeight } from './use-auto-height';
 import { BaseInput, useInput } from './use-input';
 
-const observedAttributes = ['rows', 'placeholder', ...attributes];
+const observedAttributes = [
+	'rows',
+	'placeholder',
+	'label',
+	'hint',
+	'required',
+	...attributes,
+];
 
 type CosmozInput = HTMLElement &
 	ObjectFromList<typeof observedAttributes> &

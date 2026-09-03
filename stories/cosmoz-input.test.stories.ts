@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { expect, fn, waitFor } from 'storybook/test';
+import { expect, fn, userEvent, waitFor } from 'storybook/test';
 import '../src/cosmoz-input';
 import { style } from './style';
 
@@ -205,5 +205,28 @@ export const BlurPrevention: Story = {
 				expect(el.shadowRoot!.activeElement).toBe(input);
 			},
 		);
+	},
+};
+
+export const LabelClickThrough: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-input label="Label"></cosmoz-input>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const el = canvasElement.querySelector('cosmoz-input')!;
+		const input = el.shadowRoot!.querySelector('#input')!;
+		const label = el.shadowRoot!.querySelector('label[for="input"]')!;
+
+		await step('label is clickable and focuses the input', async () => {
+			// the label must not intercept pointer events
+			expect(getComputedStyle(label).pointerEvents).not.toBe('none');
+
+			// a real click on the label must focus the input
+			await userEvent.click(label);
+			await waitFor(() => {
+				expect(el.shadowRoot!.activeElement).toBe(input);
+			});
+		});
 	},
 };

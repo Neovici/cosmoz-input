@@ -1,26 +1,14 @@
-## [6.0.0-beta.5](https://github.com/Neovici/cosmoz-input/compare/v6.0.0-beta.4...v6.0.0-beta.5) (2026-05-28)
-
-## 6.0.0-beta.8
+## 5.8.2
 
 ### Patch Changes
 
-- fb226bb: Allow clicks to pass through the inline label to the input
+- da7f502: Keep the floating label clickable: revert `pointer-events: none` and let label clicks reach the input natively (fixes caret placement when clicking the label).
 
-## 6.0.0-beta.7
-
-### Patch Changes
-
-- ea08e4f: Bump cosmoz-tokens version and add smooth transition for wrap
-
-## 6.0.0-beta.6
+## 5.8.1
 
 ### Patch Changes
 
-- 9b7d2ec: Bump dependencies and add storybook a11y addon
-
-### Features
-
-- adapt cell variant for table layout ([#297](https://github.com/Neovici/cosmoz-input/issues/297)) ([4d97f69](https://github.com/Neovici/cosmoz-input/commit/4d97f69e5682807d680b5b92634b3734f0dd5074))
+- 1f623ef: Allow clicks to pass through the floating label to the input
 
 ## 5.8.0
 
@@ -48,12 +36,6 @@
 
 - release 5.7.1 to address npm publish conflict ([a6ab13a](https://github.com/Neovici/cosmoz-input/commit/a6ab13a3a0151c81cfe14a47fe84631bc142f147))
 - remove unused props ([d3af067](https://github.com/Neovici/cosmoz-input/commit/d3af067b7e6e75d39dbe337977de710585cca166))
-
-## [5.7.1](https://github.com/Neovici/cosmoz-input/compare/v5.7.0...v5.7.1) (2026-04-22)
-
-### Bug Fixes
-
-- release 5.7.1 to address npm publish conflict ([a6ab13a](https://github.com/Neovici/cosmoz-input/commit/a6ab13a3a0151c81cfe14a47fe84631bc142f147))
 
 ## [5.7.0](https://github.com/Neovici/cosmoz-input/compare/v5.6.2...v5.7.0) (2026-04-22)
 

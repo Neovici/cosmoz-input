@@ -11,6 +11,9 @@ export const styles = css`
 		font-size: var(--cz-text-base);
 		line-height: var(--cz-text-base-line-height);
 		font-family: var(--cz-font-body);
+	}
+
+	:host(:not([compact])) {
 		margin-bottom: calc(var(--cz-spacing) * 6);
 	}
 

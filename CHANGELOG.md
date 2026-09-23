@@ -1,3 +1,9 @@
+## 6.1.0
+
+### Minor Changes
+
+- 84aeedf: Remove bottom spacing from compact inputs.
+
 ## 6.0.0
 
 ### Major Changes

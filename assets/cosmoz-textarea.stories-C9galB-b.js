@@ -1,4 +1,4 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-CJTB0Edv.js";import{t as r}from"./cosmoz-textarea-6GAw1A0d.js";var i,a,o,s;e((()=>{t(),r(),i={title:`Components/Textarea`,component:`cosmoz-textarea`,tags:[`autodocs`]},a={render:()=>n`
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-DpTKHftT.js";import{t as r}from"./cosmoz-textarea-OESS8Kwq.js";var i,a,o,s;e((()=>{t(),r(),i={title:`Components/Textarea`,component:`cosmoz-textarea`,tags:[`autodocs`]},a={render:()=>n`
         <cosmoz-textarea
             .label=${`Choose color`}
             .value=${`Red`}
@@ -14,7 +14,7 @@ Blue`}
             .errorMessage=${`Something is wrong!`}
             .maxRows=${2}
         ></cosmoz-textarea>
-    `},a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
+    `},s=[`Basic`,`ErrorStory`],a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <cosmoz-textarea
             .label=\${'Choose color'}
@@ -41,4 +41,4 @@ Blue`}
             .maxRows=\${2}
         ></cosmoz-textarea>
     \`
-}`,...o.parameters?.docs?.source}}},s=[`Basic`,`ErrorStory`]}))();export{a as Basic,o as ErrorStory,s as __namedExportsOrder,i as default};
+}`,...o.parameters?.docs?.source}}}}))();export{a as Basic,o as ErrorStory,s as __namedExportsOrder,i as default};

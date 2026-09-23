@@ -1,4 +1,4 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-CJTB0Edv.js";import{n as r,t as i}from"./style-DGyL6mgw.js";import{t as a}from"./cosmoz-textarea-6GAw1A0d.js";var o,s,c,l,u,d;e((()=>{t(),a(),i(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Tests/Textarea`},l={render:()=>n`
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-DpTKHftT.js";import{n as r,t as i}from"./style-BInQwVMl.js";import{t as a}from"./cosmoz-textarea-OESS8Kwq.js";var o,s,c,l,u,d;e((()=>{t(),a(),i(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Tests/Textarea`},l={render:()=>n`
         ${r}
         <cosmoz-textarea .value=${`1
 2
@@ -6,7 +6,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
     `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-textarea`);await t(`textarea auto grows based on content`,async()=>{await s(()=>{let{height:e}=n.shadowRoot.querySelector(`#input`).getBoundingClientRect();o(e).toBeGreaterThan(40),o(e).toBeLessThan(66)})})}},u={render:()=>n`
         ${r}
         <cosmoz-textarea placeholder="Enter text..."></cosmoz-textarea>
-    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-textarea`);await t(`placeholder attribute is forwarded to inner textarea`,async()=>{let e=n.shadowRoot.querySelector(`textarea`);o(e.placeholder).toBe(`Enter text...`)})}},l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-textarea`);await t(`placeholder attribute is forwarded to inner textarea`,async()=>{let e=n.shadowRoot.querySelector(`textarea`);o(e.placeholder).toBe(`Enter text...`)})}},d=[`AutoGrow`,`Placeholder`],l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-textarea .value=\${'1\\n2\\n3'} .maxRows=\${2}></cosmoz-textarea>
@@ -42,4 +42,4 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       expect(textarea.placeholder).toBe('Enter text...');
     });
   }
-}`,...u.parameters?.docs?.source}}},d=[`AutoGrow`,`Placeholder`]}))();export{l as AutoGrow,u as Placeholder,d as __namedExportsOrder,c as default};
+}`,...u.parameters?.docs?.source}}}}))();export{l as AutoGrow,u as Placeholder,d as __namedExportsOrder,c as default};

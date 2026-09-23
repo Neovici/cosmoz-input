@@ -1,11 +1,11 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-CJTB0Edv.js";import{n as r,t as i}from"./style-DGyL6mgw.js";import{t as a}from"./cosmoz-toggle-D5LmMOsq.js";var o,s,c,l,u,d,f;e((()=>{t(),a(),i(),{expect:o,fn:s,waitFor:c}=__STORYBOOK_MODULE_TEST__,l={title:`Tests/Toggle`},u={render:()=>n`
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-DpTKHftT.js";import{n as r,t as i}from"./style-BInQwVMl.js";import{t as a}from"./cosmoz-toggle-BnIGOieF.js";var o,s,c,l,u,d,f;e((()=>{t(),a(),i(),{expect:o,fn:s,waitFor:c}=__STORYBOOK_MODULE_TEST__,l={title:`Tests/Toggle`},u={render:()=>n`
         ${r}
         <cosmoz-toggle .label=${`Is active`}></cosmoz-toggle>
     `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-toggle`),r=n.shadowRoot.querySelector(`input`);await t(`clicking toggle dispatches change with detail: true`,async()=>{let e=s();n.addEventListener(`change`,e,{once:!0}),r.click(),await c(()=>{o(e).toHaveBeenCalledTimes(1),o(e.mock.calls[0][0].detail).toBe(!0)})}),await t(`clicking again dispatches change with detail: false`,async()=>{let e=s();n.addEventListener(`change`,e,{once:!0}),r.click(),await c(()=>{o(e).toHaveBeenCalledTimes(1),o(e.mock.calls[0][0].detail).toBe(!1)})})}},d={render:()=>n`
         ${r}
         <cosmoz-toggle id="with-label" .label=${`Is active`}></cosmoz-toggle>
         <cosmoz-toggle id="no-label"></cosmoz-toggle>
-    `,play:async({canvasElement:e,step:t})=>{await t(`label is rendered when set`,async()=>{let t=e.querySelector(`#with-label`).shadowRoot.querySelector(`label`);o(t).not.toBeNull(),o(t.textContent).toBe(`Is active`)}),await t(`label is not rendered when absent`,async()=>{let t=e.querySelector(`#no-label`).shadowRoot.querySelector(`label`);o(t).toBeNull()})}},u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`{
+    `,play:async({canvasElement:e,step:t})=>{await t(`label is rendered when set`,async()=>{let t=e.querySelector(`#with-label`).shadowRoot.querySelector(`label`);o(t).not.toBeNull(),o(t.textContent).toBe(`Is active`)}),await t(`label is not rendered when absent`,async()=>{let t=e.querySelector(`#no-label`).shadowRoot.querySelector(`label`);o(t).toBeNull()})}},f=[`Change`,`Label`],u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-toggle .label=\${'Is active'}></cosmoz-toggle>
@@ -61,4 +61,4 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       expect(label).toBeNull();
     });
   }
-}`,...d.parameters?.docs?.source}}},f=[`Change`,`Label`]}))();export{u as Change,d as Label,f as __namedExportsOrder,l as default};
+}`,...d.parameters?.docs?.source}}}}))();export{u as Change,d as Label,f as __namedExportsOrder,l as default};

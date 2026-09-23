@@ -1,4 +1,4 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-CJTB0Edv.js";import{n as r,t as i}from"./style-DGyL6mgw.js";import{t as a}from"./cosmoz-toggle-D5LmMOsq.js";var o,s,c,l,u,d,f;e((()=>{t(),a(),i(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Components/Toggle`,component:`cosmoz-toggle`,tags:[`autodocs`]},l={render:()=>n`
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-DpTKHftT.js";import{n as r,t as i}from"./style-BInQwVMl.js";import{t as a}from"./cosmoz-toggle-BnIGOieF.js";var o,s,c,l,u,d,f;e((()=>{t(),a(),i(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Components/Toggle`,component:`cosmoz-toggle`,tags:[`autodocs`]},l={render:()=>n`
         ${r}
         <cosmoz-toggle .label=${`Is active`} .value=${!0}></cosmoz-toggle>
     `,play:async({canvas:e,step:t})=>{await t(`Renders checkbox element`,async()=>{await e.findByShadowRole(`checkbox`)})}},u={render:()=>n`
@@ -10,7 +10,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
             .label=${`Is active`}
             .error=${`Something went wrong`}
         ></cosmoz-toggle>
-    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-toggle`);await t(`error message is rendered`,async()=>{await s(()=>{let e=n.shadowRoot.querySelector(`.failure`);o(e).not.toBeNull(),o(e.textContent).toBe(`Something went wrong`)})})}},l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-toggle`);await t(`error message is rendered`,async()=>{await s(()=>{let e=n.shadowRoot.querySelector(`.failure`);o(e).not.toBeNull(),o(e.textContent).toBe(`Something went wrong`)})})}},f=[`Basic`,`Disabled`,`Error`],l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-toggle .label=\${'Is active'} .value=\${true}></cosmoz-toggle>
@@ -59,4 +59,4 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       });
     });
   }
-}`,...d.parameters?.docs?.source}}},f=[`Basic`,`Disabled`,`Error`]}))();export{l as Basic,u as Disabled,d as Error,f as __namedExportsOrder,c as default};
+}`,...d.parameters?.docs?.source}}}}))();export{l as Basic,u as Disabled,d as Error,f as __namedExportsOrder,c as default};

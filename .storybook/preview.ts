@@ -21,11 +21,8 @@ export default definePreview({
 		(story, context) => {
 			const isDark = context.globals?.theme === 'dark';
 
-			if (isDark) {
-				document.documentElement.classList.add('dark-mode');
-			} else {
-				document.documentElement.classList.remove('dark-mode');
-			}
+			document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+			document.documentElement.classList.toggle('dark-mode', isDark);
 
 			return html`<div class="story-root">${story()}</div>`;
 		},

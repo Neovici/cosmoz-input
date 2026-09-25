@@ -23,12 +23,19 @@ export const styles = css`
 
 	:host([disabled]) .wrap {
 		color: var(--cz-color-text-disabled);
-		opacity: 0.5;
+		background: var(--cz-color-bg-disabled-subtle);
+		box-shadow: inset 0 0 0 1px var(--cz-color-border-disabled);
 		cursor: not-allowed;
 	}
 
 	:host([disabled]) #input {
+		color: var(--cz-color-text-disabled);
 		cursor: not-allowed;
+	}
+
+	:host([readonly]) .wrap {
+		background: var(--cz-color-bg-secondary);
+		box-shadow: inset 0 0 0 1px var(--cz-color-border-secondary);
 	}
 
 	:host([invalid]) {
@@ -48,23 +55,36 @@ export const styles = css`
 		position: relative;
 		width: 100%;
 		border-radius: var(--cz-radius-md);
-		box-shadow: inset 0 0 0 1px var(--cz-color-border-primary);
+		background: var(--cz-color-bg-primary);
+		box-shadow:
+			inset 0 0 0 1px var(--cz-color-border-primary),
+			var(--cz-shadow-xs);
 		overflow: hidden;
 		transition-duration: 0.1s;
 		transition-timing-function: linear;
 		transition-property: box-shadow, background;
 	}
 
+	:host(:not([disabled], [readonly], [invalid], [variant='inline']))
+		.wrap:hover {
+		box-shadow:
+			inset 0 0 0 1px
+				light-dark(var(--cz-color-gray-400), var(--cz-color-gray-600)),
+			var(--cz-shadow-xs);
+	}
+
 	.wrap:has(#input:focus) {
-		box-shadow: var(--cz-focus-ring);
+		box-shadow: var(--cz-focus-ring), var(--cz-shadow-xs);
 	}
 
 	:host([invalid]) .wrap {
-		box-shadow: inset 0 0 0 1px var(--cz-color-border-error);
+		box-shadow:
+			inset 0 0 0 1px var(--cz-color-border-error),
+			var(--cz-shadow-xs);
 	}
 
 	:host([invalid]) .wrap:has(#input:focus) {
-		box-shadow: var(--cz-focus-ring-error);
+		box-shadow: var(--cz-focus-ring-error), var(--cz-shadow-xs);
 	}
 
 	.control {
@@ -95,6 +115,12 @@ export const styles = css`
 		color: var(--cz-color-text-placeholder);
 	}
 
+	/* Paint over the browser's autofill background, which can't be overridden. */
+	#input:autofill {
+		box-shadow: inset 0 0 0 100vmax var(--cz-color-bg-primary);
+		-webkit-text-fill-color: var(--cz-color-text-primary);
+	}
+
 	#input::-webkit-inner-spin-button {
 		z-index: 1;
 	}
@@ -104,6 +130,7 @@ export const styles = css`
 	label {
 		position: relative;
 		font-size: var(--cz-text-sm);
+		font-weight: var(--cz-font-weight-medium);
 		color: var(--cz-color-text-secondary);
 	}
 
@@ -166,6 +193,7 @@ export const styles = css`
 
 	:host([variant='inline']) .wrap {
 		border-radius: 0;
+		background: transparent;
 		box-shadow: none;
 		padding-inline: 0;
 	}
@@ -185,6 +213,7 @@ export const styles = css`
 	}
 	:host([variant='inline']) label {
 		position: absolute;
+		font-weight: var(--cz-font-weight-regular);
 		top: 25%;
 		left: 0;
 		width: 100%;
@@ -222,6 +251,7 @@ export const styles = css`
 	:host([variant='cell']) .wrap:has(#input) {
 		border: 0.5px solid var(--cz-color-bg-quaternary);
 		border-radius: 0;
+		background: transparent;
 		box-shadow: none;
 	}
 

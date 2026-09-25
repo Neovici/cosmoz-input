@@ -12,19 +12,43 @@ export interface Render {
 	invalid?: boolean;
 	errorMessage?: string;
 	hint?: string;
+	/** Help text that is read with the field but not shown. */
+	description?: string;
 	compact?: boolean;
 	required?: boolean;
 }
 
-export const render = <T>(
-		control: T,
-		{ hint, label, invalid, errorMessage, compact, required }: Render,
-	) => html`
-		<!-- label: hidden in compact mode -->
+const showsError = ({ invalid, errorMessage }: Render) =>
+	!!(invalid && errorMessage);
+
+/**
+ * ARIA state for the native control. `aria-invalid` follows the visible error,
+ * which the form shows only once it's useful, so it is never announced early.
+ */
+export const ariaAttributes = (props: Render) => {
+	const error = showsError(props),
+		ids = [
+			error ? 'error' : props.hint && !props.invalid && 'hint',
+			props.description && 'description',
+		].filter(Boolean);
+	return {
+		invalid: props.invalid ? 'true' : undefined,
+		describedBy: ids.length ? ids.join(' ') : undefined,
+	};
+};
+
+export const render = <T>(control: T, props: Render) => {
+	const { hint, label, errorMessage, description, compact, required, invalid } =
+			props,
+		error = showsError(props),
+		hidden = compact ? 'visually-hidden' : '';
+
+	return html`
+		<!-- label: visually hidden in compact mode so the field keeps its name -->
 		${when(
-			!compact && label,
+			label,
 			() =>
-				html`<label for="input" part="label"
+				html`<label for="input" part="label" class=${hidden}
 					>${label}
 					${when(required, () => html`<span class="required">*</span>`)}
 				</label>`,
@@ -37,7 +61,7 @@ export const render = <T>(
 			</div>
 			<!-- compact: tooltip always visible, red icon when invalid -->
 			${when(
-				compact && invalid && errorMessage,
+				compact && error,
 				() =>
 					html`<cosmoz-tooltip
 						placement="top"
@@ -50,15 +74,34 @@ export const render = <T>(
 
 			<slot name="suffix"></slot>
 		</div>
-		<!-- hint: visible when valid, hidden when invalid or compact -->
+		<!-- hint: hidden while invalid, when the error takes its place -->
 		${when(
-			!compact && hint && !invalid,
-			() => html`<span class="hint" part="hint">${hint}</span>`,
+			hint && !invalid,
+			() =>
+				html`<span id="hint" class="hint ${hidden}" part="hint">${hint}</span>`,
 		)}
-		<!-- error: replaces hint when invalid, hidden in compact -->
 		${when(
-			!compact && invalid && errorMessage,
-			() => html`<span class="error" part="error">${errorMessage}</span>`,
+			error,
+			() =>
+				html`<span id="error" class="error ${hidden}" part="error"
+					>${errorMessage}</span
+				>`,
 		)}
-	`,
-	attributes = ['autocomplete', 'readonly', 'disabled', 'maxlength', 'invalid'];
+		${when(
+			description,
+			() =>
+				html`<span id="description" class="visually-hidden"
+					>${description}</span
+				>`,
+		)}
+	`;
+};
+
+export const attributes = [
+	'autocomplete',
+	'readonly',
+	'disabled',
+	'maxlength',
+	'invalid',
+	'description',
+];

@@ -14,7 +14,7 @@ export const styles = css`
 	}
 
 	:host(:not([compact])) {
-		margin-bottom: calc(var(--cz-spacing) * 6);
+		margin-bottom: calc(var(--cz-spacing) * 3);
 	}
 
 	:host(:focus-within) {
@@ -112,14 +112,10 @@ export const styles = css`
 	.hint {
 		font-size: var(--cz-text-xs);
 		color: var(--cz-color-text-tertiary);
-		position: absolute;
-		bottom: calc(var(--cz-spacing) * -6);
 	}
 
 	.error {
 		font-size: var(--cz-text-xs);
-		position: absolute;
-		bottom: calc(var(--cz-spacing) * -6);
 	}
 
 	/* === Tooltip (fluid error indicator) === */
@@ -244,6 +240,7 @@ export const styles = css`
 	}
 
 	:host([variant='cell']) .error {
+		position: absolute;
 		left: calc(var(--cz-spacing) * 3);
 		bottom: 50%;
 		transform: translateY(50%);

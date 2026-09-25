@@ -99,6 +99,29 @@ export const styles = css`
 		z-index: 1;
 	}
 
+	/*
+	 * The default variant sizes its first line to the md control height, so it
+	 * lines up with a md cosmoz-button. Coarse pointers keep 16px text so iOS
+	 * Safari doesn't zoom on focus.
+	 */
+	:host(:not([variant])) {
+		--control-height: var(--cz-control-height-md);
+		font-size: var(--cz-text-sm);
+		line-height: var(--cz-text-sm-line-height);
+	}
+
+	:host(:not([variant])) #input {
+		padding-block: calc((var(--control-height) - 1lh) / 2);
+	}
+
+	@media (pointer: coarse) {
+		:host(:not([variant])) {
+			--control-height: var(--cz-control-height-xl);
+			font-size: var(--cz-text-base);
+			line-height: var(--cz-text-base-line-height);
+		}
+	}
+
 	/* === Label === */
 
 	label {

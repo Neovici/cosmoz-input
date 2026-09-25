@@ -99,6 +99,32 @@ export const styles = css`
 		z-index: 1;
 	}
 
+	/*
+	 * Default variant matches the 32px cosmoz-button height. Coarse pointers
+	 * keep 16px text so iOS Safari doesn't zoom on focus.
+	 */
+	:host(:not([variant])) {
+		font-size: var(--cz-text-sm);
+		line-height: var(--cz-text-sm-line-height);
+	}
+
+	:host(:not([variant])) #input {
+		line-height: 1.25rem;
+		padding-block: calc(var(--cz-spacing) * 1.5);
+	}
+
+	@media (pointer: coarse) {
+		:host(:not([variant])) {
+			font-size: var(--cz-text-base);
+			line-height: var(--cz-text-base-line-height);
+		}
+
+		:host(:not([variant])) #input {
+			line-height: inherit;
+			padding-block: calc(var(--cz-spacing) * 2);
+		}
+	}
+
 	/* === Label === */
 
 	label {

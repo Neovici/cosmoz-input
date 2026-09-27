@@ -65,14 +65,6 @@ export const styles = css`
 		transition-property: box-shadow, background;
 	}
 
-	:host(:not([disabled], [readonly], [invalid], [variant='inline']))
-		.wrap:hover {
-		box-shadow:
-			inset 0 0 0 1px
-				light-dark(var(--cz-color-gray-400), var(--cz-color-gray-600)),
-			var(--cz-shadow-xs);
-	}
-
 	.wrap:has(#input:focus) {
 		box-shadow: var(--cz-focus-ring), var(--cz-shadow-xs);
 	}

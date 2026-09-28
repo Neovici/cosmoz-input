@@ -173,6 +173,7 @@ export const styles = css`
 	}
 
 	:host([variant='inline']) .wrap {
+		background: transparent;
 		border-radius: 0;
 		box-shadow: none;
 		padding-inline: 0;

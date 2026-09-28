@@ -257,3 +257,24 @@ export const LabelClickThrough: Story = {
 		});
 	},
 };
+
+export const InlineMaterial: Story = {
+	render: () =>
+		html`${style}<cosmoz-input
+				variant="inline"
+				label="Supplier"
+				style="--cz-control-background: linear-gradient(white, transparent) navy"
+			></cosmoz-input>`,
+	play: async ({ canvasElement }) => {
+		const el = canvasElement.querySelector('cosmoz-input')!;
+		const wrap = el.shadowRoot!.querySelector('.wrap')!;
+		await waitFor(() => {
+			expect(getComputedStyle(wrap).backgroundImage).toBe('none');
+			expect(getComputedStyle(wrap).backgroundColor).toBe('rgba(0, 0, 0, 0)');
+		});
+		el.focus();
+		expect(el.shadowRoot!.activeElement).toBe(
+			el.shadowRoot!.querySelector('input'),
+		);
+	},
+};

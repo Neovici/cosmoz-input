@@ -4,7 +4,13 @@ import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { live } from 'lit-html/directives/live.js';
 import { ref } from 'lit-html/directives/ref.js';
 
-import { attributes, ObjectFromList, Render, render } from './render';
+import {
+	ariaAttributes,
+	attributes,
+	ObjectFromList,
+	Render,
+	render,
+} from './render';
 import { styles } from './styles';
 import { useAllowedPattern } from './use-allowed-pattern';
 import { BaseInput, useInput } from './use-input';
@@ -47,7 +53,8 @@ export const Input = (host: CosmozInput) => {
 			maxlength,
 			required,
 		} = host,
-		{ onChange, onFocus, onInput, onRef } = useInput(host);
+		{ onChange, onFocus, onInput, onRef } = useInput(host),
+		aria = ariaAttributes(host);
 	const onBeforeInput = useAllowedPattern(allowedPattern);
 
 	host.toggleAttribute('has-value', !!value);
@@ -65,6 +72,8 @@ export const Input = (host: CosmozInput) => {
 				placeholder=${getPlaceholder({ placeholder: host.placeholder })}
 				?readonly=${readonly}
 				aria-disabled=${disabled ? 'true' : 'false'}
+				aria-invalid=${ifDefined(aria.invalid)}
+				aria-describedby=${ifDefined(aria.describedBy)}
 				?disabled=${disabled}
 				?required=${required}
 				.value=${live(value ?? '')}

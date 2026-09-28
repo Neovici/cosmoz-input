@@ -4,7 +4,13 @@ import { live } from 'lit-html/directives/live.js';
 import { ref } from 'lit-html/directives/ref.js';
 
 import { component, sheet } from '@pionjs/pion';
-import { attributes, ObjectFromList, Render, render } from './render';
+import {
+	ariaAttributes,
+	attributes,
+	ObjectFromList,
+	Render,
+	render,
+} from './render';
 import { styles } from './styles';
 import { useAutoHeight } from './use-auto-height';
 import { BaseInput, useInput } from './use-input';
@@ -15,6 +21,7 @@ const observedAttributes = [
 	'label',
 	'hint',
 	'required',
+	'compact',
 	...attributes,
 ];
 
@@ -33,8 +40,10 @@ export const Textarea = (host: CosmozInput) => {
 			rows,
 			cols,
 			maxlength,
+			required,
 		} = host,
-		{ onChange, onFocus, onInput, onRef } = useInput(host);
+		{ onChange, onFocus, onInput, onRef } = useInput(host),
+		aria = ariaAttributes(host);
 
 	useAutoHeight(host);
 
@@ -45,7 +54,10 @@ export const Textarea = (host: CosmozInput) => {
 				autocomplete=${ifDefined(autocomplete)}
 				placeholder=${placeholder || ' '}
 				rows=${rows ?? 1} cols=${ifDefined(cols)}
-				?readonly=${readonly} ?aria-disabled=${disabled} ?disabled=${disabled}
+				?readonly=${readonly} ?required=${required} ?disabled=${disabled}
+				aria-disabled=${disabled ? 'true' : 'false'}
+				aria-invalid=${ifDefined(aria.invalid)}
+				aria-describedby=${ifDefined(aria.describedBy)}
 				.value=${live(value ?? '')} maxlength=${ifDefined(maxlength)} @input=${onInput}
 				@change=${onChange} @focus=${onFocus} @blur=${onFocus}>`,
 		host,

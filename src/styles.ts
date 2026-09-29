@@ -8,9 +8,19 @@ export const styles = css`
 		flex-direction: column;
 		gap: calc(var(--cz-spacing) * 1.5);
 		position: relative;
-		font-size: var(--cz-text-base);
-		line-height: var(--cz-text-base-line-height);
+		--control-height: var(--cz-control-height-md);
+		font-size: var(--cz-text-sm);
+		line-height: var(--cz-text-sm-line-height);
 		font-family: var(--cz-font-body);
+	}
+
+	/* 16px text keeps iOS Safari from zooming on focus. */
+	@media (pointer: coarse) {
+		:host {
+			--control-height: var(--cz-control-height-xl);
+			font-size: var(--cz-text-base);
+			line-height: var(--cz-text-base-line-height);
+		}
 	}
 
 	:host(:not([compact])) {
@@ -87,7 +97,7 @@ export const styles = css`
 		font-family: inherit;
 		resize: none;
 		color: var(--cz-color-text-primary);
-		padding-block: calc(var(--cz-spacing) * 2);
+		padding-block: calc((var(--control-height) - 1lh) / 2);
 		padding-inline: calc(var(--cz-spacing) * 3);
 	}
 
@@ -97,29 +107,6 @@ export const styles = css`
 
 	#input::-webkit-inner-spin-button {
 		z-index: 1;
-	}
-
-	/*
-	 * The default variant sizes its first line to the md control height, so it
-	 * lines up with a md cosmoz-button. Coarse pointers keep 16px text so iOS
-	 * Safari doesn't zoom on focus.
-	 */
-	:host(:not([variant])) {
-		--control-height: var(--cz-control-height-md);
-		font-size: var(--cz-text-sm);
-		line-height: var(--cz-text-sm-line-height);
-	}
-
-	:host(:not([variant])) #input {
-		padding-block: calc((var(--control-height) - 1lh) / 2);
-	}
-
-	@media (pointer: coarse) {
-		:host(:not([variant])) {
-			--control-height: var(--cz-control-height-xl);
-			font-size: var(--cz-text-base);
-			line-height: var(--cz-text-base-line-height);
-		}
 	}
 
 	/* === Label === */
@@ -173,6 +160,8 @@ export const styles = css`
 	/* === Variant: inline === */
 	:host([variant='inline']) {
 		margin-bottom: 0;
+		font-size: var(--cz-text-base);
+		line-height: var(--cz-text-base-line-height);
 	}
 
 	:host([variant='inline']) .wrap {
@@ -180,6 +169,7 @@ export const styles = css`
 	}
 
 	:host([variant='inline']) #input {
+		padding-block: calc(var(--cz-spacing) * 2);
 		padding-inline: 0;
 	}
 
@@ -260,6 +250,10 @@ export const styles = css`
 	:host([variant='cell'][invalid]) .wrap:has(#input:focus) {
 		background: var(--cz-color-bg-error);
 		border: 0.5px solid transparent;
+	}
+
+	:host([variant='cell']) #input {
+		padding-block: calc(var(--cz-spacing) * 2);
 	}
 
 	:host([variant='cell']) label {

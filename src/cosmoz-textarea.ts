@@ -14,6 +14,7 @@ const observedAttributes = [
 	'placeholder',
 	'label',
 	'hint',
+	'compact',
 	'required',
 	...attributes,
 ];

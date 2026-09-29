@@ -14,15 +14,6 @@ export const styles = css`
 		font-family: var(--cz-font-body);
 	}
 
-	/* 16px text keeps iOS Safari from zooming on focus. */
-	@media (pointer: coarse) {
-		:host {
-			--control-height: var(--cz-control-height-xl);
-			font-size: var(--cz-text-base);
-			line-height: var(--cz-text-base-line-height);
-		}
-	}
-
 	:host(:not([compact])) {
 		margin-bottom: calc(var(--cz-spacing) * 6);
 	}

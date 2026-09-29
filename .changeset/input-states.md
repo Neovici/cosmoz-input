@@ -12,4 +12,4 @@ Modern input states
   the focus ring
 - Labels use medium weight; the floating `inline` label stays regular
 - Autofilled inputs keep their own colors instead of the browser tint
-- `inline` and `cell` variants keep a transparent background
+- `inline` keeps a transparent background; `cell` gets the same `bg-primary` fill

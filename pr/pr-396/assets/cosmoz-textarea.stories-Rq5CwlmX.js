@@ -1,4 +1,4 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-D2DG2QpU.js";import{t as r}from"./cosmoz-textarea-DThL_LEU.js";var i,a,o,s;e((()=>{t(),r(),i={title:`Components/Textarea`,component:`cosmoz-textarea`,tags:[`autodocs`]},a={render:()=>n`
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-Dy6GMIN-.js";import{t as r}from"./cosmoz-textarea-Dh3DnsYZ.js";var i,a,o,s,c;e((()=>{t(),r(),i={title:`Components/Textarea`,component:`cosmoz-textarea`,tags:[`autodocs`]},a={render:()=>n`
         <cosmoz-textarea
             .label=${`Choose color`}
             .value=${`Red`}
@@ -14,7 +14,14 @@ Blue`}
             .errorMessage=${`Something is wrong!`}
             .maxRows=${2}
         ></cosmoz-textarea>
-    `},s=[`Basic`,`ErrorStory`],a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
+    `},s={render:()=>n`
+        <cosmoz-textarea
+            compact
+            .label=${`Choose color`}
+            .value=${`Red`}
+            hint=${`Hint text`}
+        ></cosmoz-textarea>
+    `},c=[`Basic`,`ErrorStory`,`Compact`],a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <cosmoz-textarea
             .label=\${'Choose color'}
@@ -41,4 +48,13 @@ Blue`}
             .maxRows=\${2}
         ></cosmoz-textarea>
     \`
-}`,...o.parameters?.docs?.source}}}}))();export{a as Basic,o as ErrorStory,s as __namedExportsOrder,i as default};
+}`,...o.parameters?.docs?.source}}},s.parameters={...s.parameters,docs:{...s.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        <cosmoz-textarea
+            compact
+            .label=\${'Choose color'}
+            .value=\${'Red'}
+            hint=\${'Hint text'}
+        ></cosmoz-textarea>
+    \`
+}`,...s.parameters?.docs?.source}}}}))();export{a as Basic,s as Compact,o as ErrorStory,c as __namedExportsOrder,i as default};

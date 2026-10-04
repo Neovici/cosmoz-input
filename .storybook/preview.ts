@@ -21,6 +21,9 @@ export default definePreview({
 		(story, context) => {
 			const isDark = context.globals?.theme === 'dark';
 
+			// tokens v4 resolves dark values through light-dark(), which
+			// follows color-scheme and ignores the dark-mode class
+			document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
 			if (isDark) {
 				document.documentElement.classList.add('dark-mode');
 			} else {

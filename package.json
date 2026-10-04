@@ -60,8 +60,8 @@
 	},
 	"dependencies": {
 		"@neovici/cosmoz-icons": "^1.6.0",
-		"@neovici/cosmoz-tokens": "^3.5.1",
-		"@neovici/cosmoz-tooltip": "^1.2.1",
+		"@neovici/cosmoz-tokens": "^4.8.0",
+		"@neovici/cosmoz-tooltip": "^1.4.0",
 		"@neovici/cosmoz-utils": "^6.0.0",
 		"@pionjs/pion": "^2.0.0",
 		"lit-html": "^2.0.0 || ^3.0.0"

@@ -1,5 +1,5 @@
 import { normalize } from '@neovici/cosmoz-tokens/normalize';
-import { component, css, html, useCallback } from '@pionjs/pion';
+import { component, css, html, useCallback, useProperty } from '@pionjs/pion';
 import { ref } from 'lit-html/directives/ref.js';
 
 export interface Option {
@@ -25,26 +25,8 @@ const normalizeOption = (option: string | Option): Option =>
  */
 const ToggleGroup = (host: ToggleGroupElement) => {
 	const options = (host.options ?? []).map(normalizeOption);
-	const value = host.value ?? options[0]?.value;
-	const set = useCallback(
-		(next: string) => {
-			const changed = new CustomEvent('value-changed', {
-				detail: { value: next },
-				cancelable: true,
-				bubbles: true,
-				composed: true,
-			});
-			host.dispatchEvent(changed);
-			if (changed.defaultPrevented) {
-				return;
-			}
-			host.dispatchEvent(
-				new CustomEvent('change', { detail: next, bubbles: true }),
-			);
-		},
-		// host only
-		[],
-	);
+	const [value, setValue] = useProperty<string>('value');
+	const set = useCallback((next: string) => setValue(next), [setValue]);
 
 	const onPick = useCallback(
 		(e: Event) => {
@@ -56,18 +38,14 @@ const ToggleGroup = (host: ToggleGroupElement) => {
 		[set],
 	);
 
-	const roleOf = useCallback((element: HTMLElement, i: number) => {
-		// radio group: aria-checked carries the state; an unselected
-		// radio stays in the tab order (radios report, they don't
-		// rove)
+	const stateOf = useCallback((element: HTMLElement) => {
+		// radio group: aria-checked carries the state; radios report,
+		// they do not rove
 		element.setAttribute('role', 'radio');
 		element.setAttribute(
 			'aria-checked',
 			element.getAttribute('data-selected') === 'true' ? 'true' : 'false',
 		);
-		if (i === 0) {
-			element.setAttribute('tabindex', '0');
-		}
 	}, []);
 
 	return html`<div
@@ -77,7 +55,7 @@ const ToggleGroup = (host: ToggleGroupElement) => {
 		aria-label=${host.label ?? ''}
 	>
 		${options.map(
-			(option, i) =>
+			(option) =>
 				html`<button
 					type="button"
 					role="radio"
@@ -88,7 +66,7 @@ const ToggleGroup = (host: ToggleGroupElement) => {
 					class=${option.value === value ? 'option selected' : 'option'}
 					part=${option.value === value ? 'option selected-option' : 'option'}
 					@click=${onPick}
-					${ref((el) => el && roleOf(el as HTMLElement, i))}
+					${ref((el) => el && stateOf(el as HTMLElement))}
 				>
 					${option.label ?? option.value}
 				</button>`,
@@ -118,6 +96,7 @@ const groupStyles = css`
 	}
 
 	.option {
+		height: var(--cz-control-height-sm);
 		padding: calc(var(--cz-spacing) * 2) calc(var(--cz-spacing) * 2.5);
 		border-radius: var(--cz-radius-sm);
 		border: 0;

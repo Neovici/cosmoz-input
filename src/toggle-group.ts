@@ -22,6 +22,12 @@ const normalizeOption = (option: string | Option): Option =>
  * A value picker rendered as a segmented control: value in, selection
  * out, radio semantics on the items - the input concerns of the tabs
  * family's segmented variant, standing on its own.
+ *
+ * The pick commits through pion's `useProperty`: the (uncontrolled)
+ * consumer gets the write and the `value-changed` notification for
+ * free; a controlled one takes the write over with pion's `lift`
+ * (`@value-changed=${lift(setMyValue)}`) - the veto is `preventDefault`,
+ * the detail carries `{ value, updater }`.
  */
 const ToggleGroup = (host: ToggleGroupElement) => {
 	const options = (host.options ?? []).map(normalizeOption);

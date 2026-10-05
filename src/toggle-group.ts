@@ -102,7 +102,6 @@ const groupStyles = css`
 	}
 
 	.option {
-		height: var(--cz-control-height-sm);
 		padding: calc(var(--cz-spacing) * 2) calc(var(--cz-spacing) * 2.5);
 		border-radius: var(--cz-radius-sm);
 		border: 0;

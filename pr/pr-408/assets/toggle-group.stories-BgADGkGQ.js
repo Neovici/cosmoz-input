@@ -1,4 +1,4 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-BeucNpTz.js";import{T as r,_ as i,n as a,p as o,t as s}from"./haunted-BxHdZOkg.js";import{i as c,n as l,r as u,t as d}from"./normalize.css-BQWkff6d.js";import{t as f}from"./style-CtXnK4cl.js";var p,m,h,g,_=e((()=>{d(),s(),u(),p=e=>typeof e==`string`?{value:e,label:e}:e,m=e=>{let t=(e.options??[]).map(p),[r,a]=o(`value`),s=i(e=>a(e),[a]),l=i(e=>{let t=e.currentTarget.getAttribute(`data-value`);t!=null&&s(t)},[s]),u=i(e=>{e.setAttribute(`role`,`radio`),e.setAttribute(`aria-checked`,e.getAttribute(`data-selected`)===`true`?`true`:`false`)},[]);return n`<div
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-DQ1HMx3j.js";import{T as r,_ as i,n as a,p as o,t as s}from"./haunted-BUcC5Su3.js";import{i as c,n as l,r as u,t as d}from"./normalize.css-NE396nE-.js";import{t as f}from"./style-CEqgCsh7.js";var p,m,h,g,_=e((()=>{d(),s(),u(),p=e=>typeof e==`string`?{value:e,label:e}:e,m=e=>{let t=(e.options??[]).map(p),[r,a]=o(`value`),s=i(e=>a(e),[a]),l=i(e=>{let t=e.currentTarget.getAttribute(`data-value`);t!=null&&s(t)},[s]),u=i(e=>{e.setAttribute(`role`,`radio`),e.setAttribute(`aria-checked`,e.getAttribute(`data-selected`)===`true`?`true`:`false`)},[]);return n`<div
 		class="group"
 		part="group"
 		role="radiogroup"
@@ -38,7 +38,6 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
 	}
 
 	.option {
-		height: var(--cz-control-height-sm);
 		padding: calc(var(--cz-spacing) * 2) calc(var(--cz-spacing) * 2.5);
 		border-radius: var(--cz-radius-sm);
 		border: 0;

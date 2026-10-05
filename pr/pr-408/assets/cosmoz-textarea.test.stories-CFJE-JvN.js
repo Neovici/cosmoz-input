@@ -1,4 +1,4 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-BeucNpTz.js";import{n as r,t as i}from"./style-CtXnK4cl.js";import{t as a}from"./cosmoz-textarea-CcW9mOuw.js";var o,s,c,l,u,d;e((()=>{t(),a(),i(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Tests/Textarea`},l={render:()=>n`
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-DQ1HMx3j.js";import{n as r,t as i}from"./style-CEqgCsh7.js";import{t as a}from"./cosmoz-textarea-C1OF6n3v.js";var o,s,c,l,u,d;e((()=>{t(),a(),i(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Tests/Textarea`},l={render:()=>n`
         ${r}
         <cosmoz-textarea .value=${`1
 2

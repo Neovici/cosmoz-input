@@ -16,6 +16,12 @@ type Story = StoryObj;
 
 const options = ['today', 'week', 'month'];
 
+const radio = (el: Element, position: number) =>
+	el.shadowRoot!.querySelectorAll('[part~=option]')[position] as HTMLElement;
+
+const selected = (el: Element) =>
+	el.shadowRoot!.querySelector('[part~=selected-option]') as HTMLElement;
+
 export const Basic: Story = {
 	render: () => html`
 		<link
@@ -44,13 +50,8 @@ export const Basic: Story = {
 			});
 		});
 		await step('the value reports aria-checked', async () => {
-			const week = el.shadowRoot!.querySelector('[data-value=week]')!;
-			expect(week.getAttribute('aria-checked')).toBe('true');
-			expect(
-				el
-					.shadowRoot!.querySelector('[data-value=today]')!
-					.getAttribute('aria-checked'),
-			).toBe('false');
+			expect(radio(el, 1).getAttribute('aria-checked')).toBe('true');
+			expect(radio(el, 0).getAttribute('aria-checked')).toBe('false');
 		});
 	},
 };
@@ -83,10 +84,8 @@ export const PerOptionDisabled: Story = {
 	play: async ({ canvasElement }) => {
 		const el = canvasElement.querySelector('cosmoz-toggle-group')!;
 		await waitFor(() => {
-			const b = el.shadowRoot!.querySelector('[data-value=b]') as
-				| HTMLButtonElement
-				| undefined;
-			expect(b?.disabled).toBe(true);
+			expect((radio(el, 1) as HTMLButtonElement).disabled).toBe(true);
+			expect((radio(el, 0) as HTMLButtonElement).disabled).toBe(false);
 		});
 	},
 };
@@ -109,39 +108,80 @@ export const VetoableSelection: Story = {
 		};
 		await step('preventDefault() keeps the current value', async () => {
 			el.addEventListener('value-changed', veto);
-			(
-				el.shadowRoot!.querySelector('[data-value=month]') as HTMLElement
-			).click();
+			radio(el, 2).click();
 			await new Promise((r) => setTimeout(r, 50));
 			vetoes = false;
-			expect(el.value).toBe('today');
-			expect(
-				el
-					.shadowRoot!.querySelector('[data-value=today]')!
-					.getAttribute('aria-checked'),
-			).toBe('true');
-			expect(
-				el
-					.shadowRoot!.querySelector('[data-value=month]')!
-					.getAttribute('aria-checked'),
-			).toBe('false');
+			expect(el.value as string).toBe('today');
+			expect(selected(el).textContent?.trim()).toBe('today');
+			expect(radio(el, 2).getAttribute('aria-checked')).toBe('false');
 		});
 		await step('a plain click commits', async () => {
 			// controlled component: the consumer writes the committed value
-			// back (attribute reflects; the container re-renders)
+			// back (property; the container re-renders)
 			el.addEventListener('change', (e) => {
-				el.setAttribute('value', (e as CustomEvent<string>).detail);
+				el.value = (e as CustomEvent<string>).detail;
 			});
-			(
-				el.shadowRoot!.querySelector('[data-value=month]') as HTMLElement
-			).click();
+			radio(el, 2).click();
 			await new Promise((r) => setTimeout(r, 50));
 			el.removeEventListener('change', () => undefined);
-			expect(
-				el
-					.shadowRoot!.querySelector('[data-value=month]')!
-					.getAttribute('aria-checked'),
-			).toBe('true');
+			expect(selected(el).textContent?.trim()).toBe('month');
+		});
+	},
+};
+
+export const Icons: Story = {
+	render: () => html`
+		<cosmoz-toggle-group
+			id="icon-group"
+			.options=${[
+				{ value: 'explorer', icon: () => html`◆`, title: 'Diagram' },
+				{ value: 'table', icon: () => html`▦`, label: 'Table' },
+			]}
+			.value=${'explorer'}
+		></cosmoz-toggle-group>
+	`,
+	play: async ({ canvasElement }) => {
+		const el = canvasElement.querySelector('#icon-group')!;
+		await waitFor(() => {
+			const explorer = radio(el, 0);
+			// the title renders as the attribute; the icon before the label
+			expect(explorer.getAttribute('title')).toBe('Diagram');
+			// a string option with no label names itself
+			expect(explorer.textContent?.trim()).toBe('◆explorer');
+			expect(radio(el, 1).textContent?.trim()).toBe('▦Table');
+		});
+	},
+};
+
+export const IdentitySelection: Story = {
+	render: () => html`
+		<cosmoz-toggle-group
+			id="identity-group"
+			.options=${[
+				{ value: { id: 1, label: 'One' }, label: (o) => o.label },
+				{ value: { id: 2, label: 'Two' }, label: (o) => o.label },
+			]}
+			.value=${{ id: 2, label: 'Two' }}
+			value-property="id"
+		></cosmoz-toggle-group>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const el = canvasElement.querySelector('#identity-group')!;
+
+		await step('marks the picked object', async () => {
+			await waitFor(() => {
+				expect(radio(el, 1).getAttribute('aria-checked')).toBe('true');
+			});
+		});
+
+		await step('the pick commits the object itself', async () => {
+			el.addEventListener('change', (e) => {
+				el.value = (e as CustomEvent).detail;
+			});
+			radio(el, 0).click();
+			// give the controlled loop a frame
+			await new Promise((r) => setTimeout(r, 50));
+			expect(el.value as { id: number }).toEqual({ id: 1, label: 'One' });
 		});
 	},
 };

@@ -1,4 +1,4 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}from"./iframe-CguIgzOG.js";import{i,n as a,r as o,t as s}from"./normalize.css-Bbkyvmly.js";import{T as c,_ as l,n as u,p as d,t as f}from"./haunted-BXrozG7o.js";import{t as p}from"./style-ZD92WyHh.js";var m,h,g=e((()=>{m=e=>e,h=(e,...t)=>typeof e==`function`?e(...t):e}));function _(e){return e?t=>typeof t==`object`&&t?t[e]:t:m}var v=e((()=>{g()})),y,b,x,S,C=e((()=>{s(),g(),v(),f(),t(),o(),y=e=>{let t=e=>e.label==null?typeof e.value==`string`?e.value:``:h(e.label,e.value),i=(e.options??[]).map(e=>typeof e==`object`&&e&&`value`in e?e:{value:e}),[a,o]=d(`value`),s=l(t=>_(e.valueProperty)(t),[e]),c=s(a),u=l(e=>o(e.value),[o]);return r`<div
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}from"./iframe-p6ISZ_7s.js";import{i,n as a,r as o,t as s}from"./normalize.css-D327Zgr6.js";import{T as c,_ as l,n as u,p as d,t as f}from"./haunted-Dr5DfWpB.js";import{t as p}from"./style-DAEc2hr6.js";var m,h,g=e((()=>{m=e=>e,h=(e,...t)=>typeof e==`function`?e(...t):e}));function _(e){return e?t=>typeof t==`object`&&t?t[e]:t:m}var v=e((()=>{g()})),y,b,x,S,C=e((()=>{s(),g(),v(),f(),t(),o(),y=e=>{let t=e=>e.label==null?typeof e.value==`string`?e.value:``:h(e.label,e.value),i=(e.options??[]).map(e=>typeof e==`object`&&e&&`value`in e?e:{value:e}),[a,o]=d(`value`),s=l(t=>_(e.valueProperty)(t),[e]),c=s(a),u=l(e=>o(e.value),[o]);return r`<div
 		class="group"
 		part="group"
 		role="radiogroup"
@@ -77,17 +77,6 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
 		?disabled=${e.disabled}
 		@value-changed=${e.onValueChanged}
 	></cosmoz-toggle-group>`})),w,T,E,D,O,k,A,j,M,N,P,F,I,L;e((()=>{t(),C(),p(),{expect:w,waitFor:T}=__STORYBOOK_MODULE_TEST__,E={title:`Components/Toggle group`,component:`cosmoz-toggle-group`,tags:[`autodocs`]},D=[`today`,`week`,`month`],O=(e,t)=>e.shadowRoot.querySelectorAll(`[part~=option]`)[t],k=e=>e.shadowRoot.querySelector(`[part~=selected-option]`),A={render:()=>r`
-        <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-        />
-        <style>
-            :host {
-                font-family: 'Inter', sans-serif;
-                color: var(--cz-color-text-primary);
-                background: var(--cz-color-bg-primary);
-            }
-        </style>
         <cosmoz-toggle-group
             .options=${D}
             .value=${`week`}
@@ -110,32 +99,21 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
             .options=${D}
             .value=${`today`}
         ></cosmoz-toggle-group>
-    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`#veto-group`),r=!0,i=e=>{r&&e.preventDefault()};await t(`preventDefault() keeps the current value`,async()=>{n.addEventListener(`value-changed`,i),O(n,2).click(),await new Promise(e=>setTimeout(e,50)),r=!1,w(n.value).toBe(`today`),w(k(n).textContent?.trim()).toBe(`today`),w(O(n,2).getAttribute(`aria-checked`)).toBe(`false`)}),await t(`a plain click commits`,async()=>{n.addEventListener(`change`,e=>{n.value=e.detail}),O(n,2).click(),await new Promise(e=>setTimeout(e,50)),n.removeEventListener(`change`,()=>void 0),w(k(n).textContent?.trim()).toBe(`month`)})}},P={render:()=>r`
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`#veto-group`),r=!0,i=e=>{r&&e.preventDefault()};await t(`preventDefault() keeps the current value`,async()=>{n.addEventListener(`value-changed`,i),O(n,2).click(),r=!1,await T(()=>{w(n.value).toBe(`today`),w(k(n).textContent?.trim()).toBe(`today`),w(O(n,2).getAttribute(`aria-checked`)).toBe(`false`)})}),await t(`a plain click commits`,async()=>{n.addEventListener(`change`,e=>{n.value=e.detail}),O(n,2).click(),await T(()=>w(k(n).textContent?.trim()).toBe(`month`))})}},P={render:()=>r`
         <cosmoz-toggle-group
             id="icon-group"
             .options=${[{value:`explorer`,icon:()=>r`◆`,title:`Diagram`},{value:`table`,icon:()=>r`▦`,label:`Table`}]}
             .value=${`explorer`}
         ></cosmoz-toggle-group>
-    `,play:async({canvasElement:e})=>{let t=e.querySelector(`#icon-group`);await T(()=>{let e=O(t,0);w(e.getAttribute(`title`)).toBe(`Diagram`),w(e.textContent?.trim()).toBe(`◆explorer`),w(O(t,1).textContent?.trim()).toBe(`▦Table`)})}},F={render:()=>{let e={id:1,label:`One`};return r`${S({options:[{value:e,label:e=>e.label},{value:{id:2,label:`Two`},label:e=>e.label}],value:e,valueProperty:`id`,label:`Helper`,onValueChanged:e=>e.detail.value})}`},play:async({canvasElement:e})=>{let t=e.querySelector(`cosmoz-toggle-group`);await T(()=>{w(t.shadowRoot.querySelector(`[part~=selected-option]`).textContent).toContain(`One`)})}},I={render:()=>r`
+    `,play:async({canvasElement:e})=>{let t=e.querySelector(`#icon-group`);await T(()=>{let e=O(t,0);w(e.getAttribute(`title`)).toBe(`Diagram`),w(e.textContent?.trim()).toBe(`◆explorer`),w(O(t,1).textContent?.trim()).toBe(`▦Table`)})}},F={render:()=>{let e={id:1,label:`One`};return r`${S({options:[{value:e,label:({label:e})=>e},{value:{id:2,label:`Two`},label:({label:e})=>e}],value:e,valueProperty:`id`,label:`Helper`,onValueChanged:e=>e.detail.value})}`},play:async({canvasElement:e})=>{let t=e.querySelector(`cosmoz-toggle-group`);await T(()=>{w(t.shadowRoot.querySelector(`[part~=selected-option]`).textContent).toContain(`One`)})}},I={render:()=>r`
         <cosmoz-toggle-group
             id="identity-group"
-            .options=${[{value:{id:1,label:`One`},label:e=>e.label},{value:{id:2,label:`Two`},label:e=>e.label}]}
+            .options=${[{value:{id:1,label:`One`},label:({label:e})=>e},{value:{id:2,label:`Two`},label:({label:e})=>e}]}
             .value=${{id:2,label:`Two`}}
             value-property="id"
         ></cosmoz-toggle-group>
-    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`#identity-group`);await t(`marks the picked object`,async()=>{await T(()=>{w(O(n,1).getAttribute(`aria-checked`)).toBe(`true`)})}),await t(`the pick commits the object itself`,async()=>{n.addEventListener(`change`,e=>{n.value=e.detail}),O(n,0).click(),await new Promise(e=>setTimeout(e,50)),w(n.value).toEqual({id:1,label:`One`})})}},A.parameters={...A.parameters,docs:{...A.parameters?.docs,source:{originalSource:`{
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`#identity-group`);await t(`marks the picked object`,async()=>{await T(()=>{w(O(n,1).getAttribute(`aria-checked`)).toBe(`true`)})}),await t(`the pick commits the object itself`,async()=>{n.addEventListener(`change`,e=>{n.value=e.detail}),O(n,0).click(),await T(()=>w(n.value).toEqual({id:1,label:`One`}))})}},A.parameters={...A.parameters,docs:{...A.parameters?.docs,source:{originalSource:`{
   render: () => html\`
-        <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-        />
-        <style>
-            :host {
-                font-family: 'Inter', sans-serif;
-                color: var(--cz-color-text-primary);
-                background: var(--cz-color-bg-primary);
-            }
-        </style>
         <cosmoz-toggle-group
             .options=\${options}
             .value=\${'week'}
@@ -215,22 +193,20 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
     await step('preventDefault() keeps the current value', async () => {
       el.addEventListener('value-changed', veto);
       radio(el, 2).click();
-      await new Promise(r => setTimeout(r, 50));
       vetoes = false;
-      expect(el.value as string).toBe('today');
-      expect(selected(el).textContent?.trim()).toBe('today');
-      expect(radio(el, 2).getAttribute('aria-checked')).toBe('false');
+      await waitFor(() => {
+        expect(el.value as string).toBe('today');
+        expect(selected(el).textContent?.trim()).toBe('today');
+        expect(radio(el, 2).getAttribute('aria-checked')).toBe('false');
+      });
     });
     await step('a plain click commits', async () => {
-      // controlled component: the consumer writes the committed value
-      // back (property; the container re-renders)
+      // controlled: the consumer writes the committed value back
       el.addEventListener('change', e => {
         el.value = (e as CustomEvent<string>).detail;
       });
       radio(el, 2).click();
-      await new Promise(r => setTimeout(r, 50));
-      el.removeEventListener('change', () => undefined);
-      expect(selected(el).textContent?.trim()).toBe('month');
+      await waitFor(() => expect(selected(el).textContent?.trim()).toBe('month'));
     });
   }
 }`,...N.parameters?.docs?.source}}},P.parameters={...P.parameters,docs:{...P.parameters?.docs,source:{originalSource:`{
@@ -255,9 +231,8 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
     const el = canvasElement.querySelector('#icon-group')!;
     await waitFor(() => {
       const explorer = radio(el, 0);
-      // the title renders as the attribute; the icon before the label
-      expect(explorer.getAttribute('title')).toBe('Diagram');
       // a string option with no label names itself
+      expect(explorer.getAttribute('title')).toBe('Diagram');
       expect(explorer.textContent?.trim()).toBe('◆explorer');
       expect(radio(el, 1).textContent?.trim()).toBe('▦Table');
     });
@@ -272,13 +247,17 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
     return html\`\${toggleGroup({
       options: [{
         value: picked,
-        label: o => o.label
+        label: ({
+          label
+        }) => label
       }, {
         value: {
           id: 2,
           label: 'Two'
         },
-        label: o => o.label
+        label: ({
+          label
+        }) => label
       }],
       value: picked,
       valueProperty: 'id',
@@ -303,13 +282,17 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
       id: 1,
       label: 'One'
     },
-    label: o => o.label
+    label: ({
+      label
+    }) => label
   }, {
     value: {
       id: 2,
       label: 'Two'
     },
-    label: o => o.label
+    label: ({
+      label
+    }) => label
   }]}
             .value=\${{
     id: 2,
@@ -333,14 +316,12 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
         el.value = (e as CustomEvent).detail;
       });
       radio(el, 0).click();
-      // give the controlled loop a frame
-      await new Promise(r => setTimeout(r, 50));
-      expect(el.value as {
+      await waitFor(() => expect(el.value as {
         id: number;
       }).toEqual({
         id: 1,
         label: 'One'
-      });
+      }));
     });
   }
 }`,...I.parameters?.docs?.source}}},L=[`Basic`,`Disabled`,`PerOptionDisabled`,`VetoableSelection`,`Icons`,`TypedHelper`,`IdentitySelection`]}))();export{A as Basic,j as Disabled,P as Icons,I as IdentitySelection,M as PerOptionDisabled,F as TypedHelper,N as VetoableSelection,L as __namedExportsOrder,E as default};

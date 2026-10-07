@@ -1,0 +1,9 @@
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-BmBIxSlv.js";import{a as r,i,o as a,r as o}from"./normalize.css-84GDCOFj.js";import{n as s,t as c}from"./live-BQzM3QaI.js";import{a as l,i as u,n as d,o as f,r as p,s as m,t as h}from"./use-input-BE0lUAtm.js";import{D as g,n as _,t as v,x as y,y as b}from"./haunted-CJdjVnF3.js";var x,S,C,w=e((()=>{v(),x=e=>{e.style.height=``,e.style.height=`${e.scrollHeight}px`},S=(e,t=0)=>{if(t>0){let n=e.getAttribute(`rows`)??``,r=e.style.height;e.style.height=``,e.setAttribute(`rows`,t),e.style.maxHeight=e.getBoundingClientRect().height+`px`,e.style.height=r,e.setAttribute(`rows`,n)}},C=e=>{let{value:t,maxRows:n}=e,r=b(()=>()=>e.shadowRoot.querySelector(`#input`),[]);y(()=>S(r(),n),[n,r]),y(()=>x(r()),[r,t]),y(()=>{let e=r(),t=new ResizeObserver(()=>requestAnimationFrame(()=>x(e)));return t.observe(e),()=>t.unobserve(e)},[r])}})),T,E,D=e((()=>{t(),r(),c(),o(),v(),f(),p(),w(),h(),T=[`rows`,`placeholder`,`label`,`hint`,`required`,...l],E=e=>{let{autocomplete:t,value:r,placeholder:o,readonly:c,disabled:l,rows:u,cols:f,maxlength:p}=e,{onChange:h,onFocus:g,onInput:_,onRef:v}=d(e);return C(e),m(n`
+			<textarea id="input" part="input"
+				${i(v)}
+				autocomplete=${a(t)}
+				placeholder=${o||` `}
+				rows=${u??1} cols=${a(f)}
+				?readonly=${c} ?aria-disabled=${l} ?disabled=${l}
+				.value=${s(r??``)} maxlength=${a(p)} @input=${_}
+				@change=${h} @focus=${g} @blur=${g}>`,e)},customElements.define(`cosmoz-textarea`,_(E,{observedAttributes:T,styleSheets:[g(u)],shadowRootInit:{mode:`open`,delegatesFocus:!0}}))}));export{D as t};

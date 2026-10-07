@@ -1,27 +1,27 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}from"./iframe-Bqe-YerU.js";import{T as i,_ as a,n as o,p as s,t as c}from"./haunted-CXlXhvbI.js";import{i as l,n as u,r as d,t as f}from"./normalize.css-C-bMRyc3.js";import{t as p}from"./style-DJfBcuzf.js";var m,h=e((()=>{m=e=>e}));function g(e){return e?t=>typeof t==`object`&&t?t[e]:t:m}var _=e((()=>{h()})),v,y,b,x=e((()=>{f(),_(),c(),t(),d(),v=e=>{let t=e=>typeof e.label==`function`?e.label(e.value):typeof e.value==`string`&&e.label==null?e.value:e.label??``,i=(e.options??[]).map(e=>typeof e==`object`&&e&&`value`in e?e:{value:e}),[o,c]=s(`value`),u=a(t=>g(e.valueProperty)(t),[e]),d=u(o),f=a(e=>{c(e.value)},[c]),p=a(e=>{e.setAttribute(`role`,`radio`)},[]);return r`<div
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}from"./iframe-BmBIxSlv.js";import{a as i,i as a,n as o,o as s,r as c,t as l}from"./normalize.css-84GDCOFj.js";import{T as u,_ as d,n as f,p,t as m}from"./haunted-CJdjVnF3.js";import{t as h}from"./style-Ddw6Wg2P.js";var g,_=e((()=>{g=e=>e}));function v(e){return e?t=>typeof t==`object`&&t?t[e]:t:g}var y=e((()=>{_()})),b,x,S,C,w=e((()=>{l(),y(),m(),t(),i(),c(),b=e=>{let t=e=>typeof e.label==`function`?e.label(e.value):typeof e.value==`string`&&e.label==null?e.value:e.label??``,i=(e.options??[]).map(e=>typeof e==`object`&&e&&`value`in e?e:{value:e}),[o,s]=p(`value`),c=d(t=>v(e.valueProperty)(t),[e]),l=c(o),u=d(e=>{s(e.value)},[s]),f=d(e=>{e.setAttribute(`role`,`radio`)},[]);return r`<div
 		class="group"
 		part="group"
 		role="radiogroup"
 		aria-label=${e.label??``}
 	>
-		${i.map(i=>{let a=d===u(i.value),o=t(i);return r`<button
+		${i.map(i=>{let o=l===c(i.value),s=t(i);return r`<button
 				type="button"
 				role="radio"
-				aria-checked=${a?`true`:`false`}
+				aria-checked=${o?`true`:`false`}
 				?disabled=${i.disabled||e.disabled}
 				title=${i.title??n}
-				part=${a?`option selected-option`:`option`}
-				class=${a?`option selected`:`option`}
-				@click=${()=>f(i)}
-				${l(e=>e&&p(e))}
+				part=${o?`option selected-option`:`option`}
+				class=${o?`option selected`:`option`}
+				@click=${()=>u(i)}
+				${a(e=>e&&f(e))}
 			>
-				${i.icon?.({width:`16`,height:`16`})}${o}
+				${i.icon?.({width:`16`,height:`16`})}${s}
 			</button>`})}
-	</div>`},y=i`
+	</div>`},x=u`
 	:host {
 		display: inline-flex;
 	}
-`,b=i`
+`,S=u`
 	.group {
 		display: flex;
 		align-items: stretch;
@@ -65,7 +65,15 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
 		opacity: 0.5;
 		cursor: not-allowed;
 	}
-`,customElements.define(`cosmoz-toggle-group`,o(v,{styleSheets:[u,y,b],observedAttributes:[`value`,`label`,`disabled`,`value-property`]}))})),S,C,w,T,E,D,O,k,A,j,M,N,P;e((()=>{t(),x(),p(),{expect:S,waitFor:C}=__STORYBOOK_MODULE_TEST__,w={title:`Components/Toggle group`,component:`cosmoz-toggle-group`,tags:[`autodocs`]},T=[`today`,`week`,`month`],E=(e,t)=>e.shadowRoot.querySelectorAll(`[part~=option]`)[t],D=e=>e.shadowRoot.querySelector(`[part~=selected-option]`),O={render:()=>r`
+`,customElements.define(`cosmoz-toggle-group`,f(b,{styleSheets:[o,x,S],observedAttributes:[`value`,`label`,`disabled`,`value-property`]})),C=e=>r`<cosmoz-toggle-group
+		class=${s(e.class)}
+		.options=${e.options}
+		.value=${e.value}
+		value-property=${s(e.valueProperty)}
+		.label=${s(e.label)}
+		?disabled=${e.disabled}
+		@value-changed=${e.onValueChanged}
+	></cosmoz-toggle-group>`})),T,E,D,O,k,A,j,M,N,P,F,I,L,R;e((()=>{t(),w(),h(),{expect:T,waitFor:E}=__STORYBOOK_MODULE_TEST__,D={title:`Components/Toggle group`,component:`cosmoz-toggle-group`,tags:[`autodocs`]},O=[`today`,`week`,`month`],k=(e,t)=>e.shadowRoot.querySelectorAll(`[part~=option]`)[t],A=e=>e.shadowRoot.querySelector(`[part~=selected-option]`),j={render:()=>r`
         <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
@@ -78,41 +86,41 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
             }
         </style>
         <cosmoz-toggle-group
-            .options=${T}
+            .options=${O}
             .value=${`week`}
             .label=${`Range`}
         ></cosmoz-toggle-group>
-    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-toggle-group`);await t(`renders radiogroup with radio options`,async()=>{await C(()=>{S(n.shadowRoot.querySelector(`[role=radiogroup]`)).toBeTruthy(),S(n.shadowRoot.querySelectorAll(`[role=radio]`).length).toBe(3)})}),await t(`the value reports aria-checked`,async()=>{S(E(n,1).getAttribute(`aria-checked`)).toBe(`true`),S(E(n,0).getAttribute(`aria-checked`)).toBe(`false`)})}},k={render:()=>r`
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-toggle-group`);await t(`renders radiogroup with radio options`,async()=>{await E(()=>{T(n.shadowRoot.querySelector(`[role=radiogroup]`)).toBeTruthy(),T(n.shadowRoot.querySelectorAll(`[role=radio]`).length).toBe(3)})}),await t(`the value reports aria-checked`,async()=>{T(k(n,1).getAttribute(`aria-checked`)).toBe(`true`),T(k(n,0).getAttribute(`aria-checked`)).toBe(`false`)})}},M={render:()=>r`
         <cosmoz-toggle-group
-            .options=${T}
+            .options=${O}
             .value=${`today`}
             disabled
         ></cosmoz-toggle-group>
-    `,play:async({canvasElement:e})=>{let t=e.querySelector(`cosmoz-toggle-group`);await C(()=>{t.shadowRoot.querySelectorAll(`[role=radio]`).forEach(e=>S(e.disabled).toBe(!0))})}},A={render:()=>r`
+    `,play:async({canvasElement:e})=>{let t=e.querySelector(`cosmoz-toggle-group`);await E(()=>{t.shadowRoot.querySelectorAll(`[role=radio]`).forEach(e=>T(e.disabled).toBe(!0))})}},N={render:()=>r`
         <cosmoz-toggle-group
             .options=${[`a`,{value:`b`,disabled:!0},`c`]}
             .value=${`a`}
         ></cosmoz-toggle-group>
-    `,play:async({canvasElement:e})=>{let t=e.querySelector(`cosmoz-toggle-group`);await C(()=>{S(E(t,1).disabled).toBe(!0),S(E(t,0).disabled).toBe(!1)})}},j={render:()=>r`
+    `,play:async({canvasElement:e})=>{let t=e.querySelector(`cosmoz-toggle-group`);await E(()=>{T(k(t,1).disabled).toBe(!0),T(k(t,0).disabled).toBe(!1)})}},P={render:()=>r`
         <cosmoz-toggle-group
             id="veto-group"
-            .options=${T}
+            .options=${O}
             .value=${`today`}
         ></cosmoz-toggle-group>
-    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`#veto-group`),r=!0,i=e=>{r&&e.preventDefault()};await t(`preventDefault() keeps the current value`,async()=>{n.addEventListener(`value-changed`,i),E(n,2).click(),await new Promise(e=>setTimeout(e,50)),r=!1,S(n.value).toBe(`today`),S(D(n).textContent?.trim()).toBe(`today`),S(E(n,2).getAttribute(`aria-checked`)).toBe(`false`)}),await t(`a plain click commits`,async()=>{n.addEventListener(`change`,e=>{n.value=e.detail}),E(n,2).click(),await new Promise(e=>setTimeout(e,50)),n.removeEventListener(`change`,()=>void 0),S(D(n).textContent?.trim()).toBe(`month`)})}},M={render:()=>r`
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`#veto-group`),r=!0,i=e=>{r&&e.preventDefault()};await t(`preventDefault() keeps the current value`,async()=>{n.addEventListener(`value-changed`,i),k(n,2).click(),await new Promise(e=>setTimeout(e,50)),r=!1,T(n.value).toBe(`today`),T(A(n).textContent?.trim()).toBe(`today`),T(k(n,2).getAttribute(`aria-checked`)).toBe(`false`)}),await t(`a plain click commits`,async()=>{n.addEventListener(`change`,e=>{n.value=e.detail}),k(n,2).click(),await new Promise(e=>setTimeout(e,50)),n.removeEventListener(`change`,()=>void 0),T(A(n).textContent?.trim()).toBe(`month`)})}},F={render:()=>r`
         <cosmoz-toggle-group
             id="icon-group"
             .options=${[{value:`explorer`,icon:()=>r`◆`,title:`Diagram`},{value:`table`,icon:()=>r`▦`,label:`Table`}]}
             .value=${`explorer`}
         ></cosmoz-toggle-group>
-    `,play:async({canvasElement:e})=>{let t=e.querySelector(`#icon-group`);await C(()=>{let e=E(t,0);S(e.getAttribute(`title`)).toBe(`Diagram`),S(e.textContent?.trim()).toBe(`◆explorer`),S(E(t,1).textContent?.trim()).toBe(`▦Table`)})}},N={render:()=>r`
+    `,play:async({canvasElement:e})=>{let t=e.querySelector(`#icon-group`);await E(()=>{let e=k(t,0);T(e.getAttribute(`title`)).toBe(`Diagram`),T(e.textContent?.trim()).toBe(`◆explorer`),T(k(t,1).textContent?.trim()).toBe(`▦Table`)})}},I={render:()=>{let e={id:1,label:`One`};return r`${C({options:[{value:e,label:e=>e.label},{value:{id:2,label:`Two`},label:e=>e.label}],value:e,valueProperty:`id`,label:`Helper`,onValueChanged:e=>e.detail.value})}`},play:async({canvasElement:e})=>{let t=e.querySelector(`cosmoz-toggle-group`);await E(()=>{T(t.shadowRoot.querySelector(`[part~=selected-option]`).textContent).toContain(`One`)})}},L={render:()=>r`
         <cosmoz-toggle-group
             id="identity-group"
             .options=${[{value:{id:1,label:`One`},label:e=>e.label},{value:{id:2,label:`Two`},label:e=>e.label}]}
             .value=${{id:2,label:`Two`}}
             value-property="id"
         ></cosmoz-toggle-group>
-    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`#identity-group`);await t(`marks the picked object`,async()=>{await C(()=>{S(E(n,1).getAttribute(`aria-checked`)).toBe(`true`)})}),await t(`the pick commits the object itself`,async()=>{n.addEventListener(`change`,e=>{n.value=e.detail}),E(n,0).click(),await new Promise(e=>setTimeout(e,50)),S(n.value).toEqual({id:1,label:`One`})})}},O.parameters={...O.parameters,docs:{...O.parameters?.docs,source:{originalSource:`{
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`#identity-group`);await t(`marks the picked object`,async()=>{await E(()=>{T(k(n,1).getAttribute(`aria-checked`)).toBe(`true`)})}),await t(`the pick commits the object itself`,async()=>{n.addEventListener(`change`,e=>{n.value=e.detail}),k(n,0).click(),await new Promise(e=>setTimeout(e,50)),T(n.value).toEqual({id:1,label:`One`})})}},j.parameters={...j.parameters,docs:{...j.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <link
             rel="stylesheet"
@@ -147,7 +155,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
       expect(radio(el, 0).getAttribute('aria-checked')).toBe('false');
     });
   }
-}`,...O.parameters?.docs?.source}}},k.parameters={...k.parameters,docs:{...k.parameters?.docs,source:{originalSource:`{
+}`,...j.parameters?.docs?.source}}},M.parameters={...M.parameters,docs:{...M.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <cosmoz-toggle-group
             .options=\${options}
@@ -163,7 +171,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
       el.shadowRoot!.querySelectorAll('[role=radio]').forEach(radio => expect((radio as HTMLButtonElement).disabled).toBe(true));
     });
   }
-}`,...k.parameters?.docs?.source}}},A.parameters={...A.parameters,docs:{...A.parameters?.docs,source:{originalSource:`{
+}`,...M.parameters?.docs?.source}}},N.parameters={...N.parameters,docs:{...N.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <cosmoz-toggle-group
             .options=\${['a', {
@@ -182,7 +190,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
       expect((radio(el, 0) as HTMLButtonElement).disabled).toBe(false);
     });
   }
-}`,...A.parameters?.docs?.source}}},j.parameters={...j.parameters,docs:{...j.parameters?.docs,source:{originalSource:`{
+}`,...N.parameters?.docs?.source}}},P.parameters={...P.parameters,docs:{...P.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <cosmoz-toggle-group
             id="veto-group"
@@ -222,7 +230,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
       expect(selected(el).textContent?.trim()).toBe('month');
     });
   }
-}`,...j.parameters?.docs?.source}}},M.parameters={...M.parameters,docs:{...M.parameters?.docs,source:{originalSource:`{
+}`,...P.parameters?.docs?.source}}},F.parameters={...F.parameters,docs:{...F.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <cosmoz-toggle-group
             id="icon-group"
@@ -251,7 +259,39 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
       expect(radio(el, 1).textContent?.trim()).toBe('▦Table');
     });
   }
-}`,...M.parameters?.docs?.source}}},N.parameters={...N.parameters,docs:{...N.parameters?.docs,source:{originalSource:`{
+}`,...F.parameters?.docs?.source}}},I.parameters={...I.parameters,docs:{...I.parameters?.docs,source:{originalSource:`{
+  render: () => {
+    // the helper is typed: the pick flows as the option element
+    const picked = {
+      id: 1,
+      label: 'One'
+    };
+    return html\`\${toggleGroup({
+      options: [{
+        value: picked,
+        label: o => o.label
+      }, {
+        value: {
+          id: 2,
+          label: 'Two'
+        },
+        label: o => o.label
+      }],
+      value: picked,
+      valueProperty: 'id',
+      label: 'Helper',
+      onValueChanged: event => event.detail.value
+    })}\`;
+  },
+  play: async ({
+    canvasElement
+  }) => {
+    const el = canvasElement.querySelector('cosmoz-toggle-group')!;
+    await waitFor(() => {
+      expect(el.shadowRoot!.querySelector('[part~=selected-option]')!.textContent).toContain('One');
+    });
+  }
+}`,...I.parameters?.docs?.source}}},L.parameters={...L.parameters,docs:{...L.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <cosmoz-toggle-group
             id="identity-group"
@@ -300,4 +340,4 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
       });
     });
   }
-}`,...N.parameters?.docs?.source}}},P=[`Basic`,`Disabled`,`PerOptionDisabled`,`VetoableSelection`,`Icons`,`IdentitySelection`]}))();export{O as Basic,k as Disabled,M as Icons,N as IdentitySelection,A as PerOptionDisabled,j as VetoableSelection,P as __namedExportsOrder,w as default};
+}`,...L.parameters?.docs?.source}}},R=[`Basic`,`Disabled`,`PerOptionDisabled`,`VetoableSelection`,`Icons`,`TypedHelper`,`IdentitySelection`]}))();export{j as Basic,M as Disabled,F as Icons,L as IdentitySelection,N as PerOptionDisabled,I as TypedHelper,P as VetoableSelection,R as __namedExportsOrder,D as default};

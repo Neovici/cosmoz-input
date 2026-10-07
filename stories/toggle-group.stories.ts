@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { expect, waitFor } from 'storybook/test';
-import '../src/toggle-group';
+import { toggleGroup } from '../src/toggle-group';
 import './style';
 
 const meta: Meta = {
@@ -24,17 +24,6 @@ const selected = (el: Element) =>
 
 export const Basic: Story = {
 	render: () => html`
-		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-		/>
-		<style>
-			:host {
-				font-family: 'Inter', sans-serif;
-				color: var(--cz-color-text-primary);
-				background: var(--cz-color-bg-primary);
-			}
-		</style>
 		<cosmoz-toggle-group
 			.options=${options}
 			.value=${'week'}
@@ -109,22 +98,22 @@ export const VetoableSelection: Story = {
 		await step('preventDefault() keeps the current value', async () => {
 			el.addEventListener('value-changed', veto);
 			radio(el, 2).click();
-			await new Promise((r) => setTimeout(r, 50));
 			vetoes = false;
-			expect(el.value as string).toBe('today');
-			expect(selected(el).textContent?.trim()).toBe('today');
-			expect(radio(el, 2).getAttribute('aria-checked')).toBe('false');
+			await waitFor(() => {
+				expect(el.value as string).toBe('today');
+				expect(selected(el).textContent?.trim()).toBe('today');
+				expect(radio(el, 2).getAttribute('aria-checked')).toBe('false');
+			});
 		});
 		await step('a plain click commits', async () => {
-			// controlled component: the consumer writes the committed value
-			// back (property; the container re-renders)
+			// controlled: the consumer writes the committed value back
 			el.addEventListener('change', (e) => {
 				el.value = (e as CustomEvent<string>).detail;
 			});
 			radio(el, 2).click();
-			await new Promise((r) => setTimeout(r, 50));
-			el.removeEventListener('change', () => undefined);
-			expect(selected(el).textContent?.trim()).toBe('month');
+			await waitFor(() =>
+				expect(selected(el).textContent?.trim()).toBe('month'),
+			);
 		});
 	},
 };
@@ -144,11 +133,35 @@ export const Icons: Story = {
 		const el = canvasElement.querySelector('#icon-group')!;
 		await waitFor(() => {
 			const explorer = radio(el, 0);
-			// the title renders as the attribute; the icon before the label
-			expect(explorer.getAttribute('title')).toBe('Diagram');
 			// a string option with no label names itself
+			expect(explorer.getAttribute('title')).toBe('Diagram');
 			expect(explorer.textContent?.trim()).toBe('◆explorer');
 			expect(radio(el, 1).textContent?.trim()).toBe('▦Table');
+		});
+	},
+};
+
+export const TypedHelper: Story = {
+	render: () => {
+		// the helper is typed: the pick flows as the option element
+		const picked = { id: 1, label: 'One' };
+		return html`${toggleGroup({
+			options: [
+				{ value: picked, label: ({ label }) => label },
+				{ value: { id: 2, label: 'Two' }, label: ({ label }) => label },
+			],
+			value: picked,
+			valueProperty: 'id',
+			label: 'Helper',
+			onValueChanged: (event) => event.detail.value,
+		})}`;
+	},
+	play: async ({ canvasElement }) => {
+		const el = canvasElement.querySelector('cosmoz-toggle-group')!;
+		await waitFor(() => {
+			expect(
+				el.shadowRoot!.querySelector('[part~=selected-option]')!.textContent,
+			).toContain('One');
 		});
 	},
 };
@@ -158,8 +171,8 @@ export const IdentitySelection: Story = {
 		<cosmoz-toggle-group
 			id="identity-group"
 			.options=${[
-				{ value: { id: 1, label: 'One' }, label: (o) => o.label },
-				{ value: { id: 2, label: 'Two' }, label: (o) => o.label },
+				{ value: { id: 1, label: 'One' }, label: ({ label }) => label },
+				{ value: { id: 2, label: 'Two' }, label: ({ label }) => label },
 			]}
 			.value=${{ id: 2, label: 'Two' }}
 			value-property="id"
@@ -179,9 +192,9 @@ export const IdentitySelection: Story = {
 				el.value = (e as CustomEvent).detail;
 			});
 			radio(el, 0).click();
-			// give the controlled loop a frame
-			await new Promise((r) => setTimeout(r, 50));
-			expect(el.value as { id: number }).toEqual({ id: 1, label: 'One' });
+			await waitFor(() =>
+				expect(el.value as { id: number }).toEqual({ id: 1, label: 'One' }),
+			);
 		});
 	},
 };

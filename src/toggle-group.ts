@@ -1,15 +1,18 @@
 import { normalize } from '@neovici/cosmoz-tokens/normalize';
+import { invoke } from '@neovici/cosmoz-utils/function';
 import { prop } from '@neovici/cosmoz-utils/object';
 import { component, css, html, useCallback, useProperty } from '@pionjs/pion';
 import { nothing, type TemplateResult } from 'lit-html';
-import { ref } from 'lit-html/directives/ref.js';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 export interface Option<I> {
 	value: I;
+	/** invoked with the item */
 	label?: string | ((item: I) => string);
-	/** icon factory, called with sizing options (cosmoz-icons style) */
+	/** icon factory, cosmoz-icons style */
 	icon?: (opts?: { width?: string; height?: string }) => TemplateResult;
-	title?: string;
+	/** invoked with the item */
+	title?: string | ((item: I) => string);
 	disabled?: boolean;
 }
 
@@ -23,24 +26,15 @@ export interface ToggleGroupElement<I = unknown> extends HTMLElement {
 }
 
 /**
- * A value picker rendered as a segmented control: the selection is the
- * element in the options array, like cosmoz-autocomplete's items.
- *
- * The pick commits through pion's `useProperty`: the (uncontrolled)
- * consumer gets the write and the `value-changed` notification for
- * free; a controlled one takes the write over with pion's `lift`
- * (`@value-changed=${lift(setMyValue)}`) - the veto is `preventDefault`,
- * the detail carries `{ value, updater }`.
+ * A segmented value picker: the selection is the element in the
+ * options array, like cosmoz-autocomplete's items. The pick commits
+ * via pion's `useProperty` — uncontrolled consumers get the write and
+ * `value-changed` for free; controlled ones take it over with `lift`.
  */
 const ToggleGroup = <I>(host: ToggleGroupElement<I>) => {
 	const labelOf = (option: Option<I>) => {
-		if (typeof option.label === 'function') {
-			return option.label(option.value);
-		}
-		// plain strings name themselves; objects need a label
-		return typeof option.value === 'string' && option.label == null
-			? option.value
-			: ((option.label as string) ?? '');
+		if (option.label != null) return invoke(option.label, option.value);
+		return typeof option.value === 'string' ? option.value : '';
 	};
 	const options = (host.options ?? []).map((option) =>
 		typeof option === 'object' &&
@@ -50,8 +44,8 @@ const ToggleGroup = <I>(host: ToggleGroupElement<I>) => {
 			: ({ value: option as I } as Option<I>),
 	);
 	const [value, setValue] = useProperty<I>('value');
-	// selection compares by the valueProperty key when set (rebuilt
-	// option arrays still match), by identity otherwise
+	// compare by the valueProperty key when set (rebuilt arrays still
+	// match), by identity otherwise
 	const keyOf = useCallback(
 		(item: I) => prop(host.valueProperty)(item),
 		[host],
@@ -59,17 +53,9 @@ const ToggleGroup = <I>(host: ToggleGroupElement<I>) => {
 	const key = keyOf(value as I);
 
 	const onPick = useCallback(
-		(option: Option<I>) => {
-			setValue(option.value);
-		},
+		(option: Option<I>) => setValue(option.value),
 		[setValue],
 	);
-
-	const stateOf = useCallback((element: HTMLElement) => {
-		// radio group: aria-checked carries the state; radios report,
-		// they do not rove
-		element.setAttribute('role', 'radio');
-	}, []);
 
 	return html`<div
 		class="group"
@@ -85,11 +71,12 @@ const ToggleGroup = <I>(host: ToggleGroupElement<I>) => {
 				role="radio"
 				aria-checked=${selected ? 'true' : 'false'}
 				?disabled=${option.disabled || host.disabled}
-				title=${option.title ?? nothing}
+				title=${option.title != null
+					? invoke(option.title, option.value)
+					: nothing}
 				part=${selected ? 'option selected-option' : 'option'}
 				class=${selected ? 'option selected' : 'option'}
 				@click=${() => onPick(option)}
-				${ref((el) => el && stateOf(el as HTMLElement))}
 			>
 				${option.icon?.({ width: '16', height: '16' })}${text}
 			</button>`;
@@ -143,6 +130,11 @@ const groupStyles = css`
 		box-shadow: var(--cz-shadow-sm);
 	}
 
+	.option:focus-visible {
+		box-shadow: var(--cz-focus-ring);
+		color: var(--cz-color-text-secondary);
+	}
+
 	.option:disabled {
 		opacity: 0.5;
 		cursor: not-allowed;
@@ -153,6 +145,27 @@ customElements.define(
 	'cosmoz-toggle-group',
 	component(ToggleGroup, {
 		styleSheets: [normalize, style, groupStyles],
-		observedAttributes: ['value', 'label', 'disabled', 'value-property'],
+		observedAttributes: ['label', 'disabled', 'value-property'],
 	}),
 );
+
+export type ToggleGroupProps<I> = {
+	options: (I | Option<I>)[];
+	value?: I;
+	valueProperty?: string;
+	label?: string;
+	disabled?: boolean;
+	/** receives the whole `value-changed` event (detail = { value, updater }) */
+	onValueChanged?: (event: CustomEvent<{ value: I }>) => void;
+};
+
+/** Typed helper: the element, with props; `detail` carries the picked element. */
+export const toggleGroup = <I>(props: ToggleGroupProps<I>) =>
+	html`<cosmoz-toggle-group
+		.options=${props.options}
+		.value=${props.value}
+		value-property=${ifDefined(props.valueProperty)}
+		.label=${ifDefined(props.label)}
+		?disabled=${props.disabled}
+		@value-changed=${props.onValueChanged}
+	></cosmoz-toggle-group>`;

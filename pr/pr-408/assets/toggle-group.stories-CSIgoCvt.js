@@ -1,4 +1,4 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}from"./iframe-CjVNyCZl.js";import{T as i,_ as a,n as o,p as s,t as c}from"./haunted-BSkg3LSO.js";import{i as l,n as u,r as d,t as f}from"./normalize.css-BihRZTyK.js";import{t as p}from"./style-BUe9GIO4.js";var m,h=e((()=>{m=e=>e}));function g(e){return e?t=>typeof t==`object`&&t?t[e]:t:m}var _=e((()=>{h()})),v,y,b,x=e((()=>{f(),_(),c(),t(),d(),v=e=>{let t=e=>typeof e.label==`function`?e.label(e.value):typeof e.value==`string`&&e.label==null?e.value:e.label??``,i=(e.options??[]).map(e=>typeof e==`object`&&e&&`value`in e?e:{value:e}),[o,c]=s(`value`),u=a(t=>g(e.valueProperty)(t),[e]),d=u(o),f=a(e=>{c(e.value)},[c]),p=a(e=>{e.setAttribute(`role`,`radio`)},[]);return r`<div
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}from"./iframe-Bqe-YerU.js";import{T as i,_ as a,n as o,p as s,t as c}from"./haunted-CXlXhvbI.js";import{i as l,n as u,r as d,t as f}from"./normalize.css-C-bMRyc3.js";import{t as p}from"./style-DJfBcuzf.js";var m,h=e((()=>{m=e=>e}));function g(e){return e?t=>typeof t==`object`&&t?t[e]:t:m}var _=e((()=>{h()})),v,y,b,x=e((()=>{f(),_(),c(),t(),d(),v=e=>{let t=e=>typeof e.label==`function`?e.label(e.value):typeof e.value==`string`&&e.label==null?e.value:e.label??``,i=(e.options??[]).map(e=>typeof e==`object`&&e&&`value`in e?e:{value:e}),[o,c]=s(`value`),u=a(t=>g(e.valueProperty)(t),[e]),d=u(o),f=a(e=>{c(e.value)},[c]),p=a(e=>{e.setAttribute(`role`,`radio`)},[]);return r`<div
 		class="group"
 		part="group"
 		role="radiogroup"
@@ -15,7 +15,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
 				@click=${()=>f(i)}
 				${l(e=>e&&p(e))}
 			>
-				${i.icon}${o}
+				${i.icon?.({width:`16`,height:`16`})}${o}
 			</button>`})}
 	</div>`},y=i`
 	:host {
@@ -102,7 +102,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
     `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`#veto-group`),r=!0,i=e=>{r&&e.preventDefault()};await t(`preventDefault() keeps the current value`,async()=>{n.addEventListener(`value-changed`,i),E(n,2).click(),await new Promise(e=>setTimeout(e,50)),r=!1,S(n.value).toBe(`today`),S(D(n).textContent?.trim()).toBe(`today`),S(E(n,2).getAttribute(`aria-checked`)).toBe(`false`)}),await t(`a plain click commits`,async()=>{n.addEventListener(`change`,e=>{n.value=e.detail}),E(n,2).click(),await new Promise(e=>setTimeout(e,50)),n.removeEventListener(`change`,()=>void 0),S(D(n).textContent?.trim()).toBe(`month`)})}},M={render:()=>r`
         <cosmoz-toggle-group
             id="icon-group"
-            .options=${[{value:`explorer`,icon:r`◆`,title:`Diagram`},{value:`table`,icon:r`▦`,label:`Table`}]}
+            .options=${[{value:`explorer`,icon:()=>r`◆`,title:`Diagram`},{value:`table`,icon:()=>r`▦`,label:`Table`}]}
             .value=${`explorer`}
         ></cosmoz-toggle-group>
     `,play:async({canvasElement:e})=>{let t=e.querySelector(`#icon-group`);await C(()=>{let e=E(t,0);S(e.getAttribute(`title`)).toBe(`Diagram`),S(e.textContent?.trim()).toBe(`◆explorer`),S(E(t,1).textContent?.trim()).toBe(`▦Table`)})}},N={render:()=>r`
@@ -228,11 +228,11 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
             id="icon-group"
             .options=\${[{
     value: 'explorer',
-    icon: html\`◆\`,
+    icon: () => html\`◆\`,
     title: 'Diagram'
   }, {
     value: 'table',
-    icon: html\`▦\`,
+    icon: () => html\`▦\`,
     label: 'Table'
   }]}
             .value=\${'explorer'}

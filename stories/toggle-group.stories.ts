@@ -42,6 +42,11 @@ export const Basic: Story = {
 			expect(radio(el, 1).getAttribute('aria-checked')).toBe('true');
 			expect(radio(el, 0).getAttribute('aria-checked')).toBe('false');
 		});
+		await step('the selected option is the one tab stop', async () => {
+			expect(radio(el, 1).getAttribute('tabindex')).toBe('0');
+			expect(radio(el, 0).getAttribute('tabindex')).toBe('-1');
+			expect(radio(el, 2).getAttribute('tabindex')).toBe('-1');
+		});
 	},
 };
 
@@ -143,7 +148,6 @@ export const Icons: Story = {
 
 export const TypedHelper: Story = {
 	render: () => {
-		// the helper is typed: the pick flows as the option element
 		const picked = { id: 1, label: 'One' };
 		return html`${toggleGroup({
 			options: [

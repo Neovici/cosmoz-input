@@ -33,7 +33,8 @@
 		"storybook:build": "storybook build",
 		"storybook:deploy": "storybook-to-ghpages",
 		"storybook:preview": "npm run storybook:build && http-server ./storybook-static/ --silent",
-		"changeset": "changeset"
+		"changeset": "changeset",
+		"test:wtr": "wtr"
 	},
 	"publishConfig": {
 		"access": "public"
@@ -72,14 +73,18 @@
 		"@commitlint/config-conventional": "^21.0.1",
 		"@neovici/cfg": "^2.14.0",
 		"@neovici/testing": "^2.3.0",
+		"@open-wc/testing": "^5.0.0",
 		"@playwright/test": "1.62.1",
 		"@storybook/addon-a11y": "^10.4.6",
 		"@storybook/addon-docs": "^10.0.0",
 		"@storybook/addon-vitest": "^10.2.4",
 		"@storybook/web-components-vite": "^10.2.4",
+		"@types/mocha": "^10.0.10",
 		"@types/node": "^26.1.2",
 		"@vitest/browser": "^4.0.18",
 		"@vitest/browser-playwright": "^4.0.18",
+		"@web/test-runner": "^1.0.0",
+		"@web/test-runner-commands": "^1.0.1",
 		"http-server": "^14.1.1",
 		"husky": "^9.1.7",
 		"jsdom": "^30.0.1",

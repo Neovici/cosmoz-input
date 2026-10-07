@@ -1,8 +1,9 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}from"./iframe-p6ISZ_7s.js";import{i,n as a,r as o,t as s}from"./normalize.css-D327Zgr6.js";import{T as c,_ as l,n as u,p as d,t as f}from"./haunted-Dr5DfWpB.js";import{t as p}from"./style-DAEc2hr6.js";var m,h,g=e((()=>{m=e=>e,h=(e,...t)=>typeof e==`function`?e(...t):e}));function _(e){return e?t=>typeof t==`object`&&t?t[e]:t:m}var v=e((()=>{g()})),y,b,x,S,C=e((()=>{s(),g(),v(),f(),t(),o(),y=e=>{let t=e=>e.label==null?typeof e.value==`string`?e.value:``:h(e.label,e.value),i=(e.options??[]).map(e=>typeof e==`object`&&e&&`value`in e?e:{value:e}),[a,o]=d(`value`),s=l(t=>_(e.valueProperty)(t),[e]),c=s(a),u=l(e=>o(e.value),[o]);return r`<div
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}from"./iframe-Bl7lJD8I.js";import{i,n as a,r as o,t as s}from"./normalize.css-BVjjgcps.js";import{T as c,_ as l,n as u,p as d,t as f}from"./haunted-CGHC-Fsj.js";import{t as p}from"./style-CJnOJI3V.js";var m,h,g=e((()=>{m=e=>e,h=(e,...t)=>typeof e==`function`?e(...t):e}));function _(e){return e?t=>typeof t==`object`&&t?t[e]:t:m}var v=e((()=>{g()})),y,b,x,S,C=e((()=>{s(),g(),v(),f(),t(),o(),y=e=>{let t=e=>e.label==null?typeof e.value==`string`?e.value:``:h(e.label,e.value),i=(e.options??[]).map(e=>typeof e==`object`&&e&&`value`in e?e:{value:e}),[a,o]=d(`value`),s=l(t=>_(e.valueProperty)(t),[e]),c=s(a),u=l(e=>o(e.value),[o]);return r`<div
 		class="group"
 		part="group"
 		role="radiogroup"
 		aria-label=${e.label??``}
+		@keydown=${e=>{if(e.key!==`ArrowRight`&&e.key!==`ArrowLeft`)return;e.preventDefault();let t=i.map(e=>s(e.value)),n=t.findIndex(e=>e===c);if(n===-1)return;let r=e.key===`ArrowRight`?1:-1,a=i[(n+r+t.length)%t.length];o(a.value),e.currentTarget.children[(n+r+t.length)%t.length]?.focus()}}
 	>
 		${i.map(i=>{let a=c===s(i.value),o=t(i);return r`<button
 				type="button"
@@ -13,6 +14,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
 				part=${a?`option selected-option`:`option`}
 				class=${a?`option selected`:`option`}
 				@click=${()=>u(i)}
+				tabindex=${a?`0`:`-1`}
 			>
 				${i.icon?.({width:`16`,height:`16`})}${o}
 			</button>`})}
@@ -82,7 +84,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
             .value=${`week`}
             .label=${`Range`}
         ></cosmoz-toggle-group>
-    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-toggle-group`);await t(`renders radiogroup with radio options`,async()=>{await T(()=>{w(n.shadowRoot.querySelector(`[role=radiogroup]`)).toBeTruthy(),w(n.shadowRoot.querySelectorAll(`[role=radio]`).length).toBe(3)})}),await t(`the value reports aria-checked`,async()=>{w(O(n,1).getAttribute(`aria-checked`)).toBe(`true`),w(O(n,0).getAttribute(`aria-checked`)).toBe(`false`)})}},j={render:()=>r`
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-toggle-group`);await t(`renders radiogroup with radio options`,async()=>{await T(()=>{w(n.shadowRoot.querySelector(`[role=radiogroup]`)).toBeTruthy(),w(n.shadowRoot.querySelectorAll(`[role=radio]`).length).toBe(3)})}),await t(`the value reports aria-checked`,async()=>{w(O(n,1).getAttribute(`aria-checked`)).toBe(`true`),w(O(n,0).getAttribute(`aria-checked`)).toBe(`false`)}),await t(`the selected option is the one tab stop`,async()=>{w(O(n,1).getAttribute(`tabindex`)).toBe(`0`),w(O(n,0).getAttribute(`tabindex`)).toBe(`-1`),w(O(n,2).getAttribute(`tabindex`)).toBe(`-1`)})}},j={render:()=>r`
         <cosmoz-toggle-group
             .options=${D}
             .value=${`today`}
@@ -134,6 +136,11 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
     await step('the value reports aria-checked', async () => {
       expect(radio(el, 1).getAttribute('aria-checked')).toBe('true');
       expect(radio(el, 0).getAttribute('aria-checked')).toBe('false');
+    });
+    await step('the selected option is the one tab stop', async () => {
+      expect(radio(el, 1).getAttribute('tabindex')).toBe('0');
+      expect(radio(el, 0).getAttribute('tabindex')).toBe('-1');
+      expect(radio(el, 2).getAttribute('tabindex')).toBe('-1');
     });
   }
 }`,...A.parameters?.docs?.source}}},j.parameters={...j.parameters,docs:{...j.parameters?.docs,source:{originalSource:`{
@@ -239,7 +246,6 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
   }
 }`,...P.parameters?.docs?.source}}},F.parameters={...F.parameters,docs:{...F.parameters?.docs,source:{originalSource:`{
   render: () => {
-    // the helper is typed: the pick flows as the option element
     const picked = {
       id: 1,
       label: 'One'

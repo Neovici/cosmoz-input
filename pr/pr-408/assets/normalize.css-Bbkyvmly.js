@@ -1,4 +1,4 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n}from"./iframe-CubTD70P.js";import{D as r,T as i,a,c as o,i as s,o as c,t as l}from"./haunted-DgdIC5Nc.js";var u,d=e((()=>{t(),u=e=>e??n})),f,p,m=e((()=>{t(),a(),o(),f=new WeakMap,p=c(class extends s{render(e){return n}update(e,[t]){let r=t!==this.G;return r&&this.rt(void 0),(r||this.lt!==this.ct)&&(this.G=t,this.ht=e.options?.host,this.rt(this.ct=e.element)),n}rt(e){if(this.G!==void 0)if(this.isConnected||(e=void 0),typeof this.G==`function`){let t=this.ht??globalThis,n=f.get(t);n===void 0&&(n=new WeakMap,f.set(t,n)),n.get(this.G)!==void 0&&this.G.call(this.ht,void 0),n.set(this.G,e),e!==void 0&&this.G.call(this.ht,e)}else this.G.value=e}get lt(){return typeof this.G==`function`?f.get(this.ht??globalThis)?.get(this.G):this.G?.value}disconnected(){this.lt===this.ct&&this.rt(void 0)}reconnected(){this.rt(this.ct)}})})),h,g=e((()=>{l(),h=r(i`
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n}from"./iframe-CguIgzOG.js";import{D as r,T as i,t as a}from"./haunted-BXrozG7o.js";var o,s=e((()=>{t(),o=e=>e??n})),c,l=e((()=>{a(),c=r(i`
 	/*
 	 * Use border-box sizing for all elements.
 	 * This is safe and doesn't conflict with child component styles.
@@ -208,4 +208,4 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n}from"./ifr
 	[hidden]:where(:not([hidden='until-found'])) {
 		display: none !important;
 	}
-`)}));export{d as a,p as i,h as n,u as o,m as r,g as t};
+`)}));export{o as i,c as n,s as r,l as t};

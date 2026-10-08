@@ -33,7 +33,8 @@
 		"storybook:build": "storybook build",
 		"storybook:deploy": "storybook-to-ghpages",
 		"storybook:preview": "npm run storybook:build && http-server ./storybook-static/ --silent",
-		"changeset": "changeset"
+		"changeset": "changeset",
+		"test:wtr": "wtr"
 	},
 	"publishConfig": {
 		"access": "public"
@@ -55,13 +56,14 @@
 		"./use-input": "./dist/use-input.js",
 		"./input": "./dist/cosmoz-input.js",
 		"./textarea": "./dist/cosmoz-textarea.js",
-		"./toggle": "./dist/cosmoz-toggle.js"
+		"./toggle": "./dist/cosmoz-toggle.js",
+		"./toggle-group": "./dist/toggle-group.js"
 	},
 	"dependencies": {
 		"@neovici/cosmoz-icons": "^1.6.0",
-		"@neovici/cosmoz-tokens": "^4.8.0",
-		"@neovici/cosmoz-tooltip": "^1.2.1",
-		"@neovici/cosmoz-utils": "^6.0.0",
+		"@neovici/cosmoz-tokens": "^3.4.0 || ^4.0.0",
+		"@neovici/cosmoz-tooltip": "^1.4.0",
+		"@neovici/cosmoz-utils": "^6.25.1",
 		"@pionjs/pion": "^2.0.0",
 		"lit-html": "^2.0.0 || ^3.0.0"
 	},
@@ -71,14 +73,18 @@
 		"@commitlint/config-conventional": "^21.0.1",
 		"@neovici/cfg": "^2.15.0",
 		"@neovici/testing": "^2.3.0",
+		"@open-wc/testing": "^5.0.0",
 		"@playwright/test": "1.62.1",
 		"@storybook/addon-a11y": "^10.4.6",
 		"@storybook/addon-docs": "^10.0.0",
 		"@storybook/addon-vitest": "^10.2.4",
 		"@storybook/web-components-vite": "^10.2.4",
+		"@types/mocha": "^10.0.10",
 		"@types/node": "^26.1.2",
 		"@vitest/browser": "^4.0.18",
 		"@vitest/browser-playwright": "^4.0.18",
+		"@web/test-runner": "^1.0.0",
+		"@web/test-runner-commands": "^1.0.1",
 		"http-server": "^14.1.1",
 		"husky": "^9.1.7",
 		"jsdom": "^30.0.1",

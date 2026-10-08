@@ -62,7 +62,6 @@ const ToggleGroup = <I>(host: ToggleGroupElement<I>) => {
 		const step = e.key === 'ArrowRight' ? 1 : -1;
 		const target = options[(index + step + keys.length) % keys.length];
 		setValue(target.value);
-		// focus the button left behind by the re-render
 		const buttons = (e.currentTarget as HTMLElement).children;
 		const next = buttons[(index + step + keys.length) % keys.length];
 		(next as HTMLElement)?.focus();
@@ -108,7 +107,7 @@ const groupStyles = css`
 		display: flex;
 		align-items: stretch;
 		gap: calc(var(--cz-spacing) * 1);
-		padding: calc(var(--cz-spacing) * 1);
+		padding: 0 calc(var(--cz-spacing) * 1);
 		border-radius: var(--cz-radius-lg);
 		background-color: var(--cz-color-bg-secondary);
 		box-shadow: inset 0 0 0 1px var(--cz-color-border-secondary);
@@ -122,7 +121,7 @@ const groupStyles = css`
 		display: inline-flex;
 		align-items: center;
 		gap: calc(var(--cz-spacing) * 1);
-		padding: calc(var(--cz-spacing) * 2) calc(var(--cz-spacing) * 2.5);
+		padding: calc(var(--cz-spacing) * 1.5) calc(var(--cz-spacing) * 2.5);
 		border-radius: var(--cz-radius-sm);
 		border: 0;
 		background: none;

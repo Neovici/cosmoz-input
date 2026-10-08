@@ -2,8 +2,38 @@
 '@neovici/cosmoz-input': minor
 ---
 
-Adds `cosmoz-toggle-group`
+Add `cosmoz-toggle-group`: a value picker rendered as a segmented control.
 
-A value picker rendered as a segmented control - the input concerns of `cosmoz-tabs-next`'s segmented variant, on their own: a `value` property in, a cancelable `value-changed` (`detail = { value }`, `preventDefault()` vetoes) and a `change` (`detail = value`) out, radio semantics on the items (`role="radiogroup"` on the group, `aria-checked` per option, `aria-label` via `label`), disabled per option or for the whole group.
+The options are the items themselves — the selection is the element in the
+`options` array (the `cosmoz-autocomplete` idiom):
 
-Rendered from `options`: strings render as label and value; `{ value, label, disabled }` objects carry both. Rendering is controlled - the consumer writes the committed value back (attribute or property), the component never changes it on its own.
+```html
+<cosmoz-toggle-group
+	.options="${items}"
+	.value="${items[1]}"
+	.value-property="id"
+	label="Range"
+	@value-changed="${lift((item)"
+	=""
+>
+	...)} ></cosmoz-toggle-group
+>
+```
+
+- `options: (I | Option<I>)[]` — a plain item renders itself (strings name
+  themselves); `{ value: I, label?, icon?, title?, disabled? }` carries its
+  own. `label`/`title` are the value-or-function pair (`cosmoz-utils`
+  `invoke`): a string or a function of the item. `icon` is a cosmoz-icons
+  factory.
+- `value?: I` — the committed selection. Controlled: the component never
+  self-commits, write it back on `value-changed` (`detail = { value, updater }`,
+  cancelable with `preventDefault()`); uncontrolled: it holds state and
+  `change` follows (`detail = value`).
+- `valueProperty?: string` — selection key for when option arrays are
+  rebuilt; absent, selection compares by identity.
+- Keyboard: the selected option is the one tab stop; `ArrowLeft`/`ArrowRight`
+  move the selection (wrapping) and focus rides along.
+- Disabled per option or for the whole group. Parts: `group`, `option`,
+  `selected-option`.
+- Typed helper: `toggleGroup(props)` renders the element with a
+  `onValueChanged` that receives the whole `value-changed` event.

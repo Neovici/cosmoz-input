@@ -1,3 +1,12 @@
+## 6.5.1
+
+### Patch Changes
+
+- e8c5f88: The toggle-group renders at the tabs family's control heights: the
+  option's `padding-block` steps down to `*1.5` and the group hugs its
+  options vertically (inline padding only) — the height belongs to the
+  item box, not the container.
+
 ## 6.5.0
 
 ### Minor Changes

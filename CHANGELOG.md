@@ -1,3 +1,51 @@
+## 6.5.0
+
+### Minor Changes
+
+- 7188797: Add `cosmoz-toggle-group`: a value picker rendered as a segmented control.
+
+  The options are the items themselves — the selection is the element in the
+  `options` array (the `cosmoz-autocomplete` idiom):
+
+  ```html
+  <cosmoz-toggle-group
+  	.options="${items}"
+  	.value="${items[1]}"
+  	.value-property="id"
+  	label="Range"
+  	@value-changed="${lift((item)"
+  	=""
+  >
+  	...)} ></cosmoz-toggle-group
+  >
+  ```
+
+  - `options: (I | Option<I>)[]` — a plain item renders itself (strings name
+    themselves); `{ value: I, label?, icon?, title?, disabled? }` carries its
+    own. `label`/`title` are the value-or-function pair (`cosmoz-utils`
+    `invoke`): a string or a function of the item. `icon` is a cosmoz-icons
+    factory.
+  - `value?: I` — the selection; the pick self-commits (the component
+    writes its own `value`) and `value-changed` follows
+    (`detail = { value, updater }`). Controlled consumers take the write
+    over with pion's `lift`: `@value-changed=${lift(setMyValue)}`.
+  - `valueProperty?: string` — selection key for when option arrays are
+    rebuilt; absent, selection compares by identity.
+  - Keyboard: the selected option is the one tab stop; `ArrowLeft`/`ArrowRight`
+    move the selection (wrapping) and focus rides along.
+  - Disabled per option or for the whole group. Parts: `group`, `option`,
+    `selected-option`.
+  - Typed helper: `toggleGroup(props)` renders the element with a
+    `onValueChanged` that receives the whole `value-changed` event.
+
+- 7188797: chore: widen @neovici/cosmoz-tokens range to ^3 || ^4 (FE-1193)
+
+  The input package's components are pure `var()` consumers of token surfaces — no `light-dark()` or v4-only tokens in their styles — so the range widens to `^3.4.0 || ^4.0.0` and the components stay compatible with hosts on either tokens major.
+
+  `cosmoz-tooltip`'s floor rises to `^1.4.0` (its tokens range takes v4), keeping the tree at a single tokens copy.
+
+  The storybook switches themes via `color-scheme` (tokens v4 resolves dark values through `light-dark()`, which follows `color-scheme`; the class toggle alone does nothing) and takes `@neovici/cfg`'s storybook preset (≥ 2.14), which pins the CSS minify target so `light-dark()` survives the build.
+
 ## 6.4.0
 
 ### Minor Changes

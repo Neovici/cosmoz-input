@@ -1,4 +1,4 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-YxmOnQ8u.js";import{t as r}from"./cosmoz-textarea-eepR0SZZ.js";var i,a,o,s,c;e((()=>{t(),r(),i={title:`Components/Textarea`,component:`cosmoz-textarea`,tags:[`autodocs`]},a={render:()=>n`
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-CwInjOm1.js";import{t as r}from"./cosmoz-textarea-B26pU_zY.js";var i,a,o,s,c;e((()=>{t(),r(),i={title:`Components/Textarea`,component:`cosmoz-textarea`,tags:[`autodocs`]},a={render:()=>n`
         <cosmoz-textarea
             .label=${`Choose color`}
             .value=${`Red`}
@@ -21,7 +21,7 @@ Blue`}
             .value=${`Red`}
             hint=${`Hint text`}
         ></cosmoz-textarea>
-    `},c=[`Basic`,`ErrorStory`,`Compact`],a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
+    `},a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <cosmoz-textarea
             .label=\${'Choose color'}
@@ -57,4 +57,4 @@ Blue`}
             hint=\${'Hint text'}
         ></cosmoz-textarea>
     \`
-}`,...s.parameters?.docs?.source}}}}))();export{a as Basic,s as Compact,o as ErrorStory,c as __namedExportsOrder,i as default};
+}`,...s.parameters?.docs?.source}}},c=[`Basic`,`ErrorStory`,`Compact`]}))();export{a as Basic,s as Compact,o as ErrorStory,c as __namedExportsOrder,i as default};

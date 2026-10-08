@@ -12,6 +12,33 @@ export default meta;
 
 type Story = StoryObj;
 
+export const Material: Story = {
+	render: () => html`${style}<cosmoz-input label="Reference"></cosmoz-input>`,
+	play: async ({ canvasElement, step }) => {
+		const el = canvasElement.querySelector('cosmoz-input')!;
+		const wrap = el.shadowRoot!.querySelector('.wrap')!;
+		await step(
+			'material can be applied and removed without changing focus',
+			async () => {
+				const original = getComputedStyle(wrap).background;
+				el.focus();
+				el.style.setProperty(
+					'--cz-control-background',
+					'linear-gradient(white, transparent) navy',
+				);
+				expect(getComputedStyle(wrap).backgroundImage).toContain(
+					'linear-gradient',
+				);
+				expect(el.shadowRoot!.activeElement).toBe(
+					el.shadowRoot!.querySelector('input'),
+				);
+				el.style.removeProperty('--cz-control-background');
+				expect(getComputedStyle(wrap).background).toBe(original);
+			},
+		);
+	},
+};
+
 export const Focus: Story = {
 	render: () => html`
 		${style}
@@ -228,5 +255,26 @@ export const LabelClickThrough: Story = {
 				expect(el.shadowRoot!.activeElement).toBe(input);
 			});
 		});
+	},
+};
+
+export const InlineMaterial: Story = {
+	render: () =>
+		html`${style}<cosmoz-input
+				variant="inline"
+				label="Supplier"
+				style="--cz-control-background: linear-gradient(white, transparent) navy"
+			></cosmoz-input>`,
+	play: async ({ canvasElement }) => {
+		const el = canvasElement.querySelector('cosmoz-input')!;
+		const wrap = el.shadowRoot!.querySelector('.wrap')!;
+		await waitFor(() => {
+			expect(getComputedStyle(wrap).backgroundImage).toBe('none');
+			expect(getComputedStyle(wrap).backgroundColor).toBe('rgba(0, 0, 0, 0)');
+		});
+		el.focus();
+		expect(el.shadowRoot!.activeElement).toBe(
+			el.shadowRoot!.querySelector('input'),
+		);
 	},
 };

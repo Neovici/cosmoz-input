@@ -51,6 +51,7 @@ export const styles = css`
 	/* === Layout === */
 
 	.wrap {
+		background: var(--cz-control-background, transparent);
 		display: flex;
 		align-items: center;
 		position: relative;
@@ -68,6 +69,17 @@ export const styles = css`
 
 	.wrap:has(#input:focus) {
 		box-shadow: var(--cz-focus-ring), var(--cz-shadow-xs);
+	}
+
+	@media (forced-colors: active) {
+		.wrap {
+			outline: 1px solid CanvasText;
+			outline-offset: -1px;
+		}
+		.wrap:has(#input:focus) {
+			outline: 2px solid Highlight;
+			outline-offset: -2px;
+		}
 	}
 
 	:host([invalid]) .wrap {
@@ -184,6 +196,7 @@ export const styles = css`
 	}
 
 	:host([variant='inline']) .wrap {
+		background: transparent;
 		border-radius: 0;
 		background: transparent;
 		box-shadow: none;

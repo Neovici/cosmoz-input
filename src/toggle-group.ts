@@ -107,7 +107,7 @@ const groupStyles = css`
 		display: flex;
 		align-items: stretch;
 		gap: calc(var(--cz-spacing) * 1);
-		padding: 0 calc(var(--cz-spacing) * 1);
+		padding: calc(var(--cz-spacing) * 0.75) calc(var(--cz-spacing) * 1);
 		border-radius: var(--cz-radius-lg);
 		background-color: var(--cz-color-bg-secondary);
 		box-shadow: inset 0 0 0 1px var(--cz-color-border-secondary);

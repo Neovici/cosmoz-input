@@ -107,7 +107,7 @@ const groupStyles = css`
 		display: flex;
 		align-items: stretch;
 		gap: calc(var(--cz-spacing) * 1);
-		padding: calc(var(--cz-spacing) * 0.75) calc(var(--cz-spacing) * 1);
+		padding: calc(var(--cz-spacing) * 0.75);
 		border-radius: var(--cz-radius-lg);
 		background-color: var(--cz-color-bg-secondary);
 		box-shadow: inset 0 0 0 1px var(--cz-color-border-secondary);
@@ -121,7 +121,7 @@ const groupStyles = css`
 		display: inline-flex;
 		align-items: center;
 		gap: calc(var(--cz-spacing) * 1);
-		padding: calc(var(--cz-spacing) * 1.5) calc(var(--cz-spacing) * 2.5);
+		padding: calc(var(--cz-spacing) * 1.5) calc(var(--cz-spacing) * 2);
 		border-radius: var(--cz-radius-sm);
 		border: 0;
 		background: none;

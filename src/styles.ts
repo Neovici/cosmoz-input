@@ -241,6 +241,7 @@ export const styles = css`
 	}
 
 	:host([variant='cell']) .wrap:has(#input) {
+		box-sizing: border-box;
 		border: 0.5px solid var(--cz-color-bg-quaternary);
 		border-radius: 0;
 		box-shadow: none;

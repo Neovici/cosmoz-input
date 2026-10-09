@@ -1,4 +1,4 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-C5H0lviV.js";import{t as r}from"./cosmoz-input-7C_vFW1H.js";import{n as i,t as a}from"./style-iEq8biW6.js";var o,s,c,l,u,d,f,p,m,h,g,_,v,y,b,x;e((()=>{t(),r(),a(),{expect:o,fn:s,userEvent:c,waitFor:l}=__STORYBOOK_MODULE_TEST__,u={title:`Tests/Input`},d={render:()=>n`
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-BdQAtW6-.js";import{t as r}from"./cosmoz-input-Dmvsbs1-.js";import{n as i,t as a}from"./style-Dy6b5AdT.js";var o,s,c,l,u,d,f,p,m,h,g,_,v,y,b,x,S;e((()=>{t(),r(),a(),{expect:o,fn:s,userEvent:c,waitFor:l}=__STORYBOOK_MODULE_TEST__,u={title:`Tests/Input`},d={render:()=>n`
         ${i}
         <cosmoz-input></cosmoz-input>
     `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`);await t(`focus() triggers focused-changed`,async()=>{let e=s();n.addEventListener(`focused-changed`,e,{once:!0}),o(e).not.toHaveBeenCalled(),n.focus(),await l(()=>{o(e).toHaveBeenCalledTimes(1)})})}},f={render:()=>n`
@@ -28,7 +28,13 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
     `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`),r=n.shadowRoot.querySelector(`input`);await t(`mousedown on shadow DOM wrap does not blur a focused input`,async()=>{r.focus(),await l(()=>{o(n.shadowRoot.activeElement).toBe(r)}),n.shadowRoot.querySelector(`.wrap`).dispatchEvent(new MouseEvent(`mousedown`,{bubbles:!0,composed:!0})),o(n.shadowRoot.activeElement).toBe(r)})}},b={render:()=>n`
         ${i}
         <cosmoz-input label="Label"></cosmoz-input>
-    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`),r=n.shadowRoot.querySelector(`#input`),i=n.shadowRoot.querySelector(`label[for="input"]`);await t(`label is clickable and focuses the input`,async()=>{o(getComputedStyle(i).pointerEvents).not.toBe(`none`),await c.click(i),await l(()=>{o(n.shadowRoot.activeElement).toBe(r)})})}},d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`),r=n.shadowRoot.querySelector(`#input`),i=n.shadowRoot.querySelector(`label[for="input"]`);await t(`label is clickable and focuses the input`,async()=>{o(getComputedStyle(i).pointerEvents).not.toBe(`none`),await c.click(i),await l(()=>{o(n.shadowRoot.activeElement).toBe(r)})})}},x={render:()=>n`
+        ${i}
+        <div style="display: grid; grid-template-columns: 120px 120px">
+            <cosmoz-input variant="cell" invalid></cosmoz-input>
+            <cosmoz-input variant="cell"></cosmoz-input>
+        </div>
+    `,play:async({canvasElement:e,step:t})=>{let[n]=e.querySelectorAll(`cosmoz-input`);await t(`the cell border stays inside the host`,async()=>{let e=n.shadowRoot.querySelector(`.wrap`);await l(()=>{o(e.getBoundingClientRect().right).toBeLessThanOrEqual(n.getBoundingClientRect().right)})})}},d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input></cosmoz-input>
@@ -241,4 +247,24 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       });
     });
   }
-}`,...b.parameters?.docs?.source}}},x=[`Focus`,`Change`,`Validate`,`AllowedPattern`,`ValueChanged`,`Placeholder`,`Mousedown`,`DelegatesFocus`,`BlurPrevention`,`LabelClickThrough`]}))();export{m as AllowedPattern,y as BlurPrevention,f as Change,v as DelegatesFocus,d as Focus,b as LabelClickThrough,_ as Mousedown,g as Placeholder,p as Validate,h as ValueChanged,x as __namedExportsOrder,u as default};
+}`,...b.parameters?.docs?.source}}},x.parameters={...x.parameters,docs:{...x.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        \${style}
+        <div style="display: grid; grid-template-columns: 120px 120px">
+            <cosmoz-input variant="cell" invalid></cosmoz-input>
+            <cosmoz-input variant="cell"></cosmoz-input>
+        </div>
+    \`,
+  play: async ({
+    canvasElement,
+    step
+  }) => {
+    const [el] = canvasElement.querySelectorAll('cosmoz-input');
+    await step('the cell border stays inside the host', async () => {
+      const wrap = el.shadowRoot!.querySelector('.wrap')!;
+      await waitFor(() => {
+        expect(wrap.getBoundingClientRect().right).toBeLessThanOrEqual(el.getBoundingClientRect().right);
+      });
+    });
+  }
+}`,...x.parameters?.docs?.source}}},S=[`Focus`,`Change`,`Validate`,`AllowedPattern`,`ValueChanged`,`Placeholder`,`Mousedown`,`DelegatesFocus`,`BlurPrevention`,`LabelClickThrough`,`CellBorderInsideHost`]}))();export{m as AllowedPattern,y as BlurPrevention,x as CellBorderInsideHost,f as Change,v as DelegatesFocus,d as Focus,b as LabelClickThrough,_ as Mousedown,g as Placeholder,p as Validate,h as ValueChanged,S as __namedExportsOrder,u as default};

@@ -27,6 +27,13 @@ export interface ToggleGroupElement<I = unknown> extends HTMLElement {
 	size?: 'sm';
 }
 
+const steps: Record<string, number> = {
+	ArrowRight: 1,
+	ArrowDown: 1,
+	ArrowLeft: -1,
+	ArrowUp: -1,
+};
+
 /**
  * A segmented value picker: the selection is the element in the
  * options array, like cosmoz-autocomplete's items. The pick commits
@@ -53,44 +60,54 @@ const ToggleGroup = <I>(host: ToggleGroupElement<I>) => {
 
 	const onPick = (option: Option<I>) => setValue(option.value);
 
-	// arrows move the selection (APG radiogroup); the newly-selected
-	// button takes focus, the selected option is the one tab stop
+	const enabled = options.map((option) => !option.disabled && !host.disabled);
+	const index = options.findIndex((option) => keyOf(option.value) === key);
+	// the selected option is the one tab stop; with nothing selected, the
+	// first enabled one, so the group stays reachable
+	const stop = index !== -1 ? index : enabled.indexOf(true);
+
+	// arrows move selection and focus together (APG radio group), skipping
+	// disabled options; from nothing, they select the first or last option
 	const onKeyDown = (e: KeyboardEvent) => {
-		if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+		const step = steps[e.key];
+		if (step == null) return;
 		e.preventDefault();
-		const keys = options.map((option) => keyOf(option.value));
-		const index = keys.findIndex((k) => k === key);
-		if (index === -1) return;
-		const step = e.key === 'ArrowRight' ? 1 : -1;
-		const target = options[(index + step + keys.length) % keys.length];
-		setValue(target.value);
-		const buttons = (e.currentTarget as HTMLElement).children;
-		const next = buttons[(index + step + keys.length) % keys.length];
-		(next as HTMLElement)?.focus();
+		const n = options.length;
+		let from = index;
+		if (from === -1) from = step > 0 ? -1 : n;
+		for (let i = 1; i <= n; i++) {
+			const next = (((from + step * i) % n) + n) % n;
+			if (!enabled[next]) continue;
+			setValue(options[next].value);
+			const buttons = (e.currentTarget as HTMLElement).children;
+			(buttons[next] as HTMLElement | undefined)?.focus();
+			return;
+		}
 	};
 
 	return html`<div
 		class="group"
 		part="group"
 		role="radiogroup"
-		aria-label=${host.label ?? ''}
+		aria-label=${host.label || nothing}
 		@keydown=${onKeyDown}
 	>
-		${options.map((option) => {
-			const selected = key === keyOf(option.value);
+		${options.map((option, i) => {
+			const selected = i === index;
 			const text = labelOf(option);
+			const title =
+				option.title != null ? invoke(option.title, option.value) : undefined;
 			return html`<button
 				type="button"
 				role="radio"
 				aria-checked=${selected ? 'true' : 'false'}
 				?disabled=${option.disabled || host.disabled}
-				title=${option.title != null
-					? invoke(option.title, option.value)
-					: nothing}
+				title=${title ?? nothing}
+				aria-label=${!text && title ? title : nothing}
 				part=${selected ? 'option selected-option' : 'option'}
 				class=${selected ? 'option selected' : 'option'}
 				@click=${() => onPick(option)}
-				tabindex=${selected ? '0' : '-1'}
+				tabindex=${i === stop ? '0' : '-1'}
 			>
 				${option.icon?.({ width: '16', height: '16' })}${text}
 			</button>`;
@@ -107,6 +124,7 @@ const style = css`
 const groupStyles = css`
 	.group {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: stretch;
 		gap: calc(var(--cz-spacing) * 1);
 		padding: calc(var(--cz-spacing) * 0.75);

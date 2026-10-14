@@ -251,3 +251,35 @@ export const CellBorderInsideHost: Story = {
 		});
 	},
 };
+
+export const CompactLabel: Story = {
+	render: () =>
+		html`<cosmoz-input compact .label=${'Dimension'}></cosmoz-input>`,
+	play: async ({ canvasElement, step }) => {
+		const el = canvasElement.querySelector('cosmoz-input') as HTMLElement & {
+			label: string;
+			compact: boolean;
+		};
+		const input = el.shadowRoot!.querySelector('input')!;
+		await step('compact input keeps its accessible name', async () => {
+			await waitFor(() => expect(input).toHaveAccessibleName('Dimension'));
+			expect(el.shadowRoot!.querySelector('label')).toBeNull();
+		});
+		await step('accessible name follows label changes', async () => {
+			el.label = 'Project';
+			await waitFor(() => expect(input).toHaveAccessibleName('Project'));
+		});
+		await step(
+			'normal mode restores the associated visible label',
+			async () => {
+				el.compact = false;
+				await waitFor(() => {
+					expect(input).not.toHaveAttribute('aria-label');
+					expect(el.shadowRoot!.querySelector('label')!.textContent).toContain(
+						'Project',
+					);
+				});
+			},
+		);
+	},
+};

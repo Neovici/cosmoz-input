@@ -58,6 +58,7 @@ export const Input = (host: CosmozInput) => {
 				${ref(onRef)}
 				style="--chars: ${value?.toString()?.length ?? 0}ch"
 				id="input"
+				aria-label=${ifDefined(host.compact ? host.label : undefined)}
 				part="input"
 				type=${type}
 				pattern=${ifDefined(pattern)}

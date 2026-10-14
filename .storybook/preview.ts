@@ -3,9 +3,13 @@ import addonA11y from '@storybook/addon-a11y';
 import addonDocs from '@storybook/addon-docs';
 import addonVitest from '@storybook/addon-vitest';
 import { definePreview } from '@storybook/web-components-vite';
+import { init } from 'i18next';
 import { html } from 'lit-html';
 import { within as withinShadow } from 'shadow-dom-testing-library';
 import './preview.css';
+
+// built-in strings fall back to their keys, as in an app without translations
+init({ lng: 'en' });
 // 👇 Extend TypeScript types for safety
 export type ShadowQueries = ReturnType<typeof withinShadow>;
 

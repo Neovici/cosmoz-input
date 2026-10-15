@@ -39,3 +39,14 @@ export const ErrorStory: Story = {
 		></cosmoz-textarea>
 	`,
 };
+
+export const Compact: Story = {
+	render: () => html`
+		<cosmoz-textarea
+			compact
+			.label=${'Choose color'}
+			.value=${'Red'}
+			hint=${'Hint text'}
+		></cosmoz-textarea>
+	`,
+};

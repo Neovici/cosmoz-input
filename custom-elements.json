@@ -1,31 +1,68 @@
 {
-  "version": 2,
-  "tags": [
-    {
-      "name": "cosmoz-input",
-      "properties": [
-        {
-          "name": "value",
-          "type": "String",
-          "description": "Text value"
-        }
-      ],
-      "events": [],
-      "slots": [],
-      "cssProperties": []
-    },
-    {
-      "name": "cosmoz-textarea",
-      "properties": [
-        {
-          "name": "value",
-          "type": "String",
-          "description": "Text value"
-        }
-      ],
-      "events": [],
-      "slots": [],
-      "cssProperties": []
-    }
-  ]
+	"version": 2,
+	"tags": [
+		{
+			"name": "cosmoz-input",
+			"properties": [
+				{
+					"name": "value",
+					"type": "String",
+					"description": "Text value"
+				}
+			],
+			"events": [],
+			"slots": [],
+			"cssProperties": []
+		},
+		{
+			"name": "cosmoz-textarea",
+			"properties": [
+				{
+					"name": "value",
+					"type": "String",
+					"description": "Text value"
+				}
+			],
+			"events": [],
+			"slots": [],
+			"cssProperties": []
+		},
+		{
+			"name": "cosmoz-toggle-group",
+			"properties": [
+				{
+					"name": "value",
+					"type": "String",
+					"description": "The selected value"
+				},
+				{
+					"name": "options",
+					"type": "(String|Option)[]",
+					"description": "Options to pick from; a string option uses itself as its label"
+				},
+				{
+					"name": "disabled",
+					"type": "Boolean",
+					"description": "Disables every option"
+				},
+				{
+					"name": "label",
+					"type": "String",
+					"description": "Accessible name of the group"
+				}
+			],
+			"events": [
+				{
+					"name": "value-changed",
+					"description": "cancelable selection change (detail = { value }); preventDefault() vetoes"
+				},
+				{
+					"name": "change",
+					"description": "follows a committed selection (detail = the value)"
+				}
+			],
+			"slots": [],
+			"cssProperties": []
+		}
+	]
 }

@@ -8,8 +8,9 @@ export const styles = css`
 		flex-direction: column;
 		gap: calc(var(--cz-spacing) * 1.5);
 		position: relative;
-		font-size: var(--cz-text-base);
-		line-height: var(--cz-text-base-line-height);
+		--control-height: var(--cz-control-height-md);
+		font-size: var(--cz-text-sm);
+		line-height: var(--cz-text-sm-line-height);
 		font-family: var(--cz-font-body);
 	}
 
@@ -23,12 +24,19 @@ export const styles = css`
 
 	:host([disabled]) .wrap {
 		color: var(--cz-color-text-disabled);
-		opacity: 0.5;
+		background: var(--cz-color-bg-disabled-subtle);
+		box-shadow: inset 0 0 0 1px var(--cz-color-border-disabled);
 		cursor: not-allowed;
 	}
 
 	:host([disabled]) #input {
+		color: var(--cz-color-text-disabled);
 		cursor: not-allowed;
+	}
+
+	:host([readonly]) .wrap {
+		background: var(--cz-color-bg-secondary);
+		box-shadow: inset 0 0 0 1px var(--cz-color-border-secondary);
 	}
 
 	:host([invalid]) {
@@ -48,7 +56,10 @@ export const styles = css`
 		position: relative;
 		width: 100%;
 		border-radius: var(--cz-radius-md);
-		box-shadow: inset 0 0 0 1px var(--cz-color-border-primary);
+		background: var(--cz-color-bg-primary);
+		box-shadow:
+			inset 0 0 0 1px var(--cz-color-border-primary),
+			var(--cz-shadow-xs);
 		overflow: hidden;
 		transition-duration: 0.1s;
 		transition-timing-function: linear;
@@ -56,15 +67,17 @@ export const styles = css`
 	}
 
 	.wrap:has(#input:focus) {
-		box-shadow: var(--cz-focus-ring);
+		box-shadow: var(--cz-focus-ring), var(--cz-shadow-xs);
 	}
 
 	:host([invalid]) .wrap {
-		box-shadow: inset 0 0 0 1px var(--cz-color-border-error);
+		box-shadow:
+			inset 0 0 0 1px var(--cz-color-border-error),
+			var(--cz-shadow-xs);
 	}
 
 	:host([invalid]) .wrap:has(#input:focus) {
-		box-shadow: var(--cz-focus-ring-error);
+		box-shadow: var(--cz-focus-ring-error), var(--cz-shadow-xs);
 	}
 
 	.control {
@@ -87,12 +100,18 @@ export const styles = css`
 		font-family: inherit;
 		resize: none;
 		color: var(--cz-color-text-primary);
-		padding-block: calc(var(--cz-spacing) * 2);
+		padding-block: calc((var(--control-height) - 1lh) / 2);
 		padding-inline: calc(var(--cz-spacing) * 3);
 	}
 
 	#input::placeholder {
 		color: var(--cz-color-text-placeholder);
+	}
+
+	/* Paint over the browser's autofill background, which can't be overridden. */
+	#input:autofill {
+		box-shadow: inset 0 0 0 100vmax var(--cz-color-bg-primary);
+		-webkit-text-fill-color: var(--cz-color-text-primary);
 	}
 
 	#input::-webkit-inner-spin-button {
@@ -116,6 +135,7 @@ export const styles = css`
 	label {
 		position: relative;
 		font-size: var(--cz-text-sm);
+		font-weight: var(--cz-font-weight-medium);
 		color: var(--cz-color-text-secondary);
 	}
 
@@ -158,6 +178,8 @@ export const styles = css`
 	/* === Variant: inline === */
 	:host([variant='inline']) {
 		margin-bottom: 0;
+		font-size: var(--cz-text-base);
+		line-height: var(--cz-text-base-line-height);
 	}
 
 	:host([variant='inline']) .wrap {
@@ -165,6 +187,7 @@ export const styles = css`
 	}
 
 	:host([variant='inline']) #input {
+		padding-block: calc(var(--cz-spacing) * 2);
 		padding-inline: 0;
 	}
 
@@ -174,6 +197,7 @@ export const styles = css`
 
 	:host([variant='inline']) .wrap {
 		border-radius: 0;
+		background: transparent;
 		box-shadow: none;
 		padding-inline: 0;
 	}
@@ -193,6 +217,7 @@ export const styles = css`
 	}
 	:host([variant='inline']) label {
 		position: absolute;
+		font-weight: var(--cz-font-weight-regular);
 		top: 25%;
 		left: 0;
 		width: 100%;
@@ -228,6 +253,7 @@ export const styles = css`
 	}
 
 	:host([variant='cell']) .wrap:has(#input) {
+		box-sizing: border-box;
 		border: 0.5px solid var(--cz-color-bg-quaternary);
 		border-radius: 0;
 		box-shadow: none;
@@ -245,6 +271,10 @@ export const styles = css`
 	:host([variant='cell'][invalid]) .wrap:has(#input:focus) {
 		background: var(--cz-color-bg-error);
 		border: 0.5px solid transparent;
+	}
+
+	:host([variant='cell']) #input {
+		padding-block: calc(var(--cz-spacing) * 2);
 	}
 
 	/* Hidden visually, not from assistive technology: the cell keeps its name. */

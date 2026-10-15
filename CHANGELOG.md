@@ -1,3 +1,129 @@
+## 6.5.4
+
+### Patch Changes
+
+- dc7a27f: The cell variant's border now stays inside the cell. It was added on top of the wrap's 100% width, so the right edge spilled out and the next cell painted over it (an invalid cell showed its red border on three sides).
+
+## 6.5.3
+
+### Patch Changes
+
+- 08cc8bf: `cosmoz-toggle-group`'s band geometry: the group's padding is
+  `*0.75` on all sides (3px block chrome and a tighter inline edge)
+  and the option box is `*1.5` block over `*2` inline — the segmented
+  control's 33px item in its 39px band.
+
+## 6.5.2
+
+### Patch Changes
+
+- b2eba43: The toggle-group renders at the tabs family's control heights: the
+  option's `padding-block` steps down to `*1.5` (the 33px item box) and
+  the band carries the segmented bar's old vertical chrome — 3px of
+  `--cz-spacing * 0.75` block padding around the item, the 39px band
+  face the segmented control rendered before.
+
+## 6.5.1
+
+### Patch Changes
+
+- e8c5f88: The toggle-group renders at the tabs family's control heights: the
+  option's `padding-block` steps down to `*1.5` and the group hugs its
+  options vertically (inline padding only) — the height belongs to the
+  item box, not the container.
+
+## 6.5.0
+
+### Minor Changes
+
+- 7188797: Add `cosmoz-toggle-group`: a value picker rendered as a segmented control.
+
+  The options are the items themselves — the selection is the element in the
+  `options` array (the `cosmoz-autocomplete` idiom):
+
+  ```html
+  <cosmoz-toggle-group
+  	.options="${items}"
+  	.value="${items[1]}"
+  	.value-property="id"
+  	label="Range"
+  	@value-changed="${lift((item)"
+  	=""
+  >
+  	...)} ></cosmoz-toggle-group
+  >
+  ```
+
+  - `options: (I | Option<I>)[]` — a plain item renders itself (strings name
+    themselves); `{ value: I, label?, icon?, title?, disabled? }` carries its
+    own. `label`/`title` are the value-or-function pair (`cosmoz-utils`
+    `invoke`): a string or a function of the item. `icon` is a cosmoz-icons
+    factory.
+  - `value?: I` — the selection; the pick self-commits (the component
+    writes its own `value`) and `value-changed` follows
+    (`detail = { value, updater }`). Controlled consumers take the write
+    over with pion's `lift`: `@value-changed=${lift(setMyValue)}`.
+  - `valueProperty?: string` — selection key for when option arrays are
+    rebuilt; absent, selection compares by identity.
+  - Keyboard: the selected option is the one tab stop; `ArrowLeft`/`ArrowRight`
+    move the selection (wrapping) and focus rides along.
+  - Disabled per option or for the whole group. Parts: `group`, `option`,
+    `selected-option`.
+  - Typed helper: `toggleGroup(props)` renders the element with a
+    `onValueChanged` that receives the whole `value-changed` event.
+
+- 7188797: chore: widen @neovici/cosmoz-tokens range to ^3 || ^4 (FE-1193)
+
+  The input package's components are pure `var()` consumers of token surfaces — no `light-dark()` or v4-only tokens in their styles — so the range widens to `^3.4.0 || ^4.0.0` and the components stay compatible with hosts on either tokens major.
+
+  `cosmoz-tooltip`'s floor rises to `^1.4.0` (its tokens range takes v4), keeping the tree at a single tokens copy.
+
+  The storybook switches themes via `color-scheme` (tokens v4 resolves dark values through `light-dark()`, which follows `color-scheme`; the class toggle alone does nothing) and takes `@neovici/cfg`'s storybook preset (≥ 2.14), which pins the CSS minify target so `light-dark()` survives the build.
+
+## 6.4.0
+
+### Minor Changes
+
+- 2459bb5: Size the default input with `--cz-control-height-md`
+
+  The default variant of `cosmoz-input` and `cosmoz-textarea` uses `text-sm` and
+  derives its vertical padding from `--cz-control-height-md`, so a single-line
+  input is 32px tall (was 40px) and lines up with a `md` `cosmoz-button`. The
+  `inline` and `cell` variants are unchanged.
+
+## 6.3.0
+
+### Minor Changes
+
+- 8df338c: Modern input states
+  - Solid `bg-primary` surface with `shadow-xs`, so inputs read as fields on
+    gray cards instead of taking the card color
+  - Disabled replaces `opacity: 0.5` with a `bg-disabled-subtle` fill,
+    `border-disabled` and `text-disabled`, so the label stays readable
+  - Read-only gets a subtle `bg-secondary` fill and `border-secondary`, and keeps
+    the focus ring
+  - Labels use medium weight; the floating `inline` label stays regular
+  - Autofilled inputs keep their own colors instead of the browser tint
+  - `inline` keeps a transparent background; `cell` gets the same `bg-primary` fill
+
+## 6.2.0
+
+### Minor Changes
+
+- b97e791: Put hint and error text in the layout flow
+
+  Non-compact inputs used to reserve 24px below every field for an absolutely
+  positioned hint or error. Fields without a message looked widely spaced, and
+  fields with one had their text pressed against the next label. Hint and error
+  now sit in the flow under the input, and the spacing after a field drops to
+  12px. A message appearing pushes the content below it down. The `cell`
+  variant still overlays its error inside the cell.
+
+- 5e65ae2: Support `compact` on `cosmoz-textarea`
+
+  `cosmoz-textarea` now observes the `compact` attribute, hiding the label and
+  hint like `cosmoz-input` does.
+
 ## 6.1.0
 
 ### Minor Changes

@@ -230,3 +230,24 @@ export const LabelClickThrough: Story = {
 		});
 	},
 };
+
+export const CellBorderInsideHost: Story = {
+	render: () => html`
+		${style}
+		<div style="display: grid; grid-template-columns: 120px 120px">
+			<cosmoz-input variant="cell" invalid></cosmoz-input>
+			<cosmoz-input variant="cell"></cosmoz-input>
+		</div>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const [el] = canvasElement.querySelectorAll('cosmoz-input');
+		await step('the cell border stays inside the host', async () => {
+			const wrap = el.shadowRoot!.querySelector('.wrap')!;
+			await waitFor(() => {
+				expect(wrap.getBoundingClientRect().right).toBeLessThanOrEqual(
+					el.getBoundingClientRect().right,
+				);
+			});
+		});
+	},
+};

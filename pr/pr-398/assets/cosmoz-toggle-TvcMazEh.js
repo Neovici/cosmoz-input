@@ -1,15 +1,15 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{l as t}from"./iframe-CFy_mvqk.js";import{C as n,D as r,E as i,h as a,i as o,n as s,r as c,t as l}from"./live-C5Hzt91t.js";var u,d,f,p=e((()=>{c(),l(),i(),u=e=>{let{label:n,value:i,disabled:o,error:c}=e,l=a(t=>e.dispatchEvent(new CustomEvent(`change`,{detail:t.target.checked})),[]);return t`<input
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{l as t}from"./iframe-BA4u0ymG.js";import{i as n,n as r,r as i,t as a}from"./live-DeIvLU8P.js";import{T as o,_ as s,n as c,t as l}from"./haunted-CVG_JuC3.js";var u,d,f,p=e((()=>{l(),a(),i(),u=e=>{let{label:i,value:a,disabled:o,error:c}=e,l=s(t=>e.dispatchEvent(new CustomEvent(`change`,{detail:t.target.checked})),[]);return t`<input
 			id="toggle"
 			class="toggle"
 			part="toggle"
 			type="checkbox"
-			.checked=${s(!!i)}
+			.checked=${r(!!a)}
 			?disabled=${o}
 			@change=${l}
 		/>
-		${r(n,()=>t`<label for="toggle">${n}</label>`)}
+		${n(i,()=>t`<label for="toggle">${i}</label>`)}
 		<slot name="suffix"></slot>
-		${r(c,e=>t`<div class="failure">${e}</div>`)} `},d=n`
+		${n(c,e=>t`<div class="failure">${e}</div>`)} `},d=o`
 	.toggle {
 		appearance: none;
 		width: calc(var(--cz-spacing) * 9);
@@ -61,7 +61,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{l as t}from"./iframe-CFy
 	.toggle[disabled] {
 		opacity: 0.6;
 	}
-`,f=n`
+`,f=o`
 	:host {
 		display: block;
 	}
@@ -74,4 +74,4 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{l as t}from"./iframe-CFy
 	::slotted(*) {
 		margin-left: calc(var(--cz-spacing) * 1);
 	}
-`,customElements.define(`cosmoz-toggle`,o(u,{styleSheets:[f,d],observedAttributes:[`label`,`disabled`,`error`]}))}));export{p as t};
+`,customElements.define(`cosmoz-toggle`,c(u,{styleSheets:[f,d],observedAttributes:[`label`,`disabled`,`error`]}))}));export{p as t};

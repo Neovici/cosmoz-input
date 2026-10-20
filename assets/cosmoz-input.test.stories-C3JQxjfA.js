@@ -1,4 +1,4 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-BdQAtW6-.js";import{t as r}from"./cosmoz-input-Dmvsbs1-.js";import{n as i,t as a}from"./style-Dy6b5AdT.js";var o,s,c,l,u,d,f,p,m,h,g,_,v,y,b,x,S;e((()=>{t(),r(),a(),{expect:o,fn:s,userEvent:c,waitFor:l}=__STORYBOOK_MODULE_TEST__,u={title:`Tests/Input`},d={render:()=>n`
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-C6SyZV3l.js";import{t as r}from"./cosmoz-input-u-HWUllq.js";import{n as i,t as a}from"./style-bO9SHo3Z.js";var o,s,c,l,u,d,f,p,m,h,g,_,v,y,b,x,S;e((()=>{t(),r(),a(),{expect:o,fn:s,userEvent:c,waitFor:l}=__STORYBOOK_MODULE_TEST__,u={title:`Tests/Input`},d={render:()=>n`
         ${i}
         <cosmoz-input></cosmoz-input>
     `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`);await t(`focus() triggers focused-changed`,async()=>{let e=s();n.addEventListener(`focused-changed`,e,{once:!0}),o(e).not.toHaveBeenCalled(),n.focus(),await l(()=>{o(e).toHaveBeenCalledTimes(1)})})}},f={render:()=>n`
@@ -267,4 +267,237 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       });
     });
   }
-}`,...x.parameters?.docs?.source}}},S=[`Focus`,`Change`,`Validate`,`AllowedPattern`,`ValueChanged`,`Placeholder`,`Mousedown`,`DelegatesFocus`,`BlurPrevention`,`LabelClickThrough`,`CellBorderInsideHost`]}))();export{m as AllowedPattern,y as BlurPrevention,x as CellBorderInsideHost,f as Change,v as DelegatesFocus,d as Focus,b as LabelClickThrough,_ as Mousedown,g as Placeholder,p as Validate,h as ValueChanged,S as __namedExportsOrder,u as default};
+}`,...x.parameters?.docs?.source}}},S=[`Focus`,`Change`,`Validate`,`AllowedPattern`,`ValueChanged`,`Placeholder`,`Mousedown`,`DelegatesFocus`,`BlurPrevention`,`LabelClickThrough`,`CellBorderInsideHost`],d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        \${style}
+        <cosmoz-input></cosmoz-input>
+    \`,
+  play: async ({
+    canvasElement,
+    step
+  }) => {
+    const el = canvasElement.querySelector('cosmoz-input')!;
+    await step('focus() triggers focused-changed', async () => {
+      const focusSpy = fn();
+      el.addEventListener('focused-changed', focusSpy, {
+        once: true
+      });
+      expect(focusSpy).not.toHaveBeenCalled();
+      el.focus();
+      await waitFor(() => {
+        expect(focusSpy).toHaveBeenCalledTimes(1);
+      });
+    });
+  }
+}`,...d.parameters?.docs?.source}}},f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        \${style}
+        <cosmoz-input></cosmoz-input>
+    \`,
+  play: async ({
+    canvasElement,
+    step
+  }) => {
+    const el = canvasElement.querySelector('cosmoz-input')!;
+    await step('change event is re-dispatched on the host', async () => {
+      const changeSpy = fn();
+      el.addEventListener('change', changeSpy);
+      const input = el.shadowRoot!.querySelector('input')!;
+      input.focus();
+      input.value = 'hello';
+      input.dispatchEvent(new Event('change', {
+        bubbles: true
+      }));
+      await waitFor(() => {
+        expect(changeSpy).toHaveBeenCalledTimes(1);
+      });
+    });
+  }
+}`,...f.parameters?.docs?.source}}},p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        \${style}
+        <cosmoz-input .value=\${'a'} pattern="[2]"></cosmoz-input>
+    \`,
+  play: async ({
+    canvasElement,
+    step
+  }) => {
+    const el = canvasElement.querySelector('cosmoz-input') as HTMLElement & {
+      validate: () => boolean;
+    };
+    await step('validate returns false for invalid pattern', async () => {
+      expect(el.validate()).toBe(false);
+    });
+  }
+}`,...p.parameters?.docs?.source}}},m.parameters={...m.parameters,docs:{...m.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        \${style}
+        <cosmoz-input allowed-pattern="[c]"></cosmoz-input>
+    \`,
+  play: async ({
+    canvasElement,
+    step
+  }) => {
+    const el = canvasElement.querySelector('cosmoz-input')!;
+    const input = el.shadowRoot!.querySelector('input')!;
+    await step('allowed character is not prevented', async () => {
+      expect(input.dispatchEvent(new InputEvent('beforeinput', {
+        data: 'c',
+        cancelable: true
+      }))).toBe(true);
+    });
+    await step('disallowed character is prevented', async () => {
+      expect(input.dispatchEvent(new InputEvent('beforeinput', {
+        data: '2',
+        cancelable: true
+      }))).toBe(false);
+    });
+  }
+}`,...m.parameters?.docs?.source}}},h.parameters={...h.parameters,docs:{...h.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        \${style}
+        <cosmoz-input></cosmoz-input>
+    \`,
+  play: async ({
+    canvasElement,
+    step
+  }) => {
+    const el = canvasElement.querySelector('cosmoz-input')!;
+    await step('input event triggers value-changed', async () => {
+      const inputSpy = fn();
+      el.addEventListener('value-changed', inputSpy, {
+        once: true
+      });
+      expect(inputSpy).not.toHaveBeenCalled();
+      el.shadowRoot!.querySelector('input')!.dispatchEvent(new Event('input', {
+        bubbles: true
+      }));
+      expect(inputSpy).toHaveBeenCalledTimes(1);
+    });
+  }
+}`,...h.parameters?.docs?.source}}},g.parameters={...g.parameters,docs:{...g.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        \${style}
+        <cosmoz-input placeholder="Search..."></cosmoz-input>
+    \`,
+  play: async ({
+    canvasElement,
+    step
+  }) => {
+    const el = canvasElement.querySelector('cosmoz-input')!;
+    await step('placeholder attribute is forwarded to inner input', async () => {
+      const input = el.shadowRoot!.querySelector('input')!;
+      expect(input.placeholder).toBe('Search...');
+    });
+  }
+}`,...g.parameters?.docs?.source}}},_.parameters={..._.parameters,docs:{..._.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        \${style}
+        <cosmoz-input><span slot="suffix">suffix</span></cosmoz-input>
+    \`,
+  play: async ({
+    canvasElement,
+    step
+  }) => {
+    const el = canvasElement.querySelector('cosmoz-input')!;
+    const input = el.shadowRoot!.querySelector('input')!;
+    await step('mousedown on suffix focuses input', async () => {
+      el.querySelector('span')!.dispatchEvent(new MouseEvent('mousedown', {
+        bubbles: true
+      }));
+      await waitFor(() => {
+        expect(el.shadowRoot!.activeElement).toBe(input);
+      });
+    });
+  }
+}`,..._.parameters?.docs?.source}}},v.parameters={...v.parameters,docs:{...v.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        \${style}
+        <cosmoz-input></cosmoz-input>
+    \`,
+  play: async ({
+    canvasElement,
+    step
+  }) => {
+    const el = canvasElement.querySelector('cosmoz-input')!;
+    await step('host.focus() delegates to inner input via delegatesFocus', async () => {
+      el.focus();
+      await waitFor(() => {
+        const input = el.shadowRoot!.querySelector('input')!;
+        expect(el.shadowRoot!.activeElement).toBe(input);
+      });
+    });
+  }
+}`,...v.parameters?.docs?.source}}},y.parameters={...y.parameters,docs:{...y.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        \${style}
+        <cosmoz-input label="Test"></cosmoz-input>
+    \`,
+  play: async ({
+    canvasElement,
+    step
+  }) => {
+    const el = canvasElement.querySelector('cosmoz-input')!;
+    const input = el.shadowRoot!.querySelector('input')!;
+    await step('mousedown on shadow DOM wrap does not blur a focused input', async () => {
+      // focus the input first
+      input.focus();
+      await waitFor(() => {
+        expect(el.shadowRoot!.activeElement).toBe(input);
+      });
+
+      // mousedown on the .wrap div inside shadow DOM
+      const wrap = el.shadowRoot!.querySelector('.wrap')!;
+      wrap.dispatchEvent(new MouseEvent('mousedown', {
+        bubbles: true,
+        composed: true
+      }));
+
+      // input should still be focused
+      expect(el.shadowRoot!.activeElement).toBe(input);
+    });
+  }
+}`,...y.parameters?.docs?.source}}},b.parameters={...b.parameters,docs:{...b.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        \${style}
+        <cosmoz-input label="Label"></cosmoz-input>
+    \`,
+  play: async ({
+    canvasElement,
+    step
+  }) => {
+    const el = canvasElement.querySelector('cosmoz-input')!;
+    const input = el.shadowRoot!.querySelector('#input')!;
+    const label = el.shadowRoot!.querySelector('label[for="input"]')!;
+    await step('label is clickable and focuses the input', async () => {
+      // the label must not intercept pointer events
+      expect(getComputedStyle(label).pointerEvents).not.toBe('none');
+
+      // a real click on the label must focus the input
+      await userEvent.click(label);
+      await waitFor(() => {
+        expect(el.shadowRoot!.activeElement).toBe(input);
+      });
+    });
+  }
+}`,...b.parameters?.docs?.source}}},x.parameters={...x.parameters,docs:{...x.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        \${style}
+        <div style="display: grid; grid-template-columns: 120px 120px">
+            <cosmoz-input variant="cell" invalid></cosmoz-input>
+            <cosmoz-input variant="cell"></cosmoz-input>
+        </div>
+    \`,
+  play: async ({
+    canvasElement,
+    step
+  }) => {
+    const [el] = canvasElement.querySelectorAll('cosmoz-input');
+    await step('the cell border stays inside the host', async () => {
+      const wrap = el.shadowRoot!.querySelector('.wrap')!;
+      await waitFor(() => {
+        expect(wrap.getBoundingClientRect().right).toBeLessThanOrEqual(el.getBoundingClientRect().right);
+      });
+    });
+  }
+}`,...x.parameters?.docs?.source}}}}))();export{m as AllowedPattern,y as BlurPrevention,x as CellBorderInsideHost,f as Change,v as DelegatesFocus,d as Focus,b as LabelClickThrough,_ as Mousedown,g as Placeholder,p as Validate,h as ValueChanged,S as __namedExportsOrder,u as default};

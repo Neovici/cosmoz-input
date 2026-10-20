@@ -1,4 +1,4 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}from"./iframe-C6SyZV3l.js";import{i,n as a,r as o,t as s}from"./normalize.css-DYEO2uFx.js";import{T as c,n as l,p as u,t as d}from"./haunted-BiAp575T.js";import{t as f}from"./style-bO9SHo3Z.js";var p,m,h=e((()=>{p=e=>e,m=(e,...t)=>typeof e==`function`?e(...t):e}));function g(e){return e?t=>typeof t==`object`&&t?t[e]:t:p}var _=e((()=>{h()})),v,y,b,x,S=e((()=>{s(),h(),_(),d(),t(),o(),v=e=>{let t=e=>e.label==null?typeof e.value==`string`?e.value:``:m(e.label,e.value),i=(e.options??[]).map(e=>typeof e==`object`&&e&&`value`in e?e:{value:e}),[a,o]=u(`value`),s=t=>g(e.valueProperty)(t),c=s(a),l=e=>o(e.value);return r`<div
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}from"./iframe--7ydvlZ-.js";import{i,n as a,r as o,t as s}from"./normalize.css-Cp8mUMfW.js";import{T as c,n as l,p as u,t as d}from"./haunted-Du_PLMj0.js";import{t as f}from"./style-BovAUNW2.js";var p,m,h=e((()=>{p=e=>e,m=(e,...t)=>typeof e==`function`?e(...t):e}));function g(e){return e?t=>typeof t==`object`&&t?t[e]:t:p}var _=e((()=>{h()})),v,y,b,x,S=e((()=>{s(),h(),_(),d(),t(),o(),v=e=>{let t=e=>e.label==null?typeof e.value==`string`?e.value:``:m(e.label,e.value),i=(e.options??[]).map(e=>typeof e==`object`&&e&&`value`in e?e:{value:e}),[a,o]=u(`value`),s=t=>g(e.valueProperty)(t),c=s(a),l=e=>o(e.value);return r`<div
 		class="group"
 		part="group"
 		role="radiogroup"
@@ -71,14 +71,26 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
 		opacity: 0.5;
 		cursor: not-allowed;
 	}
+
+	/* cosmoz-tabs-next segmented sm's box: 32px, the height of an sm button */
+	:host([size='sm']) .group {
+		font-size: var(--cz-text-xs);
+		line-height: var(--cz-text-xs-line-height);
+		border-radius: var(--cz-radius-md);
+	}
+
+	:host([size='sm']) .option {
+		padding-block: var(--cz-spacing);
+	}
 `,customElements.define(`cosmoz-toggle-group`,l(v,{styleSheets:[a,y,b],observedAttributes:[`label`,`disabled`,`value-property`]})),x=e=>r`<cosmoz-toggle-group
 		.options=${e.options}
 		.value=${e.value}
 		value-property=${i(e.valueProperty)}
 		.label=${i(e.label)}
 		?disabled=${e.disabled}
+		size=${i(e.size)}
 		@value-changed=${e.onValueChanged}
-	></cosmoz-toggle-group>`})),C,w,T,E,D,O,k,A,j,M,N,P,F,I;e((()=>{t(),S(),f(),{expect:C,waitFor:w}=__STORYBOOK_MODULE_TEST__,T={title:`Components/Toggle group`,component:`cosmoz-toggle-group`,tags:[`autodocs`]},E=[`today`,`week`,`month`],D=(e,t)=>e.shadowRoot.querySelectorAll(`[part~=option]`)[t],O=e=>e.shadowRoot.querySelector(`[part~=selected-option]`),k={render:()=>r`
+	></cosmoz-toggle-group>`})),C,w,T,E,D,O,k,A,j,M,N,P,F,I,L;e((()=>{t(),S(),f(),{expect:C,waitFor:w}=__STORYBOOK_MODULE_TEST__,T={title:`Components/Toggle group`,component:`cosmoz-toggle-group`,tags:[`autodocs`]},E=[`today`,`week`,`month`],D=(e,t)=>e.shadowRoot.querySelectorAll(`[part~=option]`)[t],O=e=>e.shadowRoot.querySelector(`[part~=selected-option]`),k={render:()=>r`
         <cosmoz-toggle-group
             .options=${E}
             .value=${`week`}
@@ -114,7 +126,19 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
             .value=${{id:2,label:`Two`}}
             value-property="id"
         ></cosmoz-toggle-group>
-    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`#identity-group`);await t(`marks the picked object`,async()=>{await w(()=>{C(D(n,1).getAttribute(`aria-checked`)).toBe(`true`)})}),await t(`the pick commits the object itself`,async()=>{n.addEventListener(`change`,e=>{n.value=e.detail}),D(n,0).click(),await w(()=>C(n.value).toEqual({id:1,label:`One`}))})}},k.parameters={...k.parameters,docs:{...k.parameters?.docs,source:{originalSource:`{
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`#identity-group`);await t(`marks the picked object`,async()=>{await w(()=>{C(D(n,1).getAttribute(`aria-checked`)).toBe(`true`)})}),await t(`the pick commits the object itself`,async()=>{n.addEventListener(`change`,e=>{n.value=e.detail}),D(n,0).click(),await w(()=>C(n.value).toEqual({id:1,label:`One`}))})}},I={render:()=>r`
+        <cosmoz-toggle-group
+            id="default-size"
+            .options=${E}
+            .value=${`week`}
+        ></cosmoz-toggle-group>
+        <cosmoz-toggle-group
+            id="sm-size"
+            size="sm"
+            .options=${E}
+            .value=${`week`}
+        ></cosmoz-toggle-group>
+    `,play:async({canvasElement:e})=>{let t=t=>e.querySelector(`#${t}`).getBoundingClientRect().height;await w(()=>{C(t(`sm-size`)).toBe(32),C(t(`default-size`)).toBe(39)})}},k.parameters={...k.parameters,docs:{...k.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <cosmoz-toggle-group
             .options=\${options}
@@ -330,7 +354,30 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
       }));
     });
   }
-}`,...F.parameters?.docs?.source}}},I=[`Basic`,`Disabled`,`PerOptionDisabled`,`VetoableSelection`,`Icons`,`TypedHelper`,`IdentitySelection`],k.parameters={...k.parameters,docs:{...k.parameters?.docs,source:{originalSource:`{
+}`,...F.parameters?.docs?.source}}},I.parameters={...I.parameters,docs:{...I.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        <cosmoz-toggle-group
+            id="default-size"
+            .options=\${options}
+            .value=\${'week'}
+        ></cosmoz-toggle-group>
+        <cosmoz-toggle-group
+            id="sm-size"
+            size="sm"
+            .options=\${options}
+            .value=\${'week'}
+        ></cosmoz-toggle-group>
+    \`,
+  play: async ({
+    canvasElement
+  }) => {
+    const height = (id: string) => canvasElement.querySelector(\`#\${id}\`)!.getBoundingClientRect().height;
+    await waitFor(() => {
+      expect(height('sm-size')).toBe(32);
+      expect(height('default-size')).toBe(39);
+    });
+  }
+}`,...I.parameters?.docs?.source}}},L=[`Basic`,`Disabled`,`PerOptionDisabled`,`VetoableSelection`,`Icons`,`TypedHelper`,`IdentitySelection`,`Sizes`],k.parameters={...k.parameters,docs:{...k.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <cosmoz-toggle-group
             .options=\${options}
@@ -546,4 +593,27 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
       }));
     });
   }
-}`,...F.parameters?.docs?.source}}}}))();export{k as Basic,A as Disabled,N as Icons,F as IdentitySelection,j as PerOptionDisabled,P as TypedHelper,M as VetoableSelection,I as __namedExportsOrder,T as default};
+}`,...F.parameters?.docs?.source}}},I.parameters={...I.parameters,docs:{...I.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        <cosmoz-toggle-group
+            id="default-size"
+            .options=\${options}
+            .value=\${'week'}
+        ></cosmoz-toggle-group>
+        <cosmoz-toggle-group
+            id="sm-size"
+            size="sm"
+            .options=\${options}
+            .value=\${'week'}
+        ></cosmoz-toggle-group>
+    \`,
+  play: async ({
+    canvasElement
+  }) => {
+    const height = (id: string) => canvasElement.querySelector(\`#\${id}\`)!.getBoundingClientRect().height;
+    await waitFor(() => {
+      expect(height('sm-size')).toBe(32);
+      expect(height('default-size')).toBe(39);
+    });
+  }
+}`,...I.parameters?.docs?.source}}}}))();export{k as Basic,A as Disabled,N as Icons,F as IdentitySelection,j as PerOptionDisabled,I as Sizes,P as TypedHelper,M as VetoableSelection,L as __namedExportsOrder,T as default};

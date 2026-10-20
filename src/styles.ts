@@ -240,7 +240,7 @@ export const styles = css`
 		line-height: var(--cz-text-sm-line-height);
 	}
 
-	:host([variant='cell']) .wrap:has(#input) {
+	:host([variant='cell']) .wrap {
 		box-sizing: border-box;
 		border: 0.5px solid var(--cz-color-bg-quaternary);
 		border-radius: 0;
@@ -251,7 +251,7 @@ export const styles = css`
 		background: var(--cz-color-bg-quaternary);
 	}
 
-	:host([variant='cell'][invalid]) .wrap:has(#input) {
+	:host([variant='cell'][invalid]) .wrap {
 		border-color: var(--cz-color-border-error);
 		box-shadow: none;
 	}

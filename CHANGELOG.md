@@ -1,3 +1,13 @@
+## 6.6.0
+
+### Minor Changes
+
+- 927a872: `cosmoz-toggle-group` takes `size="sm"` (and `toggleGroup({ size: 'sm' })`). It renders 32px high with xs text, the same box as `cosmoz-tabs-next` segmented `sm`, so a picker in a toolbar lines up with sm buttons and tab bars next to it. The default size is unchanged.
+
+### Patch Changes
+
+- 1895aea: Drop always-true :has(#input) wrappers in cell variant rules. Every cosmoz-input instance contains #input, so the wrappers never changed matches inside the component - but they prevented the sheet's non-interactive variant rules from applying to render()/styles() consumers that don't render an input (e.g. select-style triggers).
+
 ## 6.5.4
 
 ### Patch Changes

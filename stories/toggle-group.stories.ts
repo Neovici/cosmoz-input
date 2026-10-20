@@ -202,3 +202,27 @@ export const IdentitySelection: Story = {
 		});
 	},
 };
+
+export const Sizes: Story = {
+	render: () => html`
+		<cosmoz-toggle-group
+			id="default-size"
+			.options=${options}
+			.value=${'week'}
+		></cosmoz-toggle-group>
+		<cosmoz-toggle-group
+			id="sm-size"
+			size="sm"
+			.options=${options}
+			.value=${'week'}
+		></cosmoz-toggle-group>
+	`,
+	play: async ({ canvasElement }) => {
+		const height = (id: string) =>
+			canvasElement.querySelector(`#${id}`)!.getBoundingClientRect().height;
+		await waitFor(() => {
+			expect(height('sm-size')).toBe(32);
+			expect(height('default-size')).toBe(39);
+		});
+	},
+};

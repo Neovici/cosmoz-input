@@ -1,0 +1,1 @@
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{f as t,u as n}from"./iframe-B3V338-O.js";e((()=>{t()}))();export{n as DocsRenderer};

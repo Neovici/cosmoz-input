@@ -53,12 +53,15 @@ export const render = <T>(
 		<!-- hint: visible when valid, hidden when invalid or compact -->
 		${when(
 			!compact && hint && !invalid,
-			() => html`<span class="hint" part="hint">${hint}</span>`,
+			() => html`<span class="hint" part="hint" id="hint">${hint}</span>`,
 		)}
 		<!-- error: replaces hint when invalid, hidden in compact -->
 		${when(
 			!compact && invalid && errorMessage,
-			() => html`<span class="error" part="error">${errorMessage}</span>`,
+			() =>
+				html`<span class="error" part="error" id="error"
+					>${errorMessage}</span
+				>`,
 		)}
 	`,
 	attributes = ['autocomplete', 'readonly', 'disabled', 'maxlength', 'invalid'];

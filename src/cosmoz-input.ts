@@ -47,9 +47,16 @@ export const Input = (host: CosmozInput) => {
 			step,
 			maxlength,
 			required,
+			hint,
+			compact,
+			invalid,
+			errorMessage,
 		} = host,
 		{ onChange, onFocus, onInput, onRef } = useInput(host);
-	const onBeforeInput = useAllowedPattern(allowedPattern);
+	const onBeforeInput = useAllowedPattern(allowedPattern),
+		showHint = !compact && hint && !invalid,
+		showError = !compact && invalid && errorMessage,
+		describedBy = (showError && 'error') || (showHint && 'hint') || undefined;
 
 	host.toggleAttribute('has-value', !!value);
 
@@ -68,6 +75,8 @@ export const Input = (host: CosmozInput) => {
 				aria-disabled=${disabled ? 'true' : 'false'}
 				?disabled=${disabled}
 				?required=${required}
+				aria-invalid=${ifDefined(showError ? 'true' : undefined)}
+				aria-describedby=${ifDefined(describedBy)}
 				.value=${live(value ?? '')}
 				maxlength=${ifDefined(maxlength)}
 				@beforeinput=${onBeforeInput}

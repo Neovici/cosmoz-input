@@ -31,6 +31,11 @@ export const Textarea = (host: CosmozInput) => {
 			placeholder,
 			readonly,
 			disabled,
+			required,
+			hint,
+			compact,
+			invalid,
+			errorMessage,
 			rows,
 			cols,
 			maxlength,
@@ -39,6 +44,10 @@ export const Textarea = (host: CosmozInput) => {
 
 	useAutoHeight(host);
 
+	const showHint = !compact && hint && !invalid,
+		showError = !compact && invalid && errorMessage,
+		describedBy = (showError && 'error') || (showHint && 'hint') || undefined;
+
 	return render(
 		html`
 			<textarea id="input" part="input"
@@ -46,7 +55,10 @@ export const Textarea = (host: CosmozInput) => {
 				autocomplete=${ifDefined(autocomplete)}
 				placeholder=${placeholder || ' '}
 				rows=${rows ?? 1} cols=${ifDefined(cols)}
-				?readonly=${readonly} ?aria-disabled=${disabled} ?disabled=${disabled}
+				?readonly=${readonly} aria-disabled=${disabled ? 'true' : 'false'}
+				?disabled=${disabled} ?required=${required}
+				aria-invalid=${ifDefined(showError ? 'true' : undefined)}
+				aria-describedby=${ifDefined(describedBy)}
 				.value=${live(value ?? '')} maxlength=${ifDefined(maxlength)} @input=${onInput}
 				@change=${onChange} @focus=${onFocus} @blur=${onFocus}>`,
 		host,

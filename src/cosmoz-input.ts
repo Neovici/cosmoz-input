@@ -26,6 +26,7 @@ const observedAttributes = [
 	'label',
 	'placeholder',
 	...attributes,
+	'aria-label',
 ];
 
 type CosmozInput = HTMLElement &
@@ -66,6 +67,7 @@ export const Input = (host: CosmozInput) => {
 				placeholder=${getPlaceholder({ placeholder: host.placeholder })}
 				?readonly=${readonly}
 				aria-disabled=${disabled ? 'true' : 'false'}
+				aria-label=${ifDefined(host.getAttribute('aria-label'))}
 				?disabled=${disabled}
 				?required=${required}
 				.value=${live(value ?? '')}

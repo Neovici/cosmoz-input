@@ -1,3 +1,9 @@
+## 6.7.0
+
+### Minor Changes
+
+- 51b13c6: Add a `size` attribute (`sm`/`md`/`lg`/`xl`) that maps the input's `--control-height` alias to the matching `--cz-control-height-*` token; `md` stays the default.
+
 ## 6.6.0
 
 ### Minor Changes

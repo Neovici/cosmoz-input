@@ -30,13 +30,19 @@ export const render = <T>(
 			required,
 		}: Render,
 	) => html`
-		<!-- label: hidden in compact mode -->
+		<!-- label: visually hidden in compact mode -->
 		${when(
-			!compact && label,
+			label,
 			() =>
-				html`<label for=${ifDefined(labelFor)} part="label"
+				html`<label
+					for=${ifDefined(labelFor)}
+					part="label"
+					class=${ifDefined(compact ? 'sr-only' : undefined)}
 					>${label}
-					${when(required, () => html`<span class="required">*</span>`)}
+					${when(
+						required && !compact,
+						() => html`<span class="required">*</span>`,
+					)}
 				</label>`,
 		)}
 		<div class="wrap" part="wrap">

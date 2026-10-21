@@ -302,3 +302,27 @@ export const CompactAnnouncesWithoutDescription: Story = {
 		});
 	},
 };
+
+export const CompactAndCellKeepName: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-input label="Amount" compact></cosmoz-input>
+		<cosmoz-input label="Amount" variant="cell"></cosmoz-input>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const [compact, cell] = [...canvasElement.querySelectorAll('cosmoz-input')];
+
+		await step('compact keeps the label, visually hidden', async () => {
+			const label = compact.shadowRoot!.querySelector('label')!;
+			expect(label.classList.contains('sr-only')).toBe(true);
+			expect(label.getBoundingClientRect().width).toBeLessThanOrEqual(1);
+		});
+
+		await step('cell keeps the label, visually hidden', async () => {
+			const label = cell.shadowRoot!.querySelector('label')!;
+			expect(label.getAttribute('for')).toBe('input');
+			expect(label.textContent).toContain('Amount');
+			expect(label.getBoundingClientRect().width).toBeLessThanOrEqual(1);
+		});
+	},
+};

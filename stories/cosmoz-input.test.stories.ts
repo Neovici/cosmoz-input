@@ -251,3 +251,54 @@ export const CellBorderInsideHost: Story = {
 		});
 	},
 };
+
+export const AnnouncedMessages: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-input label="Amount" hint="USD"></cosmoz-input>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const el = canvasElement.querySelector('cosmoz-input')!;
+		const input = el.shadowRoot!.querySelector('#input')!;
+
+		await step('the visible hint is described on the input', async () => {
+			expect(input.getAttribute('aria-describedby')).toBe('hint');
+			expect(input.hasAttribute('aria-invalid')).toBe(false);
+		});
+
+		await step(
+			'a visible error replaces the description and announces invalid',
+			async () => {
+				el.errorMessage = 'Required';
+				el.setAttribute('invalid', '');
+				await waitFor(() => {
+					expect(input.getAttribute('aria-describedby')).toBe('error');
+					expect(input.getAttribute('aria-invalid')).toBe('true');
+				});
+
+				el.removeAttribute('invalid');
+				await waitFor(() => {
+					expect(input.getAttribute('aria-describedby')).toBe('hint');
+					expect(input.hasAttribute('aria-invalid')).toBe(false);
+				});
+			},
+		);
+	},
+};
+
+export const CompactHasNoDescription: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-input label="Amount" hint="USD" compact></cosmoz-input>
+	`,
+	play: async ({ canvasElement }) => {
+		const el = canvasElement.querySelector('cosmoz-input')!;
+		el.errorMessage = 'Required';
+		el.setAttribute('invalid', '');
+		await waitFor(() => {
+			const input = el.shadowRoot!.querySelector('#input')!;
+			expect(input.hasAttribute('aria-describedby')).toBe(false);
+			expect(input.hasAttribute('aria-invalid')).toBe(false);
+		});
+	},
+};

@@ -13,6 +13,7 @@ import { defaultMax, getPlaceholder } from './util';
 const observedAttributes = [
 	'type',
 	'variant',
+	'size',
 	'hint',
 	'compact',
 	'required',

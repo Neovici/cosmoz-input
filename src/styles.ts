@@ -14,6 +14,20 @@ export const styles = css`
 		font-family: var(--cz-font-body);
 	}
 
+	:host([size='sm']) {
+		--control-height: var(--cz-control-height-sm);
+		font-size: var(--cz-text-xs);
+		line-height: var(--cz-text-xs-line-height);
+	}
+
+	:host([size='lg']) {
+		--control-height: var(--cz-control-height-lg);
+	}
+
+	:host([size='xl']) {
+		--control-height: var(--cz-control-height-xl);
+	}
+
 	:host(:not([compact])) {
 		margin-bottom: calc(var(--cz-spacing) * 3);
 	}

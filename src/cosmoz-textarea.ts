@@ -46,8 +46,7 @@ export const Textarea = (host: CosmozInput) => {
 
 	const showHint = !compact && hint && !invalid,
 		showError = invalid && errorMessage,
-		describedBy =
-			(!compact && showError && 'error') || (showHint && 'hint') || undefined;
+		describedBy = (showError && 'error') || (showHint && 'hint') || undefined;
 
 	return render(
 		html`

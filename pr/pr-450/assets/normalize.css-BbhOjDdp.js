@@ -1,4 +1,4 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n}from"./iframe-B3S60r5p.js";import{D as r,T as i,t as a}from"./haunted-CmsfEjDM.js";var o,s=e((()=>{t(),o=e=>e??n})),c,l=e((()=>{a(),c=r(i`
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n}from"./iframe-DYtJ-gYe.js";import{D as r,T as i,t as a}from"./haunted-C99-QbsN.js";var o,s=e((()=>{t(),o=e=>e??n})),c,l=e((()=>{a(),c=r(i`
 	/*
 	 * Use border-box sizing for all elements.
 	 * This is safe and doesn't conflict with child component styles.

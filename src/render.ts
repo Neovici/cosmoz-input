@@ -66,10 +66,16 @@ export const render = <T>(
 
 			<slot name="suffix"></slot>
 		</div>
-		<!-- hint: visible when valid, hidden when invalid or compact -->
+		<!-- hint: read with the field while valid; visually hidden in compact -->
 		${when(
-			!compact && hint && !invalid,
-			() => html`<span class="hint" part="hint" id="hint">${hint}</span>`,
+			hint && !invalid,
+			() =>
+				html`<span
+					class=${compact ? 'hint sr-only' : 'hint'}
+					part="hint"
+					id="hint"
+					>${hint}</span
+				>`,
 		)}
 		<!-- error: replaces hint when invalid; visually hidden in compact -->
 		${when(

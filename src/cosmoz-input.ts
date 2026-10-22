@@ -49,13 +49,12 @@ export const Input = (host: CosmozInput) => {
 			maxlength,
 			required,
 			hint,
-			compact,
 			invalid,
 			errorMessage,
 		} = host,
 		{ onChange, onFocus, onInput, onRef } = useInput(host);
 	const onBeforeInput = useAllowedPattern(allowedPattern),
-		showHint = !compact && hint && !invalid,
+		showHint = hint && !invalid,
 		showError = invalid && errorMessage,
 		describedBy = (showError && 'error') || (showHint && 'hint') || undefined;
 
@@ -77,7 +76,7 @@ export const Input = (host: CosmozInput) => {
 				aria-label=${ifDefined(host.getAttribute('aria-label'))}
 				?disabled=${disabled}
 				?required=${required}
-				aria-invalid=${ifDefined(showError ? 'true' : undefined)}
+				aria-invalid=${ifDefined(invalid ? 'true' : undefined)}
 				aria-describedby=${ifDefined(describedBy)}
 				.value=${live(value ?? '')}
 				maxlength=${ifDefined(maxlength)}

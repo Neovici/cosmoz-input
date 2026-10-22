@@ -329,3 +329,34 @@ export const CompactAndCellKeepName: Story = {
 		});
 	},
 };
+
+export const CompactDescribesHintWithoutShowing: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-input label="Amount" hint="USD" compact></cosmoz-input>
+	`,
+	play: async ({ canvasElement }) => {
+		const el = canvasElement.querySelector('cosmoz-input')!;
+		await waitFor(() => {
+			const input = el.shadowRoot!.querySelector('#input')!;
+			expect(input.getAttribute('aria-describedby')).toBe('hint');
+		});
+		const hint = el.shadowRoot!.querySelector('#hint')!;
+		expect(hint.getBoundingClientRect().width).toBeLessThanOrEqual(1);
+	},
+};
+
+export const InvalidWithoutMessageMarksInvalid: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-input label="Amount" hint="USD" invalid></cosmoz-input>
+	`,
+	play: async ({ canvasElement }) => {
+		const el = canvasElement.querySelector('cosmoz-input')!;
+		await waitFor(() => {
+			const input = el.shadowRoot!.querySelector('#input')!;
+			expect(input.getAttribute('aria-invalid')).toBe('true');
+			expect(input.hasAttribute('aria-describedby')).toBe(false);
+		});
+	},
+};

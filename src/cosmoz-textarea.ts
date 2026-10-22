@@ -45,8 +45,9 @@ export const Textarea = (host: CosmozInput) => {
 	useAutoHeight(host);
 
 	const showHint = !compact && hint && !invalid,
-		showError = !compact && invalid && errorMessage,
-		describedBy = (showError && 'error') || (showHint && 'hint') || undefined;
+		showError = invalid && errorMessage,
+		describedBy =
+			(!compact && showError && 'error') || (showHint && 'hint') || undefined;
 
 	return render(
 		html`

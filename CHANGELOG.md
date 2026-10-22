@@ -1,3 +1,13 @@
+## 6.8.0
+
+### Minor Changes
+
+- 743fec6: The hint keeps describing the field in compact, visually hidden, and the control is marked `aria-invalid` while `invalid` is set even when no error message is shown.
+- 0ead119: The field keeps its accessible name in compact and cell: the label stays in the accessibility tree, visually hidden.
+- 5cfce16: Visible hint and error are described on the control (`aria-describedby`); `aria-invalid` follows the visible error. `cosmoz-textarea` gains the same: `required`, a correct `aria-disabled`, and the same description wiring.
+- 5a8211c: The field keeps its error description in compact: the message stays in the accessibility tree, visually hidden.
+- 916a2ed: Add `labelFor` render option: point the label at another control, or `null` to omit the `for` attribute.
+
 ## 6.7.0
 
 ### Minor Changes

@@ -1,4 +1,4 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-lc-gALG-.js";import{t as r}from"./cosmoz-input-DNFkAd8Y.js";import{n as i,t as a}from"./style-CxS4u6Og.js";var o,s,c,l,u,d,f,p,m,h,g,_,v,y,b,x,S,C,w,T,E,D;e((()=>{t(),r(),a(),{expect:o,fn:s,userEvent:c,waitFor:l}=__STORYBOOK_MODULE_TEST__,u={title:`Tests/Input`},d={render:()=>n`
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-DGItRHTC.js";import{t as r}from"./cosmoz-input-B5n0nasR.js";import{n as i,t as a}from"./style-rTDkK5H_.js";var o,s,c,l,u,d,f,p,m,h,g,_,v,y,b,x,S,C,w,T,E,D;e((()=>{t(),r(),a(),{expect:o,fn:s,userEvent:c,waitFor:l}=__STORYBOOK_MODULE_TEST__,u={title:`Tests/Input`},d={render:()=>n`
         ${i}
         <cosmoz-input></cosmoz-input>
     `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`);await t(`focus() triggers focused-changed`,async()=>{let e=s();n.addEventListener(`focused-changed`,e,{once:!0}),o(e).not.toHaveBeenCalled(),n.focus(),await l(()=>{o(e).toHaveBeenCalledTimes(1)})})}},f={render:()=>n`
@@ -40,7 +40,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
     `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`),r=n.shadowRoot.querySelector(`#input`);await t(`the visible hint is described on the input`,async()=>{o(r.getAttribute(`aria-describedby`)).toBe(`hint`),o(r.hasAttribute(`aria-invalid`)).toBe(!1)}),await t(`a visible error replaces the description and announces invalid`,async()=>{n.errorMessage=`Required`,n.setAttribute(`invalid`,``),await l(()=>{o(r.getAttribute(`aria-describedby`)).toBe(`error`),o(r.getAttribute(`aria-invalid`)).toBe(`true`)}),n.removeAttribute(`invalid`),await l(()=>{o(r.getAttribute(`aria-describedby`)).toBe(`hint`),o(r.hasAttribute(`aria-invalid`)).toBe(!1)})})}},C={render:()=>n`
         ${i}
         <cosmoz-input label="Amount" hint="USD" compact></cosmoz-input>
-    `,play:async({canvasElement:e})=>{let t=e.querySelector(`cosmoz-input`);t.errorMessage=`Required`,t.setAttribute(`invalid`,``),await l(()=>{let e=t.shadowRoot.querySelector(`#input`);o(e.hasAttribute(`aria-describedby`)).toBe(!1),o(e.getAttribute(`aria-invalid`)).toBe(`true`)})}},w={render:()=>n`
+    `,play:async({canvasElement:e})=>{let t=e.querySelector(`cosmoz-input`);t.errorMessage=`Required`,t.setAttribute(`invalid`,``),await l(()=>{let e=t.shadowRoot.querySelector(`#input`);o(e.getAttribute(`aria-describedby`)).toBe(`error`),o(e.getAttribute(`aria-invalid`)).toBe(`true`)});let n=t.shadowRoot.querySelector(`#error`);o(n.classList.contains(`error`)).toBe(!0),o(n.getBoundingClientRect().width).toBeLessThanOrEqual(1)}},w={render:()=>n`
         ${i}
         <cosmoz-input label="Amount" compact></cosmoz-input>
         <cosmoz-input label="Amount" variant="cell"></cosmoz-input>
@@ -325,9 +325,12 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
     el.setAttribute('invalid', '');
     await waitFor(() => {
       const input = el.shadowRoot!.querySelector('#input')!;
-      expect(input.hasAttribute('aria-describedby')).toBe(false);
+      expect(input.getAttribute('aria-describedby')).toBe('error');
       expect(input.getAttribute('aria-invalid')).toBe('true');
     });
+    const error = el.shadowRoot!.querySelector('#error')!;
+    expect(error.classList.contains('error')).toBe(true);
+    expect(error.getBoundingClientRect().width).toBeLessThanOrEqual(1);
   }
 }`,...C.parameters?.docs?.source}}},w.parameters={...w.parameters,docs:{...w.parameters?.docs,source:{originalSource:`{
   render: () => html\`
@@ -383,7 +386,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       expect(input.hasAttribute('aria-describedby')).toBe(false);
     });
   }
-}`,...E.parameters?.docs?.source}}},D=[`Focus`,`Change`,`Validate`,`AllowedPattern`,`ValueChanged`,`Placeholder`,`Mousedown`,`DelegatesFocus`,`BlurPrevention`,`LabelClickThrough`,`CellBorderInsideHost`,`AnnouncedMessages`,`CompactAnnouncesWithoutDescription`,`CompactAndCellKeepName`,`CompactDescribesHintWithoutShowing`,`InvalidWithoutMessageMarksInvalid`],d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
+}`,...E.parameters?.docs?.source}}},D=[`Focus`,`Change`,`Validate`,`AllowedPattern`,`ValueChanged`,`Placeholder`,`Mousedown`,`DelegatesFocus`,`BlurPrevention`,`LabelClickThrough`,`CellBorderInsideHost`,`AnnouncedMessages`,`CompactDescribesErrorWithoutShowing`,`CompactAndCellKeepName`,`CompactDescribesHintWithoutShowing`,`InvalidWithoutMessageMarksInvalid`],d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input></cosmoz-input>
@@ -658,9 +661,12 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
     el.setAttribute('invalid', '');
     await waitFor(() => {
       const input = el.shadowRoot!.querySelector('#input')!;
-      expect(input.hasAttribute('aria-describedby')).toBe(false);
+      expect(input.getAttribute('aria-describedby')).toBe('error');
       expect(input.getAttribute('aria-invalid')).toBe('true');
     });
+    const error = el.shadowRoot!.querySelector('#error')!;
+    expect(error.classList.contains('error')).toBe(true);
+    expect(error.getBoundingClientRect().width).toBeLessThanOrEqual(1);
   }
 }`,...C.parameters?.docs?.source}}},w.parameters={...w.parameters,docs:{...w.parameters?.docs,source:{originalSource:`{
   render: () => html\`
@@ -716,4 +722,4 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       expect(input.hasAttribute('aria-describedby')).toBe(false);
     });
   }
-}`,...E.parameters?.docs?.source}}}}))();export{m as AllowedPattern,S as AnnouncedMessages,y as BlurPrevention,x as CellBorderInsideHost,f as Change,w as CompactAndCellKeepName,C as CompactAnnouncesWithoutDescription,T as CompactDescribesHintWithoutShowing,v as DelegatesFocus,d as Focus,E as InvalidWithoutMessageMarksInvalid,b as LabelClickThrough,_ as Mousedown,g as Placeholder,p as Validate,h as ValueChanged,D as __namedExportsOrder,u as default};
+}`,...E.parameters?.docs?.source}}}}))();export{m as AllowedPattern,S as AnnouncedMessages,y as BlurPrevention,x as CellBorderInsideHost,f as Change,w as CompactAndCellKeepName,C as CompactDescribesErrorWithoutShowing,T as CompactDescribesHintWithoutShowing,v as DelegatesFocus,d as Focus,E as InvalidWithoutMessageMarksInvalid,b as LabelClickThrough,_ as Mousedown,g as Placeholder,p as Validate,h as ValueChanged,D as __namedExportsOrder,u as default};

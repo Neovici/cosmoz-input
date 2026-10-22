@@ -76,7 +76,7 @@ export const render = <T>(
 			invalid && errorMessage,
 			() =>
 				html`<span
-					class=${ifDefined(compact ? 'sr-only' : undefined)}
+					class=${compact ? 'error sr-only' : 'error'}
 					part="error"
 					id="error"
 					>${errorMessage}</span

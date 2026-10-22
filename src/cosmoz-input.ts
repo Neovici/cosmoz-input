@@ -56,8 +56,9 @@ export const Input = (host: CosmozInput) => {
 		{ onChange, onFocus, onInput, onRef } = useInput(host);
 	const onBeforeInput = useAllowedPattern(allowedPattern),
 		showHint = !compact && hint && !invalid,
-		showError = !compact && invalid && errorMessage,
-		describedBy = (showError && 'error') || (showHint && 'hint') || undefined;
+		showError = invalid && errorMessage,
+		describedBy =
+			(!compact && showError && 'error') || (showHint && 'hint') || undefined;
 
 	host.toggleAttribute('has-value', !!value);
 

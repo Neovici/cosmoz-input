@@ -286,7 +286,7 @@ export const AnnouncedMessages: Story = {
 	},
 };
 
-export const CompactHasNoDescription: Story = {
+export const CompactAnnouncesWithoutDescription: Story = {
 	render: () => html`
 		${style}
 		<cosmoz-input label="Amount" hint="USD" compact></cosmoz-input>
@@ -298,7 +298,7 @@ export const CompactHasNoDescription: Story = {
 		await waitFor(() => {
 			const input = el.shadowRoot!.querySelector('#input')!;
 			expect(input.hasAttribute('aria-describedby')).toBe(false);
-			expect(input.hasAttribute('aria-invalid')).toBe(false);
+			expect(input.getAttribute('aria-invalid')).toBe('true');
 		});
 	},
 };

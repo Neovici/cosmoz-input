@@ -301,6 +301,7 @@ export const CompactDescribesErrorWithoutShowing: Story = {
 			expect(input.getAttribute('aria-invalid')).toBe('true');
 		});
 		const error = el.shadowRoot!.querySelector('#error')!;
+		expect(error.classList.contains('error')).toBe(true);
 		expect(error.getBoundingClientRect().width).toBeLessThanOrEqual(1);
 	},
 };

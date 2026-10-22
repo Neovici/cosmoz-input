@@ -71,11 +71,14 @@ export const render = <T>(
 			!compact && hint && !invalid,
 			() => html`<span class="hint" part="hint" id="hint">${hint}</span>`,
 		)}
-		<!-- error: replaces hint when invalid, hidden in compact -->
+		<!-- error: replaces hint when invalid; visually hidden in compact -->
 		${when(
-			!compact && invalid && errorMessage,
+			invalid && errorMessage,
 			() =>
-				html`<span class="error" part="error" id="error"
+				html`<span
+					class=${ifDefined(compact ? 'sr-only' : undefined)}
+					part="error"
+					id="error"
 					>${errorMessage}</span
 				>`,
 		)}

@@ -23,14 +23,14 @@ export const useAutoHeight = <T extends BaseInput>(host: T) => {
 		input = useMemo(
 			() => () =>
 				(host.shadowRoot as ShadowRoot).querySelector('#input') as HTMLElement,
-			[]
+			[],
 		);
 	useEffect(() => limit(input(), maxRows), [maxRows, input]);
 	useEffect(() => autoheight(input()), [input, value]);
 	useEffect(() => {
 		const el = input(),
 			observer = new ResizeObserver(() =>
-				requestAnimationFrame(() => autoheight(el))
+				requestAnimationFrame(() => autoheight(el)),
 			);
 		observer.observe(el);
 		return () => observer.unobserve(el);

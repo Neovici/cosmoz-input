@@ -28,7 +28,7 @@ const meta: Meta = {
 		},
 		variant: {
 			control: 'select',
-			options: ['inline', 'cell'],
+			options: ['inline', 'cell', 'pill'],
 			description: 'Visual variant',
 			table: { defaultValue: { summary: '—' } },
 		},
@@ -185,6 +185,42 @@ export const Default: Story = {
 			description: {
 				story:
 					'The default variant with bordered wrap, label above, and hint/error text below.',
+			},
+		},
+	},
+};
+
+// === Pill variant ===
+
+export const Pill: Story = {
+	render: () => html`
+		<div class="story-stack">
+			<h1 class="story-section-title">Pill variant</h1>
+			<div class="story-row">
+				<cosmoz-input
+					variant="pill"
+					.label=${'Label'}
+					.placeholder=${'Add label'}
+				></cosmoz-input>
+				<cosmoz-input
+					variant="pill"
+					.label=${'Label'}
+					.value=${'Urgent'}
+				></cosmoz-input>
+				<cosmoz-input
+					variant="pill"
+					.label=${'Label'}
+					.value=${'Bad'}
+					invalid
+				></cosmoz-input>
+			</div>
+		</div>
+	`,
+	parameters: {
+		docs: {
+			description: {
+				story:
+					'A frameless field whose input is a compact pill, for adding to an inline list such as a row of tags.',
 			},
 		},
 	},

@@ -360,3 +360,40 @@ export const InvalidWithoutMessageMarksInvalid: Story = {
 		});
 	},
 };
+
+export const PillVariant: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-input
+			variant="pill"
+			.label=${'Label'}
+			.placeholder=${'Add label'}
+		></cosmoz-input>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const el = canvasElement.querySelector('cosmoz-input')!;
+		const input = () =>
+			el.shadowRoot!.querySelector<HTMLInputElement>('#input')!;
+		const wrap = () => el.shadowRoot!.querySelector<HTMLElement>('.wrap')!;
+		await step('renders a frameless field with a pill input', async () => {
+			await waitFor(() => expect(input()).toBeTruthy());
+			expect(getComputedStyle(el).marginBottom).toBe('0px');
+			expect(getComputedStyle(wrap()).boxShadow).toBe('none');
+			expect(
+				parseFloat(getComputedStyle(input()).borderTopLeftRadius),
+			).toBeGreaterThan(100);
+		});
+		await step('keeps the label for assistive tech only', async () => {
+			const label = el.shadowRoot!.querySelector('label')!;
+			expect(label.getBoundingClientRect().width).toBeLessThanOrEqual(1);
+		});
+		await step('shows the focus ring on the input, not the wrap', async () => {
+			const blurred = getComputedStyle(input()).boxShadow;
+			input().focus();
+			await waitFor(() =>
+				expect(getComputedStyle(input()).boxShadow).not.toBe(blurred),
+			);
+			expect(getComputedStyle(wrap()).boxShadow).toBe('none');
+		});
+	},
+};

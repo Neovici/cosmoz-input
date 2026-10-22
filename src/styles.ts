@@ -317,6 +317,71 @@ export const styles = css`
 		visibility: hidden;
 	}
 
+	/* === Variant: pill === */
+	/* A frameless field whose input is a compact pill, for adding to an inline
+	   list such as a row of tags. */
+
+	:host([variant='pill']) {
+		margin-bottom: 0;
+		font-size: var(--cz-text-xs);
+		line-height: var(--cz-text-xs-line-height);
+	}
+
+	:host([variant='pill']) .wrap,
+	:host([variant='pill']) .wrap:has(#input:focus),
+	:host([variant='pill'][invalid]) .wrap {
+		background: transparent;
+		box-shadow: none;
+		border-radius: 0;
+		overflow: visible;
+	}
+
+	:host([variant='pill']) #input {
+		padding-block: calc(var(--cz-spacing) * 0.75);
+		padding-inline: calc(var(--cz-spacing) * 2.5);
+		border-radius: var(--cz-radius-full);
+		box-shadow: inset 0 0 0 1px var(--cz-color-border-primary);
+		cursor: pointer;
+		transition-duration: 0.1s;
+		transition-property: box-shadow, background;
+	}
+
+	:host([variant='pill']) #input::placeholder {
+		color: var(--cz-color-text-tertiary);
+	}
+
+	:host([variant='pill']) #input:hover {
+		background: var(--cz-color-bg-primary-hover);
+	}
+
+	:host([variant='pill']) #input:focus {
+		cursor: text;
+		background: var(--cz-color-bg-primary);
+		box-shadow:
+			inset 0 0 0 1px var(--cz-color-border-primary),
+			var(--cz-focus-ring);
+	}
+
+	:host([variant='pill'][invalid]) #input {
+		box-shadow: inset 0 0 0 1px var(--cz-color-border-error);
+	}
+
+	:host([variant='pill']) label {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
+	}
+
+	:host([variant='pill']) .hint,
+	:host([variant='pill']) .error,
+	:host([variant='pill']) cosmoz-tooltip {
+		display: none;
+	}
+
 	/* === No spinner === */
 
 	:host([no-spinner]) #input::-webkit-inner-spin-button {

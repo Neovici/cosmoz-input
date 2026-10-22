@@ -1,4 +1,4 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-BZRKQnav.js";import{t as r}from"./cosmoz-input-Da6Gts5n.js";import{n as i,t as a}from"./style-Dako-FR1.js";var o,s,c,l,u,d,f,p,m,h,g,_,v,y,b,x,S,C,w;e((()=>{t(),r(),a(),{expect:o,fn:s,userEvent:c,waitFor:l}=__STORYBOOK_MODULE_TEST__,u={title:`Tests/Input`},d={render:()=>n`
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-BSgmop9Z.js";import{t as r}from"./cosmoz-input-DQaLrjCu.js";import{n as i,t as a}from"./style-x9HR8siE.js";var o,s,c,l,u,d,f,p,m,h,g,_,v,y,b,x,S,C,w,T;e((()=>{t(),r(),a(),{expect:o,fn:s,userEvent:c,waitFor:l}=__STORYBOOK_MODULE_TEST__,u={title:`Tests/Input`},d={render:()=>n`
         ${i}
         <cosmoz-input></cosmoz-input>
     `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`);await t(`focus() triggers focused-changed`,async()=>{let e=s();n.addEventListener(`focused-changed`,e,{once:!0}),o(e).not.toHaveBeenCalled(),n.focus(),await l(()=>{o(e).toHaveBeenCalledTimes(1)})})}},f={render:()=>n`
@@ -40,7 +40,11 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
     `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`),r=n.shadowRoot.querySelector(`#input`);await t(`the visible hint is described on the input`,async()=>{o(r.getAttribute(`aria-describedby`)).toBe(`hint`),o(r.hasAttribute(`aria-invalid`)).toBe(!1)}),await t(`a visible error replaces the description and announces invalid`,async()=>{n.errorMessage=`Required`,n.setAttribute(`invalid`,``),await l(()=>{o(r.getAttribute(`aria-describedby`)).toBe(`error`),o(r.getAttribute(`aria-invalid`)).toBe(`true`)}),n.removeAttribute(`invalid`),await l(()=>{o(r.getAttribute(`aria-describedby`)).toBe(`hint`),o(r.hasAttribute(`aria-invalid`)).toBe(!1)})})}},C={render:()=>n`
         ${i}
         <cosmoz-input label="Amount" hint="USD" compact></cosmoz-input>
-    `,play:async({canvasElement:e})=>{let t=e.querySelector(`cosmoz-input`);t.errorMessage=`Required`,t.setAttribute(`invalid`,``),await l(()=>{let e=t.shadowRoot.querySelector(`#input`);o(e.hasAttribute(`aria-describedby`)).toBe(!1),o(e.getAttribute(`aria-invalid`)).toBe(`true`)})}},d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
+    `,play:async({canvasElement:e})=>{let t=e.querySelector(`cosmoz-input`);t.errorMessage=`Required`,t.setAttribute(`invalid`,``),await l(()=>{let e=t.shadowRoot.querySelector(`#input`);o(e.hasAttribute(`aria-describedby`)).toBe(!1),o(e.getAttribute(`aria-invalid`)).toBe(`true`)})}},w={render:()=>n`
+        ${i}
+        <cosmoz-input label="Amount" compact></cosmoz-input>
+        <cosmoz-input label="Amount" variant="cell"></cosmoz-input>
+    `,play:async({canvasElement:e,step:t})=>{let[n,r]=[...e.querySelectorAll(`cosmoz-input`)];await t(`compact keeps the label, visually hidden`,async()=>{let e=n.shadowRoot.querySelector(`label`);o(e.classList.contains(`sr-only`)).toBe(!0),o(e.getBoundingClientRect().width).toBeLessThanOrEqual(1)}),await t(`cell keeps the label, visually hidden`,async()=>{let e=r.shadowRoot.querySelector(`label`);o(e.getAttribute(`for`)).toBe(`input`),o(e.textContent).toContain(`Amount`),o(e.getBoundingClientRect().width).toBeLessThanOrEqual(1)})}},d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input></cosmoz-input>
@@ -319,7 +323,30 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       expect(input.getAttribute('aria-invalid')).toBe('true');
     });
   }
-}`,...C.parameters?.docs?.source}}},w=[`Focus`,`Change`,`Validate`,`AllowedPattern`,`ValueChanged`,`Placeholder`,`Mousedown`,`DelegatesFocus`,`BlurPrevention`,`LabelClickThrough`,`CellBorderInsideHost`,`AnnouncedMessages`,`CompactAnnouncesWithoutDescription`],d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
+}`,...C.parameters?.docs?.source}}},w.parameters={...w.parameters,docs:{...w.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        \${style}
+        <cosmoz-input label="Amount" compact></cosmoz-input>
+        <cosmoz-input label="Amount" variant="cell"></cosmoz-input>
+    \`,
+  play: async ({
+    canvasElement,
+    step
+  }) => {
+    const [compact, cell] = [...canvasElement.querySelectorAll('cosmoz-input')];
+    await step('compact keeps the label, visually hidden', async () => {
+      const label = compact.shadowRoot!.querySelector('label')!;
+      expect(label.classList.contains('sr-only')).toBe(true);
+      expect(label.getBoundingClientRect().width).toBeLessThanOrEqual(1);
+    });
+    await step('cell keeps the label, visually hidden', async () => {
+      const label = cell.shadowRoot!.querySelector('label')!;
+      expect(label.getAttribute('for')).toBe('input');
+      expect(label.textContent).toContain('Amount');
+      expect(label.getBoundingClientRect().width).toBeLessThanOrEqual(1);
+    });
+  }
+}`,...w.parameters?.docs?.source}}},T=[`Focus`,`Change`,`Validate`,`AllowedPattern`,`ValueChanged`,`Placeholder`,`Mousedown`,`DelegatesFocus`,`BlurPrevention`,`LabelClickThrough`,`CellBorderInsideHost`,`AnnouncedMessages`,`CompactAnnouncesWithoutDescription`,`CompactAndCellKeepName`],d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input></cosmoz-input>
@@ -598,4 +625,27 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       expect(input.getAttribute('aria-invalid')).toBe('true');
     });
   }
-}`,...C.parameters?.docs?.source}}}}))();export{m as AllowedPattern,S as AnnouncedMessages,y as BlurPrevention,x as CellBorderInsideHost,f as Change,C as CompactAnnouncesWithoutDescription,v as DelegatesFocus,d as Focus,b as LabelClickThrough,_ as Mousedown,g as Placeholder,p as Validate,h as ValueChanged,w as __namedExportsOrder,u as default};
+}`,...C.parameters?.docs?.source}}},w.parameters={...w.parameters,docs:{...w.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        \${style}
+        <cosmoz-input label="Amount" compact></cosmoz-input>
+        <cosmoz-input label="Amount" variant="cell"></cosmoz-input>
+    \`,
+  play: async ({
+    canvasElement,
+    step
+  }) => {
+    const [compact, cell] = [...canvasElement.querySelectorAll('cosmoz-input')];
+    await step('compact keeps the label, visually hidden', async () => {
+      const label = compact.shadowRoot!.querySelector('label')!;
+      expect(label.classList.contains('sr-only')).toBe(true);
+      expect(label.getBoundingClientRect().width).toBeLessThanOrEqual(1);
+    });
+    await step('cell keeps the label, visually hidden', async () => {
+      const label = cell.shadowRoot!.querySelector('label')!;
+      expect(label.getAttribute('for')).toBe('input');
+      expect(label.textContent).toContain('Amount');
+      expect(label.getBoundingClientRect().width).toBeLessThanOrEqual(1);
+    });
+  }
+}`,...w.parameters?.docs?.source}}}}))();export{m as AllowedPattern,S as AnnouncedMessages,y as BlurPrevention,x as CellBorderInsideHost,f as Change,w as CompactAndCellKeepName,C as CompactAnnouncesWithoutDescription,v as DelegatesFocus,d as Focus,b as LabelClickThrough,_ as Mousedown,g as Placeholder,p as Validate,h as ValueChanged,T as __namedExportsOrder,u as default};

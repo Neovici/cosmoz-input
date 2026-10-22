@@ -76,3 +76,51 @@ export const Label: Story = {
 		});
 	},
 };
+
+export const Switch: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-toggle id="labelled" .label=${'Is active'}></cosmoz-toggle>
+		<cosmoz-toggle id="named" aria-label="Email the supplier"></cosmoz-toggle>
+		<cosmoz-toggle
+			id="failing"
+			.label=${'Notify'}
+			.error=${'Pick a channel'}
+		></cosmoz-toggle>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const input = (id: string) =>
+			canvasElement
+				.querySelector(`#${id}`)!
+				.shadowRoot!.querySelector('input')!;
+
+		await step('the input is a switch', async () => {
+			await waitFor(() =>
+				expect(input('labelled').getAttribute('role')).toBe('switch'),
+			);
+		});
+
+		await step(
+			'aria-label on the host names an unlabelled switch',
+			async () => {
+				await waitFor(() =>
+					expect(input('named').getAttribute('aria-label')).toBe(
+						'Email the supplier',
+					),
+				);
+				expect(input('labelled').hasAttribute('aria-label')).toBe(false);
+			},
+		);
+
+		await step('the error is linked and marks the switch invalid', async () => {
+			const el = input('failing');
+			await waitFor(() => expect(el.getAttribute('aria-invalid')).toBe('true'));
+			const id = el.getAttribute('aria-describedby')!;
+			expect(el.getRootNode() instanceof ShadowRoot).toBe(true);
+			expect(
+				(el.getRootNode() as ShadowRoot).getElementById(id)!.textContent,
+			).toBe('Pick a channel');
+			expect(input('labelled').hasAttribute('aria-invalid')).toBe(false);
+		});
+	},
+};

@@ -1,6 +1,7 @@
 import { infoCircleIcon } from '@neovici/cosmoz-icons/untitled';
 import '@neovici/cosmoz-tooltip';
 import { html } from 'lit-html';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { when } from 'lit-html/directives/when.js';
 
 export type ObjectFromList<T extends ReadonlyArray<string>, V = string> = {
@@ -9,6 +10,7 @@ export type ObjectFromList<T extends ReadonlyArray<string>, V = string> = {
 
 export interface Render {
 	label?: string;
+	labelFor?: string | null;
 	invalid?: boolean;
 	errorMessage?: string;
 	hint?: string;
@@ -18,13 +20,21 @@ export interface Render {
 
 export const render = <T>(
 		control: T,
-		{ hint, label, invalid, errorMessage, compact, required }: Render,
+		{
+			label,
+			labelFor = 'input',
+			hint,
+			invalid,
+			errorMessage,
+			compact,
+			required,
+		}: Render,
 	) => html`
 		<!-- label: hidden in compact mode -->
 		${when(
 			!compact && label,
 			() =>
-				html`<label for="input" part="label"
+				html`<label for=${ifDefined(labelFor)} part="label"
 					>${label}
 					${when(required, () => html`<span class="required">*</span>`)}
 				</label>`,

@@ -1,4 +1,30 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-B3V338-O.js";import{f as r,u as i}from"./use-input-DqTCsQG5.js";import{t as a}from"./cosmoz-input-bcxWUTxp.js";var o,s,c,l,u,d,f,p,m,h,g;e((()=>{i(),t(),a(),o={title:`Components/Cosmoz Input`,component:`cosmoz-input`,tags:[`autodocs`],argTypes:{label:{control:`text`,description:`Label text displayed above the input`},placeholder:{control:`text`,description:`Placeholder text`},value:{control:`text`,description:`Input value`},type:{control:`select`,options:[`text`,`number`,`password`,`email`,`color`],description:`Native input type`,table:{defaultValue:{summary:`text`}}},variant:{control:`select`,options:[`inline`,`cell`],description:`Visual variant`,table:{defaultValue:{summary:`—`}}},size:{control:`select`,options:[`sm`,`md`,`lg`,`xl`],description:`Control height size (maps to the cz control-height tokens)`,table:{defaultValue:{summary:`md`}}},compact:{control:`boolean`,description:`Hides label/hint/error text; shows tooltip icon instead`,table:{defaultValue:{summary:`false`}}},required:{control:`boolean`,description:`Marks field as required, shows * on label`,table:{defaultValue:{summary:`false`}}},invalid:{control:`boolean`,description:`Toggles error state (red border, error message)`,table:{defaultValue:{summary:`false`}}},errorMessage:{control:`text`,description:`Error text shown below input (or in tooltip when compact)`},hint:{control:`text`,description:`Helper text below input (hidden when invalid)`},disabled:{control:`boolean`,description:`Disables input, reduces opacity, not-allowed cursor`,table:{defaultValue:{summary:`false`}}},readonly:{control:`boolean`,description:`Makes input read-only`,table:{defaultValue:{summary:`false`}}},autosize:{control:`boolean`,description:`Input width adjusts to content length`,table:{defaultValue:{summary:`false`}}}}},s=e=>n`
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-D6J1P1wL.js";import{i as r,r as i}from"./normalize.css-CO2WYznH.js";import{n as a,t as o}from"./live-BLPDU3ti.js";import{a as s,c,f as l,i as u,l as d,n as f,o as p,r as m,s as h,t as g,u as _}from"./use-input-CfJbRQf5.js";import{D as v,n as y,t as b,y as x}from"./haunted-C0-B-tH0.js";var S,C=e((()=>{b(),S=e=>x(()=>{if(e==null)return;let t=new RegExp(e,`u`);return e=>{!e.defaultPrevented&&e.data&&!t.test(e.data)&&e.preventDefault()}},[e])})),w,T,E=e((()=>{w=({placeholder:e})=>e||` `,T=(e,t)=>t??(e===`date`?`9999-12-31`:void 0)})),D,O,k=e((()=>{b(),t(),i(),o(),c(),p(),m(),C(),g(),E(),D=[`type`,`variant`,`size`,`hint`,`compact`,`required`,`pattern`,`allowed-pattern`,`min`,`max`,`step`,`autosize`,`label`,`placeholder`,...s,`aria-label`],O=e=>{let{type:t=`text`,pattern:i,allowedPattern:o,autocomplete:s,value:c,readonly:l,disabled:u,min:p,max:m,step:g,maxlength:_,required:v}=e,{onChange:y,onFocus:b,onInput:x,onRef:C}=f(e),E=S(o);return e.toggleAttribute(`has-value`,!!c),h(n`
+			<input
+				${d(C)}
+				style="--chars: ${c?.toString()?.length??0}ch"
+				id="input"
+				part="input"
+				type=${t}
+				pattern=${r(i)}
+				autocomplete=${r(s)}
+				placeholder=${w({placeholder:e.placeholder})}
+				?readonly=${l}
+				aria-disabled=${u?`true`:`false`}
+				aria-label=${r(e.getAttribute(`aria-label`))}
+				?disabled=${u}
+				?required=${v}
+				.value=${a(c??``)}
+				maxlength=${r(_)}
+				@beforeinput=${E}
+				@input=${x}
+				@change=${y}
+				@focus=${b}
+				@blur=${b}
+				min=${r(p)}
+				max=${r(T(t,m))}
+				step=${r(g)}
+			/>
+		`,e)},customElements.define(`cosmoz-input`,y(O,{observedAttributes:D,styleSheets:[v(u)],shadowRootInit:{mode:`open`,delegatesFocus:!0}}))})),A,j,M,N,P,F,I,L,R,z,B;e((()=>{_(),t(),k(),A={title:`Components/Cosmoz Input`,component:`cosmoz-input`,tags:[`autodocs`],argTypes:{label:{control:`text`,description:`Label text displayed above the input`},placeholder:{control:`text`,description:`Placeholder text`},value:{control:`text`,description:`Input value`},type:{control:`select`,options:[`text`,`number`,`password`,`email`,`color`],description:`Native input type`,table:{defaultValue:{summary:`text`}}},variant:{control:`select`,options:[`inline`,`cell`],description:`Visual variant`,table:{defaultValue:{summary:`—`}}},size:{control:`select`,options:[`sm`,`md`,`lg`,`xl`],description:`Control height size (maps to the cz control-height tokens)`,table:{defaultValue:{summary:`md`}}},compact:{control:`boolean`,description:`Hides label/hint/error text; shows tooltip icon instead`,table:{defaultValue:{summary:`false`}}},required:{control:`boolean`,description:`Marks field as required, shows * on label`,table:{defaultValue:{summary:`false`}}},invalid:{control:`boolean`,description:`Toggles error state (red border, error message)`,table:{defaultValue:{summary:`false`}}},errorMessage:{control:`text`,description:`Error text shown below input (or in tooltip when compact)`},hint:{control:`text`,description:`Helper text below input (hidden when invalid)`},disabled:{control:`boolean`,description:`Disables input, reduces opacity, not-allowed cursor`,table:{defaultValue:{summary:`false`}}},readonly:{control:`boolean`,description:`Makes input read-only`,table:{defaultValue:{summary:`false`}}},autosize:{control:`boolean`,description:`Input width adjusts to content length`,table:{defaultValue:{summary:`false`}}}}},j=e=>n`
     <cosmoz-input
         .label=${e.label||``}
         placeholder=${e.placeholder||``}
@@ -15,7 +41,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
         ?readonly=${e.readonly}
         ?autosize=${e.autosize}
     ></cosmoz-input>
-`,c={args:{label:`Email`,placeholder:`olivia@untitledui.com`,hint:`This is a hint text to help user.`,required:!1,invalid:!1,disabled:!1,compact:!1,type:`text`},render:s,parameters:{docs:{description:{story:`Interactive playground — use the controls to explore all props.`}}}},l={render:()=>n`
+`,M={args:{label:`Email`,placeholder:`olivia@untitledui.com`,hint:`This is a hint text to help user.`,required:!1,invalid:!1,disabled:!1,compact:!1,type:`text`},render:j,parameters:{docs:{description:{story:`Interactive playground — use the controls to explore all props.`}}}},N={render:()=>n`
         <div class="story-stack">
             <h1 class="story-section-title">Default variant</h1>
             <div class="story-grid">
@@ -65,7 +91,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
                 </div>
             </div>
         </div>
-    `,parameters:{docs:{description:{story:`The default variant with bordered wrap, label above, and hint/error text below.`}}}},u={render:()=>n`
+    `,parameters:{docs:{description:{story:`The default variant with bordered wrap, label above, and hint/error text below.`}}}},P={render:()=>n`
         <div class="story-stack">
             <h1 class="story-section-title">Inline variant</h1>
             <style>
@@ -107,7 +133,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
                 </div>
             </div>
         </div>
-    `,parameters:{docs:{description:{story:`Floating label that translates up on focus or when the input has a value. No border, no hint/error text, no tooltip icon.`}}}},d={render:()=>n`
+    `,parameters:{docs:{description:{story:`Floating label that translates up on focus or when the input has a value. No border, no hint/error text, no tooltip icon.`}}}},F={render:()=>n`
         <div class="story-stack">
             <h1 class="story-section-title">Cell variant</h1>
             <div class="story-grid">
@@ -153,7 +179,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
                 </div>
             </div>
         </div>
-    `,parameters:{docs:{description:{story:`Minimal input for table/grid contexts. No label, thin border, no border-radius. Background highlights on focus.`}}}},f={render:()=>n`
+    `,parameters:{docs:{description:{story:`Minimal input for table/grid contexts. No label, thin border, no border-radius. Background highlights on focus.`}}}},I={render:()=>n`
         <div class="story-stack">
             <h1 class="story-section-title">Compact (tooltip error mode)</h1>
             <div class="story-grid">
@@ -206,7 +232,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
                 </div>
             </div>
         </div>
-    `,parameters:{docs:{description:{story:`Compact mode hides label, hint, and error text. A tooltip icon is always visible: help icon when valid, red info icon when invalid.`}}}},p={render:()=>{let e=/^[^\s@]+@[^\s@]+\.[^\s@]+$/u,t=t=>{let n=t.target,r=!n.value||e.test(n.value);n.toggleAttribute(`invalid`,!r),r?n.errorMessage=void 0:n.errorMessage=`Please enter a valid email`};return n`
+    `,parameters:{docs:{description:{story:`Compact mode hides label, hint, and error text. A tooltip icon is always visible: help icon when valid, red info icon when invalid.`}}}},L={render:()=>{let e=/^[^\s@]+@[^\s@]+\.[^\s@]+$/u,t=t=>{let n=t.target,r=!n.value||e.test(n.value);n.toggleAttribute(`invalid`,!r),r?n.errorMessage=void 0:n.errorMessage=`Please enter a valid email`};return n`
             <div class="story-stack">
                 <h1 class="story-section-title">Live validation</h1>
                 <div class="story-stack">
@@ -231,7 +257,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
                     </div>
                 </div>
             </div>
-        `},parameters:{docs:{description:{story:`Real-time email validation using toggleAttribute and errorMessage. Shows how to implement external validation logic.`}}}},m={render:()=>{let e=r({slot:`prefix`,width:`20`,height:`20`}),t=r({slot:`suffix`,width:`20`,height:`20`});return n`
+        `},parameters:{docs:{description:{story:`Real-time email validation using toggleAttribute and errorMessage. Shows how to implement external validation logic.`}}}},R={render:()=>{let e=l({slot:`prefix`,width:`20`,height:`20`}),t=l({slot:`suffix`,width:`20`,height:`20`});return n`
             <div class="story-stack">
                 <h1 class="story-section-title">Prefix & Suffix slots</h1>
                 <div class="story-stack">
@@ -275,7 +301,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
                     </div>
                 </div>
             </div>
-        `},parameters:{docs:{description:{story:`Prefix and suffix slots accept any slotted content (icons, text). Shown across all variants.`}}}},h={render:()=>n`
+        `},parameters:{docs:{description:{story:`Prefix and suffix slots accept any slotted content (icons, text). Shown across all variants.`}}}},z={render:()=>n`
         <div class="story-stack">
             <h1 class="story-section-title">Autosize</h1>
             <div class="story-row">
@@ -300,7 +326,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
                 </div>
             </div>
         </div>
-    `,parameters:{docs:{description:{story:`Input width adjusts to content length. Works with number inputs with or without spinner.`}}}},c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`{
+    `,parameters:{docs:{description:{story:`Input width adjusts to content length. Works with number inputs with or without spinner.`}}}},M.parameters={...M.parameters,docs:{...M.parameters?.docs,source:{originalSource:`{
   args: {
     label: 'Email',
     placeholder: 'olivia@untitledui.com',
@@ -319,7 +345,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       }
     }
   }
-}`,...c.parameters?.docs?.source}}},l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
+}`,...M.parameters?.docs?.source}}},N.parameters={...N.parameters,docs:{...N.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <div class="story-stack">
             <h1 class="story-section-title">Default variant</h1>
@@ -378,7 +404,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       }
     }
   }
-}`,...l.parameters?.docs?.source}}},u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`{
+}`,...N.parameters?.docs?.source}}},P.parameters={...P.parameters,docs:{...P.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <div class="story-stack">
             <h1 class="story-section-title">Inline variant</h1>
@@ -429,7 +455,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       }
     }
   }
-}`,...u.parameters?.docs?.source}}},d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
+}`,...P.parameters?.docs?.source}}},F.parameters={...F.parameters,docs:{...F.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <div class="story-stack">
             <h1 class="story-section-title">Cell variant</h1>
@@ -484,7 +510,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       }
     }
   }
-}`,...d.parameters?.docs?.source}}},f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
+}`,...F.parameters?.docs?.source}}},I.parameters={...I.parameters,docs:{...I.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <div class="story-stack">
             <h1 class="story-section-title">Compact (tooltip error mode)</h1>
@@ -546,7 +572,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       }
     }
   }
-}`,...f.parameters?.docs?.source}}},p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`{
+}`,...I.parameters?.docs?.source}}},L.parameters={...L.parameters,docs:{...L.parameters?.docs,source:{originalSource:`{
   render: () => {
     const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/u;
     const onInput = (e: InputEvent) => {
@@ -596,7 +622,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       }
     }
   }
-}`,...p.parameters?.docs?.source}}},m.parameters={...m.parameters,docs:{...m.parameters?.docs,source:{originalSource:`{
+}`,...L.parameters?.docs?.source}}},R.parameters={...R.parameters,docs:{...R.parameters?.docs,source:{originalSource:`{
   render: () => {
     const prefixIcon = mail01Icon({
       slot: 'prefix',
@@ -661,7 +687,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       }
     }
   }
-}`,...m.parameters?.docs?.source}}},h.parameters={...h.parameters,docs:{...h.parameters?.docs,source:{originalSource:`{
+}`,...R.parameters?.docs?.source}}},z.parameters={...z.parameters,docs:{...z.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <div class="story-stack">
             <h1 class="story-section-title">Autosize</h1>
@@ -695,7 +721,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       }
     }
   }
-}`,...h.parameters?.docs?.source}}},g=[`Playground`,`Default`,`Inline`,`Cell`,`Compact`,`LiveValidation`,`PrefixAndSuffix`,`Autosize`],c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`{
+}`,...z.parameters?.docs?.source}}},B=[`Playground`,`Default`,`Inline`,`Cell`,`Compact`,`LiveValidation`,`PrefixAndSuffix`,`Autosize`],M.parameters={...M.parameters,docs:{...M.parameters?.docs,source:{originalSource:`{
   args: {
     label: 'Email',
     placeholder: 'olivia@untitledui.com',
@@ -714,7 +740,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       }
     }
   }
-}`,...c.parameters?.docs?.source}}},l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
+}`,...M.parameters?.docs?.source}}},N.parameters={...N.parameters,docs:{...N.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <div class="story-stack">
             <h1 class="story-section-title">Default variant</h1>
@@ -773,7 +799,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       }
     }
   }
-}`,...l.parameters?.docs?.source}}},u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`{
+}`,...N.parameters?.docs?.source}}},P.parameters={...P.parameters,docs:{...P.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <div class="story-stack">
             <h1 class="story-section-title">Inline variant</h1>
@@ -824,7 +850,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       }
     }
   }
-}`,...u.parameters?.docs?.source}}},d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
+}`,...P.parameters?.docs?.source}}},F.parameters={...F.parameters,docs:{...F.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <div class="story-stack">
             <h1 class="story-section-title">Cell variant</h1>
@@ -879,7 +905,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       }
     }
   }
-}`,...d.parameters?.docs?.source}}},f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
+}`,...F.parameters?.docs?.source}}},I.parameters={...I.parameters,docs:{...I.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <div class="story-stack">
             <h1 class="story-section-title">Compact (tooltip error mode)</h1>
@@ -941,7 +967,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       }
     }
   }
-}`,...f.parameters?.docs?.source}}},p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`{
+}`,...I.parameters?.docs?.source}}},L.parameters={...L.parameters,docs:{...L.parameters?.docs,source:{originalSource:`{
   render: () => {
     const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/u;
     const onInput = (e: InputEvent) => {
@@ -991,7 +1017,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       }
     }
   }
-}`,...p.parameters?.docs?.source}}},m.parameters={...m.parameters,docs:{...m.parameters?.docs,source:{originalSource:`{
+}`,...L.parameters?.docs?.source}}},R.parameters={...R.parameters,docs:{...R.parameters?.docs,source:{originalSource:`{
   render: () => {
     const prefixIcon = mail01Icon({
       slot: 'prefix',
@@ -1056,7 +1082,7 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       }
     }
   }
-}`,...m.parameters?.docs?.source}}},h.parameters={...h.parameters,docs:{...h.parameters?.docs,source:{originalSource:`{
+}`,...R.parameters?.docs?.source}}},z.parameters={...z.parameters,docs:{...z.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <div class="story-stack">
             <h1 class="story-section-title">Autosize</h1>
@@ -1090,4 +1116,4 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./ifr
       }
     }
   }
-}`,...h.parameters?.docs?.source}}}}))();export{h as Autosize,d as Cell,f as Compact,l as Default,u as Inline,p as LiveValidation,c as Playground,m as PrefixAndSuffix,g as __namedExportsOrder,o as default};
+}`,...z.parameters?.docs?.source}}}}))();export{z as Autosize,F as Cell,I as Compact,N as Default,P as Inline,L as LiveValidation,M as Playground,R as PrefixAndSuffix,B as __namedExportsOrder,A as default};

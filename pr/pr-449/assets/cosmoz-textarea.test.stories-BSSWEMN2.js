@@ -1,10 +1,10 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-B3V338-O.js";import{n as r,t as i}from"./style-bxR_1tWB.js";import{t as a}from"./cosmoz-textarea-qxXywxnz.js";var o,s,c,l,u,d;e((()=>{t(),a(),i(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Tests/Textarea`},l={render:()=>n`
-        ${r}
+import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,s as n}from"./iframe-D6J1P1wL.js";import{t as r}from"./cosmoz-textarea-iip2aLRK.js";import{n as i,t as a}from"./style-Da7zDmxE.js";var o,s,c,l,u,d;e((()=>{t(),r(),a(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Tests/Textarea`},l={render:()=>n`
+        ${i}
         <cosmoz-textarea .value=${`1
 2
 3`} .maxRows=${2}></cosmoz-textarea>
     `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-textarea`);await t(`textarea auto grows based on content`,async()=>{await s(()=>{let{height:e}=n.shadowRoot.querySelector(`#input`).getBoundingClientRect();o(e).toBeGreaterThan(40),o(e).toBeLessThan(66)})})}},u={render:()=>n`
-        ${r}
+        ${i}
         <cosmoz-textarea placeholder="Enter text..."></cosmoz-textarea>
     `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-textarea`);await t(`placeholder attribute is forwarded to inner textarea`,async()=>{let e=n.shadowRoot.querySelector(`textarea`);o(e.placeholder).toBe(`Enter text...`)})}},l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
   render: () => html\`

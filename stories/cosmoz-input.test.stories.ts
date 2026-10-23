@@ -360,3 +360,26 @@ export const InvalidWithoutMessageMarksInvalid: Story = {
 		});
 	},
 };
+
+export const VirtualKeyboard: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-input inputmode="decimal" enterkeyhint="done"></cosmoz-input>
+		<cosmoz-input id="plain"></cosmoz-input>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const [hinted, plain] = [
+			...canvasElement.querySelectorAll('cosmoz-input'),
+		].map((el) => el.shadowRoot!.querySelector('input')!);
+		await step('inputmode and enterkeyhint reach the input', async () => {
+			await waitFor(() => {
+				expect(hinted.getAttribute('inputmode')).toBe('decimal');
+				expect(hinted.getAttribute('enterkeyhint')).toBe('done');
+			});
+		});
+		await step('they are left out when not set', async () => {
+			expect(plain.hasAttribute('inputmode')).toBe(false);
+			expect(plain.hasAttribute('enterkeyhint')).toBe(false);
+		});
+	},
+};

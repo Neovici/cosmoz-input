@@ -1,17 +1,17 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}from"./iframe-DkqitUhV.js";import{i,n as a,r as o,t as s}from"./normalize.css-DvxWvfAK.js";import{T as c,n as l,p as u,t as d}from"./haunted-B_TEP2zY.js";var f,p,m=e((()=>{f=e=>e,p=(e,...t)=>typeof e==`function`?e(...t):e}));function h(e){return e?t=>typeof t==`object`&&t?t[e]:t:f}var g=e((()=>{m()})),_,v,y,b,x,S=e((()=>{s(),m(),g(),d(),t(),o(),_={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1},v=e=>{let t=e=>e.label==null?typeof e.value==`string`?e.value:``:p(e.label,e.value),i=(e.options??[]).map(e=>typeof e==`object`&&e&&`value`in e?e:{value:e}),[a,o]=u(`value`),s=t=>h(e.valueProperty)(t),c=s(a),l=t=>o(e.clearable&&s(t.value)===c?void 0:t.value),d=i.map(t=>!t.disabled&&!e.disabled),f=i.findIndex(e=>s(e.value)===c),m=f===-1?d.indexOf(!0):f;return r`<div
+import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{a as t,c as n,l as r}from"./iframe-DA_qVgly.js";import{i,n as a,r as o,t as s}from"./normalize.css-DbRw1_dm.js";import{T as c,n as l,p as u,t as d}from"./haunted-DSNMeN5o.js";var f,p;function m(){return(m=e((()=>{f=e=>e,p=(e,...t)=>typeof e==`function`?e(...t):e})))()}function h(e){return e?t=>typeof t==`object`&&t?t[e]:t:f}function g(){return(g=e((()=>{m()})))()}var _,v,y,b,x;function S(){return(S=e((()=>{s(),m(),g(),d(),r(),o(),_={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1},v=e=>{let r=e=>e.label==null?typeof e.value==`string`?e.value:``:p(e.label,e.value),i=(e.options??[]).map(e=>typeof e==`object`&&e&&`value`in e?e:{value:e}),[a,o]=u(`value`),s=t=>h(e.valueProperty)(t),c=s(a),l=t=>o(e.clearable&&s(t.value)===c?void 0:t.value),d=i.map(t=>!t.disabled&&!e.disabled),f=i.findIndex(e=>s(e.value)===c),m=f===-1?d.indexOf(!0):f;return n`<div
 		class="group"
 		part="group"
 		role="radiogroup"
-		aria-label=${e.label||n}
+		aria-label=${e.label||t}
 		@keydown=${e=>{let t=_[e.key];if(t==null)return;e.preventDefault();let n=i.length,r=f;r===-1&&(r=t>0?-1:n);for(let a=1;a<=n;a++){let s=((r+t*a)%n+n)%n;if(d[s]){o(i[s].value),e.currentTarget.children[s]?.focus();return}}}}
 	>
-		${i.map((i,a)=>{let o=a===f,s=t(i),c=i.title==null?void 0:p(i.title,i.value);return r`<button
+		${i.map((i,a)=>{let o=a===f,s=r(i),c=i.title==null?void 0:p(i.title,i.value);return n`<button
 				type="button"
 				role="radio"
 				aria-checked=${o?`true`:`false`}
 				?disabled=${i.disabled||e.disabled}
-				title=${c??n}
-				aria-label=${!s&&c?c:n}
+				title=${c??t}
+				aria-label=${!s&&c?c:t}
 				part=${o?`option selected-option`:`option`}
 				class=${o?`option selected`:`option`}
 				@click=${()=>l(i)}
@@ -87,7 +87,18 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
 		opacity: 0.5;
 		cursor: not-allowed;
 	}
-`,customElements.define(`cosmoz-toggle-group`,l(v,{styleSheets:[a,y,b],observedAttributes:[`label`,`disabled`,`value-property`,`clearable`,`stretch`]})),x=e=>r`<cosmoz-toggle-group
+
+	/* cosmoz-tabs-next segmented sm's box: 32px, the height of an sm button */
+	:host([size='sm']) .group {
+		font-size: var(--cz-text-xs);
+		line-height: var(--cz-text-xs-line-height);
+		border-radius: var(--cz-radius-md);
+	}
+
+	:host([size='sm']) .option {
+		padding-block: var(--cz-spacing);
+	}
+`,customElements.define(`cosmoz-toggle-group`,l(v,{styleSheets:[a,y,b],observedAttributes:[`label`,`disabled`,`value-property`,`clearable`,`stretch`]})),x=e=>n`<cosmoz-toggle-group
 		.options=${e.options}
 		.value=${e.value}
 		value-property=${i(e.valueProperty)}
@@ -95,5 +106,6 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n,s as r}fro
 		?disabled=${e.disabled}
 		?clearable=${e.clearable}
 		?stretch=${e.stretch}
+		size=${i(e.size)}
 		@value-changed=${e.onValueChanged}
-	></cosmoz-toggle-group>`}));export{x as n,S as t};
+	></cosmoz-toggle-group>`})))()}export{x as n,S as t};

@@ -1,4 +1,4 @@
-import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n}from"./iframe-DkqitUhV.js";import{D as r,T as i,t as a}from"./haunted-B_TEP2zY.js";var o,s=e((()=>{t(),o=e=>e??n})),c,l=e((()=>{a(),c=r(i`
+import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{a as t,l as n}from"./iframe-DA_qVgly.js";import{D as r,T as i,t as a}from"./haunted-DSNMeN5o.js";var o;function s(){return(s=e((()=>{n(),o=e=>e??t})))()}var c;function l(){return(l=e((()=>{a(),c=r(i`
 	/*
 	 * Use border-box sizing for all elements.
 	 * This is safe and doesn't conflict with child component styles.
@@ -208,4 +208,4 @@ import{i as e}from"./preload-helper-CCSz8wUY.js";import{c as t,i as n}from"./ifr
 	[hidden]:where(:not([hidden='until-found'])) {
 		display: none !important;
 	}
-`)}));export{o as i,c as n,s as r,l as t};
+`)})))()}export{o as i,c as n,s as r,l as t};

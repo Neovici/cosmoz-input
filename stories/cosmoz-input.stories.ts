@@ -32,6 +32,12 @@ const meta: Meta = {
 			description: 'Visual variant',
 			table: { defaultValue: { summary: '—' } },
 		},
+		size: {
+			control: 'select',
+			options: ['sm', 'md', 'lg', 'xl'],
+			description: 'Control height size (maps to the cz control-height tokens)',
+			table: { defaultValue: { summary: 'md' } },
+		},
 		compact: {
 			control: 'boolean',
 			description: 'Hides label/hint/error text; shows tooltip icon instead',
@@ -86,6 +92,7 @@ const renderInput = (args: Record<string, unknown>) => html`
 		.errorMessage=${args.errorMessage || ''}
 		type=${args.type || 'text'}
 		variant=${args.variant || ''}
+		size=${args.size || ''}
 		?compact=${args.compact}
 		?required=${args.required}
 		?invalid=${args.invalid}

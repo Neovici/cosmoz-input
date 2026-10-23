@@ -1,6 +1,7 @@
 import { infoCircleIcon } from '@neovici/cosmoz-icons/untitled';
 import '@neovici/cosmoz-tooltip';
 import { html } from 'lit-html';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { when } from 'lit-html/directives/when.js';
 
 export type ObjectFromList<T extends ReadonlyArray<string>, V = string> = {
@@ -9,6 +10,7 @@ export type ObjectFromList<T extends ReadonlyArray<string>, V = string> = {
 
 export interface Render {
 	label?: string;
+	labelFor?: string | null;
 	invalid?: boolean;
 	errorMessage?: string;
 	hint?: string;
@@ -18,15 +20,29 @@ export interface Render {
 
 export const render = <T>(
 		control: T,
-		{ hint, label, invalid, errorMessage, compact, required }: Render,
+		{
+			label,
+			labelFor = 'input',
+			hint,
+			invalid,
+			errorMessage,
+			compact,
+			required,
+		}: Render,
 	) => html`
-		<!-- label: hidden in compact mode -->
+		<!-- label: visually hidden in compact mode -->
 		${when(
-			!compact && label,
+			label,
 			() =>
-				html`<label for="input" part="label"
+				html`<label
+					for=${ifDefined(labelFor)}
+					part="label"
+					class=${ifDefined(compact ? 'sr-only' : undefined)}
 					>${label}
-					${when(required, () => html`<span class="required">*</span>`)}
+					${when(
+						required && !compact,
+						() => html`<span class="required">*</span>`,
+					)}
 				</label>`,
 		)}
 		<div class="wrap" part="wrap">
@@ -50,15 +66,27 @@ export const render = <T>(
 
 			<slot name="suffix"></slot>
 		</div>
-		<!-- hint: visible when valid, hidden when invalid or compact -->
+		<!-- hint: read with the field while valid; visually hidden in compact -->
 		${when(
-			!compact && hint && !invalid,
-			() => html`<span class="hint" part="hint">${hint}</span>`,
+			hint && !invalid,
+			() =>
+				html`<span
+					class=${compact ? 'hint sr-only' : 'hint'}
+					part="hint"
+					id="hint"
+					>${hint}</span
+				>`,
 		)}
-		<!-- error: replaces hint when invalid, hidden in compact -->
+		<!-- error: replaces hint when invalid; visually hidden in compact -->
 		${when(
-			!compact && invalid && errorMessage,
-			() => html`<span class="error" part="error">${errorMessage}</span>`,
+			invalid && errorMessage,
+			() =>
+				html`<span
+					class=${compact ? 'error sr-only' : 'error'}
+					part="error"
+					id="error"
+					>${errorMessage}</span
+				>`,
 		)}
 	`,
 	attributes = ['autocomplete', 'readonly', 'disabled', 'maxlength', 'invalid'];

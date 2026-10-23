@@ -46,3 +46,32 @@ export const Placeholder: Story = {
 		);
 	},
 };
+
+export const AnnouncedMessages: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-textarea label="Notes" hint="Markdown" required></cosmoz-textarea>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const el = canvasElement.querySelector('cosmoz-textarea')!;
+		const area = el.shadowRoot!.querySelector('#input')!;
+
+		await step('field semantics match the input', async () => {
+			expect(area.getAttribute('aria-describedby')).toBe('hint');
+			expect(area.getAttribute('aria-disabled')).toBe('false');
+			expect(area.hasAttribute('required')).toBe(true);
+		});
+
+		await step(
+			'a visible error replaces the description and announces invalid',
+			async () => {
+				el.errorMessage = 'Required';
+				el.setAttribute('invalid', '');
+				await waitFor(() => {
+					expect(area.getAttribute('aria-describedby')).toBe('error');
+					expect(area.getAttribute('aria-invalid')).toBe('true');
+				});
+			},
+		);
+	},
+};

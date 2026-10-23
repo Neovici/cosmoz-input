@@ -14,6 +14,20 @@ export const styles = css`
 		font-family: var(--cz-font-body);
 	}
 
+	:host([size='sm']) {
+		--control-height: var(--cz-control-height-sm);
+		font-size: var(--cz-text-xs);
+		line-height: var(--cz-text-xs-line-height);
+	}
+
+	:host([size='lg']) {
+		--control-height: var(--cz-control-height-lg);
+	}
+
+	:host([size='xl']) {
+		--control-height: var(--cz-control-height-xl);
+	}
+
 	:host(:not([compact])) {
 		margin-bottom: calc(var(--cz-spacing) * 3);
 	}
@@ -119,6 +133,17 @@ export const styles = css`
 	}
 
 	/* === Label === */
+
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
+	}
 
 	label {
 		position: relative;
@@ -240,7 +265,7 @@ export const styles = css`
 		line-height: var(--cz-text-sm-line-height);
 	}
 
-	:host([variant='cell']) .wrap:has(#input) {
+	:host([variant='cell']) .wrap {
 		box-sizing: border-box;
 		border: 0.5px solid var(--cz-color-bg-quaternary);
 		border-radius: 0;
@@ -251,7 +276,7 @@ export const styles = css`
 		background: var(--cz-color-bg-quaternary);
 	}
 
-	:host([variant='cell'][invalid]) .wrap:has(#input) {
+	:host([variant='cell'][invalid]) .wrap {
 		border-color: var(--cz-color-border-error);
 		box-shadow: none;
 	}
@@ -266,7 +291,14 @@ export const styles = css`
 	}
 
 	:host([variant='cell']) label {
-		display: none;
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
 	}
 
 	:host([variant='cell']) .error {

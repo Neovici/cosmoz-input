@@ -160,3 +160,51 @@ export const Naming: Story = {
 		});
 	},
 };
+
+export const Clearable: Story = {
+	render: () => html`
+		<cosmoz-toggle-group
+			clearable
+			.options=${['missing', 'damaged']}
+			.value=${'damaged'}
+		></cosmoz-toggle-group>
+		<cosmoz-toggle-group
+			id="required"
+			.options=${['missing', 'damaged']}
+			.value=${'damaged'}
+		></cosmoz-toggle-group>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const [clearable, required] = Array.from(
+			canvasElement.querySelectorAll<Group>('cosmoz-toggle-group'),
+		);
+		await step('picking the selected option again clears it', async () => {
+			radios(clearable)[1].click();
+			await waitFor(() => expect(clearable.value).toBeUndefined());
+			radios(clearable)[0].click();
+			await waitFor(() => expect(clearable.value).toBe('missing'));
+		});
+		await step('without clearable the selection stays', async () => {
+			radios(required)[1].click();
+			await waitFor(() => expect(required.value).toBe('damaged'));
+		});
+	},
+};
+
+export const Stretch: Story = {
+	render: () => html`
+		<div style="width: 400px">
+			<cosmoz-toggle-group stretch .options=${['a', 'b']}></cosmoz-toggle-group>
+		</div>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const el = canvasElement.querySelector<Group>('cosmoz-toggle-group')!;
+		await step('the group and its options fill the width', async () => {
+			await waitFor(() => expect(radios(el)).toHaveLength(2));
+			expect(el.getBoundingClientRect().width).toBe(400);
+			const [a, b] = radios(el).map((r) => r.getBoundingClientRect().width);
+			expect(Math.abs(a - b)).toBeLessThan(1);
+			expect(a).toBeGreaterThan(150);
+		});
+	},
+};

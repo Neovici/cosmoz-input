@@ -1,3 +1,29 @@
+## 6.8.0
+
+### Minor Changes
+
+- 743fec6: The hint keeps describing the field in compact, visually hidden, and the control is marked `aria-invalid` while `invalid` is set even when no error message is shown.
+- 0ead119: The field keeps its accessible name in compact and cell: the label stays in the accessibility tree, visually hidden.
+- 5cfce16: Visible hint and error are described on the control (`aria-describedby`); `aria-invalid` follows the visible error. `cosmoz-textarea` gains the same: `required`, a correct `aria-disabled`, and the same description wiring.
+- 5a8211c: The field keeps its error description in compact: the message stays in the accessibility tree, visually hidden.
+- 916a2ed: Add `labelFor` render option: point the label at another control, or `null` to omit the `for` attribute.
+
+## 6.7.0
+
+### Minor Changes
+
+- 51b13c6: Add a `size` attribute (`sm`/`md`/`lg`/`xl`) that maps the input's `--control-height` alias to the matching `--cz-control-height-*` token; `md` stays the default.
+
+## 6.6.0
+
+### Minor Changes
+
+- 927a872: `cosmoz-toggle-group` takes `size="sm"` (and `toggleGroup({ size: 'sm' })`). It renders 32px high with xs text, the same box as `cosmoz-tabs-next` segmented `sm`, so a picker in a toolbar lines up with sm buttons and tab bars next to it. The default size is unchanged.
+
+### Patch Changes
+
+- 1895aea: Drop always-true :has(#input) wrappers in cell variant rules. Every cosmoz-input instance contains #input, so the wrappers never changed matches inside the component - but they prevented the sheet's non-interactive variant rules from applying to render()/styles() consumers that don't render an input (e.g. select-style triggers).
+
 ## 6.5.4
 
 ### Patch Changes

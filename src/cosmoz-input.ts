@@ -13,6 +13,7 @@ import { defaultMax, getPlaceholder } from './util';
 const observedAttributes = [
 	'type',
 	'variant',
+	'size',
 	'hint',
 	'compact',
 	'required',
@@ -25,6 +26,7 @@ const observedAttributes = [
 	'label',
 	'placeholder',
 	...attributes,
+	'aria-label',
 ];
 
 type CosmozInput = HTMLElement &
@@ -46,9 +48,15 @@ export const Input = (host: CosmozInput) => {
 			step,
 			maxlength,
 			required,
+			hint,
+			invalid,
+			errorMessage,
 		} = host,
 		{ onChange, onFocus, onInput, onRef } = useInput(host);
-	const onBeforeInput = useAllowedPattern(allowedPattern);
+	const onBeforeInput = useAllowedPattern(allowedPattern),
+		showHint = hint && !invalid,
+		showError = invalid && errorMessage,
+		describedBy = (showError && 'error') || (showHint && 'hint') || undefined;
 
 	host.toggleAttribute('has-value', !!value);
 
@@ -65,8 +73,11 @@ export const Input = (host: CosmozInput) => {
 				placeholder=${getPlaceholder({ placeholder: host.placeholder })}
 				?readonly=${readonly}
 				aria-disabled=${disabled ? 'true' : 'false'}
+				aria-label=${ifDefined(host.getAttribute('aria-label'))}
 				?disabled=${disabled}
 				?required=${required}
+				aria-invalid=${ifDefined(invalid ? 'true' : undefined)}
+				aria-describedby=${ifDefined(describedBy)}
 				.value=${live(value ?? '')}
 				maxlength=${ifDefined(maxlength)}
 				@beforeinput=${onBeforeInput}

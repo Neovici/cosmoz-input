@@ -27,6 +27,8 @@ export interface ToggleGroupElement<I = unknown> extends HTMLElement {
 	clearable?: boolean;
 	/** options share the full width and wrap their labels */
 	stretch?: boolean;
+	/** omit for the default size; sm matches cosmoz-tabs-next segmented sm */
+	size?: 'sm';
 }
 
 const steps: Record<string, number> = {
@@ -192,6 +194,17 @@ const groupStyles = css`
 		opacity: 0.5;
 		cursor: not-allowed;
 	}
+
+	/* cosmoz-tabs-next segmented sm's box: 32px, the height of an sm button */
+	:host([size='sm']) .group {
+		font-size: var(--cz-text-xs);
+		line-height: var(--cz-text-xs-line-height);
+		border-radius: var(--cz-radius-md);
+	}
+
+	:host([size='sm']) .option {
+		padding-block: var(--cz-spacing);
+	}
 `;
 
 customElements.define(
@@ -216,6 +229,7 @@ export type ToggleGroupProps<I> = {
 	disabled?: boolean;
 	clearable?: boolean;
 	stretch?: boolean;
+	size?: 'sm';
 	/** receives the whole `value-changed` event (detail = { value, updater }) */
 	onValueChanged?: (event: CustomEvent<{ value: I }>) => void;
 };
@@ -230,5 +244,6 @@ export const toggleGroup = <I>(props: ToggleGroupProps<I>) =>
 		?disabled=${props.disabled}
 		?clearable=${props.clearable}
 		?stretch=${props.stretch}
+		size=${ifDefined(props.size)}
 		@value-changed=${props.onValueChanged}
 	></cosmoz-toggle-group>`;

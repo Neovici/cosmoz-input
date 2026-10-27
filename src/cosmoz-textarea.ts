@@ -16,6 +16,8 @@ const observedAttributes = [
 	'hint',
 	'compact',
 	'required',
+	'inputmode',
+	'enterkeyhint',
 	...attributes,
 ];
 
@@ -27,6 +29,8 @@ type CosmozInput = HTMLElement &
 export const Textarea = (host: CosmozInput) => {
 	const {
 			autocomplete,
+			inputmode,
+			enterkeyhint,
 			value,
 			placeholder,
 			readonly,
@@ -52,6 +56,8 @@ export const Textarea = (host: CosmozInput) => {
 			<textarea id="input" part="input"
 				${ref(onRef)}
 				autocomplete=${ifDefined(autocomplete)}
+				inputmode=${ifDefined(inputmode)}
+				enterkeyhint=${ifDefined(enterkeyhint)}
 				placeholder=${placeholder || ' '}
 				rows=${rows ?? 1} cols=${ifDefined(cols)}
 				?readonly=${readonly} aria-disabled=${disabled ? 'true' : 'false'}

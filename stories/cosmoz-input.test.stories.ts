@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { expect, fn, userEvent, waitFor } from 'storybook/test';
 import '../src/cosmoz-input';
+import '../src/cosmoz-textarea';
 import { style } from './style';
 
 const meta: Meta = {
@@ -366,11 +367,16 @@ export const VirtualKeyboard: Story = {
 		${style}
 		<cosmoz-input inputmode="decimal" enterkeyhint="done"></cosmoz-input>
 		<cosmoz-input id="plain"></cosmoz-input>
+		<cosmoz-textarea inputmode="decimal" enterkeyhint="done"></cosmoz-textarea>
+		<cosmoz-textarea id="plain-textarea"></cosmoz-textarea>
 	`,
 	play: async ({ canvasElement, step }) => {
 		const [hinted, plain] = [
 			...canvasElement.querySelectorAll('cosmoz-input'),
 		].map((el) => el.shadowRoot!.querySelector('input')!);
+		const [textareaHinted, textareaPlain] = [
+			...canvasElement.querySelectorAll('cosmoz-textarea'),
+		].map((el) => el.shadowRoot!.querySelector('#input')!);
 		await step('inputmode and enterkeyhint reach the input', async () => {
 			await waitFor(() => {
 				expect(hinted.getAttribute('inputmode')).toBe('decimal');
@@ -380,6 +386,16 @@ export const VirtualKeyboard: Story = {
 		await step('they are left out when not set', async () => {
 			expect(plain.hasAttribute('inputmode')).toBe(false);
 			expect(plain.hasAttribute('enterkeyhint')).toBe(false);
+		});
+		await step('inputmode and enterkeyhint reach the textarea', async () => {
+			await waitFor(() => {
+				expect(textareaHinted.getAttribute('inputmode')).toBe('decimal');
+				expect(textareaHinted.getAttribute('enterkeyhint')).toBe('done');
+			});
+		});
+		await step('they are left out when not set in the textarea', async () => {
+			expect(textareaPlain.hasAttribute('inputmode')).toBe(false);
+			expect(textareaPlain.hasAttribute('enterkeyhint')).toBe(false);
 		});
 	},
 };

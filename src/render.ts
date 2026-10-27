@@ -89,4 +89,4 @@ export const render = <T>(
 				>`,
 		)}
 	`,
-	attributes = ['autocomplete', 'readonly', 'disabled', 'maxlength', 'invalid'];
+	attributes = ['autocomplete', 'inputmode', 'readonly', 'disabled', 'maxlength', 'invalid'];

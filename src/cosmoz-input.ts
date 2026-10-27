@@ -40,6 +40,7 @@ export const Input = (host: CosmozInput) => {
 			pattern,
 			allowedPattern,
 			autocomplete,
+			inputmode,
 			value,
 			readonly,
 			disabled,
@@ -70,6 +71,7 @@ export const Input = (host: CosmozInput) => {
 				type=${type}
 				pattern=${ifDefined(pattern)}
 				autocomplete=${ifDefined(autocomplete)}
+				inputmode=${ifDefined(inputmode)}
 				placeholder=${getPlaceholder({ placeholder: host.placeholder })}
 				?readonly=${readonly}
 				aria-disabled=${disabled ? 'true' : 'false'}

@@ -11,6 +11,9 @@ const limit = (input: HTMLElement, maxRows = 0) => {
 		const rows = input.getAttribute('rows') ?? '',
 			height = input.style.height;
 		input.style.height = '';
+		// clear any previous cap so it can't leak into the measurement
+		// (e.g. a stale max-height: 0px after being rendered hidden)
+		input.style.maxHeight = '';
 		input.setAttribute('rows', maxRows as unknown as string);
 		input.style.maxHeight = input.getBoundingClientRect().height + 'px';
 		input.style.height = height;
@@ -30,7 +33,12 @@ export const useAutoHeight = <T extends BaseInput>(host: T) => {
 	useEffect(() => {
 		const el = input(),
 			observer = new ResizeObserver(() =>
-				requestAnimationFrame(() => autoheight(el))
+				requestAnimationFrame(() => {
+					// read maxRows off the host at call time so props set after
+					// mount are picked up on visibility/size changes
+					limit(el, host.maxRows);
+					autoheight(el);
+				})
 			);
 		observer.observe(el);
 		return () => observer.unobserve(el);

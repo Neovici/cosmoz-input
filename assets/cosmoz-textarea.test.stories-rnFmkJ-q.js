@@ -1,4 +1,4 @@
-import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./iframe-CtIH_Sk2.js";import{t as r}from"./cosmoz-textarea-DapPKSXr.js";import{n as i,t as a}from"./style-DN-6nMgW.js";var o,s,c,l,u,d,f;function p(){return(p=e((()=>{n(),r(),a(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Tests/Textarea`},l={render:()=>t`
+import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./iframe-akijsYQg.js";import{t as r}from"./cosmoz-textarea-CkpXnt5e.js";import{n as i,t as a}from"./style-DB1e6cyz.js";var o,s,c,l,u,d,f;function p(){return(p=e((()=>{n(),r(),a(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Tests/Textarea`},l={render:()=>t`
         ${i}
         <cosmoz-textarea .value=${`1
 2

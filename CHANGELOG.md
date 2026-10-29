@@ -1,3 +1,13 @@
+## 6.9.0
+
+### Minor Changes
+
+- 4abdd65: Forward `inputmode` and `enterkeyhint` to the inner input and textarea, so phones can show a numeric or decimal keypad and a matching Enter key.
+
+### Patch Changes
+
+- a58d269: fix(textarea): recompute `max-height` when the element becomes visible, so a `maxRows` cap computed while hidden no longer stays 0
+
 ## 6.8.0
 
 ### Minor Changes

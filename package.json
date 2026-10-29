@@ -57,14 +57,16 @@
 		"./input": "./dist/cosmoz-input.js",
 		"./textarea": "./dist/cosmoz-textarea.js",
 		"./toggle": "./dist/cosmoz-toggle.js",
-		"./toggle-group": "./dist/toggle-group.js"
+		"./toggle-group": "./dist/toggle-group.js",
+		"./number-field": "./dist/number-field.js"
 	},
 	"dependencies": {
 		"@neovici/cosmoz-icons": "^1.6.0",
 		"@neovici/cosmoz-tokens": "^3.4.0 || ^4.0.0",
 		"@neovici/cosmoz-tooltip": "^1.4.0",
-		"@neovici/cosmoz-utils": "^6.25.1",
-		"@pionjs/pion": "^2.0.0",
+		"@neovici/cosmoz-utils": "^6.26.0",
+		"@pionjs/pion": "^2.16.2",
+		"i18next": ">=23.0.0 <27.0.0",
 		"lit-html": "^2.0.0 || ^3.0.0"
 	},
 	"devDependencies": {

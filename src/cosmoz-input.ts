@@ -1,3 +1,7 @@
+import {
+	liveEq,
+	numericEquals,
+} from '@neovici/cosmoz-utils/directives/live-eq';
 import { component, sheet } from '@pionjs/pion';
 import { html } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
@@ -78,7 +82,9 @@ export const Input = (host: CosmozInput) => {
 				?required=${required}
 				aria-invalid=${ifDefined(invalid ? 'true' : undefined)}
 				aria-describedby=${ifDefined(describedBy)}
-				.value=${live(value ?? '')}
+				.value=${type === 'number'
+					? liveEq(value ?? '', numericEquals)
+					: live(value ?? '')}
 				maxlength=${ifDefined(maxlength)}
 				@beforeinput=${onBeforeInput}
 				@input=${onInput}

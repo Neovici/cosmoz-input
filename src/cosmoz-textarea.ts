@@ -1,6 +1,9 @@
+import {
+	liveEq,
+	numericEquals,
+} from '@neovici/cosmoz-utils/directives/live-eq';
 import { html } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
-import { live } from 'lit-html/directives/live.js';
 import { ref } from 'lit-html/directives/ref.js';
 
 import { component, sheet } from '@pionjs/pion';
@@ -64,7 +67,7 @@ export const Textarea = (host: CosmozInput) => {
 				?disabled=${disabled} ?required=${required}
 				aria-invalid=${ifDefined(invalid ? 'true' : undefined)}
 				aria-describedby=${ifDefined(describedBy)}
-				.value=${live(value ?? '')} maxlength=${ifDefined(maxlength)} @input=${onInput}
+				.value=${liveEq(value ?? '', numericEquals)} maxlength=${ifDefined(maxlength)} @input=${onInput}
 				@change=${onChange} @focus=${onFocus} @blur=${onFocus}>`,
 		host,
 	);

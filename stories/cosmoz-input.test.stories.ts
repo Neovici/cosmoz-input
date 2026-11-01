@@ -399,3 +399,21 @@ export const VirtualKeyboard: Story = {
 		});
 	},
 };
+
+export const DateHeight: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-input label="Text" value="42577519"></cosmoz-input>
+		<cosmoz-input label="Date" type="date" value="2026-10-25"></cosmoz-input>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const [text, date] = canvasElement.querySelectorAll('cosmoz-input');
+		await step('a date input is as tall as a text input', async () => {
+			await waitFor(() => {
+				expect(date.getBoundingClientRect().height).toBe(
+					text.getBoundingClientRect().height,
+				);
+			});
+		});
+	},
+};

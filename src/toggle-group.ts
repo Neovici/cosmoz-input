@@ -23,6 +23,8 @@ export interface ToggleGroupElement<I = unknown> extends HTMLElement {
 	valueProperty?: string;
 	disabled?: boolean;
 	label?: string;
+	/** options share the full width and wrap their labels */
+	stretch?: boolean;
 	/** omit for the default size; sm matches cosmoz-tabs-next segmented sm */
 	size?: 'sm';
 }
@@ -119,6 +121,20 @@ const style = css`
 	:host {
 		display: inline-flex;
 	}
+
+	:host([stretch]) {
+		display: flex;
+	}
+
+	:host([stretch]) .group {
+		flex: 1;
+	}
+
+	:host([stretch]) .option {
+		flex: 1 1 auto;
+		justify-content: center;
+		white-space: normal;
+	}
 `;
 
 const groupStyles = css`
@@ -188,7 +204,7 @@ customElements.define(
 	'cosmoz-toggle-group',
 	component(ToggleGroup, {
 		styleSheets: [normalize, style, groupStyles],
-		observedAttributes: ['label', 'disabled', 'value-property'],
+		observedAttributes: ['label', 'disabled', 'value-property', 'stretch'],
 	}),
 );
 
@@ -198,6 +214,7 @@ export type ToggleGroupProps<I> = {
 	valueProperty?: string;
 	label?: string;
 	disabled?: boolean;
+	stretch?: boolean;
 	size?: 'sm';
 	/** receives the whole `value-changed` event (detail = { value, updater }) */
 	onValueChanged?: (event: CustomEvent<{ value: I }>) => void;
@@ -211,6 +228,7 @@ export const toggleGroup = <I>(props: ToggleGroupProps<I>) =>
 		value-property=${ifDefined(props.valueProperty)}
 		.label=${ifDefined(props.label)}
 		?disabled=${props.disabled}
+		?stretch=${props.stretch}
 		size=${ifDefined(props.size)}
 		@value-changed=${props.onValueChanged}
 	></cosmoz-toggle-group>`;

@@ -160,3 +160,21 @@ export const Naming: Story = {
 		});
 	},
 };
+
+export const Stretch: Story = {
+	render: () => html`
+		<div style="width: 400px">
+			<cosmoz-toggle-group stretch .options=${['a', 'b']}></cosmoz-toggle-group>
+		</div>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const el = canvasElement.querySelector<Group>('cosmoz-toggle-group')!;
+		await step('the group and its options fill the width', async () => {
+			await waitFor(() => expect(radios(el)).toHaveLength(2));
+			expect(el.getBoundingClientRect().width).toBe(400);
+			const [a, b] = radios(el).map((r) => r.getBoundingClientRect().width);
+			expect(Math.abs(a - b)).toBeLessThan(1);
+			expect(a).toBeGreaterThan(150);
+		});
+	},
+};

@@ -1,11 +1,11 @@
-import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{a as t,c as n,l as r}from"./iframe-akijsYQg.js";import{i,n as a,r as o,t as s}from"./normalize.css-pFsC-cps.js";import{T as c,n as l,p as u,t as d}from"./haunted-DMrtP3iK.js";import{t as f}from"./style-DB1e6cyz.js";var p,m;function h(){return(h=e((()=>{p=e=>e,m=(e,...t)=>typeof e==`function`?e(...t):e})))()}function g(e){return e?t=>typeof t==`object`&&t?t[e]:t:p}function _(){return(_=e((()=>{h()})))()}var v,y,b,x;function S(){return(S=e((()=>{s(),h(),_(),d(),r(),o(),v=e=>{let r=e=>e.label==null?typeof e.value==`string`?e.value:``:m(e.label,e.value),i=(e.options??[]).map(e=>typeof e==`object`&&e&&`value`in e?e:{value:e}),[a,o]=u(`value`),s=t=>g(e.valueProperty)(t),c=s(a),l=e=>o(e.value);return n`<div
+import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{a as t,c as n,l as r}from"./iframe-C_tIgTvr.js";import{i,n as a,r as o,t as s}from"./normalize.css-BTt_RS-u.js";import{l as c,n as l,t as u,x as d}from"./haunted-DuWv3aAY.js";import{t as f}from"./style-DxWAu6Gx.js";var p,m;function h(){return(h=e((()=>{p=e=>e,m=(e,...t)=>typeof e==`function`?e(...t):e})))()}function g(e){return e?t=>typeof t==`object`&&t?t[e]:t:p}function _(){return(_=e((()=>{h()})))()}var v,y,b,x;function S(){return(S=e((()=>{s(),h(),_(),u(),r(),o(),v=e=>{let r=e=>e.label==null?typeof e.value==`string`?e.value:``:m(e.label,e.value),i=(e.options??[]).map(e=>typeof e==`object`&&e&&`value`in e?e:{value:e}),[a,o]=c(`value`),s=t=>g(e.valueProperty)(t),l=s(a),u=e=>o(e.value);return n`<div
 		class="group"
 		part="group"
 		role="radiogroup"
 		aria-label=${e.label??``}
-		@keydown=${e=>{if(e.key!==`ArrowRight`&&e.key!==`ArrowLeft`)return;e.preventDefault();let t=i.map(e=>s(e.value)),n=t.findIndex(e=>e===c);if(n===-1)return;let r=e.key===`ArrowRight`?1:-1,a=i[(n+r+t.length)%t.length];o(a.value),e.currentTarget.children[(n+r+t.length)%t.length]?.focus()}}
+		@keydown=${e=>{if(e.key!==`ArrowRight`&&e.key!==`ArrowLeft`)return;e.preventDefault();let t=i.map(e=>s(e.value)),n=t.findIndex(e=>e===l);if(n===-1)return;let r=e.key===`ArrowRight`?1:-1,a=i[(n+r+t.length)%t.length];o(a.value),e.currentTarget.children[(n+r+t.length)%t.length]?.focus()}}
 	>
-		${i.map(i=>{let a=c===s(i.value),o=r(i);return n`<button
+		${i.map(i=>{let a=l===s(i.value),o=r(i);return n`<button
 				type="button"
 				role="radio"
 				aria-checked=${a?`true`:`false`}
@@ -13,16 +13,16 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{a as t,c as n,l as r}f
 				title=${i.title==null?t:m(i.title,i.value)}
 				part=${a?`option selected-option`:`option`}
 				class=${a?`option selected`:`option`}
-				@click=${()=>l(i)}
+				@click=${()=>u(i)}
 				tabindex=${a?`0`:`-1`}
 			>
 				${i.icon?.({width:`16`,height:`16`})}${o}
 			</button>`})}
-	</div>`},y=c`
+	</div>`},y=d`
 	:host {
 		display: inline-flex;
 	}
-`,b=c`
+`,b=d`
 	.group {
 		display: flex;
 		align-items: stretch;

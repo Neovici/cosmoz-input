@@ -1,4 +1,4 @@
-import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t}from"./iframe-akijsYQg.js";import{i as n,n as r,t as i}from"./live-D1QUPetF.js";import{T as a,_ as o,n as s,t as c}from"./haunted-DMrtP3iK.js";var l,u,d;function f(){return(f=e((()=>{c(),i(),l=e=>{let{label:i,value:a,disabled:s,error:c}=e,l=o(t=>e.dispatchEvent(new CustomEvent(`change`,{detail:t.target.checked})),[]);return t`<input
+import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t}from"./iframe-C_tIgTvr.js";import{i as n,n as r,t as i}from"./live-QReEt51z.js";import{n as a,p as o,t as s,x as c}from"./haunted-DuWv3aAY.js";var l,u,d;function f(){return(f=e((()=>{s(),i(),l=e=>{let{label:i,value:a,disabled:s,error:c}=e,l=o(t=>e.dispatchEvent(new CustomEvent(`change`,{detail:t.target.checked})),[]);return t`<input
 			id="toggle"
 			class="toggle"
 			part="toggle"
@@ -9,7 +9,7 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t}from"./iframe-a
 		/>
 		${n(i,()=>t`<label for="toggle">${i}</label>`)}
 		<slot name="suffix"></slot>
-		${n(c,e=>t`<div class="failure">${e}</div>`)} `},u=a`
+		${n(c,e=>t`<div class="failure">${e}</div>`)} `},u=c`
 	.toggle {
 		appearance: none;
 		width: calc(var(--cz-spacing) * 9);
@@ -61,7 +61,7 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t}from"./iframe-a
 	.toggle[disabled] {
 		opacity: 0.6;
 	}
-`,d=a`
+`,d=c`
 	:host {
 		display: block;
 	}
@@ -74,4 +74,4 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t}from"./iframe-a
 	::slotted(*) {
 		margin-left: calc(var(--cz-spacing) * 1);
 	}
-`,customElements.define(`cosmoz-toggle`,s(l,{styleSheets:[d,u],observedAttributes:[`label`,`disabled`,`error`]}))})))()}export{f as t};
+`,customElements.define(`cosmoz-toggle`,a(l,{styleSheets:[d,u],observedAttributes:[`label`,`disabled`,`error`]}))})))()}export{f as t};

@@ -1,4 +1,4 @@
-import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{a as t,c as n,l as r}from"./iframe-BgYbMp8J.js";import{i,n as a,r as o,t as s}from"./normalize.css-B449IF4u.js";import{l as c,n as l,t as u,x as d}from"./haunted-DUiR7nd3.js";var f,p;function m(){return(m=e((()=>{f=e=>e,p=(e,...t)=>typeof e==`function`?e(...t):e})))()}function h(e){return e?t=>typeof t==`object`&&t?t[e]:t:f}function g(){return(g=e((()=>{m()})))()}var _,v,y,b,x;function S(){return(S=e((()=>{s(),m(),g(),u(),r(),o(),_={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1},v=e=>{let r=e=>e.label==null?typeof e.value==`string`?e.value:``:p(e.label,e.value),i=(e.options??[]).map(e=>typeof e==`object`&&e&&`value`in e?e:{value:e}),[a,o]=c(`value`),s=t=>h(e.valueProperty)(t),l=s(a),u=e=>o(e.value),d=i.map(t=>!t.disabled&&!e.disabled),f=i.findIndex(e=>s(e.value)===l),m=f===-1?d.indexOf(!0):f;return n`<div
+import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{a as t,c as n,l as r}from"./iframe-CdPe1zYo.js";import{i,n as a,r as o,t as s}from"./normalize.css-hMKE1HfK.js";import{l as c,n as l,t as u,x as d}from"./haunted-Be2DmLZx.js";var f,p;function m(){return(m=e((()=>{f=e=>e,p=(e,...t)=>typeof e==`function`?e(...t):e})))()}function h(e){return e?t=>typeof t==`object`&&t?t[e]:t:f}function g(){return(g=e((()=>{m()})))()}var _,v,y,b,x;function S(){return(S=e((()=>{s(),m(),g(),u(),r(),o(),_={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1},v=e=>{let r=e=>e.label==null?typeof e.value==`string`?e.value:``:p(e.label,e.value),i=(e.options??[]).map(e=>typeof e==`object`&&e&&`value`in e?e:{value:e}),[a,o]=c(`value`),s=t=>h(e.valueProperty)(t),l=s(a),u=e=>o(e.value),d=i.map(t=>!t.disabled&&!e.disabled),f=i.findIndex(e=>s(e.value)===l),m=f===-1?d.indexOf(!0):f;return n`<div
 		class="group"
 		part="group"
 		role="radiogroup"
@@ -22,6 +22,20 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{a as t,c as n,l as r}f
 	</div>`},y=d`
 	:host {
 		display: inline-flex;
+	}
+
+	:host([stretch]) {
+		display: flex;
+	}
+
+	:host([stretch]) .group {
+		flex: 1;
+	}
+
+	:host([stretch]) .option {
+		flex: 1 1 auto;
+		justify-content: center;
+		white-space: normal;
 	}
 `,b=d`
 	.group {
@@ -84,12 +98,13 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{a as t,c as n,l as r}f
 	:host([size='sm']) .option {
 		padding-block: var(--cz-spacing);
 	}
-`,customElements.define(`cosmoz-toggle-group`,l(v,{styleSheets:[a,y,b],observedAttributes:[`label`,`disabled`,`value-property`]})),x=e=>n`<cosmoz-toggle-group
+`,customElements.define(`cosmoz-toggle-group`,l(v,{styleSheets:[a,y,b],observedAttributes:[`label`,`disabled`,`value-property`,`stretch`]})),x=e=>n`<cosmoz-toggle-group
 		.options=${e.options}
 		.value=${e.value}
 		value-property=${i(e.valueProperty)}
 		.label=${i(e.label)}
 		?disabled=${e.disabled}
+		?stretch=${e.stretch}
 		size=${i(e.size)}
 		@value-changed=${e.onValueChanged}
 	></cosmoz-toggle-group>`})))()}export{x as n,S as t};

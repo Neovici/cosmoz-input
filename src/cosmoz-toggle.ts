@@ -1,4 +1,5 @@
 import { component, css, html, useCallback } from '@pionjs/pion';
+import { nothing } from 'lit-html';
 import { live } from 'lit-html/directives/live.js';
 import { when } from 'lit-html/directives/when.js';
 
@@ -26,13 +27,22 @@ const CosmozToggle = (host: Host) => {
 			class="toggle"
 			part="toggle"
 			type="checkbox"
+			role="switch"
+			aria-label=${label
+				? nothing
+				: (host.getAttribute('aria-label') ?? nothing)}
+			aria-invalid=${error ? 'true' : nothing}
+			aria-describedby=${error ? 'failure' : nothing}
 			.checked=${live(!!value)}
 			?disabled=${disabled}
 			@change=${onChange}
 		/>
 		${when(label, () => html`<label for="toggle">${label}</label>`)}
 		<slot name="suffix"></slot>
-		${when(error, (error) => html`<div class="failure">${error}</div>`)} `;
+		${when(
+			error,
+			(error) => html`<div class="failure" id="failure">${error}</div>`,
+		)} `;
 };
 
 export const toggleStyles = css`
@@ -66,6 +76,9 @@ export const toggleStyles = css`
 	}
 	.toggle:checked {
 		background: var(--cz-color-bg-brand-solid);
+	}
+	.toggle:focus-visible {
+		box-shadow: var(--cz-focus-ring);
 	}
 	.toggle:checked::before {
 		left: calc(var(--cz-spacing) * 5);
@@ -108,6 +121,6 @@ customElements.define(
 	'cosmoz-toggle',
 	component(CosmozToggle, {
 		styleSheets: [style, toggleStyles],
-		observedAttributes: ['label', 'disabled', 'error'],
+		observedAttributes: ['label', 'disabled', 'error', 'aria-label'],
 	}),
 );

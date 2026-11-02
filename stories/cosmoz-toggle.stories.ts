@@ -20,8 +20,8 @@ export const Basic: Story = {
 		<cosmoz-toggle .label=${'Is active'} .value=${true}></cosmoz-toggle>
 	`,
 	play: async ({ canvas, step }) => {
-		await step('Renders checkbox element', async () => {
-			await canvas.findByShadowRole('checkbox');
+		await step('Renders a switch', async () => {
+			await canvas.findByShadowRole('switch');
 		});
 	},
 };

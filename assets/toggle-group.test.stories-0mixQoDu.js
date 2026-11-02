@@ -1,4 +1,4 @@
-import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./iframe-BgYbMp8J.js";import{t as r}from"./toggle-group-DQcN8yKF.js";var i,a,o,s,c,l,u,d,f,p,m,h,g,_;function v(){return(v=e((()=>{n(),r(),{expect:i,waitFor:a}=__STORYBOOK_MODULE_TEST__,o={title:`Tests/Toggle group`},s=e=>Array.from(e.shadowRoot.querySelectorAll(`[role=radio]`)),c=(e,t)=>e.dispatchEvent(new KeyboardEvent(`keydown`,{key:t,bubbles:!0,cancelable:!0})),l=e=>s(e).map(e=>e.getAttribute(`tabindex`)),u=e=>e.shadowRoot.activeElement,d={render:()=>t`
+import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./iframe-CdPe1zYo.js";import{t as r}from"./toggle-group-CRPLjtZR.js";var i,a,o,s,c,l,u,d,f,p,m,h,g,_,v;function y(){return(y=e((()=>{n(),r(),{expect:i,waitFor:a}=__STORYBOOK_MODULE_TEST__,o={title:`Tests/Toggle group`},s=e=>Array.from(e.shadowRoot.querySelectorAll(`[role=radio]`)),c=(e,t)=>e.dispatchEvent(new KeyboardEvent(`keydown`,{key:t,bubbles:!0,cancelable:!0})),l=e=>s(e).map(e=>e.getAttribute(`tabindex`)),u=e=>e.shadowRoot.activeElement,d={render:()=>t`
         <cosmoz-toggle-group
             .options=${[`today`,`week`,`month`]}
         ></cosmoz-toggle-group>
@@ -30,7 +30,11 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./i
             .label=${`View`}
             .options=${[{value:`list`,label:``,title:`List`,icon:()=>t`<svg width="16" height="16"></svg>`}]}
         ></cosmoz-toggle-group>
-    `,play:async({canvasElement:e,step:t})=>{await t(`no empty aria-label when label is unset`,async()=>{let t=e.querySelector(`#unnamed`);await a(()=>{let e=t.shadowRoot.querySelector(`[role=radiogroup]`);i(e.hasAttribute(`aria-label`)).toBe(!1)})}),await t(`an icon-only option is named by its title`,async()=>{let t=e.querySelector(`#icons`);await a(()=>i(s(t)[0].getAttribute(`aria-label`)).toBe(`List`))})}},_=[`NoValue`,`NoValueArrowLeft`,`SkipsDisabled`,`DisabledFirstIsNotTheTabStop`,`UpAndDown`,`Naming`],d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
+    `,play:async({canvasElement:e,step:t})=>{await t(`no empty aria-label when label is unset`,async()=>{let t=e.querySelector(`#unnamed`);await a(()=>{let e=t.shadowRoot.querySelector(`[role=radiogroup]`);i(e.hasAttribute(`aria-label`)).toBe(!1)})}),await t(`an icon-only option is named by its title`,async()=>{let t=e.querySelector(`#icons`);await a(()=>i(s(t)[0].getAttribute(`aria-label`)).toBe(`List`))})}},_={render:()=>t`
+        <div style="width: 400px">
+            <cosmoz-toggle-group stretch .options=${[`a`,`b`]}></cosmoz-toggle-group>
+        </div>
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-toggle-group`);await t(`the group and its options fill the width`,async()=>{await a(()=>i(s(n)).toHaveLength(2)),i(n.getBoundingClientRect().width).toBe(400);let[e,t]=s(n).map(e=>e.getBoundingClientRect().width);i(Math.abs(e-t)).toBeLessThan(1),i(e).toBeGreaterThan(150)})}},v=[`NoValue`,`NoValueArrowLeft`,`SkipsDisabled`,`DisabledFirstIsNotTheTabStop`,`UpAndDown`,`Naming`,`Stretch`],d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <cosmoz-toggle-group
             .options=\${['today', 'week', 'month']}
@@ -175,4 +179,23 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./i
       await waitFor(() => expect(radios(el)[0].getAttribute('aria-label')).toBe('List'));
     });
   }
-}`,...g.parameters?.docs?.source}}}})))()}v();export{m as DisabledFirstIsNotTheTabStop,g as Naming,d as NoValue,f as NoValueArrowLeft,p as SkipsDisabled,h as UpAndDown,_ as __namedExportsOrder,o as default};
+}`,...g.parameters?.docs?.source}}},_.parameters={..._.parameters,docs:{..._.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        <div style="width: 400px">
+            <cosmoz-toggle-group stretch .options=\${['a', 'b']}></cosmoz-toggle-group>
+        </div>
+    \`,
+  play: async ({
+    canvasElement,
+    step
+  }) => {
+    const el = canvasElement.querySelector<Group>('cosmoz-toggle-group')!;
+    await step('the group and its options fill the width', async () => {
+      await waitFor(() => expect(radios(el)).toHaveLength(2));
+      expect(el.getBoundingClientRect().width).toBe(400);
+      const [a, b] = radios(el).map(r => r.getBoundingClientRect().width);
+      expect(Math.abs(a - b)).toBeLessThan(1);
+      expect(a).toBeGreaterThan(150);
+    });
+  }
+}`,..._.parameters?.docs?.source}}}})))()}y();export{m as DisabledFirstIsNotTheTabStop,g as Naming,d as NoValue,f as NoValueArrowLeft,p as SkipsDisabled,_ as Stretch,h as UpAndDown,v as __namedExportsOrder,o as default};

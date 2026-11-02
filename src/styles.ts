@@ -132,6 +132,38 @@ export const styles = css`
 		z-index: 1;
 	}
 
+	/* Browsers pad date and time fields, and iOS Safari also gives them its own height and alignment. */
+	#input:is(
+		[type='date'],
+		[type='time'],
+		[type='datetime-local'],
+		[type='month'],
+		[type='week']
+	) {
+		-webkit-appearance: none;
+		appearance: none;
+	}
+
+	#input::-webkit-date-and-time-value {
+		margin: 0;
+		min-block-size: 1lh;
+		text-align: start;
+	}
+
+	#input::-webkit-datetime-edit,
+	#input::-webkit-datetime-edit-fields-wrapper,
+	#input::-webkit-datetime-edit-year-field,
+	#input::-webkit-datetime-edit-month-field,
+	#input::-webkit-datetime-edit-week-field,
+	#input::-webkit-datetime-edit-day-field,
+	#input::-webkit-datetime-edit-hour-field,
+	#input::-webkit-datetime-edit-minute-field,
+	#input::-webkit-datetime-edit-second-field,
+	#input::-webkit-datetime-edit-millisecond-field,
+	#input::-webkit-datetime-edit-meridiem-field {
+		padding-block: 0;
+	}
+
 	/* === Label === */
 
 	.sr-only {

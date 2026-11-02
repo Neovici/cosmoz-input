@@ -1,3 +1,18 @@
+## 6.9.0
+
+### Minor Changes
+
+- 4abdd65: Forward `inputmode` and `enterkeyhint` to the inner input and textarea, so phones can show a numeric or decimal keypad and a matching Enter key.
+- 2bce518: `cosmoz-toggle-group` gets `stretch` (options share the full width and wrap their labels).
+
+### Patch Changes
+
+- 1cfdf15: Number inputs correctly handle typing numbers with decimals.
+- 679c137: Make date and time inputs as tall as text inputs, with start-aligned values on iOS Safari, by resetting the browsers' own date-field margins and padding.
+- a58d269: fix(textarea): recompute `max-height` when the element becomes visible, so a `maxRows` cap computed while hidden no longer stays 0
+- 0207a21: cosmoz-toggle-group follows the radio group contract more closely: with no value, the first enabled option is the tab stop and an arrow selects the first or last option; arrows skip disabled options; ArrowUp and ArrowDown work like ArrowLeft and ArrowRight; there's no empty `aria-label` when `label` is unset; icon-only options are named by their `title`. Options wrap on narrow screens.
+- 47b5289: cosmoz-toggle is announced as a switch (`role="switch"`), shows the focus ring when focused from the keyboard, takes its accessible name from `aria-label` on the host when it has no `label`, and links its error text with `aria-invalid` and `aria-describedby`.
+
 ## 6.8.0
 
 ### Minor Changes

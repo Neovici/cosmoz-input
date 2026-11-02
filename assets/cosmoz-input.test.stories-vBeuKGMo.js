@@ -1,4 +1,4 @@
-import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./iframe-C_tIgTvr.js";import{t as r}from"./cosmoz-input-ChjPAkMx.js";import{t as i}from"./cosmoz-textarea-Dxv3jXQM.js";import{n as a,t as o}from"./style-DxWAu6Gx.js";var s,c,l,u,d,f,p,m,h,g,_,v,y,b,x,S,C,w,T,E,D,O,k;function A(){return(A=e((()=>{n(),r(),i(),o(),{expect:s,fn:c,userEvent:l,waitFor:u}=__STORYBOOK_MODULE_TEST__,d={title:`Tests/Input`},f={render:()=>t`
+import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./iframe-BLiIIfFQ.js";import{t as r}from"./cosmoz-input-CABRLyoe.js";import{t as i}from"./cosmoz-textarea-CN2Lhf0R.js";import{n as a,t as o}from"./style-wZ-8Wy3Z.js";var s,c,l,u,d,f,p,m,h,g,_,v,y,b,x,S,C,w,T,E,D,O,k,A;function j(){return(j=e((()=>{n(),r(),i(),o(),{expect:s,fn:c,userEvent:l,waitFor:u}=__STORYBOOK_MODULE_TEST__,d={title:`Tests/Input`},f={render:()=>t`
         ${a}
         <cosmoz-input></cosmoz-input>
     `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`);await t(`focus() triggers focused-changed`,async()=>{let e=c();n.addEventListener(`focused-changed`,e,{once:!0}),s(e).not.toHaveBeenCalled(),n.focus(),await u(()=>{s(e).toHaveBeenCalledTimes(1)})})}},p={render:()=>t`
@@ -56,7 +56,11 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./i
         <cosmoz-input id="plain"></cosmoz-input>
         <cosmoz-textarea inputmode="decimal" enterkeyhint="done"></cosmoz-textarea>
         <cosmoz-textarea id="plain-textarea"></cosmoz-textarea>
-    `,play:async({canvasElement:e,step:t})=>{let[n,r]=[...e.querySelectorAll(`cosmoz-input`)].map(e=>e.shadowRoot.querySelector(`input`)),[i,a]=[...e.querySelectorAll(`cosmoz-textarea`)].map(e=>e.shadowRoot.querySelector(`#input`));await t(`inputmode and enterkeyhint reach the input`,async()=>{await u(()=>{s(n.getAttribute(`inputmode`)).toBe(`decimal`),s(n.getAttribute(`enterkeyhint`)).toBe(`done`)})}),await t(`they are left out when not set`,async()=>{s(r.hasAttribute(`inputmode`)).toBe(!1),s(r.hasAttribute(`enterkeyhint`)).toBe(!1)}),await t(`inputmode and enterkeyhint reach the textarea`,async()=>{await u(()=>{s(i.getAttribute(`inputmode`)).toBe(`decimal`),s(i.getAttribute(`enterkeyhint`)).toBe(`done`)})}),await t(`they are left out when not set in the textarea`,async()=>{s(a.hasAttribute(`inputmode`)).toBe(!1),s(a.hasAttribute(`enterkeyhint`)).toBe(!1)})}},k=[`Focus`,`Change`,`Validate`,`AllowedPattern`,`ValueChanged`,`Placeholder`,`Mousedown`,`DelegatesFocus`,`BlurPrevention`,`LabelClickThrough`,`CellBorderInsideHost`,`AnnouncedMessages`,`CompactDescribesErrorWithoutShowing`,`CompactAndCellKeepName`,`CompactDescribesHintWithoutShowing`,`InvalidWithoutMessageMarksInvalid`,`VirtualKeyboard`],f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
+    `,play:async({canvasElement:e,step:t})=>{let[n,r]=[...e.querySelectorAll(`cosmoz-input`)].map(e=>e.shadowRoot.querySelector(`input`)),[i,a]=[...e.querySelectorAll(`cosmoz-textarea`)].map(e=>e.shadowRoot.querySelector(`#input`));await t(`inputmode and enterkeyhint reach the input`,async()=>{await u(()=>{s(n.getAttribute(`inputmode`)).toBe(`decimal`),s(n.getAttribute(`enterkeyhint`)).toBe(`done`)})}),await t(`they are left out when not set`,async()=>{s(r.hasAttribute(`inputmode`)).toBe(!1),s(r.hasAttribute(`enterkeyhint`)).toBe(!1)}),await t(`inputmode and enterkeyhint reach the textarea`,async()=>{await u(()=>{s(i.getAttribute(`inputmode`)).toBe(`decimal`),s(i.getAttribute(`enterkeyhint`)).toBe(`done`)})}),await t(`they are left out when not set in the textarea`,async()=>{s(a.hasAttribute(`inputmode`)).toBe(!1),s(a.hasAttribute(`enterkeyhint`)).toBe(!1)})}},k={render:()=>t`
+        ${a}
+        <cosmoz-input label="Text" value="42577519"></cosmoz-input>
+        <cosmoz-input label="Date" type="date" value="2026-10-25"></cosmoz-input>
+    `,play:async({canvasElement:e,step:t})=>{let[n,r]=e.querySelectorAll(`cosmoz-input`);await t(`a date input is as tall as a text input`,async()=>{await u(()=>{s(r.getBoundingClientRect().height).toBe(n.getBoundingClientRect().height)})})}},A=[`Focus`,`Change`,`Validate`,`AllowedPattern`,`ValueChanged`,`Placeholder`,`Mousedown`,`DelegatesFocus`,`BlurPrevention`,`LabelClickThrough`,`CellBorderInsideHost`,`AnnouncedMessages`,`CompactDescribesErrorWithoutShowing`,`CompactAndCellKeepName`,`CompactDescribesHintWithoutShowing`,`InvalidWithoutMessageMarksInvalid`,`VirtualKeyboard`,`DateHeight`],f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input></cosmoz-input>
@@ -427,4 +431,21 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./i
       expect(textareaPlain.hasAttribute('enterkeyhint')).toBe(false);
     });
   }
-}`,...O.parameters?.docs?.source}}}})))()}A();export{h as AllowedPattern,C as AnnouncedMessages,b as BlurPrevention,S as CellBorderInsideHost,p as Change,T as CompactAndCellKeepName,w as CompactDescribesErrorWithoutShowing,E as CompactDescribesHintWithoutShowing,y as DelegatesFocus,f as Focus,D as InvalidWithoutMessageMarksInvalid,x as LabelClickThrough,v as Mousedown,_ as Placeholder,m as Validate,g as ValueChanged,O as VirtualKeyboard,k as __namedExportsOrder,d as default};
+}`,...O.parameters?.docs?.source}}},k.parameters={...k.parameters,docs:{...k.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        \${style}
+        <cosmoz-input label="Text" value="42577519"></cosmoz-input>
+        <cosmoz-input label="Date" type="date" value="2026-10-25"></cosmoz-input>
+    \`,
+  play: async ({
+    canvasElement,
+    step
+  }) => {
+    const [text, date] = canvasElement.querySelectorAll('cosmoz-input');
+    await step('a date input is as tall as a text input', async () => {
+      await waitFor(() => {
+        expect(date.getBoundingClientRect().height).toBe(text.getBoundingClientRect().height);
+      });
+    });
+  }
+}`,...k.parameters?.docs?.source}}}})))()}j();export{h as AllowedPattern,C as AnnouncedMessages,b as BlurPrevention,S as CellBorderInsideHost,p as Change,T as CompactAndCellKeepName,w as CompactDescribesErrorWithoutShowing,E as CompactDescribesHintWithoutShowing,k as DateHeight,y as DelegatesFocus,f as Focus,D as InvalidWithoutMessageMarksInvalid,x as LabelClickThrough,v as Mousedown,_ as Placeholder,m as Validate,g as ValueChanged,O as VirtualKeyboard,A as __namedExportsOrder,d as default};

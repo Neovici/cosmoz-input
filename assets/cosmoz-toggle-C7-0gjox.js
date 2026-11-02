@@ -1,4 +1,4 @@
-import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t}from"./iframe-C_tIgTvr.js";import{i as n,n as r,t as i}from"./live-QReEt51z.js";import{n as a,p as o,t as s,x as c}from"./haunted-DuWv3aAY.js";var l,u,d;function f(){return(f=e((()=>{s(),i(),l=e=>{let{label:i,value:a,disabled:s,error:c}=e,l=o(t=>e.dispatchEvent(new CustomEvent(`change`,{detail:t.target.checked})),[]);return t`<input
+import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t}from"./iframe-BLiIIfFQ.js";import{i as n,n as r,t as i}from"./live-vKfFSZ-t.js";import{n as a,p as o,t as s,x as c}from"./haunted-G2Jgehhc.js";var l,u,d;function f(){return(f=e((()=>{s(),i(),l=e=>{let{label:i,value:a,disabled:s,error:c}=e,l=o(t=>e.dispatchEvent(new CustomEvent(`change`,{detail:t.target.checked})),[]);return t`<input
 			id="toggle"
 			class="toggle"
 			part="toggle"

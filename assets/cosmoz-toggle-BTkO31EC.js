@@ -1,15 +1,19 @@
-import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t}from"./iframe-BLiIIfFQ.js";import{i as n,n as r,t as i}from"./live-vKfFSZ-t.js";import{n as a,p as o,t as s,x as c}from"./haunted-G2Jgehhc.js";var l,u,d;function f(){return(f=e((()=>{s(),i(),l=e=>{let{label:i,value:a,disabled:s,error:c}=e,l=o(t=>e.dispatchEvent(new CustomEvent(`change`,{detail:t.target.checked})),[]);return t`<input
+import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{a as t,c as n,l as r}from"./iframe-DZQAdX49.js";import{i,n as a,t as o}from"./live-CPY9p0Oi.js";import{n as s,p as c,t as l,x as u}from"./haunted-DkVejfnx.js";var d,f,p;function m(){return(m=e((()=>{l(),r(),o(),d=e=>{let{label:r,value:o,disabled:s,error:l}=e,u=c(t=>e.dispatchEvent(new CustomEvent(`change`,{detail:t.target.checked})),[]);return n`<input
 			id="toggle"
 			class="toggle"
 			part="toggle"
 			type="checkbox"
-			.checked=${r(!!a)}
+			role="switch"
+			aria-label=${r?t:e.getAttribute(`aria-label`)??t}
+			aria-invalid=${l?`true`:t}
+			aria-describedby=${l?`failure`:t}
+			.checked=${a(!!o)}
 			?disabled=${s}
-			@change=${l}
+			@change=${u}
 		/>
-		${n(i,()=>t`<label for="toggle">${i}</label>`)}
+		${i(r,()=>n`<label for="toggle">${r}</label>`)}
 		<slot name="suffix"></slot>
-		${n(c,e=>t`<div class="failure">${e}</div>`)} `},u=c`
+		${i(l,e=>n`<div class="failure" id="failure">${e}</div>`)} `},f=u`
 	.toggle {
 		appearance: none;
 		width: calc(var(--cz-spacing) * 9);
@@ -41,6 +45,9 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t}from"./iframe-B
 	.toggle:checked {
 		background: var(--cz-color-bg-brand-solid);
 	}
+	.toggle:focus-visible {
+		box-shadow: var(--cz-focus-ring);
+	}
 	.toggle:checked::before {
 		left: calc(var(--cz-spacing) * 5);
 	}
@@ -61,7 +68,7 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t}from"./iframe-B
 	.toggle[disabled] {
 		opacity: 0.6;
 	}
-`,d=c`
+`,p=u`
 	:host {
 		display: block;
 	}
@@ -74,4 +81,4 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t}from"./iframe-B
 	::slotted(*) {
 		margin-left: calc(var(--cz-spacing) * 1);
 	}
-`,customElements.define(`cosmoz-toggle`,a(l,{styleSheets:[d,u],observedAttributes:[`label`,`disabled`,`error`]}))})))()}export{f as t};
+`,customElements.define(`cosmoz-toggle`,s(d,{styleSheets:[p,f],observedAttributes:[`label`,`disabled`,`error`,`aria-label`]}))})))()}export{m as t};

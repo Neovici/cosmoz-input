@@ -1,4 +1,4 @@
-import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./iframe-BCVDgj1v.js";import{t as r}from"./cosmoz-textarea-By6Tj3rc.js";var i,a,o,s,c;function l(){return(l=e((()=>{n(),r(),i={title:`Components/Textarea`,component:`cosmoz-textarea`,tags:[`autodocs`]},a={render:()=>t`
+import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./iframe-C_tIgTvr.js";import{t as r}from"./cosmoz-textarea-Dxv3jXQM.js";var i,a,o,s,c;function l(){return(l=e((()=>{n(),r(),i={title:`Components/Textarea`,component:`cosmoz-textarea`,tags:[`autodocs`]},a={render:()=>t`
         <cosmoz-textarea
             .label=${`Choose color`}
             .value=${`Red`}

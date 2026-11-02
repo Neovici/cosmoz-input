@@ -1,15 +1,15 @@
-import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{a as t,c as n,i as r,l as i,n as a,r as o,s}from"./iframe-BCVDgj1v.js";import{n as c}from"./when-FffEWPZl.js";import{D as l,E as u,T as d,n as f,p,t as m,w as h,x as g}from"./haunted-Ch9lAFrX.js";var _;function v(){return(v=e((()=>{i(),u(),a(),_=h(class extends d{constructor(e){if(super(e),e.type!==l.PROPERTY&&e.type!==l.ATTRIBUTE&&e.type!==l.BOOLEAN_ATTRIBUTE)throw Error("The `live` directive is not allowed on child or event bindings");if(!r(e))throw Error("`live` bindings can only contain a single expression")}render(e){return e}update(e,[n]){if(n===s||n===t)return n;let r=e.element,i=e.name;if(e.type===l.PROPERTY){if(n===r[i])return s}else if(e.type===l.BOOLEAN_ATTRIBUTE){if(!!n===r.hasAttribute(i))return s}else if(e.type===l.ATTRIBUTE&&r.getAttribute(i)===n+``)return s;return o(e),n}})})))()}var y,b,x;function S(){return(S=e((()=>{m(),v(),y=e=>{let{label:t,value:r,disabled:i,error:a}=e,o=p(t=>e.dispatchEvent(new CustomEvent(`change`,{detail:t.target.checked})),[]);return n`<input
+import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t}from"./iframe-C_tIgTvr.js";import{i as n,n as r,t as i}from"./live-QReEt51z.js";import{n as a,p as o,t as s,x as c}from"./haunted-DuWv3aAY.js";var l,u,d;function f(){return(f=e((()=>{s(),i(),l=e=>{let{label:i,value:a,disabled:s,error:c}=e,l=o(t=>e.dispatchEvent(new CustomEvent(`change`,{detail:t.target.checked})),[]);return t`<input
 			id="toggle"
 			class="toggle"
 			part="toggle"
 			type="checkbox"
-			.checked=${_(!!r)}
-			?disabled=${i}
-			@change=${o}
+			.checked=${r(!!a)}
+			?disabled=${s}
+			@change=${l}
 		/>
-		${c(t,()=>n`<label for="toggle">${t}</label>`)}
+		${n(i,()=>t`<label for="toggle">${i}</label>`)}
 		<slot name="suffix"></slot>
-		${c(a,e=>n`<div class="failure">${e}</div>`)} `},b=g`
+		${n(c,e=>t`<div class="failure">${e}</div>`)} `},u=c`
 	.toggle {
 		appearance: none;
 		width: calc(var(--cz-spacing) * 9);
@@ -61,7 +61,7 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{a as t,c as n,i as r,l
 	.toggle[disabled] {
 		opacity: 0.6;
 	}
-`,x=g`
+`,d=c`
 	:host {
 		display: block;
 	}
@@ -74,4 +74,4 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{a as t,c as n,i as r,l
 	::slotted(*) {
 		margin-left: calc(var(--cz-spacing) * 1);
 	}
-`,customElements.define(`cosmoz-toggle`,f(y,{styleSheets:[x,b],observedAttributes:[`label`,`disabled`,`error`]}))})))()}export{S as t};
+`,customElements.define(`cosmoz-toggle`,a(l,{styleSheets:[d,u],observedAttributes:[`label`,`disabled`,`error`]}))})))()}export{f as t};

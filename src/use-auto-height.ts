@@ -26,7 +26,7 @@ export const useAutoHeight = <T extends BaseInput>(host: T) => {
 		input = useMemo(
 			() => () =>
 				(host.shadowRoot as ShadowRoot).querySelector('#input') as HTMLElement,
-			[]
+			[],
 		);
 	useEffect(() => limit(input(), maxRows), [maxRows, input]);
 	useEffect(() => autoheight(input()), [input, value]);
@@ -38,7 +38,7 @@ export const useAutoHeight = <T extends BaseInput>(host: T) => {
 					// mount are picked up on visibility/size changes
 					limit(el, host.maxRows);
 					autoheight(el);
-				})
+				}),
 			);
 		observer.observe(el);
 		return () => observer.unobserve(el);

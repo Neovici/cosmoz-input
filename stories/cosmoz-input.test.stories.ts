@@ -417,3 +417,43 @@ export const DateHeight: Story = {
 		});
 	},
 };
+
+export const GhostReadsAsText: Story = {
+	render: () => html`
+		${style}
+		<h1 style="font-size: 24px; font-weight: 600">
+			<cosmoz-input
+				variant="ghost"
+				aria-label="Title"
+				.value=${'Title'}
+			></cosmoz-input>
+		</h1>
+		<cosmoz-input .value=${'Outlined'}></cosmoz-input>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const [ghost, outlined] = [
+			...canvasElement.querySelectorAll<HTMLElement>('cosmoz-input'),
+		];
+		const wrap = (el: HTMLElement) =>
+			getComputedStyle(el.shadowRoot!.querySelector('.wrap')!);
+		const input = (el: HTMLElement) =>
+			getComputedStyle(el.shadowRoot!.querySelector('input')!);
+
+		await step('has no box at rest', async () => {
+			expect(wrap(ghost).boxShadow).toBe('none');
+			expect(wrap(ghost).backgroundColor).toBe('rgba(0, 0, 0, 0)');
+			expect(wrap(outlined).boxShadow).not.toBe('none');
+		});
+
+		await step('takes the font of the surrounding text', async () => {
+			expect(input(ghost).fontSize).toBe('24px');
+			expect(input(ghost).fontWeight).toBe('600');
+			expect(input(outlined).fontSize).not.toBe('24px');
+		});
+
+		await step('shows the focus ring when focused', async () => {
+			ghost.focus();
+			await waitFor(() => expect(wrap(ghost).boxShadow).not.toBe('none'));
+		});
+	},
+};

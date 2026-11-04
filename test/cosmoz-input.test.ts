@@ -88,4 +88,23 @@ describe('cosmoz-input', () => {
 			expect(inner(el).value).to.equal('x');
 		});
 	});
+
+	describe('number spinner', () => {
+		// a textfield appearance is a number input without the browser arrows
+		const appearance = (el: Host) => getComputedStyle(inner(el)).appearance;
+
+		it('hides the browser arrows by default', async () => {
+			const el = await fixture<Host>(
+				html`<cosmoz-input type="number"></cosmoz-input>`,
+			);
+			expect(appearance(el)).to.equal('textfield');
+		});
+
+		it('shows them with the spinner attribute', async () => {
+			const el = await fixture<Host>(
+				html`<cosmoz-input type="number" spinner></cosmoz-input>`,
+			);
+			expect(appearance(el)).not.to.equal('textfield');
+		});
+	});
 });

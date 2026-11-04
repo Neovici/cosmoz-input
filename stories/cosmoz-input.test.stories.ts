@@ -158,6 +158,35 @@ export const Mousedown: Story = {
 	},
 };
 
+export const SlottedControlKeepsClick: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-input>
+			<select slot="suffix">
+				<option>SEK</option>
+				<option>EUR</option>
+			</select>
+		</cosmoz-input>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const el = canvasElement.querySelector('cosmoz-input')!;
+		const select = el.querySelector('select')!;
+
+		await step(
+			'mousedown on a slotted select is left to the select',
+			async () => {
+				const event = new MouseEvent('mousedown', {
+					bubbles: true,
+					cancelable: true,
+				});
+				select.dispatchEvent(event);
+				expect(event.defaultPrevented).toBe(false);
+				expect(el.shadowRoot!.activeElement).toBeNull();
+			},
+		);
+	},
+};
+
 export const DelegatesFocus: Story = {
 	render: () => html`
 		${style}

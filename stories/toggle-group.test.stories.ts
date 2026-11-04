@@ -178,3 +178,44 @@ export const Stretch: Story = {
 		});
 	},
 };
+
+const addresses = [
+	{
+		value: 'office',
+		label: 'Office',
+		description: 'Main Street 12, 111 43 Stockholm',
+	},
+	{
+		value: 'dock',
+		label: 'Goods reception',
+		description: 'Harbour Road 7, 112 18 Stockholm',
+	},
+	{ value: 'other', label: 'Another address' },
+];
+
+export const CardsWithDescriptions: Story = {
+	render: () =>
+		html`<cosmoz-toggle-group
+			variant="card"
+			label="Delivery address"
+			.options=${addresses}
+			.value=${'dock'}
+		></cosmoz-toggle-group>`,
+	play: async ({ canvasElement }) => {
+		const el = canvasElement.querySelector<Group>('cosmoz-toggle-group')!;
+		await waitFor(() => expect(radios(el)).toHaveLength(3));
+		const [office, dock, other] = radios(el);
+		// the description is part of the option, read with its label
+		expect(office.textContent?.replace(/\s+/gu, ' ').trim()).toBe(
+			'Office Main Street 12, 111 43 Stockholm',
+		);
+		expect(other.textContent?.trim()).toBe('Another address');
+		expect(dock.getAttribute('aria-checked')).toBe('true');
+		// cards lay out as a grid, unlike the segmented control
+		const group = el.shadowRoot!.querySelector<HTMLElement>('.group')!;
+		expect(getComputedStyle(group).display).toBe('grid');
+		// keyboard selection works as in the segmented control
+		press(dock, 'ArrowRight');
+		await waitFor(() => expect(el.value).toBe('other'));
+	},
+};

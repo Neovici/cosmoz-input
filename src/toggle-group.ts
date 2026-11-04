@@ -13,6 +13,8 @@ export interface Option<I> {
 	icon?: (opts?: { width?: string; height?: string }) => TemplateResult;
 	/** invoked with the item */
 	title?: string | ((item: I) => string);
+	/** a muted second line, e.g. an address; invoked with the item */
+	description?: string | ((item: I) => string);
 	disabled?: boolean;
 }
 
@@ -27,6 +29,8 @@ export interface ToggleGroupElement<I = unknown> extends HTMLElement {
 	stretch?: boolean;
 	/** omit for the default size; sm matches cosmoz-tabs-next segmented sm */
 	size?: 'sm';
+	/** `card`: options as a grid of cards, for choices with a description */
+	variant?: 'card';
 }
 
 const steps: Record<string, number> = {
@@ -99,6 +103,10 @@ const ToggleGroup = <I>(host: ToggleGroupElement<I>) => {
 			const text = labelOf(option);
 			const title =
 				option.title != null ? invoke(option.title, option.value) : undefined;
+			const description =
+				option.description != null
+					? invoke(option.description, option.value)
+					: undefined;
 			return html`<button
 				type="button"
 				role="radio"
@@ -111,7 +119,12 @@ const ToggleGroup = <I>(host: ToggleGroupElement<I>) => {
 				@click=${() => onPick(option)}
 				tabindex=${i === stop ? '0' : '-1'}
 			>
-				${option.icon?.({ width: '16', height: '16' })}${text}
+				${option.icon?.({ width: '16', height: '16' })}${description
+					? html`<span class="option-text"
+							><span class="option-label">${text}</span>
+							<span class="option-description">${description}</span></span
+						>`
+					: text}
 			</button>`;
 		})}
 	</div>`;
@@ -198,13 +211,79 @@ const groupStyles = css`
 	:host([size='sm']) .option {
 		padding-block: var(--cz-spacing);
 	}
+
+	.option-text {
+		display: grid;
+		min-width: 0;
+		text-align: start;
+	}
+
+	.option-description {
+		color: var(--cz-color-text-tertiary);
+		font-weight: var(--cz-font-weight-regular);
+	}
+
+	/* === Variant: card === */
+
+	:host([variant='card']) {
+		display: block;
+	}
+
+	:host([variant='card']) .group {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
+		gap: calc(var(--cz-spacing) * 2);
+		padding: 0;
+		background: none;
+		box-shadow: none;
+		font-weight: var(--cz-font-weight-regular);
+	}
+
+	:host([variant='card']) .option {
+		align-items: flex-start;
+		gap: calc(var(--cz-spacing) * 2);
+		padding: calc(var(--cz-spacing) * 3);
+		border-radius: var(--cz-radius-lg);
+		background: var(--cz-color-bg-primary);
+		box-shadow: inset 0 0 0 1px var(--cz-color-border-secondary);
+		color: var(--cz-color-text-secondary);
+		white-space: normal;
+	}
+
+	:host([variant='card']) .option > svg {
+		flex: none;
+		margin-block-start: 2px;
+	}
+
+	:host([variant='card']) .option-label {
+		color: var(--cz-color-text-primary);
+		font-weight: var(--cz-font-weight-semibold);
+	}
+
+	:host([variant='card']) .option:hover {
+		background: var(--cz-color-bg-primary-hover);
+	}
+
+	:host([variant='card']) .option.selected {
+		box-shadow: inset 0 0 0 2px var(--cz-color-border-brand);
+	}
+
+	:host([variant='card']) .option:focus-visible {
+		box-shadow: var(--cz-focus-ring);
+	}
 `;
 
 customElements.define(
 	'cosmoz-toggle-group',
 	component(ToggleGroup, {
 		styleSheets: [normalize, style, groupStyles],
-		observedAttributes: ['label', 'disabled', 'value-property', 'stretch'],
+		observedAttributes: [
+			'label',
+			'disabled',
+			'value-property',
+			'stretch',
+			'variant',
+		],
 	}),
 );
 
@@ -216,6 +295,7 @@ export type ToggleGroupProps<I> = {
 	disabled?: boolean;
 	stretch?: boolean;
 	size?: 'sm';
+	variant?: 'card';
 	/** receives the whole `value-changed` event (detail = { value, updater }) */
 	onValueChanged?: (event: CustomEvent<{ value: I }>) => void;
 };
@@ -230,5 +310,6 @@ export const toggleGroup = <I>(props: ToggleGroupProps<I>) =>
 		?disabled=${props.disabled}
 		?stretch=${props.stretch}
 		size=${ifDefined(props.size)}
+		variant=${ifDefined(props.variant)}
 		@value-changed=${props.onValueChanged}
 	></cosmoz-toggle-group>`;

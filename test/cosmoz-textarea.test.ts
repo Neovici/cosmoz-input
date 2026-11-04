@@ -56,7 +56,10 @@ describe('cosmoz-textarea max-height', () => {
 
 	it('still auto-heights in the normal visible flow', async () => {
 		const el = (await fixture(
-			html`<cosmoz-textarea .value=${'1\n2\n3'} .maxRows=${2}></cosmoz-textarea>`,
+			html`<cosmoz-textarea
+				.value=${'1\n2\n3'}
+				.maxRows=${2}
+			></cosmoz-textarea>`,
 		)) as HTMLElement;
 
 		await waitUntil(

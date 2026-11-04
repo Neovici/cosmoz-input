@@ -53,4 +53,32 @@ describe('cosmoz-toggle-group keyboard', () => {
 		expect(el.value).to.equal('week');
 		expect(active()).to.equal(radio(el, 1));
 	});
+
+	describe('cosmoz-toggle-group slot', () => {
+		it('renders slotted content inside the group, outside the radios', async () => {
+			const el = await fixture(html`
+				<cosmoz-toggle-group .options=${['today', 'week']} .value=${'today'}>
+					<button id="extra">Other</button>
+				</cosmoz-toggle-group>
+			`);
+			const group = el.shadowRoot!.querySelector('[part=group]')!;
+			const slot = group.querySelector('slot')!;
+			expect(slot.assignedElements()[0].id).to.equal('extra');
+			expect(slot.closest('[role=radiogroup]')).to.equal(null);
+			expect(group.querySelectorAll('[role=radio]').length).to.equal(2);
+		});
+
+		it('arrows still move between the options only', async () => {
+			const el: HTMLElement & { value?: string } = await fixture(html`
+				<cosmoz-toggle-group .options=${['today', 'week']} .value=${'today'}>
+					<button>Other</button>
+				</cosmoz-toggle-group>
+			`);
+			radio(el, 0).focus();
+			await sendKeys({ press: 'ArrowRight' });
+			expect(el.value).to.equal('week');
+			await sendKeys({ press: 'ArrowRight' });
+			expect(el.value).to.equal('today');
+		});
+	});
 });

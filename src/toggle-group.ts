@@ -87,33 +87,37 @@ const ToggleGroup = <I>(host: ToggleGroupElement<I>) => {
 		}
 	};
 
-	return html`<div
-		class="group"
-		part="group"
-		role="radiogroup"
-		aria-label=${host.label || nothing}
-		@keydown=${onKeyDown}
-	>
-		${options.map((option, i) => {
-			const selected = i === index;
-			const text = labelOf(option);
-			const title =
-				option.title != null ? invoke(option.title, option.value) : undefined;
-			return html`<button
-				type="button"
-				role="radio"
-				aria-checked=${selected ? 'true' : 'false'}
-				?disabled=${option.disabled || host.disabled}
-				title=${title ?? nothing}
-				aria-label=${!text && title ? title : nothing}
-				part=${selected ? 'option selected-option' : 'option'}
-				class=${selected ? 'option selected' : 'option'}
-				@click=${() => onPick(option)}
-				tabindex=${i === stop ? '0' : '-1'}
-			>
-				${option.icon?.({ width: '16', height: '16' })}${text}
-			</button>`;
-		})}
+	// the options form the radio group; slotted content (e.g. a picker for a
+	// value outside the options) sits after them, inside the same box
+	return html`<div class="group" part="group">
+		<div
+			class="options"
+			role="radiogroup"
+			aria-label=${host.label || nothing}
+			@keydown=${onKeyDown}
+		>
+			${options.map((option, i) => {
+				const selected = i === index;
+				const text = labelOf(option);
+				const title =
+					option.title != null ? invoke(option.title, option.value) : undefined;
+				return html`<button
+					type="button"
+					role="radio"
+					aria-checked=${selected ? 'true' : 'false'}
+					?disabled=${option.disabled || host.disabled}
+					title=${title ?? nothing}
+					aria-label=${!text && title ? title : nothing}
+					part=${selected ? 'option selected-option' : 'option'}
+					class=${selected ? 'option selected' : 'option'}
+					@click=${() => onPick(option)}
+					tabindex=${i === stop ? '0' : '-1'}
+				>
+					${option.icon?.({ width: '16', height: '16' })}${text}
+				</button>`;
+			})}
+		</div>
+		<slot></slot>
 	</div>`;
 };
 
@@ -138,6 +142,16 @@ const style = css`
 `;
 
 const groupStyles = css`
+	/* the radio group lays out inside .group as if it weren't there */
+	.options {
+		display: contents;
+	}
+
+	::slotted(*) {
+		display: inline-flex;
+		align-items: stretch;
+	}
+
 	.group {
 		display: flex;
 		flex-wrap: wrap;

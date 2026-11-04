@@ -16,6 +16,10 @@ export interface Render {
 	hint?: string;
 	compact?: boolean;
 	required?: boolean;
+	/** Show "length/maxlength" at the end of the field. Needs `maxlength`. */
+	counter?: boolean;
+	maxlength?: string | number;
+	value?: unknown;
 }
 
 export const render = <T>(
@@ -28,6 +32,9 @@ export const render = <T>(
 			errorMessage,
 			compact,
 			required,
+			counter,
+			maxlength,
+			value,
 		}: Render,
 	) => html`
 		<!-- label: visually hidden in compact mode -->
@@ -65,6 +72,16 @@ export const render = <T>(
 			)}
 
 			<slot name="suffix"></slot>
+			${when(counter && Number(maxlength) > 0, () => {
+				const length = String(value ?? '').length,
+					max = Number(maxlength);
+				return html`<span
+					class="counter"
+					part="counter"
+					?data-full=${length >= max}
+					>${length}/${max}</span
+				>`;
+			})}
 		</div>
 		<!-- hint: read with the field while valid; visually hidden in compact -->
 		${when(
@@ -89,4 +106,11 @@ export const render = <T>(
 				>`,
 		)}
 	`,
-	attributes = ['autocomplete', 'readonly', 'disabled', 'maxlength', 'invalid'];
+	attributes = [
+		'autocomplete',
+		'readonly',
+		'disabled',
+		'maxlength',
+		'invalid',
+		'counter',
+	];

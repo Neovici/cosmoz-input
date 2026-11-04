@@ -195,6 +195,27 @@ export const styles = css`
 		font-size: var(--cz-text-xs);
 	}
 
+	/* === Counter === */
+
+	.counter {
+		flex: none;
+		align-self: center;
+		margin-inline-end: calc(var(--cz-spacing) * 3);
+		font-size: var(--cz-text-xs);
+		line-height: var(--cz-text-xs-line-height);
+		font-variant-numeric: tabular-nums;
+		color: var(--cz-color-text-tertiary);
+	}
+
+	.wrap:has(textarea) .counter {
+		align-self: flex-end;
+		margin-block-end: calc(var(--cz-spacing) * 2);
+	}
+
+	.counter[data-full] {
+		color: var(--cz-color-text-error);
+	}
+
 	/* === Tooltip (fluid error indicator) === */
 
 	cosmoz-tooltip {

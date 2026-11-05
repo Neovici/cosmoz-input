@@ -14,6 +14,8 @@ export interface Option<I> {
 	/** invoked with the item */
 	title?: string | ((item: I) => string);
 	disabled?: boolean;
+	/** colours the option while it's selected, e.g. an "Urgent" choice */
+	tone?: 'warning';
 }
 
 export interface ToggleGroupElement<I = unknown> extends HTMLElement {
@@ -108,6 +110,7 @@ const ToggleGroup = <I>(host: ToggleGroupElement<I>) => {
 				aria-label=${!text && title ? title : nothing}
 				part=${selected ? 'option selected-option' : 'option'}
 				class=${selected ? 'option selected' : 'option'}
+				data-tone=${option.tone ?? nothing}
 				@click=${() => onPick(option)}
 				tabindex=${i === stop ? '0' : '-1'}
 			>
@@ -161,7 +164,7 @@ const groupStyles = css`
 		border-radius: var(--cz-radius-sm);
 		border: 0;
 		background: none;
-		color: var(--cz-color-text-quaternary);
+		color: var(--cz-color-text-tertiary);
 		font: inherit;
 		cursor: pointer;
 		white-space: nowrap;
@@ -169,13 +172,23 @@ const groupStyles = css`
 	}
 
 	.option:hover {
-		color: var(--cz-color-text-secondary);
+		color: var(--cz-color-text-primary);
 	}
 
 	.option.selected {
-		color: var(--cz-color-text-secondary);
+		color: var(--cz-color-text-primary);
 		background-color: var(--cz-color-bg-primary);
-		box-shadow: var(--cz-shadow-sm);
+		box-shadow:
+			inset 0 0 0 1px var(--cz-color-border-primary),
+			var(--cz-shadow-sm);
+	}
+
+	.option.selected[data-tone='warning'] {
+		color: var(--cz-color-text-warning);
+		background-color: var(--cz-color-bg-warning);
+		box-shadow:
+			inset 0 0 0 1px var(--cz-color-border-warning-subtle),
+			var(--cz-shadow-sm);
 	}
 
 	.option:focus-visible {

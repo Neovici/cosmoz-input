@@ -178,3 +178,27 @@ export const Stretch: Story = {
 		});
 	},
 };
+
+export const Tone: Story = {
+	render: () => html`
+		<cosmoz-toggle-group
+			.options=${[{ value: 'normal' }, { value: 'urgent', tone: 'warning' }]}
+			.value=${'normal'}
+		></cosmoz-toggle-group>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const el = canvasElement.querySelector<Group>('cosmoz-toggle-group')!;
+		await waitFor(() => expect(radios(el)).toHaveLength(2));
+		const [normal, urgent] = radios(el);
+		const color = (r: HTMLElement) => getComputedStyle(r).color;
+		await step('the tone only shows once the option is selected', async () => {
+			expect(urgent.dataset.tone).toBe('warning');
+			expect(normal.dataset.tone).toBeUndefined();
+			const before = color(urgent);
+			urgent.click();
+			await waitFor(() => expect(el.value).toBe('urgent'));
+			await waitFor(() => expect(color(urgent)).not.toBe(before));
+			expect(color(urgent)).not.toBe(color(normal));
+		});
+	},
+};

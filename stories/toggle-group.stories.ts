@@ -146,6 +146,19 @@ export const Icons: Story = {
 	},
 };
 
+export const Tone: Story = {
+	render: () => html`
+		<cosmoz-toggle-group
+			.label=${'Urgency'}
+			.options=${[
+				{ value: 'Normal' },
+				{ value: 'Urgent', tone: 'warning', icon: () => html`⚡` },
+			]}
+			.value=${'Urgent'}
+		></cosmoz-toggle-group>
+	`,
+};
+
 export const TypedHelper: Story = {
 	render: () => {
 		const picked = { id: 1, label: 'One' };

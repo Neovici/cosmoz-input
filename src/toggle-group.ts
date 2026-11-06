@@ -110,7 +110,7 @@ const ToggleGroup = <I>(host: ToggleGroupElement<I>) => {
 				aria-label=${!text && title ? title : nothing}
 				part=${selected ? 'option selected-option' : 'option'}
 				class=${selected ? 'option selected' : 'option'}
-				data-tone=${option.tone ?? nothing}
+				data-tone=${ifDefined(option.tone)}
 				@click=${() => onPick(option)}
 				tabindex=${i === stop ? '0' : '-1'}
 			>

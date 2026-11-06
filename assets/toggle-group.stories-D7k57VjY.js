@@ -1,4 +1,4 @@
-import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./iframe-CdPe1zYo.js";import{t as r}from"./style-2lBSZitE.js";import{n as i,t as a}from"./toggle-group-CRPLjtZR.js";var o,s,c,l,u,d,f,p,m,h,g,_,v,y,b;function x(){return(x=e((()=>{n(),a(),r(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Components/Toggle group`,component:`cosmoz-toggle-group`,tags:[`autodocs`]},l=[`today`,`week`,`month`],u=(e,t)=>e.shadowRoot.querySelectorAll(`[part~=option]`)[t],d=e=>e.shadowRoot.querySelector(`[part~=selected-option]`),f={render:()=>t`
+import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./iframe-BCe6YRwX.js";import{t as r}from"./style-DF_MsYd1.js";import{n as i,t as a}from"./toggle-group-Bz06XA-Z.js";var o,s,c,l,u,d,f,p,m,h,g,_,v,y,b,x;function S(){return(S=e((()=>{n(),a(),r(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Components/Toggle group`,component:`cosmoz-toggle-group`,tags:[`autodocs`]},l=[`today`,`week`,`month`],u=(e,t)=>e.shadowRoot.querySelectorAll(`[part~=option]`)[t],d=e=>e.shadowRoot.querySelector(`[part~=selected-option]`),f={render:()=>t`
         <cosmoz-toggle-group
             .options=${l}
             .value=${`week`}
@@ -27,14 +27,20 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./i
             .options=${[{value:`explorer`,icon:()=>t`◆`,title:`Diagram`},{value:`table`,icon:()=>t`▦`,label:`Table`}]}
             .value=${`explorer`}
         ></cosmoz-toggle-group>
-    `,play:async({canvasElement:e})=>{let t=e.querySelector(`#icon-group`);await s(()=>{let e=u(t,0);o(e.getAttribute(`title`)).toBe(`Diagram`),o(e.textContent?.trim()).toBe(`◆explorer`),o(u(t,1).textContent?.trim()).toBe(`▦Table`)})}},_={render:()=>{let e={id:1,label:`One`};return t`${i({options:[{value:e,label:({label:e})=>e},{value:{id:2,label:`Two`},label:({label:e})=>e}],value:e,valueProperty:`id`,label:`Helper`,onValueChanged:e=>e.detail.value})}`},play:async({canvasElement:e})=>{let t=e.querySelector(`cosmoz-toggle-group`);await s(()=>{o(t.shadowRoot.querySelector(`[part~=selected-option]`).textContent).toContain(`One`)})}},v={render:()=>t`
+    `,play:async({canvasElement:e})=>{let t=e.querySelector(`#icon-group`);await s(()=>{let e=u(t,0);o(e.getAttribute(`title`)).toBe(`Diagram`),o(e.textContent?.trim()).toBe(`◆explorer`),o(u(t,1).textContent?.trim()).toBe(`▦Table`)})}},_={render:()=>t`
+        <cosmoz-toggle-group
+            .label=${`Urgency`}
+            .options=${[{value:`Normal`},{value:`Urgent`,tone:`warning`,icon:()=>t`⚡`}]}
+            .value=${`Urgent`}
+        ></cosmoz-toggle-group>
+    `},v={render:()=>{let e={id:1,label:`One`};return t`${i({options:[{value:e,label:({label:e})=>e},{value:{id:2,label:`Two`},label:({label:e})=>e}],value:e,valueProperty:`id`,label:`Helper`,onValueChanged:e=>e.detail.value})}`},play:async({canvasElement:e})=>{let t=e.querySelector(`cosmoz-toggle-group`);await s(()=>{o(t.shadowRoot.querySelector(`[part~=selected-option]`).textContent).toContain(`One`)})}},y={render:()=>t`
         <cosmoz-toggle-group
             id="identity-group"
             .options=${[{value:{id:1,label:`One`},label:({label:e})=>e},{value:{id:2,label:`Two`},label:({label:e})=>e}]}
             .value=${{id:2,label:`Two`}}
             value-property="id"
         ></cosmoz-toggle-group>
-    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`#identity-group`);await t(`marks the picked object`,async()=>{await s(()=>{o(u(n,1).getAttribute(`aria-checked`)).toBe(`true`)})}),await t(`the pick commits the object itself`,async()=>{n.addEventListener(`change`,e=>{n.value=e.detail}),u(n,0).click(),await s(()=>o(n.value).toEqual({id:1,label:`One`}))})}},y={render:()=>t`
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`#identity-group`);await t(`marks the picked object`,async()=>{await s(()=>{o(u(n,1).getAttribute(`aria-checked`)).toBe(`true`)})}),await t(`the pick commits the object itself`,async()=>{n.addEventListener(`change`,e=>{n.value=e.detail}),u(n,0).click(),await s(()=>o(n.value).toEqual({id:1,label:`One`}))})}},b={render:()=>t`
         <cosmoz-toggle-group
             id="default-size"
             .options=${l}
@@ -46,7 +52,7 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./i
             .options=${l}
             .value=${`week`}
         ></cosmoz-toggle-group>
-    `,play:async({canvasElement:e})=>{let t=t=>e.querySelector(`#${t}`).getBoundingClientRect().height;await s(()=>{o(t(`sm-size`)).toBe(32),o(t(`default-size`)).toBe(39)})}},b=[`Basic`,`Disabled`,`PerOptionDisabled`,`VetoableSelection`,`Icons`,`TypedHelper`,`IdentitySelection`,`Sizes`],f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
+    `,play:async({canvasElement:e})=>{let t=t=>e.querySelector(`#${t}`).getBoundingClientRect().height;await s(()=>{o(t(`sm-size`)).toBe(32),o(t(`default-size`)).toBe(39)})}},x=[`Basic`,`Disabled`,`PerOptionDisabled`,`VetoableSelection`,`Icons`,`Tone`,`TypedHelper`,`IdentitySelection`,`Sizes`],f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <cosmoz-toggle-group
             .options=\${options}
@@ -177,6 +183,20 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./i
     });
   }
 }`,...g.parameters?.docs?.source}}},_.parameters={..._.parameters,docs:{..._.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        <cosmoz-toggle-group
+            .label=\${'Urgency'}
+            .options=\${[{
+    value: 'Normal'
+  }, {
+    value: 'Urgent',
+    tone: 'warning',
+    icon: () => html\`⚡\`
+  }]}
+            .value=\${'Urgent'}
+        ></cosmoz-toggle-group>
+    \`
+}`,..._.parameters?.docs?.source}}},v.parameters={...v.parameters,docs:{...v.parameters?.docs,source:{originalSource:`{
   render: () => {
     const picked = {
       id: 1,
@@ -211,7 +231,7 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./i
       expect(el.shadowRoot!.querySelector('[part~=selected-option]')!.textContent).toContain('One');
     });
   }
-}`,..._.parameters?.docs?.source}}},v.parameters={...v.parameters,docs:{...v.parameters?.docs,source:{originalSource:`{
+}`,...v.parameters?.docs?.source}}},y.parameters={...y.parameters,docs:{...y.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <cosmoz-toggle-group
             id="identity-group"
@@ -262,7 +282,7 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./i
       }));
     });
   }
-}`,...v.parameters?.docs?.source}}},y.parameters={...y.parameters,docs:{...y.parameters?.docs,source:{originalSource:`{
+}`,...y.parameters?.docs?.source}}},b.parameters={...b.parameters,docs:{...b.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <cosmoz-toggle-group
             id="default-size"
@@ -285,4 +305,4 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./i
       expect(height('default-size')).toBe(39);
     });
   }
-}`,...y.parameters?.docs?.source}}}})))()}x();export{f as Basic,p as Disabled,g as Icons,v as IdentitySelection,m as PerOptionDisabled,y as Sizes,_ as TypedHelper,h as VetoableSelection,b as __namedExportsOrder,c as default};
+}`,...b.parameters?.docs?.source}}}})))()}S();export{f as Basic,p as Disabled,g as Icons,y as IdentitySelection,m as PerOptionDisabled,b as Sizes,_ as Tone,v as TypedHelper,h as VetoableSelection,x as __namedExportsOrder,c as default};

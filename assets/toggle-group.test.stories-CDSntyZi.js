@@ -1,4 +1,4 @@
-import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./iframe-CdPe1zYo.js";import{t as r}from"./toggle-group-CRPLjtZR.js";var i,a,o,s,c,l,u,d,f,p,m,h,g,_,v;function y(){return(y=e((()=>{n(),r(),{expect:i,waitFor:a}=__STORYBOOK_MODULE_TEST__,o={title:`Tests/Toggle group`},s=e=>Array.from(e.shadowRoot.querySelectorAll(`[role=radio]`)),c=(e,t)=>e.dispatchEvent(new KeyboardEvent(`keydown`,{key:t,bubbles:!0,cancelable:!0})),l=e=>s(e).map(e=>e.getAttribute(`tabindex`)),u=e=>e.shadowRoot.activeElement,d={render:()=>t`
+import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./iframe-BCe6YRwX.js";import{t as r}from"./toggle-group-Bz06XA-Z.js";var i,a,o,s,c,l,u,d,f,p,m,h,g,_,v,y;function b(){return(b=e((()=>{n(),r(),{expect:i,waitFor:a}=__STORYBOOK_MODULE_TEST__,o={title:`Tests/Toggle group`},s=e=>Array.from(e.shadowRoot.querySelectorAll(`[role=radio]`)),c=(e,t)=>e.dispatchEvent(new KeyboardEvent(`keydown`,{key:t,bubbles:!0,cancelable:!0})),l=e=>s(e).map(e=>e.getAttribute(`tabindex`)),u=e=>e.shadowRoot.activeElement,d={render:()=>t`
         <cosmoz-toggle-group
             .options=${[`today`,`week`,`month`]}
         ></cosmoz-toggle-group>
@@ -34,7 +34,12 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./i
         <div style="width: 400px">
             <cosmoz-toggle-group stretch .options=${[`a`,`b`]}></cosmoz-toggle-group>
         </div>
-    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-toggle-group`);await t(`the group and its options fill the width`,async()=>{await a(()=>i(s(n)).toHaveLength(2)),i(n.getBoundingClientRect().width).toBe(400);let[e,t]=s(n).map(e=>e.getBoundingClientRect().width);i(Math.abs(e-t)).toBeLessThan(1),i(e).toBeGreaterThan(150)})}},v=[`NoValue`,`NoValueArrowLeft`,`SkipsDisabled`,`DisabledFirstIsNotTheTabStop`,`UpAndDown`,`Naming`,`Stretch`],d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-toggle-group`);await t(`the group and its options fill the width`,async()=>{await a(()=>i(s(n)).toHaveLength(2)),i(n.getBoundingClientRect().width).toBe(400);let[e,t]=s(n).map(e=>e.getBoundingClientRect().width);i(Math.abs(e-t)).toBeLessThan(1),i(e).toBeGreaterThan(150)})}},v={render:()=>t`
+        <cosmoz-toggle-group
+            .options=${[{value:`normal`},{value:`urgent`,tone:`warning`}]}
+            .value=${`normal`}
+        ></cosmoz-toggle-group>
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-toggle-group`);await a(()=>i(s(n)).toHaveLength(2));let[r,o]=s(n),c=e=>getComputedStyle(e).color;await t(`the tone only shows once the option is selected`,async()=>{i(o.dataset.tone).toBe(`warning`),i(r.dataset.tone).toBeUndefined();let e=c(o);o.click(),await a(()=>i(n.value).toBe(`urgent`)),await a(()=>i(c(o)).not.toBe(e)),i(c(o)).not.toBe(c(r))})}},y=[`NoValue`,`NoValueArrowLeft`,`SkipsDisabled`,`DisabledFirstIsNotTheTabStop`,`UpAndDown`,`Naming`,`Stretch`,`Tone`],d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <cosmoz-toggle-group
             .options=\${['today', 'week', 'month']}
@@ -198,4 +203,34 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./i
       expect(a).toBeGreaterThan(150);
     });
   }
-}`,..._.parameters?.docs?.source}}}})))()}y();export{m as DisabledFirstIsNotTheTabStop,g as Naming,d as NoValue,f as NoValueArrowLeft,p as SkipsDisabled,_ as Stretch,h as UpAndDown,v as __namedExportsOrder,o as default};
+}`,..._.parameters?.docs?.source}}},v.parameters={...v.parameters,docs:{...v.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        <cosmoz-toggle-group
+            .options=\${[{
+    value: 'normal'
+  }, {
+    value: 'urgent',
+    tone: 'warning'
+  }]}
+            .value=\${'normal'}
+        ></cosmoz-toggle-group>
+    \`,
+  play: async ({
+    canvasElement,
+    step
+  }) => {
+    const el = canvasElement.querySelector<Group>('cosmoz-toggle-group')!;
+    await waitFor(() => expect(radios(el)).toHaveLength(2));
+    const [normal, urgent] = radios(el);
+    const color = (r: HTMLElement) => getComputedStyle(r).color;
+    await step('the tone only shows once the option is selected', async () => {
+      expect(urgent.dataset.tone).toBe('warning');
+      expect(normal.dataset.tone).toBeUndefined();
+      const before = color(urgent);
+      urgent.click();
+      await waitFor(() => expect(el.value).toBe('urgent'));
+      await waitFor(() => expect(color(urgent)).not.toBe(before));
+      expect(color(urgent)).not.toBe(color(normal));
+    });
+  }
+}`,...v.parameters?.docs?.source}}}})))()}b();export{m as DisabledFirstIsNotTheTabStop,g as Naming,d as NoValue,f as NoValueArrowLeft,p as SkipsDisabled,_ as Stretch,v as Tone,h as UpAndDown,y as __namedExportsOrder,o as default};

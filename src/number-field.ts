@@ -152,6 +152,10 @@ const NumberField = (host: NumberFieldElement) => {
 			return step;
 		};
 
+	// These native states also govern ElementInternals form participation.
+	host.toggleAttribute('disabled', !!host.disabled);
+	host.toggleAttribute('readonly', !!readonly);
+
 	const { disabled: formDisabled } = useFormValue({
 			value: value == null ? null : String(value),
 			required,
@@ -190,7 +194,24 @@ const NumberField = (host: NumberFieldElement) => {
 			// keyCode 229: IME composition, where isComposing is unreliable in Safari
 			const composing = e.isComposing || e.keyCode === 229;
 			if (e.defaultPrevented || inert || composing) return;
-			if (e.key === 'Enter') return finish();
+			if (e.key === 'Enter') {
+				finish();
+				// The shadow input has no form owner. Wait for outer key handlers
+				// to cancel before activating the form's default submit button.
+				setTimeout(() => {
+					const form = host.form;
+					if (e.defaultPrevented || !form) return;
+					const submitter = Array.from(form.elements).find(
+						(el): el is HTMLButtonElement | HTMLInputElement =>
+							(el instanceof HTMLButtonElement ||
+								el instanceof HTMLInputElement) &&
+							el.type === 'submit',
+					);
+					if (submitter) submitter.click();
+					else form.requestSubmit();
+				});
+				return;
+			}
 			const direction = KEY_DIRECTION[e.key];
 			if (direction) {
 				e.preventDefault();

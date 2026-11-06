@@ -34,7 +34,7 @@ export const usePressAndHold = (
 ) => {
 	// timers outlive renders, so they call the latest step
 	const press = useMemo<Press>(() => ({}), []);
-	press.step = step;
+	press.step = inert ? () => false : step;
 
 	const stop = () => {
 			clearTimeout(press.timer);
@@ -64,6 +64,12 @@ export const usePressAndHold = (
 		};
 
 	useEffect(() => stop, []);
+	useEffect(() => {
+		if (inert) {
+			press.pressed = false;
+			stop();
+		}
+	}, [inert]);
 
 	return (direction: Direction) => ({
 		onPointerDown: (e: PointerEvent) => {

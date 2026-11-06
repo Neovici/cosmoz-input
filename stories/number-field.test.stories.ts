@@ -388,6 +388,21 @@ export const PressAndHold: Story = {
 			expect(el.value).toBe(5);
 		});
 
+		for (const state of ['disabled', 'readonly'] as const) {
+			await step(`${state} stops an active hold`, async () => {
+				el.value = 0;
+				await waitFor(() => expect(parts(el).inc.disabled).toBe(false));
+				pointer(parts(el).inc, 'pointerdown');
+				expect(el.value).toBe(1);
+				el[state] = true;
+				await waitFor(() => expect(parts(el).inc.disabled).toBe(true));
+				await sleep(550);
+				expect(el.value).toBe(1);
+				pointer(window, 'pointerup');
+				el[state] = false;
+			});
+		}
+
 		await step('releasing stops it', async () => {
 			el.value = 0;
 			await waitFor(() => expect(parts(el).inc.disabled).toBe(false));
@@ -752,6 +767,34 @@ export const Form: Story = {
 			await waitFor(() => expect(text(el)).toBe('1,234.5'));
 		});
 
+		await step(
+			'disabled property excludes the field from submission',
+			async () => {
+				el.disabled = true;
+				await waitFor(() => expect(parts(el).input.disabled).toBe(true));
+				expect(submitted()).toEqual([]);
+				el.disabled = false;
+				await waitFor(() =>
+					expect(submitted()).toEqual([['amount', '1234.5']]),
+				);
+			},
+		);
+
+		await step(
+			'readonly property bars required validation but still submits',
+			async () => {
+				el.value = null;
+				await waitFor(() => expect(form.checkValidity()).toBe(false));
+				el.readonly = true;
+				await waitFor(() => expect(parts(el).input.readOnly).toBe(true));
+				expect(el.willValidate).toBe(false);
+				expect(form.checkValidity()).toBe(true);
+				el.value = 5;
+				await waitFor(() => expect(submitted()).toEqual([['amount', '5']]));
+				el.readonly = false;
+			},
+		);
+
 		await step('a disabled fieldset disables the field', async () => {
 			form.querySelector('fieldset')!.disabled = true;
 			await waitFor(() => expect(el.hasAttribute('data-disabled')).toBe(true));
@@ -807,5 +850,60 @@ export const Controlled: Story = {
 		key(el, 'ArrowUp');
 		expect(el.value).toBe(1);
 		await waitFor(() => expect(text(el)).toBe('1'));
+	},
+};
+
+export const EnterSubmission: Story = {
+	render: () =>
+		html`<form>
+			<cosmoz-number-field
+				name="amount"
+				required
+				.value=${1}
+			></cosmoz-number-field>
+			<button type="submit" name="save" value="yes">Save</button>
+		</form>`,
+	play: async ({ canvasElement, step }) => {
+		const el = field(canvasElement),
+			form = canvasElement.querySelector('form')!,
+			button = canvasElement.querySelector('button')!,
+			onSubmit = fn((event: SubmitEvent) => event.preventDefault());
+		await waitFor(() => expect(parts(el).input).toBeTruthy());
+		form.addEventListener('submit', onSubmit);
+		const enter = async () => {
+			// Vitest's Playwright provider sends real keyboard events. Storybook's
+			// synthetic userEvent misses the propagation/microtask ordering bug.
+			if (import.meta.env.MODE === 'test') {
+				const { userEvent: keyboard } = await import('vitest/browser');
+				parts(el).input.focus();
+				await keyboard.keyboard('{Enter}');
+			} else {
+				await userEvent.type(parts(el).input, '{Enter}');
+			}
+		};
+		await step('Enter submits with the default submitter', async () => {
+			await enter();
+			await waitFor(() => expect(onSubmit).toHaveBeenCalledTimes(1));
+			expect(onSubmit.mock.calls[0][0].submitter).toBe(button);
+		});
+		await step(
+			'canceled Enter and disabled default submitter do not submit',
+			async () => {
+				el.addEventListener('keydown', (e) => e.preventDefault(), {
+					once: true,
+				});
+				await enter();
+				button.disabled = true;
+				await enter();
+				expect(onSubmit).toHaveBeenCalledTimes(1);
+				button.disabled = false;
+			},
+		);
+		await step('Enter respects form validation', async () => {
+			el.value = null;
+			await waitFor(() => expect(el.checkValidity()).toBe(false));
+			await enter();
+			expect(onSubmit).toHaveBeenCalledTimes(1);
+		});
 	},
 };

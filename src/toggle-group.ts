@@ -177,14 +177,22 @@ const groupStyles = css`
 
 	.option.selected {
 		color: var(--cz-color-text-primary);
-		background-color: var(--cz-color-bg-primary);
-		box-shadow:
+		background-color: var(
+			--cz-color-bg-segment-selected,
+			var(--cz-color-bg-primary)
+		);
+		background-image: var(--cz-segment-selected-sheen, none);
+		box-shadow: var(
+			--cz-shadow-segment-selected,
+			var(--cz-shadow-segment-selected-highlight, inset 0 1px 0 transparent),
 			inset 0 0 0 1px
 				var(--cz-color-border-control-selected, var(--cz-color-border-primary)),
-			var(--cz-shadow-sm);
+			var(--cz-shadow-segment-selected-elevation, var(--cz-shadow-sm))
+		);
 	}
 
 	.option.selected[data-tone='warning'] {
+		background-image: none;
 		color: var(--cz-color-text-warning);
 		background-color: var(--cz-color-bg-warning);
 		box-shadow:

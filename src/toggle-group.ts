@@ -211,6 +211,11 @@ const groupStyles = css`
 	:host([size='sm']) .option {
 		padding-block: var(--cz-spacing);
 	}
+	@media (pointer: coarse) {
+		.option {
+			min-height: 44px;
+		}
+	}
 `;
 
 customElements.define(

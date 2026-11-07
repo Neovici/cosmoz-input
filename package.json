@@ -25,7 +25,7 @@
 		"check:duplicates": "check-duplicate-components",
 		"build": "tsc -p tsconfig.build.json",
 		"start": "wds",
-		"test": "vitest --run",
+		"test": "vitest --run && npm run test:mobile",
 		"test:storybook": "vitest --project=storybook --run",
 		"test:watch": "vitest",
 		"prepare": "husky",
@@ -34,7 +34,8 @@
 		"storybook:deploy": "storybook-to-ghpages",
 		"storybook:preview": "npm run storybook:build && http-server ./storybook-static/ --silent",
 		"changeset": "changeset",
-		"test:wtr": "wtr"
+		"test:wtr": "wtr",
+		"test:mobile": "vitest --run --config vitest.mobile.config.ts"
 	},
 	"publishConfig": {
 		"access": "public"

@@ -1,4 +1,4 @@
-import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./iframe-DUx4wSBe.js";import{t as r}from"./toggle-group-CQCq8fhu.js";var i,a,o,s,c,l,u,d,f,p,m,h,g,_,v,y,b;function x(){return(x=e((()=>{n(),r(),{expect:i,waitFor:a}=__STORYBOOK_MODULE_TEST__,o={title:`Tests/Toggle group`},s=e=>Array.from(e.shadowRoot.querySelectorAll(`[role=radio]`)),c=(e,t)=>e.dispatchEvent(new KeyboardEvent(`keydown`,{key:t,bubbles:!0,cancelable:!0})),l=e=>s(e).map(e=>e.getAttribute(`tabindex`)),u=e=>e.shadowRoot.activeElement,d={render:()=>t`
+import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./iframe-e6X0ZULW.js";import{t as r}from"./toggle-group-CLbxqOvY.js";var i,a,o,s,c,l,u,d,f,p,m,h,g,_,v,y,b,x;function S(){return(S=e((()=>{n(),r(),{expect:i,waitFor:a}=__STORYBOOK_MODULE_TEST__,o={title:`Tests/Toggle group`},s=e=>Array.from(e.shadowRoot.querySelectorAll(`[role=radio]`)),c=(e,t)=>e.dispatchEvent(new KeyboardEvent(`keydown`,{key:t,bubbles:!0,cancelable:!0})),l=e=>s(e).map(e=>e.getAttribute(`tabindex`)),u=e=>e.shadowRoot.activeElement,d={render:()=>t`
         <cosmoz-toggle-group
             style="--cz-color-border-control-selected: rgb(80, 85, 95); --cz-color-border-primary: rgb(220, 220, 220);"
             .options=${[`today`,`week`]}
@@ -45,7 +45,16 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./i
             .options=${[{value:`normal`},{value:`urgent`,tone:`warning`}]}
             .value=${`normal`}
         ></cosmoz-toggle-group>
-    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-toggle-group`);await a(()=>i(s(n)).toHaveLength(2));let[r,o]=s(n),c=e=>getComputedStyle(e).color;await t(`the tone only shows once the option is selected`,async()=>{i(o.dataset.tone).toBe(`warning`),i(r.dataset.tone).toBeUndefined();let e=c(o);o.click(),await a(()=>i(n.value).toBe(`urgent`)),await a(()=>i(c(o)).not.toBe(e)),i(c(o)).not.toBe(c(r))})}},b=[`SelectedEdge`,`NoValue`,`NoValueArrowLeft`,`SkipsDisabled`,`DisabledFirstIsNotTheTabStop`,`UpAndDown`,`Naming`,`Stretch`,`Tone`],d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
+    `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-toggle-group`);await a(()=>i(s(n)).toHaveLength(2));let[r,o]=s(n),c=e=>getComputedStyle(e).color;await t(`the tone only shows once the option is selected`,async()=>{i(o.dataset.tone).toBe(`warning`),i(r.dataset.tone).toBeUndefined();let e=c(o);o.click(),await a(()=>i(n.value).toBe(`urgent`)),await a(()=>i(c(o)).not.toBe(e)),i(c(o)).not.toBe(c(r))})}},b={render:()=>t`
+        <div
+            style="--cz-color-bg-segment-selected: rgb(12, 34, 56); --cz-shadow-segment-selected: none; --cz-segment-selected-sheen: linear-gradient(red, blue)"
+        >
+            <cosmoz-toggle-group
+                .options=${[{value:`normal`},{value:`urgent`,tone:`warning`}]}
+                .value=${`normal`}
+            ></cosmoz-toggle-group>
+        </div>
+    `,play:async({canvasElement:e})=>{let t=e.querySelector(`cosmoz-toggle-group`);await a(()=>i(s(t)).toHaveLength(2));let[n,r]=s(t);i(getComputedStyle(n).backgroundColor).toBe(`rgb(12, 34, 56)`),i(getComputedStyle(n).backgroundImage).not.toBe(`none`),i(getComputedStyle(n).boxShadow).toBe(`none`),r.click(),await a(()=>i(t.value).toBe(`urgent`)),i(getComputedStyle(r).backgroundColor).not.toBe(`rgb(12, 34, 56)`),i(getComputedStyle(r).backgroundImage).toBe(`none`)}},x=[`SelectedEdge`,`NoValue`,`NoValueArrowLeft`,`SkipsDisabled`,`DisabledFirstIsNotTheTabStop`,`UpAndDown`,`Naming`,`Stretch`,`Tone`,`SelectedSegmentRecipe`],d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         <cosmoz-toggle-group
             style="--cz-color-border-control-selected: rgb(80, 85, 95); --cz-color-border-primary: rgb(220, 220, 220);"
@@ -255,4 +264,34 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./i
       expect(color(urgent)).not.toBe(color(normal));
     });
   }
-}`,...y.parameters?.docs?.source}}}})))()}x();export{h as DisabledFirstIsNotTheTabStop,_ as Naming,f as NoValue,p as NoValueArrowLeft,d as SelectedEdge,m as SkipsDisabled,v as Stretch,y as Tone,g as UpAndDown,b as __namedExportsOrder,o as default};
+}`,...y.parameters?.docs?.source}}},b.parameters={...b.parameters,docs:{...b.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        <div
+            style="--cz-color-bg-segment-selected: rgb(12, 34, 56); --cz-shadow-segment-selected: none; --cz-segment-selected-sheen: linear-gradient(red, blue)"
+        >
+            <cosmoz-toggle-group
+                .options=\${[{
+    value: 'normal'
+  }, {
+    value: 'urgent',
+    tone: 'warning'
+  }]}
+                .value=\${'normal'}
+            ></cosmoz-toggle-group>
+        </div>
+    \`,
+  play: async ({
+    canvasElement
+  }) => {
+    const el = canvasElement.querySelector<Group>('cosmoz-toggle-group')!;
+    await waitFor(() => expect(radios(el)).toHaveLength(2));
+    const [normal, urgent] = radios(el);
+    expect(getComputedStyle(normal).backgroundColor).toBe('rgb(12, 34, 56)');
+    expect(getComputedStyle(normal).backgroundImage).not.toBe('none');
+    expect(getComputedStyle(normal).boxShadow).toBe('none');
+    urgent.click();
+    await waitFor(() => expect(el.value).toBe('urgent'));
+    expect(getComputedStyle(urgent).backgroundColor).not.toBe('rgb(12, 34, 56)');
+    expect(getComputedStyle(urgent).backgroundImage).toBe('none');
+  }
+}`,...b.parameters?.docs?.source}}}})))()}S();export{h as DisabledFirstIsNotTheTabStop,_ as Naming,f as NoValue,p as NoValueArrowLeft,d as SelectedEdge,b as SelectedSegmentRecipe,m as SkipsDisabled,v as Stretch,y as Tone,g as UpAndDown,x as __namedExportsOrder,o as default};

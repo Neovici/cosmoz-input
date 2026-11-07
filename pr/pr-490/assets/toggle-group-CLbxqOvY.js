@@ -1,4 +1,4 @@
-import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{a as t,c as n,l as r}from"./iframe-DUx4wSBe.js";import{i,n as a,r as o,t as s}from"./normalize.css-D1eCqjI9.js";import{l as c,n as l,t as u,x as d}from"./haunted-BJBOk-_X.js";var f,p;function m(){return(m=e((()=>{f=e=>e,p=(e,...t)=>typeof e==`function`?e(...t):e})))()}function h(e){return e?t=>typeof t==`object`&&t?t[e]:t:f}function g(){return(g=e((()=>{m()})))()}var _,v,y,b,x;function S(){return(S=e((()=>{s(),m(),g(),u(),r(),o(),_={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1},v=e=>{let r=e=>e.label==null?typeof e.value==`string`?e.value:``:p(e.label,e.value),a=(e.options??[]).map(e=>typeof e==`object`&&e&&`value`in e?e:{value:e}),[o,s]=c(`value`),l=t=>h(e.valueProperty)(t),u=l(o),d=e=>s(e.value),f=a.map(t=>!t.disabled&&!e.disabled),m=a.findIndex(e=>l(e.value)===u),g=m===-1?f.indexOf(!0):m;return n`<div
+import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{a as t,c as n,l as r}from"./iframe-e6X0ZULW.js";import{i,n as a,r as o,t as s}from"./normalize.css-Bq4eLoGB.js";import{l as c,n as l,t as u,x as d}from"./haunted-BGqFGEO0.js";var f,p;function m(){return(m=e((()=>{f=e=>e,p=(e,...t)=>typeof e==`function`?e(...t):e})))()}function h(e){return e?t=>typeof t==`object`&&t?t[e]:t:f}function g(){return(g=e((()=>{m()})))()}var _,v,y,b,x;function S(){return(S=e((()=>{s(),m(),g(),u(),r(),o(),_={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1},v=e=>{let r=e=>e.label==null?typeof e.value==`string`?e.value:``:p(e.label,e.value),a=(e.options??[]).map(e=>typeof e==`object`&&e&&`value`in e?e:{value:e}),[o,s]=c(`value`),l=t=>h(e.valueProperty)(t),u=l(o),d=e=>s(e.value),f=a.map(t=>!t.disabled&&!e.disabled),m=a.findIndex(e=>l(e.value)===u),g=m===-1?f.indexOf(!0):m;return n`<div
 		class="group"
 		part="group"
 		role="radiogroup"
@@ -75,14 +75,22 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{a as t,c as n,l as r}f
 
 	.option.selected {
 		color: var(--cz-color-text-primary);
-		background-color: var(--cz-color-bg-primary);
-		box-shadow:
+		background-color: var(
+			--cz-color-bg-segment-selected,
+			var(--cz-color-bg-primary)
+		);
+		background-image: var(--cz-segment-selected-sheen, none);
+		box-shadow: var(
+			--cz-shadow-segment-selected,
+			var(--cz-shadow-segment-selected-highlight, inset 0 1px 0 transparent),
 			inset 0 0 0 1px
 				var(--cz-color-border-control-selected, var(--cz-color-border-primary)),
-			var(--cz-shadow-sm);
+			var(--cz-shadow-segment-selected-elevation, var(--cz-shadow-sm))
+		);
 	}
 
 	.option.selected[data-tone='warning'] {
+		background-image: none;
 		color: var(--cz-color-text-warning);
 		background-color: var(--cz-color-bg-warning);
 		box-shadow:

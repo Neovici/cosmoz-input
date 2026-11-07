@@ -69,7 +69,7 @@ export const styles = css`
 		align-items: center;
 		position: relative;
 		width: 100%;
-		border-radius: var(--cz-radius-md);
+		border-radius: var(--cz-radius-control, var(--cz-radius-md));
 		background: var(--cz-color-bg-primary);
 		box-shadow:
 			inset 0 0 0 1px var(--cz-color-border-primary),

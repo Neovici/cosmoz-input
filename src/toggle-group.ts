@@ -179,7 +179,8 @@ const groupStyles = css`
 		color: var(--cz-color-text-primary);
 		background-color: var(--cz-color-bg-primary);
 		box-shadow:
-			inset 0 0 0 1px var(--cz-color-border-primary),
+			inset 0 0 0 1px
+				var(--cz-color-border-control-selected, var(--cz-color-border-primary)),
 			var(--cz-shadow-sm);
 	}
 
@@ -199,6 +200,17 @@ const groupStyles = css`
 	.option:disabled {
 		opacity: 0.5;
 		cursor: not-allowed;
+	}
+
+	@media (forced-colors: active) {
+		.option.selected {
+			outline: 1px solid Highlight;
+			outline-offset: -1px;
+		}
+		.option:focus-visible {
+			outline: 2px solid Highlight;
+			outline-offset: 2px;
+		}
 	}
 
 	/* cosmoz-tabs-next segmented sm's box: 32px, the height of an sm button */

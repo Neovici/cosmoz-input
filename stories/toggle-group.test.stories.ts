@@ -26,6 +26,24 @@ const tabStops = (el: Element) =>
 
 const focused = (el: Element) => el.shadowRoot!.activeElement;
 
+export const SelectedEdge: Story = {
+	render: () => html`
+		<cosmoz-toggle-group
+			style="--cz-color-border-control-selected: rgb(80, 85, 95); --cz-color-border-primary: rgb(220, 220, 220);"
+			.options=${['today', 'week']}
+			.value=${'today'}
+		></cosmoz-toggle-group>
+	`,
+	play: async ({ canvasElement }) => {
+		const el = canvasElement.querySelector('cosmoz-toggle-group')!;
+		await waitFor(() => expect(radios(el)).toHaveLength(2));
+		expect(getComputedStyle(radios(el)[0]).boxShadow).toContain(
+			'rgb(80, 85, 95)',
+		);
+		expect(getComputedStyle(radios(el)[1]).boxShadow).toBe('none');
+	},
+};
+
 export const NoValue: Story = {
 	render: () => html`
 		<cosmoz-toggle-group

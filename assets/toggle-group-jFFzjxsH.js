@@ -1,4 +1,4 @@
-import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{a as t,c as n,l as r}from"./iframe-BCe6YRwX.js";import{i,n as a,r as o,t as s}from"./normalize.css-CYLj_hml.js";import{l as c,n as l,t as u,x as d}from"./haunted-VioT49zB.js";var f,p;function m(){return(m=e((()=>{f=e=>e,p=(e,...t)=>typeof e==`function`?e(...t):e})))()}function h(e){return e?t=>typeof t==`object`&&t?t[e]:t:f}function g(){return(g=e((()=>{m()})))()}var _,v,y,b,x;function S(){return(S=e((()=>{s(),m(),g(),u(),r(),o(),_={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1},v=e=>{let r=e=>e.label==null?typeof e.value==`string`?e.value:``:p(e.label,e.value),a=(e.options??[]).map(e=>typeof e==`object`&&e&&`value`in e?e:{value:e}),[o,s]=c(`value`),l=t=>h(e.valueProperty)(t),u=l(o),d=e=>s(e.value),f=a.map(t=>!t.disabled&&!e.disabled),m=a.findIndex(e=>l(e.value)===u),g=m===-1?f.indexOf(!0):m;return n`<div
+import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{a as t,c as n,l as r}from"./iframe-B6HGH064.js";import{i,n as a,r as o,t as s}from"./normalize.css-DrzOnjoP.js";import{l as c,n as l,t as u,x as d}from"./haunted-C1zBXrWf.js";var f,p;function m(){return(m=e((()=>{f=e=>e,p=(e,...t)=>typeof e==`function`?e(...t):e})))()}function h(e){return e?t=>typeof t==`object`&&t?t[e]:t:f}function g(){return(g=e((()=>{m()})))()}var _,v,y,b,x;function S(){return(S=e((()=>{s(),m(),g(),u(),r(),o(),_={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1},v=e=>{let r=e=>e.label==null?typeof e.value==`string`?e.value:``:p(e.label,e.value),a=(e.options??[]).map(e=>typeof e==`object`&&e&&`value`in e?e:{value:e}),[o,s]=c(`value`),l=t=>h(e.valueProperty)(t),u=l(o),d=e=>s(e.value),f=a.map(t=>!t.disabled&&!e.disabled),m=a.findIndex(e=>l(e.value)===u),g=m===-1?f.indexOf(!0):m;return n`<div
 		class="group"
 		part="group"
 		role="radiogroup"
@@ -108,6 +108,11 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{a as t,c as n,l as r}f
 
 	:host([size='sm']) .option {
 		padding-block: var(--cz-spacing);
+	}
+	@media (pointer: coarse) {
+		.option {
+			min-height: 44px;
+		}
 	}
 `,customElements.define(`cosmoz-toggle-group`,l(v,{styleSheets:[a,y,b],observedAttributes:[`label`,`disabled`,`value-property`,`stretch`]})),x=e=>n`<cosmoz-toggle-group
 		.options=${e.options}

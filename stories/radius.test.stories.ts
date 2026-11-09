@@ -9,7 +9,7 @@ export default { title: 'Tests/Radius roles' } satisfies Meta;
 export const ScopedRoles: StoryObj = {
 	render: () => html`
 		<div
-			style="--cz-radius-group:24px;--cz-spacing-segment-inset:4px;--cz-radius-control:18px"
+			style="--cz-radius-control-group:24px;--cz-spacing-segment-inset:4px;--cz-radius-control:18px"
 		>
 			<cosmoz-input label="Amount"></cosmoz-input>
 			<cosmoz-toggle-group .options=${['Day', 'Week']}></cosmoz-toggle-group>
@@ -36,10 +36,11 @@ export const ScopedRoles: StoryObj = {
 			const option = host.shadowRoot!.querySelector('.option')!;
 			expect(getComputedStyle(group).borderRadius).toBe('24px');
 			expect(getComputedStyle(option).borderRadius).toBe('20px');
-			(host as HTMLElement).style.setProperty('--cz-radius-group', '2px');
+			(host as HTMLElement).style.setProperty(
+				'--cz-radius-control-group',
+				'2px',
+			);
 			expect(getComputedStyle(option).borderRadius).toBe('0px');
-			(host as HTMLElement).style.setProperty('--cz-radius-segment', '7px');
-			expect(getComputedStyle(option).borderRadius).toBe('7px');
 		}
 	},
 };

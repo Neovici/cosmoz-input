@@ -417,3 +417,25 @@ export const DateHeight: Story = {
 		});
 	},
 };
+
+export const Autocomplete: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-input id="plain"></cosmoz-input>
+		<cosmoz-input id="email" name="email" autocomplete="email"></cosmoz-input>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const inner = (id: string) =>
+			canvasElement
+				.querySelector(`#${id}`)!
+				.shadowRoot!.querySelector('input')!;
+		await step('autocomplete defaults to off', async () => {
+			await waitFor(() => expect(inner('plain').autocomplete).toBe('off'));
+			expect(inner('plain').hasAttribute('name')).toBe(false);
+		});
+		await step('autocomplete and name are forwarded', async () => {
+			await waitFor(() => expect(inner('email').autocomplete).toBe('email'));
+			expect(inner('email').name).toBe('email');
+		});
+	},
+};

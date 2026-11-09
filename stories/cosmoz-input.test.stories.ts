@@ -417,3 +417,34 @@ export const DateHeight: Story = {
 		});
 	},
 };
+
+export const Counter: Story = {
+	render: () => html`
+		${style}
+		<cosmoz-input counter maxlength="10" .value=${'Hi'}></cosmoz-input>
+		<cosmoz-textarea counter maxlength="10" .value=${'Note'}></cosmoz-textarea>
+		<cosmoz-input maxlength="10" .value=${'No counter'}></cosmoz-input>
+	`,
+	play: async ({ canvasElement, step }) => {
+		const [input, textarea, plain] = [
+			...canvasElement.querySelectorAll<HTMLElement & { value?: string }>(
+				'cosmoz-input, cosmoz-textarea',
+			),
+		];
+		const counter = (el: HTMLElement) =>
+			el.shadowRoot!.querySelector<HTMLElement>('.counter');
+
+		await step('shows length over maxlength', async () => {
+			await waitFor(() => expect(counter(input)?.textContent).toBe('2/10'));
+			expect(counter(textarea)?.textContent).toBe('4/10');
+			expect(counter(plain)).toBeNull();
+		});
+
+		await step('follows typing and marks the limit', async () => {
+			const field = input.shadowRoot!.querySelector('input')!;
+			await userEvent.type(field, ' there!!');
+			await waitFor(() => expect(counter(input)?.textContent).toBe('10/10'));
+			expect(counter(input)?.hasAttribute('data-full')).toBe(true);
+		});
+	},
+};

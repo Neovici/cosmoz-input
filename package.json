@@ -25,7 +25,7 @@
 		"check:duplicates": "check-duplicate-components",
 		"build": "tsc -p tsconfig.build.json",
 		"start": "wds",
-		"test": "vitest --run && npm run test:mobile",
+		"test": "vitest --run && npm run test:mobile && npm run test:wtr",
 		"test:storybook": "vitest --project=storybook --run",
 		"test:watch": "vitest",
 		"prepare": "husky",

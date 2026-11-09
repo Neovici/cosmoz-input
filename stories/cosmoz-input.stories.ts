@@ -28,7 +28,7 @@ const meta: Meta = {
 		},
 		variant: {
 			control: 'select',
-			options: ['inline', 'cell'],
+			options: ['inline', 'cell', 'ghost'],
 			description: 'Visual variant',
 			table: { defaultValue: { summary: '—' } },
 		},

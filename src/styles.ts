@@ -289,6 +289,41 @@ export const styles = css`
 		}
 	}
 
+	/* === Variant: ghost ===
+	 * Reads as text until hovered or focused, and takes its font from the
+	 * surrounding text: titles and inline edits. */
+	:host([variant='ghost']) {
+		font-size: inherit;
+		font-weight: inherit;
+		line-height: inherit;
+	}
+
+	:host([variant='ghost']) .wrap {
+		background: transparent;
+		box-shadow: none;
+	}
+
+	:host([variant='ghost']) .wrap:hover {
+		box-shadow: inset 0 0 0 1px var(--cz-color-border-secondary);
+	}
+
+	:host([variant='ghost']) .wrap:has(#input:focus) {
+		box-shadow: var(--cz-focus-ring);
+	}
+
+	:host([variant='ghost'][invalid]) .wrap {
+		box-shadow: inset 0 0 0 1px var(--cz-color-border-error);
+	}
+
+	:host([variant='ghost'][invalid]) .wrap:has(#input:focus) {
+		box-shadow: var(--cz-focus-ring-error);
+	}
+
+	:host([variant='ghost']) #input {
+		padding-inline: calc(var(--cz-spacing) * 2);
+		font-weight: inherit;
+	}
+
 	/* === Variant: cell === */
 
 	:host([variant='cell']) {

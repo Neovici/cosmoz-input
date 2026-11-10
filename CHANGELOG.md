@@ -1,3 +1,9 @@
+## 6.11.0
+
+### Minor Changes
+
+- 7a7e15f: Default `autocomplete` to `off` and forward `name` to the native input. Every cosmoz-input shared `id="input"` with no name, so the browser offered values typed in any field (search boxes, login email) in every other field. Fields that should autofill opt in with a token such as `autocomplete="email"`.
+
 ## 6.10.1
 
 ### Patch Changes

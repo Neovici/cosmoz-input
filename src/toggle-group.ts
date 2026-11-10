@@ -146,8 +146,8 @@ const groupStyles = css`
 		flex-wrap: wrap;
 		align-items: stretch;
 		gap: calc(var(--cz-spacing) * 1);
-		padding: calc(var(--cz-spacing) * 0.75);
-		border-radius: var(--cz-radius-lg);
+		padding: var(--cz-spacing-segment-inset, calc(var(--cz-spacing) * 0.75));
+		border-radius: var(--cz-radius-control-group, var(--cz-radius-lg));
 		background-color: var(--cz-color-bg-secondary);
 		box-shadow: inset 0 0 0 1px var(--cz-color-border-secondary);
 		font-family: var(--cz-font-body);
@@ -161,7 +161,18 @@ const groupStyles = css`
 		align-items: center;
 		gap: calc(var(--cz-spacing) * 1);
 		padding: calc(var(--cz-spacing) * 1.5) calc(var(--cz-spacing) * 2);
-		border-radius: var(--cz-radius-sm);
+		border-radius: max(
+			0px,
+			calc(
+				var(
+						--cz-radius-control-group,
+						calc(
+							var(--cz-radius-sm) +
+								var(--cz-spacing-segment-inset, calc(var(--cz-spacing) * 0.75))
+						)
+					) - var(--cz-spacing-segment-inset, calc(var(--cz-spacing) * 0.75))
+			)
+		);
 		border: 0;
 		background: none;
 		color: var(--cz-color-text-tertiary);
@@ -205,7 +216,7 @@ const groupStyles = css`
 	:host([size='sm']) .group {
 		font-size: var(--cz-text-xs);
 		line-height: var(--cz-text-xs-line-height);
-		border-radius: var(--cz-radius-md);
+		border-radius: var(--cz-radius-control-group, var(--cz-radius-md));
 	}
 
 	:host([size='sm']) .option {

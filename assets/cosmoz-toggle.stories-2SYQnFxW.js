@@ -1,4 +1,4 @@
-import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./iframe-B6HGH064.js";import{n as r,t as i}from"./style-CSiABxiB.js";import{t as a}from"./cosmoz-toggle-B3wyigAR.js";var o,s,c,l,u,d,f;function p(){return(p=e((()=>{n(),a(),i(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Components/Toggle`,component:`cosmoz-toggle`,tags:[`autodocs`]},l={render:()=>t`
+import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./iframe-Dl-wyXMX.js";import{n as r,t as i}from"./style-Djdqj-sR.js";import{t as a}from"./cosmoz-toggle--Q8pFj4r.js";var o,s,c,l,u,d,f;function p(){return(p=e((()=>{n(),a(),i(),{expect:o,waitFor:s}=__STORYBOOK_MODULE_TEST__,c={title:`Components/Toggle`,component:`cosmoz-toggle`,tags:[`autodocs`]},l={render:()=>t`
         ${r}
         <cosmoz-toggle .label=${`Is active`} .value=${!0}></cosmoz-toggle>
     `,play:async({canvas:e,step:t})=>{await t(`Renders a switch`,async()=>{await e.findByShadowRole(`switch`)})}},u={render:()=>t`

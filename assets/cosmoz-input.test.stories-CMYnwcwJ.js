@@ -1,4 +1,4 @@
-import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./iframe-B6HGH064.js";import{t as r}from"./cosmoz-input-wJv7kSGu.js";import{t as i}from"./cosmoz-textarea-BgfPVP-t.js";import{n as a,t as o}from"./style-CSiABxiB.js";var s,c,l,u,d,f,p,m,h,g,_,v,y,b,x,S,C,w,T,E,D,O,k,A;function j(){return(j=e((()=>{n(),r(),i(),o(),{expect:s,fn:c,userEvent:l,waitFor:u}=__STORYBOOK_MODULE_TEST__,d={title:`Tests/Input`},f={render:()=>t`
+import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./iframe-Dl-wyXMX.js";import{t as r}from"./cosmoz-input-BENfJ4Co.js";import{t as i}from"./cosmoz-textarea-bUYAMZ33.js";import{n as a,t as o}from"./style-Djdqj-sR.js";var s,c,l,u,d,f,p,m,h,g,_,v,y,b,x,S,C,w,T,E,D,O,k,A,j;function M(){return(M=e((()=>{n(),r(),i(),o(),{expect:s,fn:c,userEvent:l,waitFor:u}=__STORYBOOK_MODULE_TEST__,d={title:`Tests/Input`},f={render:()=>t`
         ${a}
         <cosmoz-input></cosmoz-input>
     `,play:async({canvasElement:e,step:t})=>{let n=e.querySelector(`cosmoz-input`);await t(`focus() triggers focused-changed`,async()=>{let e=c();n.addEventListener(`focused-changed`,e,{once:!0}),s(e).not.toHaveBeenCalled(),n.focus(),await u(()=>{s(e).toHaveBeenCalledTimes(1)})})}},p={render:()=>t`
@@ -60,7 +60,11 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./i
         ${a}
         <cosmoz-input label="Text" value="42577519"></cosmoz-input>
         <cosmoz-input label="Date" type="date" value="2026-10-25"></cosmoz-input>
-    `,play:async({canvasElement:e,step:t})=>{let[n,r]=e.querySelectorAll(`cosmoz-input`);await t(`a date input is as tall as a text input`,async()=>{await u(()=>{s(r.getBoundingClientRect().height).toBe(n.getBoundingClientRect().height)})})}},A=[`Focus`,`Change`,`Validate`,`AllowedPattern`,`ValueChanged`,`Placeholder`,`Mousedown`,`DelegatesFocus`,`BlurPrevention`,`LabelClickThrough`,`CellBorderInsideHost`,`AnnouncedMessages`,`CompactDescribesErrorWithoutShowing`,`CompactAndCellKeepName`,`CompactDescribesHintWithoutShowing`,`InvalidWithoutMessageMarksInvalid`,`VirtualKeyboard`,`DateHeight`],f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
+    `,play:async({canvasElement:e,step:t})=>{let[n,r]=e.querySelectorAll(`cosmoz-input`);await t(`a date input is as tall as a text input`,async()=>{await u(()=>{s(r.getBoundingClientRect().height).toBe(n.getBoundingClientRect().height)})})}},A={render:()=>t`
+        ${a}
+        <cosmoz-input id="plain"></cosmoz-input>
+        <cosmoz-input id="email" name="email" autocomplete="email"></cosmoz-input>
+    `,play:async({canvasElement:e,step:t})=>{let n=t=>e.querySelector(`#${t}`).shadowRoot.querySelector(`input`);await t(`autocomplete defaults to off`,async()=>{await u(()=>s(n(`plain`).autocomplete).toBe(`off`)),s(n(`plain`).hasAttribute(`name`)).toBe(!1)}),await t(`autocomplete and name are forwarded`,async()=>{await u(()=>s(n(`email`).autocomplete).toBe(`email`)),s(n(`email`).name).toBe(`email`)})}},j=[`Focus`,`Change`,`Validate`,`AllowedPattern`,`ValueChanged`,`Placeholder`,`Mousedown`,`DelegatesFocus`,`BlurPrevention`,`LabelClickThrough`,`CellBorderInsideHost`,`AnnouncedMessages`,`CompactDescribesErrorWithoutShowing`,`CompactAndCellKeepName`,`CompactDescribesHintWithoutShowing`,`InvalidWithoutMessageMarksInvalid`,`VirtualKeyboard`,`DateHeight`,`Autocomplete`],f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
   render: () => html\`
         \${style}
         <cosmoz-input></cosmoz-input>
@@ -448,4 +452,24 @@ import{n as e}from"./rolldown-runtime-BCiCTKAo.js";import{c as t,l as n}from"./i
       });
     });
   }
-}`,...k.parameters?.docs?.source}}}})))()}j();export{h as AllowedPattern,C as AnnouncedMessages,b as BlurPrevention,S as CellBorderInsideHost,p as Change,T as CompactAndCellKeepName,w as CompactDescribesErrorWithoutShowing,E as CompactDescribesHintWithoutShowing,k as DateHeight,y as DelegatesFocus,f as Focus,D as InvalidWithoutMessageMarksInvalid,x as LabelClickThrough,v as Mousedown,_ as Placeholder,m as Validate,g as ValueChanged,O as VirtualKeyboard,A as __namedExportsOrder,d as default};
+}`,...k.parameters?.docs?.source}}},A.parameters={...A.parameters,docs:{...A.parameters?.docs,source:{originalSource:`{
+  render: () => html\`
+        \${style}
+        <cosmoz-input id="plain"></cosmoz-input>
+        <cosmoz-input id="email" name="email" autocomplete="email"></cosmoz-input>
+    \`,
+  play: async ({
+    canvasElement,
+    step
+  }) => {
+    const inner = (id: string) => canvasElement.querySelector(\`#\${id}\`)!.shadowRoot!.querySelector('input')!;
+    await step('autocomplete defaults to off', async () => {
+      await waitFor(() => expect(inner('plain').autocomplete).toBe('off'));
+      expect(inner('plain').hasAttribute('name')).toBe(false);
+    });
+    await step('autocomplete and name are forwarded', async () => {
+      await waitFor(() => expect(inner('email').autocomplete).toBe('email'));
+      expect(inner('email').name).toBe('email');
+    });
+  }
+}`,...A.parameters?.docs?.source}}}})))()}M();export{h as AllowedPattern,C as AnnouncedMessages,A as Autocomplete,b as BlurPrevention,S as CellBorderInsideHost,p as Change,T as CompactAndCellKeepName,w as CompactDescribesErrorWithoutShowing,E as CompactDescribesHintWithoutShowing,k as DateHeight,y as DelegatesFocus,f as Focus,D as InvalidWithoutMessageMarksInvalid,x as LabelClickThrough,v as Mousedown,_ as Placeholder,m as Validate,g as ValueChanged,O as VirtualKeyboard,j as __namedExportsOrder,d as default};

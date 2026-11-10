@@ -26,6 +26,24 @@ const tabStops = (el: Element) =>
 
 const focused = (el: Element) => el.shadowRoot!.activeElement;
 
+export const SelectedEdge: Story = {
+	render: () => html`
+		<cosmoz-toggle-group
+			style="--cz-color-border-control-selected: rgb(80, 85, 95); --cz-color-border-primary: rgb(220, 220, 220);"
+			.options=${['today', 'week']}
+			.value=${'today'}
+		></cosmoz-toggle-group>
+	`,
+	play: async ({ canvasElement }) => {
+		const el = canvasElement.querySelector('cosmoz-toggle-group')!;
+		await waitFor(() => expect(radios(el)).toHaveLength(2));
+		expect(getComputedStyle(radios(el)[0]).boxShadow).toContain(
+			'rgb(80, 85, 95)',
+		);
+		expect(getComputedStyle(radios(el)[1]).boxShadow).toBe('none');
+	},
+};
+
 export const NoValue: Story = {
 	render: () => html`
 		<cosmoz-toggle-group
@@ -200,5 +218,32 @@ export const Tone: Story = {
 			await waitFor(() => expect(color(urgent)).not.toBe(before));
 			expect(color(urgent)).not.toBe(color(normal));
 		});
+	},
+};
+
+export const SelectedSegmentRecipe: Story = {
+	render: () => html`
+		<div
+			style="--cz-color-bg-segment-selected: rgb(12, 34, 56); --cz-shadow-segment-selected: none; --cz-segment-selected-sheen: linear-gradient(red, blue)"
+		>
+			<cosmoz-toggle-group
+				.options=${[{ value: 'normal' }, { value: 'urgent', tone: 'warning' }]}
+				.value=${'normal'}
+			></cosmoz-toggle-group>
+		</div>
+	`,
+	play: async ({ canvasElement }) => {
+		const el = canvasElement.querySelector<Group>('cosmoz-toggle-group')!;
+		await waitFor(() => expect(radios(el)).toHaveLength(2));
+		const [normal, urgent] = radios(el);
+		expect(getComputedStyle(normal).backgroundColor).toBe('rgb(12, 34, 56)');
+		expect(getComputedStyle(normal).backgroundImage).not.toBe('none');
+		expect(getComputedStyle(normal).boxShadow).toBe('none');
+		urgent.click();
+		await waitFor(() => expect(el.value).toBe('urgent'));
+		expect(getComputedStyle(urgent).backgroundColor).not.toBe(
+			'rgb(12, 34, 56)',
+		);
+		expect(getComputedStyle(urgent).backgroundImage).toBe('none');
 	},
 };

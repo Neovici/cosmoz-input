@@ -60,7 +60,8 @@ Use in HTML:
 | `readonly`        | `boolean` | `false`  | Makes input read-only                                   |
 | `autosize`        | `boolean` | `false`  | Input width adjusts to content length                   |
 | `no-spinner`      | `boolean` | `false`  | Hides number input spinner                              |
-| `autocomplete`    | `string`  | —        | Native autocomplete attribute                           |
+| `autocomplete`    | `string`  | `off`    | Native autocomplete attribute                           |
+| `name`            | `string`  | —        | Native name attribute; keys the browser's saved values  |
 | `maxlength`       | `string`  | —        | Maximum character length                                |
 | `min` / `max`     | `string`  | —        | Number input min/max constraints                        |
 | `step`            | `string`  | —        | Number input step value                                 |

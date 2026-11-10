@@ -31,6 +31,7 @@ const observedAttributes = [
 	'placeholder',
 	'inputmode',
 	'enterkeyhint',
+	'name',
 	...attributes,
 	'aria-label',
 ];
@@ -45,7 +46,8 @@ export const Input = (host: CosmozInput) => {
 			type = 'text',
 			pattern,
 			allowedPattern,
-			autocomplete,
+			autocomplete = 'off',
+			name,
 			value,
 			readonly,
 			disabled,
@@ -73,9 +75,10 @@ export const Input = (host: CosmozInput) => {
 				style="--chars: ${value?.toString()?.length ?? 0}ch"
 				id="input"
 				part="input"
+				name=${ifDefined(name)}
 				type=${type}
 				pattern=${ifDefined(pattern)}
-				autocomplete=${ifDefined(autocomplete)}
+				autocomplete=${autocomplete}
 				inputmode=${ifDefined(host.inputmode)}
 				enterkeyhint=${ifDefined(host.enterkeyhint)}
 				placeholder=${getPlaceholder({ placeholder: host.placeholder })}

@@ -349,12 +349,16 @@ export const styles = css`
 		visibility: hidden;
 	}
 
-	/* === No spinner === */
+	/* === Spinner: number inputs hide the browser's arrows unless the
+	 * spinner attribute asks for them (no-spinner is now the default) === */
 
-	:host([no-spinner]) #input::-webkit-inner-spin-button {
+	:host(:not([spinner])) #input::-webkit-inner-spin-button,
+	:host(:not([spinner])) #input::-webkit-outer-spin-button {
+		-webkit-appearance: none;
 		display: none;
+		margin: 0;
 	}
-	:host([no-spinner]) #input {
+	:host([type='number']:not([spinner])) #input {
 		-moz-appearance: textfield;
 		appearance: textfield;
 	}
@@ -376,11 +380,11 @@ export const styles = css`
 	:host([autosize][type='number']) #input {
 		--width: calc(var(--chars) + 0.25em);
 	}
-	:host([autosize][type='number']:not([no-spinner])) #input {
+	:host([autosize][type='number'][spinner]) #input {
 		width: calc(var(--width) + 15px + var(--_pad));
 		min-width: calc(2ch + 0.25em + 15px + var(--_pad));
 	}
-	:host([autosize][type='number'][no-spinner]) #input {
+	:host([autosize][type='number']:not([spinner])) #input {
 		width: calc(var(--width) + var(--_pad));
 		min-width: calc(2ch + 0.25em + var(--_pad));
 	}

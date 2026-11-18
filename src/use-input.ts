@@ -43,7 +43,10 @@ export const useInput = <T extends BaseInput>(host: T) => {
 	useEffect(() => {
 		const onMouseDown = (e: Event) => {
 			const target = (e as MouseEvent).composedPath()[0] as Element;
-			if (target?.closest?.('input, textarea, label')) return;
+			// slotted controls (a currency select, a button) handle their own clicks
+			const interactive =
+				'input, textarea, label, select, button, a[href], [tabindex]';
+			if (target?.closest?.(interactive)) return;
 			e.preventDefault();
 			inputRef.current?.focus();
 		};

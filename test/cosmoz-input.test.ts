@@ -60,6 +60,26 @@ describe('cosmoz-input', () => {
 		expect(inner(el).value).to.equal('');
 	});
 
+	it('keeps the inline label readable when disabled', async () => {
+		const tokens =
+			'--cz-color-text-secondary: rgb(1, 2, 3); --cz-color-text-disabled: rgb(4, 5, 6)';
+		const label = async (disabled: boolean) => {
+			const el = await fixture<Host>(
+				html`<cosmoz-input
+					variant="inline"
+					label="Supplier"
+					style=${tokens}
+					?disabled=${disabled}
+				></cosmoz-input>`,
+			);
+			const { color, opacity } = getComputedStyle(
+				el.shadowRoot!.querySelector('label')!,
+			);
+			return { color, opacity };
+		};
+		expect(await label(true)).to.deep.equal(await label(false));
+	});
+
 	describe('integration', () => {
 		it('handles number editing in a live form', async () => {
 			const el = await fixture<TestFormHost>(

@@ -255,11 +255,6 @@ export const styles = css`
 	:host([variant='inline']) .error {
 		display: none;
 	}
-	:host([variant='inline'][disabled]) label {
-		color: var(--cz-color-text-disabled);
-		opacity: 0.5;
-		cursor: not-allowed;
-	}
 	:host([variant='inline']) label {
 		position: absolute;
 		font-weight: var(--cz-font-weight-regular);

@@ -248,7 +248,11 @@ export const styles = css`
 	}
 
 	:host([variant='inline']:focus-within) .wrap {
-		box-shadow: none;
+		box-shadow: inset 0 -1px 0 0 var(--cz-color-focus-ring);
+	}
+
+	:host([variant='inline'][invalid]:focus-within) .wrap {
+		box-shadow: inset 0 -1px 0 0 var(--cz-color-focus-ring-error);
 	}
 
 	:host([variant='inline']) .hint,

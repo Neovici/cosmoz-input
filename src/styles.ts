@@ -80,7 +80,7 @@ export const styles = css`
 		transition-property: box-shadow, background;
 	}
 
-	.wrap:has(#input:focus) {
+	:host(:focus-within) .wrap {
 		box-shadow: var(--cz-focus-ring), var(--cz-shadow-xs);
 	}
 
@@ -90,7 +90,7 @@ export const styles = css`
 			var(--cz-shadow-xs);
 	}
 
-	:host([invalid]) .wrap:has(#input:focus) {
+	:host([invalid]:focus-within) .wrap {
 		box-shadow: var(--cz-focus-ring-error), var(--cz-shadow-xs);
 	}
 
@@ -247,7 +247,7 @@ export const styles = css`
 		padding-inline: 0;
 	}
 
-	:host([variant='inline']) .wrap:has(#input:focus) {
+	:host([variant='inline']:focus-within) .wrap {
 		box-shadow: none;
 	}
 
@@ -304,8 +304,9 @@ export const styles = css`
 		box-shadow: none;
 	}
 
-	:host([variant='cell']) .wrap:has(#input:focus) {
+	:host([variant='cell']:focus-within) .wrap {
 		background: var(--cz-color-bg-quaternary);
+		box-shadow: var(--cz-focus-ring), var(--cz-shadow-xs);
 	}
 
 	:host([variant='cell'][invalid]) .wrap {
@@ -313,9 +314,10 @@ export const styles = css`
 		box-shadow: none;
 	}
 
-	:host([variant='cell'][invalid]) .wrap:has(#input:focus) {
+	:host([variant='cell'][invalid]:focus-within) .wrap {
 		background: var(--cz-color-bg-error);
 		border: 0.5px solid transparent;
+		box-shadow: var(--cz-focus-ring-error), var(--cz-shadow-xs);
 	}
 
 	:host([variant='cell']) #input {
